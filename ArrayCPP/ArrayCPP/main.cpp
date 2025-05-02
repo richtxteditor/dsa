@@ -49,7 +49,7 @@ public:
     }
     
     // --- Rule of Five (memory management) ---
-    ~Array() { delete[] A; } // 1. Destructor
+    ~Array() { delete[] A; } // 1. Destructor frees heap (dynamically allocated) mem pointed to by A.
     Array(const Array& other); // 2. Copy Constructor (Deep Copy)
     Array& operator = (const Array& other); // 3. Copy Assignment
     Array(Array&& other) noexcept; // 3. Move Constructor
@@ -98,38 +98,61 @@ public:
 
 // --- Rule of Five Implementations ---
 
+// 2. Copy Constructor
+// Creates a true, independent copy (deep copy) of an Array object.
+// Prevents multiple Array objects from sharing the same underlying memory ('A'),
+// which would lead to errors like double-free when they are destroyed.
 Array::Array(const Array& other) : size(other.size), length(other.length) {
     cout << "[Debug: Copy Constructor Called]" << endl;
     if (size == 0) { A = nullptr; return; } // handle case where other failed construction
-    A = new int[size]; // Let bad_alloc propagate
-    for (size_t i = 0; i < length; ++i) A[i] = other.A[i];
+    A = new int[size]; // Let std::bad_alloc propagate on failure.
+    for (size_t i = 0; i < length; ++i) A[i] = other.A[i]; // copy actual data element by element.
 }
 
+// 3. Copy Assignment Operator
+// Allows one existing Array object to safely take on the value of another existing Array object
+// (e.g., 'arr1 = arr2;'). Performs a deep copy, cleans up the target object's old resources, and
+// handles self-assignment
 Array& Array::operator=(const Array& other) {
-    cout << "[Debug: Coppy Assignment Called]" << endl;
-    if (this == &other) return *this;
-    // allocate first for exception safety
-    int* newA = new int[other.size]; // let bad_alloc propagate
-    // copy data
+    cout << "[Debug: Copy Assignment Called]" << endl;
+    if (this == &other) return *this; // check for self-assignment to avoid errors
+    // allocate new mem first before deleting old mem for exception safety
+    int* newA = new int[other.size]; // throws std::bad_alloc on failure
+    // copy data to new memory
     for (size_t i = 0; i < other.length; ++i) newA[i] = other.A[i];
     delete[] A;
-    A = newA;
+    A = newA; // update object's members to point to new resources
     size = other.size;
     length = other.length;
-    return *this;
+    return *this; // return reference to allow chaining (a = b = c)
 }
 
-Array::Array(Array&& other) noexcept: A(other.A), size(other.size), length(other.length) {
+
+// 4. Move Constructor (C++11)
+// Transfers ownership of resources (like the pointer 'A') from temporary or
+// expiring objects (rvalues) to a newly created object.
+// Avoids the cost of deep copying when the soruce object won't be needed anymore.
+// Must leave the srouce object in a valid (destructible) state.
+// 'noexcept' allows optimizations.
+Array::Array(Array&& other) noexcept: A(other.A), size(other.size), length(other.length) { // "Steal" resources using initializer list.
     cout << "[Debug: Move Constructor Called]" << endl;
+    // reset the source object so its destructor won't free the moved memory.
     other.A = nullptr; other.size = 0; other.length = 0;
 }
 
+
+// 5. Move Assignment Operator (C++11)
+// Transfers ownership of resources from a temporary or expiring object (rvalue) to an existing
+// object (e.g., 'arr1 = CreateTempArray();').
+// Avoids costly deep copies, releases the target object's old resources, and leaves
+// the source object valid.
 Array& Array::operator=(Array&& other) noexcept {
     cout << "[Debug: Move Assignment Called]" << endl;
-    if (this == &other) return *this;
-    delete[] A; // release own resource
+    if (this == &other) return *this; // although less common for move, good practice to check for self assignment
+    delete[] A; // release own resource currently held by *this* obj
     // pilfer other's resource
     A = other.A; size = other.size; length = other.length;
+    // reset source object
     other.A = nullptr; other.size = 0; other.length = 0;
     return *this;
 }
@@ -666,21 +689,24 @@ int main() {
         cout << "2. Insert Element at Index\n";
         cout << "3. Insert Element (Keep Sorted - Use in Sorted Mode)\n";
         cout << "4. Delete Element at Index\n";
+        
         // Search
         cout << "5. Search (Linear)\n";
         cout << "6. Search (Binary - Requires Sorted)\n";
         cout << "7. Get Element at Index\n";
         cout << "8. Set Element at Index \n";
-        cout << "9 Display Array\n";
+        cout << "9. Display Array\n";
         cout << "10. Get Sum\n";
         cout << "11. Get Average\n";
         cout << "12. Get Maximum\n";
         cout << "13. Get Minimum\n";
         cout << "14. Check if Sorted\n";
+        
         // Modify
         cout << "15. Reverse (Creates Temp Array)\n";
         cout << "16. Reverse (In Place)\n";
         cout << "17. Rearrange Negatives/Positives\n";
+        
         // Set Operations (Requires Sorted)
         cout << "18. Merge with Second Array\n";
         cout << "19. Union with Second Array\n";
@@ -689,13 +715,16 @@ int main() {
         cout << "22. Find Single Missing Element (Smart)\n";
         cout << "23. Find Multiple Missing Elements (Sorted Method)\n";
         cout << "24. Find Multiple Missing Elements (Unosrted Hash Method)\n";
+        
         // Exit
         cout << "0. Exit\n";
         cout << "=============================================================\n";
+        
+        // Input
         cout << "Enter your choice: ";
         cin >> ch;
         
-        // Input validation for choice
+        // Input validation for ch
         while (!cin) {
             cout << "Invalid input. Please enter a number for the menu choice: ";
             cin.clear();
