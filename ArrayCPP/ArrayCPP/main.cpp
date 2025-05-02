@@ -15,6 +15,9 @@
 #include <algorithm> // for std::min, std::max
 #include <string> // for to_string in main
 #include <new> // for std::nothrow
+#include <thread>
+#include <chrono>
+#include <optional> // for optional return values
 
 using namespace std;
 
@@ -33,68 +36,46 @@ private:
     }
     
 public:
-    // --- Constructors ---
-    // default constructor
-    Array(size_t sz = 10): size(sz > 0 ? sz : 10), length(0) {
-        A = new (nothrow) int[size]; // use nothrow to avoid exception, check pointer
-        if (!A) {
-            cerr << "FATAL ERROR: Memory allocation failed in constructor!" << endl;
-            // handle allocation faliure, maybe exit or set a failed state
-            size = 0; // indicate failed state
-            length = 0;
-            // consider throwing std::bad_alloc here
+    // --- Constructor ---
+    
+    // can throw std::bad_alloc if 'new' afils
+    Array(size_t sz = 10) : size(sz > 0 ? sz : 10), length(0) {
+        if (size == 0) {
+            A = nullptr;
+        } else {
+            A = new int[size];
         }
+        cout << "[Debug: Construcor Called]" << endl;
     }
     
     // --- Rule of Five (memory management) ---
-    // 1. Destructor
-    ~Array() {
-        delete[] A; // safe even if a is nullptr
-    }
-
-    // 2. Copy Constructor (Deep Copy)
-    Array(const Array& other) : size(other.size), length(other.length) {
-        cout << "[Debug: COpy Constructor Called]" << endl;
-        A = new (nothrow) int[size];
-        if (!A) {
-            cerr << "FATAL ERROR: Memory allocation failed in copy constructor!" << endl;
-            size = 0; length = 0; return; // failed state
-        }
-        for (size_t i = 0; i < length; ++i) {
-            A[i] = other.A[i];
-        }
-    }
-    // 3. Copy Assignment Operator (Deep Copy)
-    // pick up HERE!!!
-    
-    // 4. Move Constructor (C++11)
-    
-    // 5. Move Assignment Operator (C++11)
-    
-    
-    
+    ~Array() { delete[] A; } // 1. Destructor
+    Array(const Array& other); // 2. Copy Constructor (Deep Copy)
+    Array& operator = (const Array& other); // 3. Copy Assignment
+    Array(Array&& other) noexcept; // 3. Move Constructor
+    Array& operator = (Array&& other) noexcept; // 5. Move Assignment
     
     // --- Basic Operations ---
-    void Display();
-    void Append(int x);             // Add to end
-    void Insert(int index,int x);   // Insert at index (shifts elements)
-    int Delete(int index);          // delete from index (shifts elements)
-    int Get(int index);             // Get element at index
-    void Set(int index, int x);             // Set element at index
-
+    void Display() const;
+    void Append(int x);                             // Add to end
+    void Insert(size_t index, int x);               // Insert at index (shifts elements)
+    int Delete(size_t index);                       // delete from index (shifts elements)
+    std::optional<int> Get(size_t  index) const;    // Get element at index
+    void Set(size_t index, int x);                  // Set element at index
+    
     // --- Search Operations ---
-    int LinearSearch(int key);      // O(n) - Unosrted/Sorted
-    int BinarySearchLoop(int key);  // O(log n) - Requires Sorted Array
+    std::optional<size_t> LinearSearch(int key);      // O(n) - Unosrted/Sorted
+    std::optional<size_t> BinarySearchLoop(int key) const;  // O(log n) - Requires Sorted Array
     
     // --- Info / Aggregate Operations ---
-    int GetLength() { return length; } // Get number of elements
-    int GetSize() { return size; }     // Get allocated size
-    int Max();                         // O(n)
-    int Min();                         // O(n)
-    int Sum();                         // O(n)
-    float Avg();                       // O(n)
-    int isSorted();                    // O(n) - sort check
-
+    size_t GetLength() const { return length; }
+    size_t GetSize() const { return size; }     // Get allocated size
+    int Max() const;                            // O(n)
+    int Min()const;                             // O(n)
+    long long Sum() const;                      // O(n)
+    double Avg() const;                                // O(n)
+    bool isSorted() const;                             // O(n) - sort check
+    
     // --- Modify Operations ---
     void Reverse();                 // O(n) - Creates a temporary array
     void ReverseInPlace();          // O(n) - Swaps elements in place (formerly RecursiveReverse)
@@ -102,435 +83,379 @@ public:
     void Rearrange();               // Moves negative elements before positive O(n)
     
     // --- Set Operations (Require Sorted Arrays for Efficiency) ---
-    Array* Merge(Array arr2);           // Merge 2 sorted arrays
-    Array* Union(Array arr2);           // Union of 2 sorted arrays
-    Array* Intersection(Array arr2);    // Intersection of 2 sorted arrays
-    Array* Difference(Array arr2);      // Difference (this - arr2) '     '
+    Array Merge(const Array& arr2) const;           // Merge 2 sorted arrays
+    Array Union(const Array& arr2) const;           // Union of 2 sorted arrays
+    Array Intersection(const Array& arr2) const;    // Intersection of 2 sorted arrays
+    Array Difference(const Array& arr2) const;      // Difference (this - arr2) '     '
     
     // --- Missing Element Operations ---
-    // Find the first missing element in a sequence assumed to start from A[0]
-    int FindSingleMissingElementSorted(); // Requires SORTED array (Difference method)
-    
-    // Finds the single missing element assuming consecutive numbers from Min()
-    int FindSingleMissingElementUnsortedOptimal(); // Works on UNSORTED array (XOR method)
-    
-    // Finds multiple missing elements in a sequence assumed to start from A[0]
-    void FindMultipleMissingElementsSorted(); // Requires SORTED array (Difference method)
-    
-    // Finds mutliple missing elements between Min() and Max()
-    void FindMultipleMissingElementsHash(); // Works on UNSORTED array (Hash method)
+    std::optional<int> FindSingleMissingElementSorted() const; // requires sorted array (difference method)
+    std::optional<int> FindSingleMissingElementUnsortedOptimal() const; // Works on UNSORTED array (XOR method)
+    void FindMultipleMissingElementsSorted() const; // Requires SORTED array (Difference method)
+    void FindMultipleMissingElementsHash() const; // Works on UNSORTED array (Hash method)
     
 };
 
-// --- Method Implementations ---
+// --- Rule of Five Implementations ---
 
-void Array::Display()
-{
+Array::Array(const Array& other) : size(other.size), length(other.length) {
+    cout << "[Debug: Copy Constructor Called]" << endl;
+    if (size == 0) { A = nullptr; return; } // handle case where other failed construction
+    A = new int[size]; // Let bad_alloc propagate
+    for (size_t i = 0; i < length; ++i) A[i] = other.A[i];
+}
+
+Array& Array::operator=(const Array& other) {
+    cout << "[Debug: Coppy Assignment Called]" << endl;
+    if (this == &other) return *this;
+    // allocate first for exception safety
+    int* newA = new int[other.size]; // let bad_alloc propagate
+    // copy data
+    for (size_t i = 0; i < other.length; ++i) newA[i] = other.A[i];
+    delete[] A;
+    A = newA;
+    size = other.size;
+    length = other.length;
+    return *this;
+}
+
+Array::Array(Array&& other) noexcept: A(other.A), size(other.size), length(other.length) {
+    cout << "[Debug: Move Constructor Called]" << endl;
+    other.A = nullptr; other.size = 0; other.length = 0;
+}
+
+Array& Array::operator=(Array&& other) noexcept {
+    cout << "[Debug: Move Assignment Called]" << endl;
+    if (this == &other) return *this;
+    delete[] A; // release own resource
+    // pilfer other's resource
+    A = other.A; size = other.size; length = other.length;
+    other.A = nullptr; other.size = 0; other.length = 0;
+    return *this;
+}
+
+// --- Method Implementations with exception handling---
+
+void Array::Display() const {
     if (length == 0) {
         cout << "Array is empty." << endl;
         return;
     }
-    cout<<"Elements (" << length << "/" << size << "): ";
-    for(int i = 0; i < length; i++)
-        cout<<A[i]<<" ";
-    cout<<endl;
+    cout << "Elements (" << length << "/" << size << "): ";
+    for (size_t i = 0; i < length; i++)
+        cout << A[i] << " ";
+    cout << endl;
 }
 
-void Array::Append(int x)
-{
-    if (length < size)
-        A[length++] = x;
-    else
-        cout << "Error: Array is full, cannot append." << endl;
+void Array::Append(int x) {
+    if (length >= size){
+        throw std::overflow_error("Array is full, cannot append.");
+    }
+    A[length++] = x;
 }
 
-void Array::Insert(int index,int x)
-{
+void Array::Insert(size_t index, int x) {
     if (length >= size) {
-        cout << "Error: Array is full. Cannot insert." << endl;
+        cerr << "Error: Array is full. Cannot insert." << endl;
         return;
     }
-    if(index >= 0 && index <= length)
-    {
-        for(int i = length; i > index; i--)
-            A[i] = A[i-1];
+    if(index > length) {
+        throw std::out_of_range("Index (" + to_string(index) + ") out of bounds for Insert. Length is " + to_string(length) + ".");
+    }
+    for(size_t i = length; i > index; i--) A[i] = A[i-1];
         A[index] = x;
         length++;
-    } else {
-         cout << "Error: invalid index for insert." << endl;
-     }
- }
+}
 
-int Array::Delete(int index)
-{
-    int x = 0; // Consider returning a special value like numeric_limits<int>::min() for error
+int Array::Delete(size_t index) {
     if (length == 0) {
-        cout << "Error: Array is empty. Cannot delete." << endl;
-        return x; // or some error code
+        throw std::logic_error("Cannot delete from empty array.");
     }
-    if(index >= 0 && index < length)
-    {
-        x = A[index];
-        for(int i = index; i < length-1; i++)
-            A[i] = A[i+1];
-        length--;
-        return x;
-    } else {
-        cout << "Error: Invalid index for delete." << endl;
-        return x; // or some error code
+    if(index >= length) {
+        throw std::out_of_range("Index (" + to_string(index) + ") out of bounds for Delete. Length is " + to_string(length) + ".");
     }
+    int x = A[index];
+    for(size_t i = index; i < length - 1; i++) A[i] = A[i+1];
+    length--;
+    return x;
 }
 
-void Array::swap(int *x, int *y)
-{
-    int temp = *x;
-    *x = *y;
-    *y = temp;
+std::optional<int> Array::Get(size_t index) const {
+    if (index < length) {
+        return A[index];
+    }
+    return std::nullopt;
 }
 
-// Linear search with move-to-front optimization
-int Array::LinearSearch(int key)
-{
-    for(int i = 0; i < length; i++)
-    {
-        if(key == A[i])
-        {
-            // optimiztion: move found element one step towards the front
-            if (i > 0) // check boundary cond.
-            {
-                swap(&A[i], &A[i-1]);
-                return i; // return the original index if it was already at the front
+void Array::Set(size_t index, int x) {
+    if (index >= length) {
+        throw std::out_of_range("Index (" + to_string(index) + ") out of bounds for Set. Length is " + to_string(length) + ".");
+    }
+    A[index] = x;
+}
+
+
+// With move-to-front optimization, modifies array
+std::optional<size_t> Array::LinearSearch(int key) {
+    for(size_t i = 0; i < length; i++) {
+        if(key == A[i]) {
+            if (i > 0) {
+                swap(&A[i], &A[i - 1]);
+                return i - 1; // return new index
             }
+            return i; // return current index
         }
     }
-    return -1; // not found
+    return std::nullopt; // not found
 }
 
-int Array::BinarySearchLoop(int key)
-{
-    int l, mid, h;
-    l = 0;
-    h = length - 1;
+// Requires sorted array
+std::optional<size_t> Array::BinarySearchLoop(int key) const {
+    size_t l = 0;
+    size_t h = length; // use one past the end
     
-    while (l <= h)
-    {
-        mid = l + (h - l) / 2;
-        if (key == A[mid])
-            return mid;
-        else if (key < A[mid])
-            h = mid - 1;
-        else
-            l = mid + 1;
+    while (l < h) {
+        size_t mid = l + (h - l) / 2;
+        if (key == A[mid]) return mid;
+        else if (key < A[mid]) h = mid;
+        else l = mid + 1;
     }
-    return -1;
+    return std::nullopt; // not found
 }
 
-int Array::Get(int index)
-{
-    if(index >= 0 && index < length)
-        return A[index];
-    return -1;
-}
 
-void Array::Set(int index, int x)
-{
-    if(index >= 0 && index < length)
-        A[index] = x;
-    else
-        cout << "Error: Invalid index for Set." << endl;
-}
-
-int Array::Max()
-{
+int Array::Max() const {
     if (length == 0) {
-        cerr << "Error: Cannot find maximum of an empty array." << endl;
-        // consider throwing an exception or returning numeric_limits<int>::min()
-        return -1; // simplfied error indication
+        throw std::logic_error("Cannot find maximum of empty array.");
     }
     int max_val = A[0];
-    for(int i = 1;i < length; i++)
-    {
-        if (A[i] > max_val)
-            max_val = A[i];
+    for(size_t i = 1;i < length; i++) {
+        if (A[i] > max_val) max_val = A[i];
     }
     return max_val;
 }
 
-int Array::Min()
-{
+int Array::Min() const {
     if (length == 0) {
-        cerr << "Error: Cannot find maximum of an empty array." << endl;
-        // consider throwing an exception or returning numeric_limits<int>::min()
-        return -1; // simplfied error indication
+        throw std::logic_error("Cannot find minimum of empty array.");
     }
     int min_val = A[0];
-    for(int i = 1; i < length; i++)
-    {
-        if(A[i] < min_val)
-            min_val = A[i];
+    for(size_t i = 1; i < length; i++) {
+        if(A[i] < min_val) min_val = A[i];
     }
     return min_val;
 }
 
-int Array::Sum()
-{
-    int s = 0;
-    for(int i = 0; i < length; i++)
-        s += A[i];
-    
+long long Array::Sum() const {
+    long long s = 0;
+    for(size_t i = 0; i < length; i++) s += A[i];
     return s;
 }
 
-float Array::Avg()
-{
+double Array::Avg() const {
     if (length == 0) {
-        cerr << "Error: Cannot calculate average of an empty array." << endl;
-        return 0.0f; // or NAN
+        throw std::logic_error("Cannot calculate average of empty array.");
     }
-    return (float)Sum() / length;
+    return static_cast<double>(Sum()) / length;
+}
+
+bool Array::isSorted() const {
+    for(size_t i = 0; i < length - 1; i++) {
+        if(A[i] > A[i + 1]) return false; // Not sorted
+    }
+    return true;
 }
 
 // Uses auxilliary array
-void Array::Reverse()
-{
-    if (length == 0 ) return;
+void Array::Reverse() {
+    if (length == 0) return;
     int *B = new int[length];
-    int i,j;
-    for (i = length - 1, j = 0; i >= 0; i--, j++)
-        B[j] = A[i];
-    for (i = 0; i < length; i++)
+    for (size_t i = 0; i < length; ++i) { // copy reverse of A to B
+        B[i] = A[length - 1 - i];
+    }
+    for (size_t i = 0; i < length; i++) { // Copy back to A
         A[i] = B[i];
+    }
     delete[] B; // free allocated memory
 }
 
 // Reverses in place using swap
-void Array::ReverseInPlace()
-{
-    int i,j;
-    for (i = 0,j = length - 1; i < j; i++, j--) {
-        swap(&A[i],&A[j]);
+void Array::ReverseInPlace() {
+    if (length < 2) return;
+    for (size_t i = 0, j = length - 1; i < j; i++, j--) {
+        swap(&A[i], &A[j]);
     }
 }
 
 // Assumes array should be kept sorted
-void Array::InsertSort(int x)
-{
+void Array::InsertSort(int x) {
     if (length >= size) {
-        cout << "Error: Array is full. Cannot insert." << endl;
-        return;
+        throw std::overflow_error("Array is full, cannot insert.");
     }
-    int i = length - 1;
-    if (length == size)
-        return;
-    while (i >= 0 && A[i] > x)
-    {
-        A[i+1] = A[i];
+    size_t i = length; // start checking from potential new end
+    while (i > 0 && A[i - 1] > x) {
+        A[i] = A[i - 1];
         i--;
     }
-    A[i+1] = x;
+    A[i] = x;
     length++;
 }
 
-int Array::isSorted()
-{
-    for(int i = 0; i < length - 1; i++)
-    {
-        if(A[i]> A[i + 1])
-            return 0; // Not sorted
-    }
-    return 1; // Sorted (or empty/single element)
-}
 
 // Rearranges negative numbers before positive numbers
-void Array::Rearrange()
-{
-    int i = 0;
-    int j= length - 1;
+void Array::Rearrange() {
+    if (length < 2) return;
+    size_t i = 0, j = length - 1;
     
-    while (i < j)
-    {
-        while(i < length && A[i] < 0) i++; // find first non-negative from left
-        while(j >= 0 && A[j] >= 0) j--;    // Find first negative from right
-        if (i < j)
-            swap(&A[i], &A[j]);
+    while (i < j) {
+        // find first non-negative from left
+        while(i < j && A[i] < 0) i++;
+        // find first negative from right
+        while(j > i && A[j] >= 0) j--;
         
+        if (i < j) { swap(&A[i], &A[j]); }
     }
 }
 
-// Assumes this and arr2 are sorted. Returns a NEW array.
-Array* Array::Merge(Array arr2)
-{
-    int i = 0, j= 0, k = 0;
-    
-    Array *arr3 = new Array(length + arr2.length); // Allocate new array
-    
-    while(i < length && j < arr2.length)
-    {
-        if(A[i] < arr2.A[j])
-            arr3-> A[k++] = A[i++];
-        else
-            arr3->A[k++] = arr2.A[j++];
+
+// --- Set Operations  (return by value) ---
+
+// Assumes this and arr2 are sorted.
+Array Array::Merge(const Array& arr2) const {
+    Array arr3(length + arr2.length);
+    size_t i = 0, j= 0, k = 0;
+
+    while(i < length && j < arr2.length) {
+        if(A[i] <= arr2.A[j]) { // take from A if equal or smaller
+            arr3.A[k++] = A[i++];
+        } else {
+            arr3.A[k++] = arr2.A[j++];
+        }
     }
-    // copy remaining elements
-    for(; i < length; i++)
-        arr3->A[k++] = A[i];
-    for(;j<arr2.length;j++)
-        arr3->A[k++]=arr2.A[j];
+    while (i < length) arr3.A[k++] = A[i++];
+    while (j < arr2.length) arr3.A[k++] = arr2.A[j++];
     
-    arr3->length=length+arr2.length;
-    return arr3; // Caller MUST delete this later
+    arr3.length = k;
+    return arr3; // Rely on RVO / Move semantics
 }
 
-// Assumes this and arr2 are sorted. Returns a NEW array.
-Array* Array::Union(Array arr2)
-{
-    int i = 0, j = 0, k = 0;
+// Assumes this and arr2 are sorted
+Array Array::Union(const Array& arr2) const {
+    Array arr3(length + arr2.length);
+    size_t i = 0, j = 0, k = 0;
     
-    Array *arr3 = new Array(length + arr2.length);
-    
-    while (i < length && j < arr2.length)
-    {
+    while (i < length && j < arr2.length) {
         if (A[i] < arr2.A[j])
-            arr3->A[k++] = A[i++];
+            arr3.A[k++] = A[i++];
         else if (arr2.A[j] < A[i])
-            arr3->A[k++] = arr2.A[j++];
-        else // Elements are equal, copy one and advance both
-        {
-            arr3->A[k++] = A[i++];
-            j++;
+            arr3.A[k++] = arr2.A[j++];
+        else { // Elements are equal, copy one and advance both
+            arr3.A[k++] = A[i++];
+            j++; // skip duplicate
         }
     }
     // copy remaining elements
-    for(;i<length;i++)
-        arr3->A[k++]=A[i];
-    for(;j<arr2.length;j++)
-        arr3->A[k++]=arr2.A[j];
-    
-    arr3->length=k;
-    // optional: resize arr3->A if you want exact size (more complex)
-    return arr3; // caller must delete
-}
-
-// Assumes this and arr2 are sorted. Returns a NEW array.
-Array* Array::Intersection(Array arr2)
-{
-    int i = 0, j = 0, k = 0;
-    
-    // Worst case intersection size is min(length, arr2.length)
-    Array *arr3 = new Array(length + arr2.length);
-    
-    while(i < length && j < arr2.length)
-    {
-        if(A[i] < arr2.A[j])
-            i++;
-        else if(arr2.A[j] < A[i])
-            j++;
-        else
-        {
-            arr3->A[k++] = A[i++];
-            j++;
-        }
-    }
-    arr3->length = k;
-    return arr3; // caller must delete
-}
-
-// Assumes this and arr2 are sorted. Returns a NEW array. (elements in this but not in arr2)
-Array* Array::Difference(Array arr2)
-{
-    int i = 0, j = 0, k = 0;
-    
-    // worst case difference size is length
-    Array *arr3 = new Array(length + arr2.length);
-    
-    while(i<length && j<arr2.length)
-    {
-        if(A[i] < arr2.A[j]) // Element only in A
-            arr3->A[k++] = A[i++];
-        else if(arr2.A[j] < A[i]) // Element only in B, ignore B
-            j++;
-        else // Elements are equal, skip in both
-        {
-            i++;
-            j++;
-        }
-    }
-    // Copy remaining elements of A (these are definitely not in B)
     for(; i < length; i++)
-        arr3->A[k++] = A[i];
+        arr3.A[k++] = A[i];
+    for(; j < arr2.length; j++)
+        arr3.A[k++] = arr2.A[j];
     
-    arr3->length=k;
+    arr3.length = k;
+    return arr3;
+}
+
+// Assumes this and arr2 are sorted.
+Array Array::Intersection(const Array& arr2) const {
+    // max size allocation is min length
+    Array arr3(min(length, arr2.length));
+    size_t i = 0, j = 0, k = 0;
+    
+    while(i < length && j < arr2.length) {
+        if(A[i] < arr2.A[j]) i++;
+        else if(arr2.A[j] < A[i]) j++;
+        else { // Equal
+            arr3.A[k++] = A[i++];
+            j++;
+        }
+    }
+    arr3.length = k;
+    return arr3;
+}
+
+Array Array::Difference(const Array& arr2) const {
+    Array arr3(length + arr2.length);
+    size_t i = 0, j = 0, k = 0;
+
+    while(i < length && j < arr2.length) {
+        if(A[i] < arr2.A[j]) {
+            arr3.A[k++] = A[i++]; // In A, not B yet
+        } else if (arr2.A[j] < A[i]) {
+            j++; // In B, not A, ignore
+        } else { // equal, skip both
+            i++;
+            j++;
+        }
+    }
+    while (i < length) { // Copy remaining A
+        arr3.A[k++] = A[i];
+    }
+    
+    arr3.length=k;
     return arr3; // Caller must delete this later
 }
 
 // --- Missing Element Functions ---
 
 // Requires SORTED Array
-int Array::FindSingleMissingElementSorted()
-{
-    if (length == 0) return -1; // Cannot find missing in empty
+std::optional<int> Array::FindSingleMissingElementSorted() const {
+    if (length == 0) return std::nullopt; // Cannot find missing in empty
     int expected_diff = A[0] - 0;
-    
-    for (int i = 0; i < length; i++)
-    {
-        if (A[i] - i != expected_diff)
-        {
+    for (size_t i = 0; i < length; i++) {
+        if (A[i] - static_cast<int>(i) != expected_diff) {
             // The missing element is the expected value at this index
-            return i + expected_diff;
+            return static_cast<int>(i) + expected_diff;
         }
     }
-    // If loop completes, no gap found *within* the elements.
-    // Could be missing after the last, or none missing in sequence.
-    return -1; // Indicate no gap found by this logic
+    return std::nullopt;
 }
 
 // Works on UNOSRTED array using XOR
-int Array::FindSingleMissingElementUnsortedOptimal()
-{
-    if (length == 0)
-    {
-        cout<<"Array is empty, cannot find missing element."<<endl;
-        return -1;
+std::optional<int> Array::FindSingleMissingElementUnsortedOptimal() const {
+    if (length == 0) return std::nullopt;
+    int min_val;
+    try {
+        min_val = Min();
+    } catch (const std::logic_error& e) {
+        cerr << "Error finding minimum value for missing element calculation " << e.what() << endl;
+        return std::nullopt;
     }
     
-    int min_val = Min();
-    if (min_val == -1 && length > 0) { // Check if Min() failed
-        cerr << "Error finding mininmum value." << endl;
-        return -1;
-    }
-
     int xor_sum_array = 0;
     int xor_sum_expected = 0;
     
     // 1. Calculate XOR sum of elements in array O(n)
-    for (int i = 0; i < length; i++)
-    {
+    for (size_t i = 0; i < length; i++) {
         xor_sum_array ^= A[i];
     }
     
     // 2. XOR sum of expected sequence (min_val to min_val + length)
-    int max_expected = min_val + length;
+    long long max_expected_11 = static_cast<long long>(min_val) + length;
+    if (max_expected_11 > numeric_limits<int>::max() || max_expected_11 < numeric_limits<int>::min()) {
+        cerr << "Warning: Expected range for XOR calculations might exceed integer limits." << endl;
+    }
+    int max_expected = static_cast<int>(max_expected_11);
+    
     for (int current_expected = min_val; current_expected <= max_expected; ++current_expected) {
         xor_sum_expected ^= current_expected;
+        if (current_expected == numeric_limits<int>::max() && current_expected < max_expected) break;
     }
     
-    // 3. Result is the XOR of the 2 sums
     int missing_element = xor_sum_array ^ xor_sum_expected;
-    
-    // optional basic validation
-    if (missing_element < min_val || missing_element > max_expected)
-    {
-        cout << "Warning: Calculated missing value " << missing_element
-             << " is outside the expected range [" << min_val << ", " << max_expected
-             << "]. Assumptions might be violated (e.g. multiple missing, non-consecutive numbers)." << endl;
-    }
-    
+    // Basic validation removed for optional return - caller decides if value is valid
     return missing_element;
 }
 
-// Requires SORTED array
-void Array::FindMultipleMissingElementsSorted()
-{
+void Array::FindMultipleMissingElementsSorted() const {
     if (length == 0) {
         cout << "Array is empty." << endl;
         return;
@@ -558,8 +483,7 @@ void Array::FindMultipleMissingElementsSorted()
 }
 
 // works on UNOSRTED array using hashing (simple boolean array)
-void Array::FindMultipleMissingElementsHash()
-{
+void Array::FindMultipleMissingElementsHash() const {
     if (length == 0) {
         cout << "Array is empty." << endl;
         return;
@@ -583,7 +507,8 @@ void Array::FindMultipleMissingElementsHash()
         return;
     }
     // use vector for dynamic allocation and RAII
-    vector<bool> hash_set(range_size, false);
+    vector<bool> hash_set(range_size,
+                          false);
     
     // mark elements present in the array
     for (int i = 0; i < length; i++)
@@ -614,81 +539,127 @@ void Array::FindMultipleMissingElementsHash()
 
 // --- Helper Function to Create and Populate an Array ---
 // used for set ops requiring a 2nd array
-Array* create_and_fill_array(int expected_size, bool must_be_sorted) {
-    Array* arr = new Array(expected_size);
-    int num_elements, val;
-    cout << "Enter number of elements for the second array (max " << expected_size << "): ";
-    cin >> num_elements;
-    if (num_elements > expected_size || num_elements < 0) {
-        cout << "Invalid number of elements. Using 0." << endl;
-        num_elements = 0;
+Array create_and_fill_array(size_t expected_size, bool must_be_sorted) {
+    Array arr(expected_size); // create local array obj
+    int num_elements;
+    cout << "Enter number of elements for the 2nd array (max " << expected_size << "): ";
+    // simple input validation loop
+    while (!(cin >> num_elements) || num_elements < 0 || static_cast<size_t>(num_elements) > expected_size) {
+        cout << "Invalid input. Please enter a number between 0 and " << expected_size << ": ";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
     
-    cout << "Enter " << num_elements << " elements";
+    cout << "Enter " << num_elements <<  " elements";
     if (must_be_sorted) cout << " (in sorted order)";
     cout << ":" << endl;
     
+    int val;
     for (int i = 0; i < num_elements; ++i) {
-        cin >> val;
-        if (must_be_sorted && i > 0 && val < arr->Get(i-1)) {
-            cout << "Warning: Elements entered out of order for sorted array requirement!" << endl;
-            // Handle appropriately - maybe stop, or just continue with unsorted data
+        // use the validation helper
+        auto get_int = [](const string& prompt) {
+            int v;
+            cout << prompt;
+            while (!(cin >> v)) {
+                cout << "Invalid input. Please enter an integer: ";
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            }
+            return v;
+        };
+        val = get_int("Element " + to_string(i+1) + ": ");
+        
+        if (must_be_sorted) {
+            if (i > 0 && val < arr.Get(i-1)) { // use Get safely
+                cout << "Warning: Elements entered out of border for sorted array requirement!" << endl;
+            }
+            arr.InsertSort(val);
+        } else {
+            arr.Append(val);
         }
-        arr->Append(val); // Append here is simpler than InsertSort()
     }
-    
-    // If strict sorting needed for Append, use InsertSort instead:
-    // for (int i = 0; i < num_elements; ++i) { cin>> val; arr->InsertSort(val); }
-    if (must_be_sorted && !arr->isSorted()) {
-        cout << "Warning: The second array provided is not sorted, set operations might yield incorrect results." << endl;
+
+    if (must_be_sorted && !arr.isSorted()) {
+        cout << "Warning: The second array provided is NOT sorted, set ops might yield incorrect results." << endl;
     }
+    // Let RVO/Move semantics handle the return efficiently
     return arr;
 }
 
 
 // --- Main Function (Menu Driven) ---
-int main()
-{
+int main() {
     Array *arr1 = nullptr; // Initialize to nullptr
-    Array *arr2 = nullptr; // for set operations
-    Array *arr3 = nullptr; // for results of set operations
-    int ch = -1, sz;
-    int x, index;
-    bool intend_to_be_sorted = false;
+    int ch = -1;
+    size_t sz; // use size_t for size input
     
     cout << "Enter Size of Array: ";
-    cin >> sz;
-    if (sz <= 0) {
-        cout << "Invalid size. Defaulting to 10." << endl;
-        sz = 10;
+    // basic input validation for size
+    while (!(cin >> sz) || sz == 0) {
+        cout << "Invalid input. Please enter a positive integer size.";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
     arr1 = new Array(sz); // Create the main array
     
+    // check if allocatin failed in constructor
+    if (arr1->GetSize() == 0) {
+        cerr << "Exiting due to memory allocation failure." << endl;
+        return 1;
+    }
+    
+    bool intend_to_be_sorted = false;
     char sorted_choice;
     cout << "Do you intend to keep this array sorted? (y/n): ";
     cin >> sorted_choice;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // consume newline
     if(tolower(sorted_choice) == 'y') {
         intend_to_be_sorted = true;
-        cout << "--> Array will be treated as sorted. Use 'Insert keeping sort (option 8) to add elements correctly." << endl;
+        cout << "--> Array will be treated as sorted. Use appropriate sorting methods." << endl;
     } else {
         intend_to_be_sorted = false;
         cout << "--> Array will be treated as potentially unsorted."<< endl;
     }
+    
+    // --- Optional initial fill ---
+    char fill_choice;
+    cout << "Fill array with initial values now? (y/n): ";
+    cin >> fill_choice;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // consume newline
+    if (tolower(fill_choice) == 'y') {
+        int num_to_fill;
+        cout << "Enter number of elements to add initially (max " << arr1->GetSize() << "): ";
+        while (!(cin >> num_to_fill) || num_to_fill < 0 || static_cast<size_t>(num_to_fill) > arr1->GetSize()) {
+            cout << "Invalid input. Please enter a number between 0 and " << arr1->GetSize() << ": ";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        
+        cout << "Enter " << num_to_fill << " elements:\n";
+        int x_fill;
+        for (int i = 0; i < num_to_fill; ++i) {
+            cout << "Element " + to_string(i + 1) + ": ";
+            while (!(cin >> x_fill)) {
+                cout << "Invalid input. Please enter an integer: ";
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            }
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // consume newline
+            if (intend_to_be_sorted) {
+                arr1->InsertSort(x_fill);
+            } else {
+                arr1->Append(x_fill);
+            }
+        }
+        cout << "Array after initial fill:" << endl;
+        arr1->Display();
+    }
+    // --- End initial fill ---
+    
+    
     do
     {
-        // clean up result array from previous set operation if it exists
-        if (arr3 != nullptr) {
-            delete arr3;
-            arr3 = nullptr;
-        }
-        
-        // Clean up temporary second arry if it exists
-        if (arr2 != nullptr) {
-            delete arr2;
-            arr2 = nullptr;
-        }
-        
-        
         cout << "\n========= Menu (" << (intend_to_be_sorted ? "Sorted Mode" : "Unsorted Mode") << ") ============\n";
         // Add/Delete
         cout << "1. Append Element\n";
@@ -720,12 +691,24 @@ int main()
         cout << "24. Find Multiple Missing Elements (Unosrted Hash Method)\n";
         // Exit
         cout << "0. Exit\n";
-        cout << "===================================\n";
+        cout << "=============================================================\n";
         cout << "Enter your choice: ";
         cin >> ch;
         
-        // Input validation helper
-        auto get_int = [](const string& prompt) {
+        // Input validation for choice
+        while (!cin) {
+            cout << "Invalid input. Please enter a number for the menu choice: ";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            // Prompt and read AGAIN inside loop
+            cout << "=============================================================\n";
+            cout << "Enter your choice: ";
+            cin >> ch;
+        }
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // consume new line after chioce
+        
+        // Input validation helpers (Lambdas)
+        auto get_integer_input = [](const string& prompt) -> int {
             int val;
             cout << prompt;
             while (!(cin >> val)) {
@@ -733,172 +716,146 @@ int main()
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
             }
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             return val;
         };
         
-        auto get_index = [&](const string& prompt) {
-            int idx = get_int(prompt);
-            // Basic validation, specific methods might have more
-            if (idx < 0 || idx >= arr1->GetSize()) {
-                cout << "Warning: Index might be out of bounds for current operation." << endl;
+        auto get_index_input = [&](const string& prompt) -> size_t {
+            int val; // read as int for easier validation range check
+            size_t idx;
+            cout << prompt;
+            while (!(cin >> val) || val < 0) { // check for negative separately
+                cout << "Invalid input. Please ener a non-negative integer index: ";
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            }
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            idx = static_cast<size_t>(val);
+            // warning if potentially out of bounds for current length, not size
+            if (idx >= arr1->GetLength() && !(ch == 2 && idx == arr1->GetLength())) { // allow insert at index == length
+                if (arr1->GetLength() > 0) cout << "Warning: index " << idx << " is >= current length " << arr1->GetLength() << "." << endl;
+                else cout << "Warning: Index " << idx << "specified for empty array." << endl;
             }
             return idx;
         };
         
+        int x = 0; size_t index = 0;
+        cout << "------------------------------------------------\n";
         switch (ch) {
             case 1: // Append
-                if (intend_to_be_sorted && arr1->GetLength() > 0){
-                    cout << "Warning: Appending may break sort order in Sorted Mode.\n" << endl;
-                }
-                x = get_int("Enter element to append: ");
+                x = get_integer_input("Enter element to append: ");
                 arr1->Append(x);
                 arr1->Display();
                 break;
             case 2: // Insert at Index
-                if (intend_to_be_sorted) {
-                    cout << "Warning: Inserting at index may break sort order in Sorted Mode.\n";
-                }
-                x = get_int("Enter element to insert: ");
-                index = get_index("Enter index ");
+                x = get_integer_input("Enter element to insert: ");
+                index = get_index_input("Enter index ");
                 arr1->Insert(index, x);
                 arr1->Display();
                 break;
-            case 3:
-                x = get_int("Enter element to insert (keeping sorted): ");
+            case 3: // Insert Keeping Sort
+                x = get_integer_input("Enter element to insert (keeping sorted): ");
                 arr1->InsertSort(x);
                 arr1->Display();
                 break;
-            case 4:
-                index = get_index("Enter index to delete: ");
+            case 4: // Delete
+                index = get_index_input("Enter index to delete: ");
                 x = arr1->Delete(index);
-                if(index >= 0 && index < arr1->GetLength()+1) { // Check if delete was likely valid
-                    cout << "Deleted Element was: " << x << "\n";
-                } // Delete method prints errors for invalid index
+                // Check if Delete returned error value
+                cout << "Deleted: " << x << "\n";
                 arr1->Display();
                 break;
-                
-                // --- Search ---
-            case 5: // Linear Search
-                x = get_int("Enter element to search (Linear): ");
-                index = arr1->LinearSearch(x);
-                if (index != -1)
-                    cout << "element found at index " << index << "\n";
+            case 5: { // Linear Search
+                x = get_integer_input("Enter element to search (Linear): ");
+                auto result = arr1->LinearSearch(x);
+                if (result)
+                    cout << "Element found at index: " << index << "\n";
                 else
                     cout << "Element not found.\n";
                 break;
-            case 6: // Binary search
+            }
+            case 6: { // Binary search
                 if (!arr1->isSorted()) {
                     cout << "ERROR: Array must be sorted for Binary Search.\n";
                 } else {
-                    x = get_int("Enter element to search (Binary): ");
-                    index = arr1->BinarySearchLoop(x);
-                    if (index != -1)
+                    x = get_integer_input("Enter element to search (Binary): ");
+                    auto result= arr1->BinarySearchLoop(x);
+                    if (result)
                         cout << "Element found at index: " << index << "\n";
                     else
                         cout << "Element not found.\n";
                 }
                 break;
+            }
                 // --- Get/Set ---
-            case 7: // Get
-                index = get_index("Enter index to get element from: ");
-                x = arr1->Get(index);
-                if (x != -1 || (index >= 0 && index < arr1->GetLength())) {
+            case 7: { // Get
+                index = get_index_input("Enter index to get element from: ");
+                auto result = arr1->Get(index);
+                if (result) // check for error value
                     cout << "Element at index " << index << " is: " << x << "\n";
-                }
                 break;
-            case 8: // Set
-                
-                break;
-                
-                // --- Info ---
-            case 9: // Display
+            }
+            case 8: { // Set
+                index = get_index_input("Enter index to set element at: ");
+                x = get_integer_input("Enter new value: ");
+                arr1->Set(index, x); // Set handles its own error message
                 arr1->Display();
                 break;
-            case 10: // Sum
-                cout << "Sum of elements: " << arr1->Sum() << "\n";
-                break;
-            case 11: // Average
-                cout << "Average of elements: " << arr1->Avg() << "\n";
-                break;
-            case 12: // Max
-                cout << "Maximum elements: " << arr1->Max() << "\n";
-                break;
-            case 13: // Min
-                cout << "Minimum elements: " << arr1->Min() << "\n";
-                break;
-            case 14: // isSorted
-                if (arr1->isSorted())
-                    cout << "Array IS currently sorted.\n";
-                else
-                    cout << "Array is NOT currently sorted.\n";
-                break;
+            }
                 
+            // --- Info ---
+            case 9: arr1->Display(); break;
+            case 10: cout << "Sum of elements: " << arr1->Sum() << "\n"; break;
+            case 11: cout << "Average: " << arr1->Avg() << "\n"; break;
+            case 12: cout << "Maximum elements: " << arr1->Max() << "\n"; break;
+            case 13: cout << "Minimum elements: " << arr1->Min() << "\n"; break;
+            case 14: cout << "Array is " << (arr1->isSorted() ? "SORTED" : "NOT SORTED") << ".\n"; break;
                 // --- Modify ---
-            case 15: // Reverse (Temp Array)
-                cout << "Reversing array (using temp array)..." << endl;
-                arr1->Reverse();
-                arr1->Display();
-                break;
-            case 16: // Reverse (in place)
-                cout << "Reversing array in place..." << endl;
-                arr1->ReverseInPlace();
-                arr1->Display();
-                break;
-            case 17: // Rearrange
-                cout << "Rearranging negatives before positives..." << endl;
-                arr1->Rearrange();
-                arr1->Display();
-                break;
-                
+            case 15: cout << "Reversing array (using temp array)..." << endl; arr1->Reverse(); arr1->Display(); break;
+            case 16: cout << "Reversing array in place..." << endl; arr1->ReverseInPlace(); arr1->Display(); break;
+            case 17: cout << "Rearranging negatives before positives..." << endl; arr1->Rearrange(); arr1->Display(); break;
                 // --- Set Operations ---
-            case 18: case 19: case 20: case 21: // Merge, Union, Intersection, Difference
-            { // Use block scope for arr2 and arr3
-                cout << "--- Set Operation ---" << endl;
-                cout << "This operation requires a second SORTED array." << endl;
+            case 18: case 19: case 20: case 21:
+            {
+                cout << "--- Set Operation requires a second SORTED array ---" << endl;
                 if (!arr1->isSorted()) {
                     cout << "Warning: The main array (Arr1) is not sorted. Results may be incorrect." << endl;
                 }
-                // Create and fill the second array
-                arr2 = create_and_fill_array(1000, true); // allows up to 1000 elements for arr2
+                
+                // Create and fill the second array (return by val)
+                Array arr2_local = create_and_fill_array(100, true); // size 100 for temp array
                 cout << "Arr1: "; arr1->Display();
-                cout << "Arr2: "; arr2->Display();
+                cout << "Arr2: "; arr2_local.Display();
                 
-                if (ch == 18) arr3 = arr1->Merge(*arr2);
-                else if (ch == 19) arr3 = arr1->Union(*arr2);
-                else if (ch == 20) arr3 = arr1->Intersection(*arr2);
-                else if (ch == 21) arr3 = arr1->Difference(*arr2);
+                // result array created locally by return-by-value
+                Array result_array;
+                if (ch == 18) result_array = arr1->Merge(arr2_local);
+                else if (ch == 19) result_array = arr1->Union(arr2_local);
+                else if (ch == 20) result_array = arr1->Intersection(arr2_local);
+                else if (ch == 21) result_array = arr1->Difference(arr2_local);
                 
-                if (arr3 != nullptr) {
-                    cout << "Result: ";
-                    arr3->Display();
-                    // IMPORTANT: arr3 needs deletion, handled at start of loop
-                } else {
-                    cout << "Operation failed or resulted in null array." << endl;
-                }
-                // arr2 needs deletion, handled at start of loop
+                cout << "Result: ";
+                result_array.Display();
+                // result_array and arr2_local go out of scope here, destructors called automatically
             }
-                break; // end of set ops blocks
+                break;
                 
                 // --- Missing Elements ---
-            case 22: // Find Single Missing Element (Smart)
+            case 22: // Find Single Missing (Smart)
+                if (arr1->GetLength() == 0) {
+                    cout << "Array is empty." << endl; break;
+                }
                 if (intend_to_be_sorted) {
-                    cout << "Finding single missing element using SORTED logic...\n";
-                    if (!arr1->isSorted()) {
-                        cout << "ERROR: Array is currently NOT sorted, cannot use this method accurately.\n";
-                    } else {
-                        int missing = arr1->FindSingleMissingElementSorted();
-                        if (missing != -1)
-                            cout << "Missing element (Sorted method) is: " << missing << "\n";
-                        else
-                            cout << "No single missing element found using the sorted method's logic.\n";
+                    if (!arr1->isSorted()) { cout << "ERROR: Array not sorted.\n"; }
+                    else {
+                        auto result = arr1->FindSingleMissingElementSorted();
+                        if (result) cout << "Missing(Sorted): " << *result << "\n";
+                        else cout << "None found (Sorted).\n";
                     }
                 } else {
-                    cout << "Finding single missing element using UNSORTED OPTIMAL logic...\n";
-                    int missing = arr1->FindSingleMissingElementUnsortedOptimal();
-                    // handles empty array case, may print warnings itself
-                    if (arr1->GetLength() > 0) {
-                        cout << "Calculated missing element (unsorted optimal) is: " << missing << "\n";
-                    }
+                    auto result = arr1->FindSingleMissingElementUnsortedOptimal();
+                    if (result) cout << "Missing (Unsorted): " << *result << "\n";
+                    else cout << "Coud not determine (e.g. Min failed).\n";
                 }
                 break;
             case 23: // Find Multiple Missing (Sorted)
@@ -908,24 +865,25 @@ int main()
                     arr1->FindMultipleMissingElementsSorted();
                 }
                 break;
-            case 24: // Find Multiple Missing (Unsorted hash)
+            case 24: // Find Multiple Missing (Unsorted Hash)
                 arr1->FindMultipleMissingElementsHash();
                 break;
-            
-            // --- Exit ---
-            case 0:
-                cout << "Exiting program." << endl;
-                break;
-            default:
-                cout << "Invalid choice. Please try again." << endl;
-                break;
-            }
-        } while (ch != 0); // Loop until exit choice
+                
+                
+            case 0: cout << "Exiting program." << endl; break;
+            default: cout << "Invalid choice. Please try again." << endl; break;
+        }
+        cout << "------------------------------------------------\n";
         
-        // --- Cleanup ---
-        delete arr1; // Clean up memory
-        if (arr2!= nullptr) delete arr2; // delete second array if it exists
-        if (arr3!= nullptr) delete arr3;// delete result arra if it exists
-        
-        return 0;
-    }
+        // Timed Pause logic here
+        if (ch != 0) {
+            cout << "\nJust a moment...\n";
+        }
+        this_thread::sleep_for(chrono::seconds(3));
+    } while (ch != 0);
+    
+    // --- Cleanup ---
+    delete arr1; // Delete the main array allocated in main
+    
+    return 0;
+}
