@@ -93,6 +93,9 @@ public:
     std::optional<int> FindSingleMissingElementUnsortedOptimal() const; // Works on UNSORTED array (XOR method)
     void FindMultipleMissingElementsSorted() const; // Requires SORTED array (Difference method)
     void FindMultipleMissingElementsHash() const; // Works on UNSORTED array (Hash method)
+    void FindDuplicatesSorted() const;
+    void FindDuplicatesUnsorted() const;
+    void FindDuplicatesHashing() const;
     
 };
 
@@ -530,8 +533,7 @@ void Array::FindMultipleMissingElementsHash() const {
         return;
     }
     // use vector for dynamic allocation and RAII
-    vector<bool> hash_set(range_size,
-                          false);
+    vector<bool> hash_set(range_size, false);
     
     // mark elements present in the array
     for (int i = 0; i < length; i++)
@@ -558,6 +560,39 @@ void Array::FindMultipleMissingElementsHash() const {
     }
     cout << endl;
     // vector cleans itself up automatically (RAII)
+}
+
+void Array::FindDuplicatesSorted() const {
+    if (length == 0) {
+        cout << "Array is empty" << endl;
+        return;
+    }
+    
+    bool any_duplicates_found = false;
+    
+    for (size_t i = 0; i < length - 1; i++) {
+        if (A[i] == A[i + 1]) {
+            any_duplicates_found = true;
+            size_t j = i + 1;
+            while (j < length && A[j] == A[i]){
+                j++;
+            }
+            cout << "Duplicate value: " << A[i] << "\nOccurrences: " << (j - i) << " times." << endl;
+            i = j - 1;
+        }
+    }
+    if (!any_duplicates_found) {
+        cout << "No duplicates found in this sorted array." << endl;
+    }
+}
+
+void Array::FindDuplicatesHashing() const {
+    
+}
+
+
+void Array::FindDuplicatesUnsorted() const {
+    
 }
 
 // --- Helper Function to Create and Populate an Array ---
@@ -715,6 +750,7 @@ int main() {
         cout << "22. Find Single Missing Element (Smart)\n";
         cout << "23. Find Multiple Missing Elements (Sorted Method)\n";
         cout << "24. Find Multiple Missing Elements (Unosrted Hash Method)\n";
+        cout << "25. Find Duplicated Elements (Sorted Array Method)\n";
         
         // Exit
         cout << "0. Exit\n";
@@ -897,8 +933,14 @@ int main() {
             case 24: // Find Multiple Missing (Unsorted Hash)
                 arr1->FindMultipleMissingElementsHash();
                 break;
-                
-                
+            case 25:
+                if (!arr1->isSorted()) {
+                    cout << "ERROR: Array must be sorted to find duplicates using this method.\n";
+                    cout << "Please sort the first array or use a method for unsorted arrays.\n";
+                } else {
+                    arr1->FindDuplicatesSorted();
+                }
+                break;
             case 0: cout << "Exiting program." << endl; break;
             default: cout << "Invalid choice. Please try again." << endl; break;
         }
@@ -908,7 +950,7 @@ int main() {
         if (ch != 0) {
             cout << "\nJust a moment...\n";
         }
-        this_thread::sleep_for(chrono::seconds(3));
+        this_thread::sleep_for(chrono::seconds(4));
     } while (ch != 0);
     
     // --- Cleanup ---
