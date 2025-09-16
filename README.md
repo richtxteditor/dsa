@@ -4,7 +4,7 @@
 
 This project implements a dynamic array class in C++ from first principles. It serves as a foundational exercise for understanding data structure mechanics, memory management, and algorithm implementation. The goal is not to replace standard library containers like `std::vector`, but to learn how such containers operate under the hood.
 
-The code provides a single `Array` class that encapsulates array data and operations, along with an interactive command-line menu for testing various functionalities. The implementation covers basic CRUD operations, search algorithms, set operations, and more complex analysis algorithms for finding missing elements and duplicates.
+The code provides a single `Array` class that encapsulates array data and operations, along with an interactive command-line menu for testing various functionalities. The implementation covers basic CRUD operations, search algorithms, set operations, and more complex analysis algorithms for finding missing elements and duplicates. A detailed breakdown of the time and space complexity of each function is available in the `ArrayCPP/ArrayCPP/complexity_docs.md` file.
 
 ## Features Implemented
 
@@ -68,7 +68,7 @@ This code demonstrates several key C++ programming concepts:
 2. Compile the code from your terminal:
 
     ```bash
-    g++ main.cpp -o array_demo -std=c++17 -Wall
+    g++ main.cpp array.cpp -o array_demo -std=c++17 -Wall
     ```
 
 3. Run the executable:
@@ -82,6 +82,8 @@ This code demonstrates several key C++ programming concepts:
 ---
 
 ## Next Steps: An Integrated Learning Plan
+
+For an interactive, checkable version of this study plan, please see the **[Consolidated Study Plan](zCheck_List/index.html)**.
 
 This plan integrates the Udemy course **"Data Structures and Algorithms using C++"** with the industry-standard interview prep book **"Cracking the Coding Interview" (CTCI)**.
 
@@ -98,6 +100,8 @@ The learning cycle for each new data structure is:
 
 * **Udemy:** Progress to the sections on "Strings" and "Matrices."
 * **Personal Implementation:** Implement common string algorithms (e.g., palindrome check, permutation check) and create a simple `Matrix` class or use `vector<vector<int>>` for matrix rotation and search algorithms.
+
+
 * **CTCI Reading:** **Chapter 1: "Arrays and Strings."**
 * **CTCI Practice:** "Is Unique", "Check Permutation", "URLify", "String Compression", "Zero Matrix".
 

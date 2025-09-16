@@ -1,26 +1,17 @@
-const plans = document.querySelectorAll(".tab-content");
-const buttons = document.querySelectorAll(".tab-button");
+// script.js
+
 const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-
-function showPlan(planId) {
-  // Hide all plans, remove active class from buttons
-  plans.forEach((plan) => plan.classList.remove("active"));
-  buttons.forEach((button) => button.classList.remove("active"));
-
-  // Show the selected plan and set its button to active
-  document.getElementById(planId).classList.add("active");
-  document
-    .querySelector(`.tab-button[onclick="showPlan('${planId}')"]`)
-    .classList.add("active");
-}
 
 // --- State Persistence ---
 
 // Load state from localStorage when the page loads
 function loadState() {
   checkboxes.forEach((checkbox) => {
-    const isChecked = localStorage.getItem(checkbox.id) === "true";
-    checkbox.checked = isChecked;
+    // Check if an item exists in localStorage for this checkbox's ID
+    const savedState = localStorage.getItem(checkbox.id);
+    if (savedState !== null) {
+      checkbox.checked = savedState === "true";
+    }
   });
 }
 
@@ -29,10 +20,10 @@ function saveState(event) {
   localStorage.setItem(event.target.id, event.target.checked);
 }
 
-// Attach event listeners
+// --- Attach Event Listeners ---
 checkboxes.forEach((checkbox) => {
   checkbox.addEventListener("change", saveState);
 });
 
-// Initial load
+// Initial load when the page content is ready
 document.addEventListener("DOMContentLoaded", loadState);

@@ -3,917 +3,385 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Updatable Coding Interview Prep Calendar</title>
+    <title>DSA & Interview Prep Tracker</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1>Updatable Interview Prep Calendar</h1>
+    <header>
+      <h1>DSA & Technical Interview Prep Tracker</h1>
+      <p class="subtitle">
+        An integrated study plan combining the foundational Udemy course
+        <strong><a href="https://www.udemy.com/course/datastructurescncpp/">"Data Structures and Algorithms using C++"</a></strong> with
+        targeted practice from <strong><a href="https://www.crackingthecodinginterview.com/">"Cracking the Coding Interview"</a></strong>
+        and <strong><a href="https://leetcode.com/">LeetCode</a></strong>.
+      </p>
+    </header>
 
-    <div class="tab-container">
-      <button class="tab-button active" onclick="showPlan('fullstack')">
-        Full-Stack
-      </button>
-      <button class="tab-button" onclick="showPlan('frontend')">
-        Front-End Engineer
-      </button>
-      <button class="tab-button" onclick="showPlan('design')">
-        Design Engineer
-      </button>
-    </div>
+    <main>
+      <!-- ====================================================== -->
+      <!-- ================== C++ Project Plan ================== -->
+      <!-- ====================================================== -->
+      <h2>C++ Project - Current Tasks</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Area</th>
+            <th>Task</th>
+            <th>Done</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>C++</td>
+            <td>Implement Iterators to make the `Array` class compatible with range-based `for` loops.</td>
+            <td><input type="checkbox" id="dsa-task-1" /></td>
+          </tr>
+          <tr>
+            <td>C++</td>
+            <td>Convert the `Array` class to a template class to support generic data types (e.g., `Array<T>`).</td>
+            <td><input type="checkbox" id="dsa-task-2" /></td>
+          </tr>
+          <tr>
+            <td>Algorithm</td>
+            <td>Implement additional sorting algorithms (e.g., Merge Sort, Quick Sort) as methods of the `Array` class.</td>
+            <td><input type="checkbox" id="dsa-task-3" /></td>
+          </tr>
+          <tr>
+            <td>Project</td>
+            <td>Set up a simple build system with a Makefile or CMake.</td>
+            <td><input type="checkbox" id="dsa-task-4" checked /></td>
+          </tr>
+        </tbody>
+      </table>
 
-    <!-- ====================================================== -->
-    <!-- ================ Full-Stack Plan ===================== -->
-    <!-- ====================================================== -->
-    <div id="fullstack" class="tab-content active">
-      <h2>Week 1 – Core Foundations</h2>
+      <h2>C++ Project - Completed Tasks</h2>
       <table>
         <thead>
           <tr>
-            <th>Day</th>
-            <th>Tasks</th>
+            <th>Area</th>
+            <th>Task</th>
             <th>Done</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Mon</td>
-            <td>Two Sum, Valid Anagram, JS Closures/Promises, HTTP Methods</td>
-            <td><input type="checkbox" id="fs-w1-d1" /></td>
+            <td>Array</td>
+            <td>Implement dynamic resizing to handle overflow automatically.</td>
+            <td><input type="checkbox" id="dsa-done-3" checked /></td>
           </tr>
           <tr>
-            <td>Tue</td>
-            <td>
-              Reverse String, Longest Substring (Medium), CSS Flexbox/Grid
-            </td>
-            <td><input type="checkbox" id="fs-w1-d2" /></td>
+            <td>Project</td>
+            <td>Split monolithic code into `.h` (header) and `.cpp` (source) files.</td>
+            <td><input type="checkbox" id="dsa-done-2" checked /></td>
           </tr>
           <tr>
-            <td>Wed</td>
-            <td>
-              Best Time to Buy/Sell, Valid Palindrome, Container With Most
-              Water, DOM practice
-            </td>
-            <td><input type="checkbox" id="fs-w1-d3" /></td>
+            <td>Testing</td>
+            <td>Add a simple unit test function to main and set up an XCTest target.</td>
+            <td><input type="checkbox" id="dsa-done-4" checked /></td>
           </tr>
           <tr>
-            <td>Thu</td>
-            <td>
-              Group Anagrams, Valid Parentheses, Merge Two Sorted Lists, REST
-              API basics
-            </td>
-            <td><input type="checkbox" id="fs-w1-d4" /></td>
+            <td>C++</td>
+            <td>Replace `using namespace std;` with specific `using` declarations for better practice.</td>
+            <td><input type="checkbox" id="dsa-done-1" checked /></td>
           </tr>
           <tr>
-            <td>Fri</td>
-            <td>
-              Product of Array Except Self, Maximum Subarray, CSS/JS Form
-              Validation
-            </td>
-            <td><input type="checkbox" id="fs-w1-d5" /></td>
-          </tr>
-          <tr>
-            <td>Sat</td>
-            <td>Mock: Contains Duplicate, 3Sum, Behavioral Questions</td>
-            <td><input type="checkbox" id="fs-w1-d6" /></td>
+            <td>Algorithm</td>
+            <td>Implement and test various duplicate-finding methods (sorted, hashing, brute-force).</td>
+            <td><input type="checkbox" id="dsa-done-6" checked /></td>
           </tr>
         </tbody>
       </table>
-      <h2>Week 2 – Hash Maps + React Basics</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Day</th>
-            <th>Tasks</th>
-            <th>Done</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Mon</td>
-            <td>Contains Duplicate II, Ransom Note, React: props vs state</td>
-            <td><input type="checkbox" id="fs-w2-d1" /></td>
-          </tr>
-          <tr>
-            <td>Tue</td>
-            <td>Min Stack, Daily Temperatures, React: useEffect + hooks</td>
-            <td><input type="checkbox" id="fs-w2-d2" /></td>
-          </tr>
-          <tr>
-            <td>Wed</td>
-            <td>Top K Frequent Elements, Subarray Sum = K, SQL basics</td>
-            <td><input type="checkbox" id="fs-w2-d3" /></td>
-          </tr>
-          <tr>
-            <td>Thu</td>
-            <td>Redo 3 hardest problems so far, React To-Do App (setup)</td>
-            <td><input type="checkbox" id="fs-w2-d4" /></td>
-          </tr>
-          <tr>
-            <td>Fri</td>
-            <td>
-              Eval Reverse Polish Notation, Queue w/ Stacks, React To-Do App
-              (filter + storage)
-            </td>
-            <td><input type="checkbox" id="fs-w2-d5" /></td>
-          </tr>
-          <tr>
-            <td>Sat</td>
-            <td>Mock: Valid Sudoku, React reusable button question</td>
-            <td><input type="checkbox" id="fs-w2-d6" /></td>
-          </tr>
-        </tbody>
-      </table>
-      <h2>Week 3 – Linked Lists + APIs</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Day</th>
-            <th>Tasks</th>
-            <th>Done</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Mon</td>
-            <td>
-              Reverse Linked List, Linked List Cycle, React Context vs Redux
-            </td>
-            <td><input type="checkbox" id="fs-w3-d1" /></td>
-          </tr>
-          <tr>
-            <td>Tue</td>
-            <td>Merge Two Sorted Lists, Add Two Numbers, DB schema design</td>
-            <td><input type="checkbox" id="fs-w3-d2" /></td>
-          </tr>
-          <tr>
-            <td>Wed</td>
-            <td>Max Depth Tree, Level Order Traversal, API error handling</td>
-            <td><input type="checkbox" id="fs-w3-d3" /></td>
-          </tr>
-          <tr>
-            <td>Thu</td>
-            <td>
-              Inorder Traversal, Zigzag Traversal, Max Path Sum (Hard), React
-              API fetch
-            </td>
-            <td><input type="checkbox" id="fs-w3-d4" /></td>
-          </tr>
-          <tr>
-            <td>Fri</td>
-            <td>
-              Redo: Add Two Numbers, Max Path Sum, Project: GitHub Repo Search
-            </td>
-            <td><input type="checkbox" id="fs-w3-d5" /></td>
-          </tr>
-          <tr>
-            <td>Sat</td>
-            <td>
-              Mock: Palindrome Linked List, Right Side View, API autocomplete
-              design
-            </td>
-            <td><input type="checkbox" id="fs-w3-d6" /></td>
-          </tr>
-        </tbody>
-      </table>
-      <h2>Week 4 – Graphs + Performance</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Day</th>
-            <th>Tasks</th>
-            <th>Done</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Mon</td>
-            <td>Number of Islands, Flood Fill, React performance</td>
-            <td><input type="checkbox" id="fs-w4-d1" /></td>
-          </tr>
-          <tr>
-            <td>Tue</td>
-            <td>Clone Graph, Course Schedule, Web Security</td>
-            <td><input type="checkbox" id="fs-w4-d2" /></td>
-          </tr>
-          <tr>
-            <td>Wed</td>
-            <td>
-              Graph Valid Tree, Pacific Atlantic Water Flow, DB transactions
-            </td>
-            <td><input type="checkbox" id="fs-w4-d3" /></td>
-          </tr>
-          <tr>
-            <td>Thu</td>
-            <td>Word Ladder (Hard), Redo Course Schedule, Caching basics</td>
-            <td><input type="checkbox" id="fs-w4-d4" /></td>
-          </tr>
-          <tr>
-            <td>Fri</td>
-            <td>Review toughest graphs, Extend GitHub app (auth)</td>
-            <td><input type="checkbox" id="fs-w4-d5" /></td>
-          </tr>
-          <tr>
-            <td>Sat</td>
-            <td>Mock: Rotting Oranges, Real-time chat UI design</td>
-            <td><input type="checkbox" id="fs-w4-d6" /></td>
-          </tr>
-        </tbody>
-      </table>
-      <h2>Week 5 – DP + Integration</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Day</th>
-            <th>Tasks</th>
-            <th>Done</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Mon</td>
-            <td>Climbing Stairs, House Robber, React Testing (Jest)</td>
-            <td><input type="checkbox" id="fs-w5-d1" /></td>
-          </tr>
-          <tr>
-            <td>Tue</td>
-            <td>Coin Change, Partition Equal Subset, Auth (OAuth2 + JWT)</td>
-            <td><input type="checkbox" id="fs-w5-d2" /></td>
-          </tr>
-          <tr>
-            <td>Wed</td>
-            <td>Unique Paths, Word Break, Decode Ways, Deploy React app</td>
-            <td><input type="checkbox" id="fs-w5-d3" /></td>
-          </tr>
-          <tr>
-            <td>Thu</td>
-            <td>LIS, Redo Coin Change, Logging/Monitoring</td>
-            <td><input type="checkbox" id="fs-w5-d4" /></td>
-          </tr>
-          <tr>
-            <td>Fri</td>
-            <td>Review 3 DP problems, Project: React + API + DB</td>
-            <td><input type="checkbox" id="fs-w5-d5" /></td>
-          </tr>
-          <tr>
-            <td>Sat</td>
-            <td>Mock: Max Product Subarray, Notes app design</td>
-            <td><input type="checkbox" id="fs-w5-d6" /></td>
-          </tr>
-        </tbody>
-      </table>
-      <h2>Week 6 – Review & Mocks</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Day</th>
-            <th>Tasks</th>
-            <th>Done</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Mon</td>
-            <td>Arrays/Strings review, CSS quiz</td>
-            <td><input type="checkbox" id="fs-w6-d1" /></td>
-          </tr>
-          <tr>
-            <td>Tue</td>
-            <td>Linked List/Tree review, SQL Joins/Indexes</td>
-            <td><input type="checkbox" id="fs-w6-d2" /></td>
-          </tr>
-          <tr>
-            <td>Wed</td>
-            <td>Graph review, React hooks + TS basics</td>
-            <td><input type="checkbox" id="fs-w6-d3" /></td>
-          </tr>
-          <tr>
-            <td>Thu</td>
-            <td>DP review, Caching/Auth recap</td>
-            <td><input type="checkbox" id="fs-w6-d4" /></td>
-          </tr>
-          <tr>
-            <td>Fri</td>
-            <td>Behavioral STAR practice, Portfolio polish</td>
-            <td><input type="checkbox" id="fs-w6-d5" /></td>
-          </tr>
-          <tr>
-            <td>Sat</td>
-            <td>2 Full Mock Interviews (Backend + Frontend)</td>
-            <td><input type="checkbox" id="fs-w6-d6" /></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
 
-    <!-- ====================================================== -->
-    <!-- ============= Front-End Engineer Plan ================ -->
-    <!-- ====================================================== -->
-    <div id="frontend" class="tab-content">
-      <h2>Week 1 – Core JS, CSS & Browser</h2>
+      <!-- ====================================================== -->
+      <!-- =============== Course & LeetCode Plan =============== -->
+      <!-- ====================================================== -->
+      <h2>Section 1-3: Foundations (Completed)</h2>
       <table>
         <thead>
           <tr>
-            <th>Day</th>
-            <th>Tasks</th>
+            <th>Section</th>
+            <th>Topics</th>
             <th>Done</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Mon</td>
-            <td>Two Sum, Valid Anagram, JS Closures/Promises, Event Loop</td>
-            <td><input type="checkbox" id="fe-w1-d1" /></td>
+            <td>1: Introduction</td>
+            <td>What are Data Structures?, ADT, What is an Algorithm?</td>
+            <td><input type="checkbox" id="udemy-sec1" checked /></td>
           </tr>
           <tr>
-            <td>Tue</td>
-            <td>
-              Reverse String, Longest Substring, Advanced CSS Selectors &
-              Specificity
-            </td>
-            <td><input type="checkbox" id="fe-w1-d2" /></td>
+            <td>2: Recursion</td>
+            <td>What is Recursion?, Static/Global Variables, Taylor Series, Fibonacci, Tower of Hanoi</td>
+            <td><input type="checkbox" id="udemy-sec2" checked /></td>
           </tr>
           <tr>
-            <td>Wed</td>
-            <td>
-              Valid Palindrome, Container With Most Water, CSS Flexbox vs. Grid
-            </td>
-            <td><input type="checkbox" id="fe-w1-d3" /></td>
-          </tr>
-          <tr>
-            <td>Thu</td>
-            <td>
-              Group Anagrams, Valid Parentheses, DOM Manipulation & Event
-              Delegation
-            </td>
-            <td><input type="checkbox" id="fe-w1-d4" /></td>
-          </tr>
-          <tr>
-            <td>Fri</td>
-            <td>
-              Maximum Subarray, Browser Rendering Path (DOM, CSSOM, Render Tree)
-            </td>
-            <td><input type="checkbox" id="fe-w1-d5" /></td>
-          </tr>
-          <tr>
-            <td>Sat</td>
-            <td>
-              Mock: Contains Duplicate, Behavioral Questions, Review Week 1
-            </td>
-            <td><input type="checkbox" id="fe-w1-d6" /></td>
+            <td>3: Arrays Representations</td>
+            <td>Array ADT, 2D Arrays, Matrices</td>
+            <td><input type="checkbox" id="udemy-sec3" checked /></td>
           </tr>
         </tbody>
       </table>
-      <h2>Week 2 – React Basics & Tooling</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Day</th>
-            <th>Tasks</th>
-            <th>Done</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Mon</td>
-            <td>
-              Ransom Note, React: props vs state, Functional vs Class Components
-            </td>
-            <td><input type="checkbox" id="fe-w2-d1" /></td>
-          </tr>
-          <tr>
-            <td>Tue</td>
-            <td>
-              Daily Temperatures, React: useEffect, useState, custom hooks
-            </td>
-            <td><input type="checkbox" id="fe-w2-d2" /></td>
-          </tr>
-          <tr>
-            <td>Wed</td>
-            <td>
-              Top K Frequent Elements, React Context API for state management
-            </td>
-            <td><input type="checkbox" id="fe-w2-d3" /></td>
-          </tr>
-          <tr>
-            <td>Thu</td>
-            <td>
-              TypeScript Basics (types, interfaces), Set up a TS React project
-            </td>
-            <td><input type="checkbox" id="fe-w2-d4" /></td>
-          </tr>
-          <tr>
-            <td>Fri</td>
-            <td>
-              Build React To-Do App with TypeScript (state, props, events)
-            </td>
-            <td><input type="checkbox" id="fe-w2-d5" /></td>
-          </tr>
-          <tr>
-            <td>Sat</td>
-            <td>
-              Mock: Valid Sudoku, Webpack/Vite basics, Mock React Component
-              question
-            </td>
-            <td><input type="checkbox" id="fe-w2-d6" /></td>
-          </tr>
-        </tbody>
-      </table>
-      <h2>Week 3 – APIs & Asynchronous JS</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Day</th>
-            <th>Tasks</th>
-            <th>Done</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Mon</td>
-            <td>
-              Reverse Linked List, Async/Await deep dive, API error handling
-            </td>
-            <td><input type="checkbox" id="fe-w3-d1" /></td>
-          </tr>
-          <tr>
-            <td>Tue</td>
-            <td>
-              Merge Two Sorted Lists, Fetching data in React (useEffect),
-              Loading/Error states
-            </td>
-            <td><input type="checkbox" id="fe-w3-d2" /></td>
-          </tr>
-          <tr>
-            <td>Wed</td>
-            <td>Max Depth Tree, Throttling & Debouncing implementation</td>
-            <td><input type="checkbox" id="fe-w3-d3" /></td>
-          </tr>
-          <tr>
-            <td>Thu</td>
-            <td>Web Security on Front-End (XSS, CSRF), CORS explained</td>
-            <td><input type="checkbox" id="fe-w3-d4" /></td>
-          </tr>
-          <tr>
-            <td>Fri</td>
-            <td>Project: GitHub Repo Search App (fetch, display, filter)</td>
-            <td><input type="checkbox" id="fe-w3-d5" /></td>
-          </tr>
-          <tr>
-            <td>Sat</td>
-            <td>
-              Mock: Palindrome Linked List, Front-End System Design:
-              Autocomplete Search Bar
-            </td>
-            <td><input type="checkbox" id="fe-w3-d6" /></td>
-          </tr>
-        </tbody>
-      </table>
-      <h2>Week 4 – Advanced React & Performance</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Day</th>
-            <th>Tasks</th>
-            <th>Done</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Mon</td>
-            <td>
-              Number of Islands, React.memo, useMemo, useCallback for
-              performance
-            </td>
-            <td><input type="checkbox" id="fe-w4-d1" /></td>
-          </tr>
-          <tr>
-            <td>Tue</td>
-            <td>
-              Clone Graph, Accessibility (ARIA, semantic HTML, screen readers)
-            </td>
-            <td><input type="checkbox" id="fe-w4-d2" /></td>
-          </tr>
-          <tr>
-            <td>Wed</td>
-            <td>Virtual DOM vs Shadow DOM, React Profiler, Code Splitting</td>
-            <td><input type="checkbox" id="fe-w4-d3" /></td>
-          </tr>
-          <tr>
-            <td>Thu</td>
-            <td>Core Web Vitals (LCP, FID, CLS) & optimization techniques</td>
-            <td><input type="checkbox" id="fe-w4-d4" /></td>
-          </tr>
-          <tr>
-            <td>Fri</td>
-            <td>
-              Front-End Caching (Service Workers, Cache API), Add offline
-              support to a project
-            </td>
-            <td><input type="checkbox" id="fe-w4-d5" /></td>
-          </tr>
-          <tr>
-            <td>Sat</td>
-            <td>
-              Mock: Rotting Oranges, Front-End System Design: "Design an
-              infinite scroll feed"
-            </td>
-            <td><input type="checkbox" id="fe-w4-d6" /></td>
-          </tr>
-        </tbody>
-      </table>
-      <h2>Week 5 – State Management & Testing</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Day</th>
-            <th>Tasks</th>
-            <th>Done</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Mon</td>
-            <td>
-              Climbing Stairs, State Management: Redux Toolkit vs. Zustand
-              (choose one)
-            </td>
-            <td><input type="checkbox" id="fe-w5-d1" /></td>
-          </tr>
-          <tr>
-            <td>Tue</td>
-            <td>
-              Coin Change, Refactor a project to use your chosen state library
-            </td>
-            <td><input type="checkbox" id="fe-w5-d2" /></td>
-          </tr>
-          <tr>
-            <td>Wed</td>
-            <td>
-              Word Break, React Testing Library: setup and basics (getBy,
-              queryBy)
-            </td>
-            <td><input type="checkbox" id="fe-w5-d3" /></td>
-          </tr>
-          <tr>
-            <td>Thu</td>
-            <td>
-              LIS, Writing tests for components, custom hooks, and user events
-            </td>
-            <td><input type="checkbox" id="fe-w5-d4" /></td>
-          </tr>
-          <tr>
-            <td>Fri</td>
-            <td>
-              Extend GitHub app with state management and write tests for it
-            </td>
-            <td><input type="checkbox" id="fe-w5-d5" /></td>
-          </tr>
-          <tr>
-            <td>Sat</td>
-            <td>
-              Mock: Max Product Subarray, Mock interview with component testing
-            </td>
-            <td><input type="checkbox" id="fe-w5-d6" /></td>
-          </tr>
-        </tbody>
-      </table>
-      <h2>Week 6 – Review & Mocks</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Day</th>
-            <th>Tasks</th>
-            <th>Done</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Mon</td>
-            <td>Review Arrays/Strings, Review Advanced CSS Concepts</td>
-            <td><input type="checkbox" id="fe-w6-d1" /></td>
-          </tr>
-          <tr>
-            <td>Tue</td>
-            <td>
-              Review Trees/Lists, Review all React Hooks and their use cases
-            </td>
-            <td><input type="checkbox" id="fe-w6-d2" /></td>
-          </tr>
-          <tr>
-            <td>Wed</td>
-            <td>Review Graphs, Review TypeScript, review state management</td>
-            <td><input type="checkbox" id="fe-w6-d3" /></td>
-          </tr>
-          <tr>
-            <td>Thu</td>
-            <td>Review DP, Review browser performance and web vitals</td>
-            <td><input type="checkbox" id="fe-w6-d4" /></td>
-          </tr>
-          <tr>
-            <td>Fri</td>
-            <td>Behavioral STAR practice, Polish portfolio & GitHub</td>
-            <td><input type="checkbox" id="fe-w6-d5" /></td>
-          </tr>
-          <tr>
-            <td>Sat</td>
-            <td>
-              2 Full Front-End Mock Interviews (Algorithms + System Design)
-            </td>
-            <td><input type="checkbox" id="fe-w6-d6" /></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
 
-    <!-- ====================================================== -->
-    <!-- ============== Design Engineer Plan ================== -->
-    <!-- ====================================================== -->
-    <div id="design" class="tab-content">
-      <h2>Week 1 – CSS, HTML & Design Fundamentals</h2>
+      <h2>Section 4 & 5: Arrays and Strings</h2>
       <table>
         <thead>
           <tr>
-            <th>Day</th>
-            <th>Tasks</th>
+            <th>Resource</th>
+            <th>Task</th>
             <th>Done</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Mon</td>
-            <td>Semantic HTML, CSS Specificity, Box Model Deep Dive</td>
-            <td><input type="checkbox" id="de-w1-d1" /></td>
+            <td>Udemy</td>
+            <td>Array Operations (Display, Add, Insert, Delete, Search, Binary Search)</td>
+            <td><input type="checkbox" id="udemy-s4-1" checked /></td>
           </tr>
           <tr>
-            <td>Tue</td>
-            <td>CSS Flexbox mastery (build 3 different complex layouts)</td>
-            <td><input type="checkbox" id="de-w1-d2" /></td>
+            <td>Udemy</td>
+            <td>String Ops (Length, Case, Reverse, Palindrome, Duplicates, Anagrams)</td>
+            <td><input type="checkbox" id="udemy-s5-1" /></td>
           </tr>
           <tr>
-            <td>Wed</td>
-            <td>CSS Grid mastery (build a full page photo gallery)</td>
-            <td><input type="checkbox" id="de-w1-d3" /></td>
+            <td>CTCI</td>
+            <td>Read Chapter 1: Arrays and Strings</td>
+            <td><input type="checkbox" id="ctci-ch1" /></td>
           </tr>
           <tr>
-            <td>Thu</td>
-            <td>Responsive Design (Mobile-first), CSS Variables</td>
-            <td><input type="checkbox" id="de-w1-d4" /></td>
-          </tr>
-          <tr>
-            <td>Fri</td>
-            <td>
-              Pixel-perfect challenge: Recreate a simple component from a
-              Figma/Sketch file
-            </td>
-            <td><input type="checkbox" id="de-w1-d5" /></td>
-          </tr>
-          <tr>
-            <td>Sat</td>
-            <td>Review week 1, Curate portfolio with best UI work</td>
-            <td><input type="checkbox" id="de-w1-d6" /></td>
+            <td>Leetcode</td>
+            <td>Two Sum, Valid Anagram, Contains Duplicate, Longest Substring Without Repeating Characters</td>
+            <td><input type="checkbox" id="leet-arr-str-1" /></td>
           </tr>
         </tbody>
       </table>
-      <h2>Week 2 – JS for UI & Intro to React</h2>
+
+      <h2>Section 6: Matrices</h2>
       <table>
         <thead>
           <tr>
-            <th>Day</th>
-            <th>Tasks</th>
+            <th>Resource</th>
+            <th>Task</th>
             <th>Done</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Mon</td>
-            <td>DOM Manipulation, Event Handling (click, hover, scroll)</td>
-            <td><input type="checkbox" id="de-w2-d1" /></td>
+            <td>Udemy</td>
+            <td>Diagonal, Lower/Upper Triangular, Symmetric Matrix representations</td>
+            <td><input type="checkbox" id="udemy-s6-1" /></td>
           </tr>
           <tr>
-            <td>Tue</td>
-            <td>
-              Build an interactive component with vanilla JS (e.g., a modal or
-              dropdown)
-            </td>
-            <td><input type="checkbox" id="de-w2-d2" /></td>
+            <td>CTCI</td>
+            <td>Review matrix problems in Chapter 1 (e.g., Zero Matrix, Rotate Matrix)</td>
+            <td><input type="checkbox" id="ctci-ch1-matrix" /></td>
           </tr>
           <tr>
-            <td>Wed</td>
-            <td>React Basics: JSX, Components, Props</td>
-            <td><input type="checkbox" id="de-w2-d3" /></td>
-          </tr>
-          <tr>
-            <td>Thu</td>
-            <td>React State (useState) and Handling Events</td>
-            <td><input type="checkbox" id="de-w2-d4" /></td>
-          </tr>
-          <tr>
-            <td>Fri</td>
-            <td>Build your vanilla JS component in React</td>
-            <td><input type="checkbox" id="de-w2-d5" /></td>
-          </tr>
-          <tr>
-            <td>Sat</td>
-            <td>Mock: "Explain how you would build this UI component"</td>
-            <td><input type="checkbox" id="de-w2-d6" /></td>
+            <td>Leetcode</td>
+            <td>Rotate Image, Set Matrix Zeroes, Spiral Matrix</td>
+            <td><input type="checkbox" id="leet-matrix-1" /></td>
           </tr>
         </tbody>
       </table>
-      <h2>Week 3 – Advanced CSS & Interaction</h2>
+
+      <h2>Section 7: Linked Lists</h2>
       <table>
         <thead>
           <tr>
-            <th>Day</th>
-            <th>Tasks</th>
+            <th>Resource</th>
+            <th>Task</th>
             <th>Done</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Mon</td>
-            <td>CSS Transitions & Transforms (2D and 3D)</td>
-            <td><input type="checkbox" id="de-w3-d1" /></td>
+            <td>Udemy</td>
+            <td>Singly Linked List (Intro, Display, Search, Insert, Delete, Reverse)</td>
+            <td><input type="checkbox" id="udemy-s7-1" /></td>
           </tr>
           <tr>
-            <td>Tue</td>
-            <td>CSS Animations with @keyframes. Build a loading spinner.</td>
-            <td><input type="checkbox" id="de-w3-d2" /></td>
+            <td>Udemy</td>
+            <td>Circular Linked List, Doubly Linked List, Merge, Check for Loop</td>
+            <td><input type="checkbox" id="udemy-s7-2" /></td>
           </tr>
           <tr>
-            <td>Wed</td>
-            <td>Advanced CSS Techniques (pseudo-elements, blend modes)</td>
-            <td><input type="checkbox" id="de-w3-d3" /></td>
+            <td>CTCI</td>
+            <td>Read Chapter 2: Linked Lists</td>
+            <td><input type="checkbox" id="ctci-ch2" /></td>
           </tr>
           <tr>
-            <td>Thu</td>
-            <td>SVG styling and animation (CSS and/or simple JS)</td>
-            <td><input type="checkbox" id="de-w3-d4" /></td>
-          </tr>
-          <tr>
-            <td>Fri</td>
-            <td>
-              Project: Build a landing page with multiple scroll-triggered
-              animations
-            </td>
-            <td><input type="checkbox" id="de-w3-d5" /></td>
-          </tr>
-          <tr>
-            <td>Sat</td>
-            <td>Mock: "How would you create this animation effect?"</td>
-            <td><input type="checkbox" id="de-w3-d6" /></td>
+            <td>Leetcode</td>
+            <td>Reverse Linked List, Linked List Cycle, Merge Two Sorted Lists, Remove Nth Node From End</td>
+            <td><input type="checkbox" id="leet-ll-1" /></td>
           </tr>
         </tbody>
       </table>
-      <h2>Week 4 – Design Systems & Storybook</h2>
+
+      <h2>Section 9 & 10: Stacks and Queues</h2>
       <table>
         <thead>
           <tr>
-            <th>Day</th>
-            <th>Tasks</th>
+            <th>Resource</th>
+            <th>Task</th>
             <th>Done</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Mon</td>
-            <td>
-              Principles of Design Systems, Accessibility (ARIA, keyboard
-              navigation)
-            </td>
-            <td><input type="checkbox" id="de-w4-d1" /></td>
+            <td>Udemy</td>
+            <td>Stack (Array/LL), Parenthesis Matching, Infix to Postfix</td>
+            <td><input type="checkbox" id="udemy-s9-1" /></td>
           </tr>
           <tr>
-            <td>Tue</td>
-            <td>Intro to Storybook: Set up and create your first story</td>
-            <td><input type="checkbox" id="de-w4-d2" /></td>
+            <td>Udemy</td>
+            <td>Queue (Array/Circular/LL), Priority Queues</td>
+            <td><input type="checkbox" id="udemy-s10-1" /></td>
           </tr>
           <tr>
-            <td>Wed</td>
-            <td>
-              Build a reusable Button component with variants (primary,
-              secondary, disabled) in Storybook
-            </td>
-            <td><input type="checkbox" id="de-w4-d3" /></td>
+            <td>CTCI</td>
+            <td>Read Chapter 3: Stacks and Queues</td>
+            <td><input type="checkbox" id="ctci-ch3" /></td>
           </tr>
           <tr>
-            <td>Thu</td>
-            <td>
-              Build a reusable Input component with states (error, success) in
-              Storybook
-            </td>
-            <td><input type="checkbox" id="de-w4-d4" /></td>
-          </tr>
-          <tr>
-            <td>Fri</td>
-            <td>
-              CSS-in-JS (Styled Components or Emotion), themeing your components
-            </td>
-            <td><input type="checkbox" id="de-w4-d5" /></td>
-          </tr>
-          <tr>
-            <td>Sat</td>
-            <td>
-              Mock: "Build a Card component based on these design specs in
-              Storybook"
-            </td>
-            <td><input type="checkbox" id="de-w4-d6" /></td>
+            <td>Leetcode</td>
+            <td>Valid Parentheses, Min Stack, Implement Queue using Stacks</td>
+            <td><input type="checkbox" id="leet-stack-queue-1" /></td>
           </tr>
         </tbody>
       </table>
-      <h2>Week 5 – Animation Libraries & Performance</h2>
+
+      <h2>Section 11: Trees</h2>
       <table>
         <thead>
           <tr>
-            <th>Day</th>
-            <th>Tasks</th>
+            <th>Resource</th>
+            <th>Task</th>
             <th>Done</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Mon</td>
-            <td>Intro to an animation library (Framer Motion or GSAP)</td>
-            <td><input type="checkbox" id="de-w5-d1" /></td>
+            <td>Udemy</td>
+            <td>Binary Trees: Creation, Traversals (Preorder, Inorder, Postorder, Level-order), Height & Count</td>
+            <td><input type="checkbox" id="udemy-s11-1" /></td>
           </tr>
           <tr>
-            <td>Tue</td>
-            <td>Build complex staggered animations with your chosen library</td>
-            <td><input type="checkbox" id="de-w5-d2" /></td>
+            <td>Udemy</td>
+            <td>Binary Search Trees (BST): Search, Insert, Delete</td>
+            <td><input type="checkbox" id="udem-s11-2" /></td>
           </tr>
           <tr>
-            <td>Wed</td>
-            <td>Animating on user interaction (gestures, drag/drop)</td>
-            <td><input type="checkbox" id="de-w5-d3" /></td>
+            <td>Udemy</td>
+            <td>Advanced Trees: AVL Trees (Rotations), Heaps (Insert, Delete, Heap Sort), Trie</td>
+            <td><input type="checkbox" id="udemy-s11-3" /></td>
           </tr>
           <tr>
-            <td>Thu</td>
-            <td>
-              UI Performance: Understanding repaint/reflow, using `will-change`
-            </td>
-            <td><input type="checkbox" id="de-w5-d4" /></td>
+            <td>CTCI</td>
+            <td>Read Chapter 4: Trees and Graphs</td>
+            <td><input type="checkbox" id="ctci-ch4" /></td>
           </tr>
           <tr>
-            <td>Fri</td>
-            <td>
-              Project: Recreate a complex, animated UI from Awwwards or Dribbble
-            </td>
-            <td><input type="checkbox" id="de-w5-d5" /></td>
-          </tr>
-          <tr>
-            <td>Sat</td>
-            <td>Mock: Whiteboard a complex UI interaction flow</td>
-            <td><input type="checkbox" id="de-w5-d6" /></td>
+            <td>Leetcode</td>
+            <td>Maximum Depth of Binary Tree, Invert Binary Tree, Validate Binary Search Tree, Kth Largest Element in an Array (Heap), Implement Trie</td>
+            <td><input type="checkbox" id="leet-tree-1" /></td>
           </tr>
         </tbody>
       </table>
-      <h2>Week 6 – Review & Mocks</h2>
+
+      <h2>Section 12: Hashing</h2>
       <table>
         <thead>
           <tr>
-            <th>Day</th>
-            <th>Tasks</th>
+            <th>Resource</th>
+            <th>Task</th>
             <th>Done</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Mon</td>
-            <td>Review CSS Flexbox/Grid/Animations</td>
-            <td><input type="checkbox" id="de-w6-d1" /></td>
+            <td>Udemy</td>
+            <td>Hashing Intro, Chaining, Linear Probing, Quadratic Probing</td>
+            <td><input type="checkbox" id="udemy-s12-1" /></td>
           </tr>
           <tr>
-            <td>Tue</td>
-            <td>Review React component building and state management</td>
-            <td><input type="checkbox" id="de-w6-d2" /></td>
+            <td>CTCI</td>
+            <td>Review Hash Table applications in Ch 1 (Arrays/Strings) and Ch 2 (Linked Lists)</td>
+            <td><input type="checkbox" id="ctci-hashing" /></td>
           </tr>
           <tr>
-            <td>Wed</td>
-            <td>Review Design System principles and Storybook</td>
-            <td><input type="checkbox" id="de-w6-d3" /></td>
-          </tr>
-          <tr>
-            <td>Thu</td>
-            <td>Review animation techniques and performance</td>
-            <td><input type="checkbox" id="de-w6-d4" /></td>
-          </tr>
-          <tr>
-            <td>Fri</td>
-            <td>
-              Behavioral STAR practice, Polish portfolio with animated projects
-            </td>
-            <td><input type="checkbox" id="de-w6-d5" /></td>
-          </tr>
-          <tr>
-            <td>Sat</td>
-            <td>
-              2 Full "Pixel-Perfect" Mock Interviews (Build a UI from a design
-              file)
-            </td>
-            <td><input type="checkbox" id="de-w6-d6" /></td>
+            <td>Leetcode</td>
+            <td>Group Anagrams, Ransom Note, Design HashMap</td>
+            <td><input type="checkbox" id="leet-hash-1" /></td>
           </tr>
         </tbody>
       </table>
-    </div>
+
+      <h2>Section 13: Sorting Techniques</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Resource</th>
+            <th>Task</th>
+            <th>Done</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Udemy</td>
+            <td>Basic (Bubble, Insertion, Selection), Advanced (Quick Sort, Merge Sort)</td>
+            <td><input type="checkbox" id="udemy-s13-1" /></td>
+          </tr>
+          <tr>
+            <td>Udemy</td>
+            <td>Specialized (Count Sort, Radix Sort, Shell Sort)</td>
+            <td><input type="checkbox" id="udemy-s13-2" /></td>
+          </tr>
+          <tr>
+            <td>CTCI</td>
+            <td>Read Chapter 10: Sorting and Searching</td>
+            <td><input type="checkbox" id="ctci-ch10" /></td>
+          </tr>
+          <tr>
+            <td>Leetcode</td>
+            <td>Merge Sorted Array, Sort Colors (Dutch National Flag problem)</td>
+            <td><input type="checkbox" id="leet-sort-1" /></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Section 14: Graphs</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Resource</th>
+            <th>Task</th>
+            <th>Done</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Udemy</td>
+            <td>Terminology, Representation, Breadth-First Search (BFS), Depth-First Search (DFS)</td>
+            <td><input type="checkbox" id="udemy-s14-1" /></td>
+          </tr>
+          <tr>
+            <td>Udemy</td>
+            <td>Spanning Trees (Prim's Algorithm, Kruskal's Algorithm)</td>
+            <td><input type="checkbox" id="udemy-s14-2" /></td>
+          </tr>
+          <tr>
+            <td>CTCI</td>
+            <td>Review Graph problems in Chapter 4</td>
+            <td><input type="checkbox" id="ctci-ch4-graphs" /></td>
+          </tr>
+          <tr>
+            <td>Leetcode</td>
+            <td>Number of Islands, Clone Graph, Course Schedule (Topological Sort)</td>
+            <td><input type="checkbox" id="leet-graph-1" /></td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
 
     <script src="script.js"></script>
   </body>

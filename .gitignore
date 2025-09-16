@@ -88,3 +88,25 @@ dkms.conf
 
 # PDFs
 *.pdf
+
+# Xcode
+#
+# gitignore contributors: remember to keep this file platform-agnostic
+# gitignore test: ./tools/test-gitignore-rules.sh
+
+## User-specific files
+*.xcuserdatad
+*.xcworkspace
+
+## Build generated
+build/
+DerivedData/
+
+## Various settings
+*.xccheckout
+*.moved-aside
+*.xcuserstate
+*.xcscheme
+
+## Other
+*.xcodeproj
