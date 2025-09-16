@@ -6,25 +6,6 @@ This project implements a dynamic array class in C++ from first principles. It s
 
 The code provides a single `Array` class that encapsulates array data and operations, along with an interactive command-line menu for testing various functionalities. The implementation covers basic CRUD operations, search algorithms, set operations, and more complex analysis algorithms for finding missing elements and duplicates. A detailed breakdown of the time and space complexity of each function is available in the `ArrayCPP/ArrayCPP/complexity_docs.md` file.
 
-## Project Status and Next Steps
-
-For an interactive, up-to-date view of the project plan and study progress, please see the **[Consolidated Study Plan](https://richtxteditor.github.io/dsa)**.
-
-### Completed Milestones
-
-* Implemented dynamic resizing to handle overflow automatically.
-* Split monolithic code into `.h` (header) and `.cpp` (source) files.
-* Added a simple unit test function and set up an XCTest target.
-* Replaced `using namespace std;` with specific `using` declarations.
-* Implemented and tested various duplicate-finding methods.
-* Set up a simple build system with CMake.
-
-### Current Goals
-
-* Implement Iterators to make the `Array` class compatible with range-based `for` loops.
-* Convert the `Array` class to a template class to support generic data types (e.g., `Array<T>`).
-* Implement additional sorting algorithms (e.g., Merge Sort, Quick Sort) as methods of the `Array` class.
-
 ## Features Implemented
 
 The `Array` class supports a wide range of operations, categorized below:
@@ -99,3 +80,21 @@ This code demonstrates several key C++ programming concepts:
 4. Follow the interactive menu prompts to test different array operations.
 
 ---
+
+## Project Status and Next Steps
+
+For an interactive, up-to-date view of the project plan and study progress, please see the **[Consolidated Study Plan](zCheck_List/index.html)**.
+
+### Completed Milestones
+- Implemented dynamic resizing to handle overflow automatically.
+- Split monolithic code into `.h` (header) and `.cpp` (source) files.
+- Added a simple unit test function and set up an XCTest target.
+- Replaced `using namespace std;` with specific `using` declarations.
+- Implemented and tested various duplicate-finding methods.
+- Set up a simple build system with CMake.
+
+### Current Goals
+- Implement Iterators to make the `Array` class compatible with range-based `for` loops.
+- Convert the `Array` class to a template class to support generic data types (e.g., `Array<T>`).
+- Implement additional sorting algorithms (e.g., Merge Sort, Quick Sort) as methods of the `Array` class.
+
