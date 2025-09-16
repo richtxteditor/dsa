@@ -13,6 +13,7 @@ cmake-build-debug/
 # macOS specific
 .DS_Store
 
+<<<<<<< HEAD
 # IDE specific (e.g., IntelliJ, CLion)
 .idea/
 *.iml
@@ -20,3 +21,10 @@ cmake-build-debug/
 # Logs and temporary files
 *.log
 *.tmp
+=======
+## Other
+*.xcodeproj
+
+# IDE specific (e.g., IntelliJ, CLion)
+.idea/
+>>>>>>> main
