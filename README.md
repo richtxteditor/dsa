@@ -98,6 +98,8 @@ The learning cycle for each new data structure is:
 
 * **Udemy:** Progress to the sections on "Strings" and "Matrices."
 * **Personal Implementation:** Implement common string algorithms (e.g., palindrome check, permutation check) and create a simple `Matrix` class or use `vector<vector<int>>` for matrix rotation and search algorithms.
+
+
 * **CTCI Reading:** **Chapter 1: "Arrays and Strings."**
 * **CTCI Practice:** "Is Unique", "Check Permutation", "URLify", "String Compression", "Zero Matrix".
 
