@@ -1,0 +1,22 @@
+# VS Code
+.vscode/
+
+# Build artifacts
+build/
+cmake-build-debug/
+*.o
+*.a
+*.so
+*.dll
+*.exe
+
+# macOS specific
+.DS_Store
+
+# IDE specific (e.g., IntelliJ, CLion)
+.idea/
+*.iml
+
+# Logs and temporary files
+*.log
+*.tmp
