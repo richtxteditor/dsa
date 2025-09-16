@@ -81,68 +81,20 @@ This code demonstrates several key C++ programming concepts:
 
 ---
 
-## Next Steps: An Integrated Learning Plan
+## Project Status and Next Steps
 
-For an interactive, checkable version of this study plan, please see the **[Consolidated Study Plan](zCheck_List/index.html)**.
+For an interactive, up-to-date view of the project plan and study progress, please see the **[Consolidated Study Plan](zCheck_List/index.html)**.
 
-This plan integrates the Udemy course **"Data Structures and Algorithms using C++"** with the industry-standard interview prep book **"Cracking the Coding Interview" (CTCI)**.
+### Completed Milestones
+- Implemented dynamic resizing to handle overflow automatically.
+- Split monolithic code into `.h` (header) and `.cpp` (source) files.
+- Added a simple unit test function and set up an XCTest target.
+- Replaced `using namespace std;` with specific `using` declarations.
+- Implemented and tested various duplicate-finding methods.
+- Set up a simple build system with CMake.
 
-The learning cycle for each new data structure is:
+### Current Goals
+- Implement Iterators to make the `Array` class compatible with range-based `for` loops.
+- Convert the `Array` class to a template class to support generic data types (e.g., `Array<T>`).
+- Implement additional sorting algorithms (e.g., Merge Sort, Quick Sort) as methods of the `Array` class.
 
-1. **Learn the Theory (Udemy):** Watch the course lectures to understand the concept, operations, and Big O complexity.
-2. **Implement from Scratch (IDE):** Build the data structure yourself to solidify your understanding.
-3. **Reinforce and Strategize (CTCI):** Read the corresponding chapter in CTCI for an interview-focused review of key points and trade-offs.
-4. **Practice with Problems (CTCI):** Solve the chapter problems to apply your knowledge.
-
----
-
-### **Step 1: Strings and Matrices** (Natural extension of Arrays)
-
-* **Udemy:** Progress to the sections on "Strings" and "Matrices."
-* **Personal Implementation:** Implement common string algorithms (e.g., palindrome check, permutation check) and create a simple `Matrix` class or use `vector<vector<int>>` for matrix rotation and search algorithms.
-
-
-* **CTCI Reading:** **Chapter 1: "Arrays and Strings."**
-* **CTCI Practice:** "Is Unique", "Check Permutation", "URLify", "String Compression", "Zero Matrix".
-
-### **Step 2: Linked Lists** (The first major conceptual leap)
-
-* **Udemy:** Watch the lectures on Singly, Doubly, and Circular Linked Lists. Focus on pointer manipulation.
-* **Personal Implementation:** Create a `LinkedList` class from scratch with a private `Node` struct. Implement `append`, `insert`, `delete`, `display`, and `reverse`.
-* **CTCI Reading:** **Chapter 2: "Linked Lists."** Internalize the **"Runner" (fast/slow pointer) technique**.
-* **CTCI Practice:** "Remove Dups", "Return Kth to Last", "Delete Middle Node", "Partition", "Sum Lists", "Intersection".
-
-### **Step 3: Stacks and Queues** (Abstract Data Types)
-
-* **Udemy:** Cover the theory of Stacks (LIFO) and Queues (FIFO).
-* **Personal Implementation:** Implement both `Stack` and `Queue` classes. Do this twice: once using an array as the backing store, and again using your `LinkedList`. This demonstrates the power of abstraction.
-* **CTCI Reading:** **Chapter 3: "Stacks and Queues."**
-* **CTCI Practice:** "Three in One", "Stack Min", "Stack of Plates", "Queue via Stacks", "Animal Shelter".
-
-### **Step 4: Trees** (Moving to non-linear data)
-
-* **Udemy:** Cover Binary Trees, Binary Search Trees (BSTs), and Heaps. Master tree **traversals (In-order, Pre-order, Post-order, Level-order)**.
-* **Personal Implementation:**
-    1. Create a `BinarySearchTree` class. Implement `insert`, `search`, `delete`, and the traversal algorithms using recursion.
-    2. Implement a `MinHeap` or `MaxHeap` class using a vector/array as the underlying structure.
-* **CTCI Reading:** **Chapter 4: "Trees and Graphs."** Focus on the tree sections first.
-* **CTCI Practice:** "Minimal Tree", "List of Depths", "Check Balanced", "Validate BST", "Successor", "First Common Ancestor".
-
-### **Step 5: Graphs and Advanced Algorithms**
-
-* **Udemy:** Progress to advanced sorting (Merge Sort, Quick Sort) and Graphs (representations, BFS, DFS).
-* **Personal Implementation:** Implement Merge Sort and Quick Sort. Create a `Graph` class (supporting both Adjacency List and Matrix representations) and implement Breadth-First Search and Depth-First Search.
-* **CTCI Reading:** The rest of **Chapter 4 ("Trees and Graphs")** and **Chapter 10 ("Sorting and Searching")**.
-* **CTCI Practice:**
-  * **Graphs:** "Route Between Nodes", "Build Order", "Shortest Path".
-  * **Sorting:** "Sorted Merge", "Group Anagrams", "Search in Rotated Array".
-
-### **Problem-Solving Mindset**
-
-When tackling problems from CTCI, adopt a "whiteboard" approach:
-
-1. **Clarify:** Understand the problem, constraints, and edge cases.
-2. **Brute-Force:** Formulate the simplest, most obvious solution first.
-3. **Optimize:** Analyze the bottlenecks (time or space) of the brute-force solution. Can a better data structure (like a hash map) or algorithm be used?
-4. **Whiteboard:** Sketch out the logic of your optimized approach before writing a single line of code.
-5. **Code:** Implement your final, optimized solution.
