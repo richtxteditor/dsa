@@ -110,3 +110,6 @@ DerivedData/
 
 ## Other
 *.xcodeproj
+
+# IDE specific (e.g., IntelliJ, CLion)
+.idea/
