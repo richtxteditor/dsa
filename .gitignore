@@ -1,115 +1,85 @@
-# Prerequisites
-*.d
-
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
-
-# Linker output
-*.ilk
-*.map
-*.exp
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
-
-# Prerequisites
-*.d
-
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
-.DS_Store
-.vscode
-
-# PDFs
-*.pdf
-
-# Xcode
+# =========================================================================
+# Standard Gitignore for macOS & Xcode Projects
 #
-# gitignore contributors: remember to keep this file platform-agnostic
-# gitignore test: ./tools/test-gitignore-rules.sh
+# This file includes ignores for macOS system files, common IDEs,
+# build artifacts, and sensitive environment variables.
+# =========================================================================
 
-## User-specific files
-*.xcuserdatad
-*.xcworkspace
+# -------------------------------------------------------------------------
+# macOS / System Files
+# -------------------------------------------------------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# -------------------------------------------------------------------------
+# General IDE / Editor Configuration
+# -------------------------------------------------------------------------
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+
+# -------------------------------------------------------------------------
+# Xcode
+# -------------------------------------------------------------------------
 
 ## Build generated
 build/
 DerivedData/
 
 ## Various settings
-*.xccheckout
 *.moved-aside
+*.xccheckout
+
+## User-specific states
+# These files store your personal workspace settings (open files, breakpoints, etc.)
+# and should not be shared with the team.
 *.xcuserstate
-*.xcscheme
+*.xcuserdatad
 
-## Other
-*.xcodeproj
+# -------------------------------------------------------------------------
+# Swift Package Manager (SPM)
+# -------------------------------------------------------------------------
+.build/
+.swiftpm/
 
-# IDE specific (e.g., IntelliJ, CLion)
-.idea/
+# -------------------------------------------------------------------------
+# Dependency Managers
+# -------------------------------------------------------------------------
+
+# Carthage
+# Add this section if you use Carthage.
+# Usually, you only commit the Cartfile.resolved file.
+Carthage/Build
+
+# CocoaPods
+# It is a standard practice to commit the Pods/ directory to the repository.
+# Therefore, it is NOT included here by default.
+
+# -------------------------------------------------------------------------
+# Secrets & Environment Variables
+# -------------------------------------------------------------------------
+# Never commit sensitive files like API keys or passwords.
+# Store them in a .env file and add a .env.example with dummy values
+# to the repository.
+.env
+.env.*
+!.env.example
+
+# -------------------------------------------------------------------------
+# Miscellaneous
+# -------------------------------------------------------------------------
+*.log
+*.tmp
+*.swp
+*.swo
