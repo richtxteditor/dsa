@@ -2,18 +2,13 @@
 
 This branch (`gh-pages`) is dedicated to hosting the static website for this project via GitHub Pages.
 
-<<<<<<< HEAD
-**Do not make direct edits to files in this branch.**
-
-The content of this branch is automatically generated from the `main` branch. Any changes to the website should be made in the `main` branch, and then the static assets should be built and deployed to this `gh-pages` branch.
-=======
 This project implements a dynamic array class in C++ from first principles. It serves as a foundational exercise for understanding data structure mechanics, memory management, and algorithm implementation. The goal is not to replace standard library containers like `std::vector`, but to learn how such containers operate under the hood.
 
 The code provides a single `Array` class that encapsulates array data and operations, along with an interactive command-line menu for testing various functionalities. The implementation covers basic CRUD operations, search algorithms, set operations, and more complex analysis algorithms for finding missing elements and duplicates. A detailed breakdown of the time and space complexity of each function is available in the `ArrayCPP/ArrayCPP/complexity_docs.md` file.
 
 ## Project Status and Next Steps
 
-For an interactive, up-to-date view of the project plan and study progress, please see the **[Consolidated Study Plan](https://richtxteditor.github.io/dsa)**.
+For an interactive, up-to-date view of the project plan and study progress, please see the **[Consolidated Study Plan](richtxteditor.github.io/dsa)**.
 
 ### Completed Milestones
 
@@ -104,4 +99,3 @@ This code demonstrates several key C++ programming concepts:
 4. Follow the interactive menu prompts to test different array operations.
 
 ---
->>>>>>> main
