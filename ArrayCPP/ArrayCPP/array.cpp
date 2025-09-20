@@ -10,6 +10,8 @@
 #include <algorithm>
 #include <limits>
 #include <iostream>
+#include <utility>
+#include <unordered_map>
 
 using std::cout;
 using std::cerr;
@@ -22,9 +24,11 @@ using std::to_string;
 using std::overflow_error;
 using std::out_of_range;
 using std::logic_error;
+using std::unordered_map;
+using std::pair;
+
 
 // --- Private Helper Implementations ---
-
 void Array::swap(int* x, int* y) {
     int temp = *x;
     *x = *y;
@@ -34,9 +38,9 @@ void Array::swap(int* x, int* y) {
 void Array::resize() {
     // If size is 0, grow to a default initial capacity. Otherwise, double it.
     size_t newSize = (size == 0) ? 10 : size * 2;
-    
+#ifdef DEBUG_MODE
     cout << "[Debug: Resizing from " << size << " to " << newSize << "]" << endl;
-    
+#endif
     int* newA = new int [newSize];
     
     for (size_t i = 0; i < length; ++i) {
@@ -58,7 +62,9 @@ Array::Array(size_t sz) : size(sz > 0 ? sz : 10), length(0) {
     } else {
         A = new int[size];
     }
+#ifdef DEBUG_MODE
     cout << "[Debug: Constructor called!]" << endl;
+#endif
 }
 
 Array::~Array() {
@@ -70,7 +76,9 @@ Array::~Array() {
 // Prevents multiple Array objects from sharing the same underlying memory ('A'),
 // which would lead to errors like double-free when they are destroyed.
 Array::Array(const Array& other) : size(other.size), length(other.length) {
+#ifdef DEBUG_MODE
     cout << "[Debug: Copy Constructor Called]" << endl;
+#endif
     if (size == 0) { A = nullptr; return; } // handle case where other failed construction
     A = new int[size]; // Let std::bad_alloc propagate on failure.
     for (size_t i = 0; i < length; ++i) A[i] = other.A[i]; // copy actual data element by element.
@@ -81,7 +89,9 @@ Array::Array(const Array& other) : size(other.size), length(other.length) {
 // (e.g., 'arr1 = arr2;'). Performs a deep copy, cleans up the target object's old resources, and
 // handles self-assignment
 Array& Array::operator=(const Array& other) {
+#ifdef DEBUG_MODE
     cout << "[Debug: Copy Assignment Called]" << endl;
+#endif
     if (this == &other) return *this; // check for self-assignment to avoid errors
     // allocate new mem first before deleting old mem for exception safety
     int* newA = new int[other.size]; // throws std::bad_alloc on failure
@@ -545,79 +555,74 @@ void Array::FindDuplicatesSorted() const {
             cout << "No duplicates found in this sorted array." << endl;
         }
     }
-// O(n)
-// Scan array
-// hash table size is 20 bc last element of first array depicts size
-// next, filled with zeroes
-// go to index in new array, increment by one,
-// then go to next element until all elements are scanned
+
+// The best general-purpose hashing method.
+// Time: O(n), Space: O(k) where k is the number of unique elements.
 void Array::FindDuplicatesHashing() const {
     if (length < 2) {
         cout << "Array has too few elements to contain duplicates." << endl;
         return;
     }
     
-    try {
-        int min_val = Min();
-        int max_val = Max();
-        
-        // Calculate range size
-        long long range_size_11 = static_cast<long long>(max_val) - static_cast<long long>(min_val) + 1;
-        if (range_size_11 <= 0 || range_size_11 > 1'000'000'000) {
-            cerr << "Error: Range too large for hashing. Range size = " << range_size_11 << endl;
-            return;
+    // 1. Create a true hash map to store frequencies.
+    // The key is the number from the array, the value is its count.
+    unordered_map<int, int> freq_map;
+    
+    // 2. Populate the frequency map.
+    // This loop takes O(n) time.
+    for (size_t i = 0; i < length; ++i) {
+        freq_map[A[i]]++;
+    }
+    
+    // 3. Iterate through the map to find and print dupes.
+    cout << "--- Duplicates Found. (Unordered Map Method) ---" << endl;
+    bool any_duplicates_found = false;
+    // The loop runs k times for k is the number of unique elements.
+    for (const auto& pair : freq_map) {
+        if (pair.second > 1) { // pair.first is the first number, pair.second is its count
+            cout << pair.first << " occurs" << pair.second << " times." << endl;
+            any_duplicates_found = true;
         }
-        int range_size = static_cast<int>(range_size_11);
-        
-        // step 1: create frequency table
-        vector<int> hash_table(range_size, 0);
-        
-        // step 2: populate frequency table
-        for (size_t i = 0; i < length; ++i) {
-            int index = A[i] - min_val; // shift values to start from 0
-            hash_table[index]++;
-        }
-        
-        //step 3: print dupes
-        bool found = false;
-        cout << "Duplicates found (Hashing method):" << endl;
-        for (size_t i = 0; i < length - 1; ++i) {
-            if (hash_table[i] > 1) {
-                cout << "Value: " << (i + min_val) << " | Occurrences: " << hash_table[i] << " times." << endl;
-                found = true;
-            }
-        }
-        if (!found) {
-            cout << "No duplicates found in this sorted array." << endl;
-        }
-        
-    } catch(const std::logic_error& e) {
-        // This catch block will trigger if Max() is called on an empty array.
-        cerr << "Error: " << e.what() << endl;
+    }
+    if (!any_duplicates_found) {
+        cout << "No duplciates found." << endl;
     }
 }
 
-void Array::FindDuplicatesUnsorted() {
-    // FindDuplicatesHashing();
+// Finds duplicates using O(n^2) brute-force in a NON-DESTRUCTIVE way.
+// It creates a temporary copy to avoid modifying the original array.
+std::vector<std::pair<int, int>> Array::FindDuplicatesUnsorted_BruteForce() {
+    std::vector<std::pair<int, int>> duplicates;
     if (length < 2) {
-        cout << "Array has too few elements to contain duplicates." << endl;
-        return;
+        return duplicates;
     }
+    
+    // 1. Create a temporary, modifiable copy of the array data.
+    int* tempA = new int[length];
+    for (size_t i = 0; i < length; ++i) {
+        tempA[i] = A[i];
+    }
+    
+    // 2. Perform the destructive algorithm on the copy.
     for (size_t i = 0; i < length - 1; ++i) {
-        int count = 1;
-        if (A[i] != -1) {
+        // NOTE: We now use a legit value from the original array A to check
+        // against our temporary array.
+        if (tempA[i] != -1) {
+            int count = 1;
             // Inner loop compares A[i] with all subsequent elements.
             for (size_t j = i + 1; j < length; j++){
-                if (A[i] == A[j]) {
-                    count += 1;
-                    A[j] = -1; // mark the found duplicate to avoid re-counting.
+                if (tempA[i] == tempA[j]) {
+                    count++;
+                    tempA[j] = -1; // mark the found duplicate to avoid re-counting.
                 }
             }
             
-            // if more than one incstance was found, report it.
+            // if more than one incstance was found, add it to the vector.
             if (count > 1) {
-                cout << "Value: " << A[i] << " Occurrences: " << count << " times." << endl;
+                duplicates.push_back({A[i], count});
             }
         }
     }
+    delete[] tempA;
+    return duplicates;
 }

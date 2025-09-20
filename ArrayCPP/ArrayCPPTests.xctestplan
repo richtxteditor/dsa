@@ -1,0 +1,25 @@
+{
+  "configurations" : [
+    {
+      "id" : "B586A9DE-598E-4B64-ACEA-8269E98130CA",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "performanceAntipatternCheckerEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:ArrayCPP.xcodeproj",
+        "identifier" : "7F5C505E2E7F4A0300087CEA",
+        "name" : "ArrayCPPTests"
+      }
+    }
+  ],
+  "version" : 1
+}

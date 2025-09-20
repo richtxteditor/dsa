@@ -29,19 +29,34 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		7F37F3842E79ECB300C486EF /* ArrayCPPTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArrayCPPTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F5C505F2E7F4A0300087CEA /* ArrayCPPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArrayCPPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F92B8C62E7F5E5600FCAEEF /* ArrayCPPTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = file; path = ArrayCPPTests.xctestplan; sourceTree = "<group>"; };
 		7FF05FF52E79E1C800746C7A /* ArrayCPP */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ArrayCPP; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FF060082E79E20500746C7A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		7F5C506B2E7F4CCE00087CEA /* Exceptions for "ArrayCPP" folder in "ArrayCPPTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				array.cpp,
+				main.cpp,
+			);
+			target = 7F5C505E2E7F4A0300087CEA /* ArrayCPPTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		7FB7E61C2E79E85300D1D251 /* ArrayCPPTest */ = {
+		7F5C50602E7F4A0300087CEA /* ArrayCPPTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ArrayCPPTest;
+			path = ArrayCPPTests;
 			sourceTree = "<group>";
 		};
 		7FF05FF72E79E1C800746C7A /* ArrayCPP */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				7F5C506B2E7F4CCE00087CEA /* Exceptions for "ArrayCPP" folder in "ArrayCPPTests" target */,
+			);
 			name = ArrayCPP;
 			path = ../../../../../../Sites/dsa/ArrayCPP/ArrayCPP;
 			sourceTree = "<group>";
@@ -49,7 +64,7 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		7F37F3812E79ECB300C486EF /* Frameworks */ = {
+		7F5C505C2E7F4A0300087CEA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -69,9 +84,10 @@
 		7FF05FEC2E79E1C800746C7A = {
 			isa = PBXGroup;
 			children = (
+				7F92B8C62E7F5E5600FCAEEF /* ArrayCPPTests.xctestplan */,
 				7FF060082E79E20500746C7A /* README.md */,
 				7FF05FF72E79E1C800746C7A /* ArrayCPP */,
-				7FB7E61C2E79E85300D1D251 /* ArrayCPPTest */,
+				7F5C50602E7F4A0300087CEA /* ArrayCPPTests */,
 				7FF05FF62E79E1C800746C7A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -80,7 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				7FF05FF52E79E1C800746C7A /* ArrayCPP */,
-				7F37F3842E79ECB300C486EF /* ArrayCPPTest.xctest */,
+				7F5C505F2E7F4A0300087CEA /* ArrayCPPTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -88,23 +104,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7F37F3832E79ECB300C486EF /* ArrayCPPTest */ = {
+		7F5C505E2E7F4A0300087CEA /* ArrayCPPTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7F37F3882E79ECB300C486EF /* Build configuration list for PBXNativeTarget "ArrayCPPTest" */;
+			buildConfigurationList = 7F5C50632E7F4A0300087CEA /* Build configuration list for PBXNativeTarget "ArrayCPPTests" */;
 			buildPhases = (
-				7F37F3802E79ECB300C486EF /* Sources */,
-				7F37F3812E79ECB300C486EF /* Frameworks */,
-				7F37F3822E79ECB300C486EF /* Resources */,
+				7F5C505B2E7F4A0300087CEA /* Sources */,
+				7F5C505C2E7F4A0300087CEA /* Frameworks */,
+				7F5C505D2E7F4A0300087CEA /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = ArrayCPPTest;
+			fileSystemSynchronizedGroups = (
+				7F5C50602E7F4A0300087CEA /* ArrayCPPTests */,
+			);
+			name = ArrayCPPTests;
 			packageProductDependencies = (
 			);
-			productName = ArrayCPPTest;
-			productReference = 7F37F3842E79ECB300C486EF /* ArrayCPPTest.xctest */;
+			productName = ArrayCPPTests;
+			productReference = 7F5C505F2E7F4A0300087CEA /* ArrayCPPTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		7FF05FF42E79E1C800746C7A /* ArrayCPP */ = {
@@ -140,8 +159,9 @@
 				LastSwiftUpdateCheck = 2600;
 				LastUpgradeCheck = 2600;
 				TargetAttributes = {
-					7F37F3832E79ECB300C486EF = {
+					7F5C505E2E7F4A0300087CEA = {
 						CreatedOnToolsVersion = 26.0;
+						LastSwiftMigration = 2600;
 					};
 					7FF05FF42E79E1C800746C7A = {
 						CreatedOnToolsVersion = 26.0;
@@ -163,13 +183,13 @@
 			projectRoot = "";
 			targets = (
 				7FF05FF42E79E1C800746C7A /* ArrayCPP */,
-				7F37F3832E79ECB300C486EF /* ArrayCPPTest */,
+				7F5C505E2E7F4A0300087CEA /* ArrayCPPTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		7F37F3822E79ECB300C486EF /* Resources */ = {
+		7F5C505D2E7F4A0300087CEA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -179,7 +199,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		7F37F3802E79ECB300C486EF /* Sources */ = {
+		7F5C505B2E7F4A0300087CEA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -196,40 +216,44 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		7F37F3892E79ECB300C486EF /* Debug */ = {
+		7F5C50642E7F4A0300087CEA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YNM8LBCZVR;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = me.ArrayCPPTest;
+				PRODUCT_BUNDLE_IDENTIFIER = me.ArrayCPPTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "ArrayCPPTests/ArrayCPPTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
-		7F37F38A2E79ECB300C486EF /* Release */ = {
+		7F5C50652E7F4A0300087CEA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YNM8LBCZVR;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = me.ArrayCPPTest;
+				PRODUCT_BUNDLE_IDENTIFIER = me.ArrayCPPTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "ArrayCPPTests/ArrayCPPTests-Bridging-Header.h";
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -377,11 +401,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7F37F3882E79ECB300C486EF /* Build configuration list for PBXNativeTarget "ArrayCPPTest" */ = {
+		7F5C50632E7F4A0300087CEA /* Build configuration list for PBXNativeTarget "ArrayCPPTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7F37F3892E79ECB300C486EF /* Debug */,
-				7F37F38A2E79ECB300C486EF /* Release */,
+				7F5C50642E7F4A0300087CEA /* Debug */,
+				7F5C50652E7F4A0300087CEA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

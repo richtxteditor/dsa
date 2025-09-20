@@ -22,48 +22,51 @@ using std::to_string;
 using std::numeric_limits;
 using std::streamsize;
 
+
+int get_validated_integer(const string& prompt,
+                          int min_val = numeric_limits<int>::min(),
+                          int max_val = numeric_limits<int>::max()) {
+    int value;
+    cout << prompt;
+    
+    while (!(cin >> value) || value < min_val || value > max_val) {
+        cout << "invalid input. Please enter an integer";
+        if (min_val != numeric_limits<int>::min() || max_val != numeric_limits<int>::max()) {
+            cout << " between " << min_val << " and " << max_val;
+        }
+        cout << " : ";
+        cin.clear(); // clear the error flag on cin
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard bad input
+    }
+    // Discard any leftover chars in the input buffer (like new line)
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+    return value;
+}
+
 // --- Helper Function to Create and Populate an Array ---
 // used for set ops requiring a 2nd array
 Array create_and_fill_array(size_t expected_size, bool must_be_sorted) {
     Array arr(expected_size); // create local array obj
-    int num_elements;
-    cout << "Enter number of elements for the 2nd array (max " << expected_size << "): ";
-    // simple input validation loop
-    while (!(cin >> num_elements) || num_elements < 0 || static_cast<size_t>(num_elements) > expected_size) {
-        cout << "Invalid input. Please enter a number between 0 and " << expected_size << ": ";
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    
+    // Use the helper to get the number of elements, enforcing the range [0, expected_size]
+    string prompt = "Enter number of elements for the 2nd array(max " +to_string(expected_size) + "): ";
+    int num_elements = get_validated_integer(prompt, 0, static_cast<int>(expected_size));
+    if (num_elements > 0) {
+        cout << "Enter " << num_elements << " elements";
+        if (must_be_sorted) cout << " (in sorted order)";
+        cout << " : " << endl;
     }
     
-    cout << "Enter " << num_elements <<  " elements";
-    if (must_be_sorted) cout << " (in sorted order)";
-    cout << ":" << endl;
-    
-    int val;
     for (int i = 0; i < num_elements; ++i) {
-        // use the validation helper
-        auto get_int = [](const string& prompt) {
-            int v;
-            cout << prompt;
-            while (!(cin >> v)) {
-                cout << "Invalid input. Please enter an integer: ";
-                cin.clear();
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            }
-            return v;
-        };
-        val = get_int("Element " + to_string(i+1) + ": ");
+        int val = get_validated_integer("Element " + to_string(i + 1) + ": ");
         
         if (must_be_sorted) {
-            if (i > 0 && val < arr.Get(i-1)) { // use Get safely
-                cout << "Warning: Elements entered out of border for sorted array requirement!" << endl;
-            }
-            arr.InsertSort(val);
+            arr.InsertSort(val); // InsertSort is better herer as it maintains order
         } else {
             arr.Append(val);
         }
     }
-
+    
     if (must_be_sorted && !arr.isSorted()) {
         cout << "Warning: The second array provided is NOT sorted, set ops might yield incorrect results." << endl;
     }
@@ -71,60 +74,8 @@ Array create_and_fill_array(size_t expected_size, bool must_be_sorted) {
     return arr;
 }
 
-
-// A simple test function to verify Array::Rearrange()
-void run_rearrange_test() {
-    cout << "\n--- Running Rearrange Test ---" << endl;
-    
-    // 1. Arrange
-    Array testArr(10);
-    testArr.Append(-6);
-    testArr.Append(3);
-    testArr.Append(-8);
-    testArr.Append(10);
-    testArr.Append(5);
-    testArr.Append(-1);
-    testArr.Append(-15);
-    testArr.Append(2);
-
-    cout << "Original array: ";
-    testArr.Display();
-    
-    // 2. Act
-    testArr.Rearrange();
-
-    cout << "Rearranged array: ";
-    testArr.Display();
-
-    // 3. Assert (manual check for now)
-    // We will manually check if all negatives are on the left.
-    // A more advanced test would use a loop and assert().
-    bool passed = true;
-    bool found_positive = false;
-    for (size_t i = 0; i < testArr.GetLength(); ++i) {
-        int val = testArr.Get(i).value();
-        if (val >= 0) {
-            found_positive = true;
-        }
-        // If we have already found a positive number, any subsequent
-        // number must also be positive.
-        if (found_positive && val < 0) {
-            passed = false;
-            break;
-        }
-    }
-
-    if (passed) {
-        cout << "Test Result: PASSED" << endl;
-    } else {
-        cout << "Test Result: FAILED" << endl;
-    }
-    cout << "---------------------------\n" << endl;
-}
-
 // --- Main Function (Menu Driven) ---
 int main() {
-    run_rearrange_test();
     Array *arr1 = nullptr; // Initialize to nullptr
     int ch = -1;
     size_t sz; // use size_t for size input
@@ -196,11 +147,11 @@ int main() {
     
     do
     {
-        cout << "\n========= Menu (" << (intend_to_be_sorted ? "Sorted Mode" : "Unsorted Mode") << ") ============\n";
+        cout << "\n=== Menu (" << (intend_to_be_sorted ? "Sorted Mode" : "Unsorted Mode") << ") ===" << endl;
         // Add/Delete
         cout << "1. Append Element\n";
         cout << "2. Insert Element at Index\n";
-        cout << "3. Insert Element (Keep Sorted - Use in Sorted Mode)\n";
+        cout << "3. Insert Element (Requires Sorted Array)\n";
         cout << "4. Delete Element at Index\n";
         
         // Search
@@ -231,11 +182,11 @@ int main() {
         cout << "23. Find Multiple Missing Elements (Sorted Method)\n";
         cout << "24. Find Multiple Missing Elements (Unosrted Hash Method)\n";
         cout << "25. Find Duplicated Elements (Sorted Array Method)\n";
-        cout << "26. Find Duplciates (Unsorted Hash Method)\n";
+        cout << "26. Find Duplciates (Unsorted Brute Force)\n";
         
         // Exit
         cout << "0. Exit\n";
-        cout << "=============================================================\n";
+        cout << "==========================\n";
         
         // Input
         cout << "Enter your choice: ";
@@ -247,7 +198,7 @@ int main() {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             // Prompt and read AGAIN inside loop
-            cout << "=============================================================\n";
+            cout << "====================\n";
             cout << "Enter your choice: ";
             cin >> ch;
         }
@@ -422,13 +373,20 @@ int main() {
                     arr1->FindDuplicatesSorted();
                 }
             case 26: // Count duplicates
-                if (!arr1->isSorted()) {
-                    cout << "ERROR: Array must be sorted to find duplicates using this method.\n";
-                    cout << "Please sort the first array or use a method for unsorted arrays.\n";
+            {
+                auto duplicates_list = arr1->FindDuplicatesUnsorted_BruteForce();
+                
+                if(duplicates_list.empty()) {
+                    cout << "No duplicates found in the array." << endl;
                 } else {
-                    arr1->FindDuplicatesUnsorted();
+                    cout << "--- Duplciates Found ---" << endl;
+                    for (const auto& pair : duplicates_list) {
+                        cout << "The value" << pair.first
+                        <<", occurrs " << pair.second << " times." << endl;
+                    }
                 }
                 break;
+            }
             case 0: cout << "Exiting program." << endl; break;
             default: cout << "Invalid choice. Please try again." << endl; break;
         }

@@ -12,6 +12,8 @@
 #include <optional>
 #include <stdexcept>
 #include <string>
+#include <vector>
+#include <utility>
 
 class Array {
 private:
@@ -74,8 +76,10 @@ public:
     std::optional<int> FindSingleMissingElementUnsortedOptimal() const; // Works on UNSORTED array (XOR method)
     void FindMultipleMissingElementsSorted() const; // Requires SORTED array (Difference method)
     void FindMultipleMissingElementsHash() const; // Works on UNSORTED array (Hash method)
+
+
     void FindDuplicatesSorted() const;
-    void FindDuplicatesUnsorted();
+    std::vector<std::pair<int, int>> FindDuplicatesUnsorted_BruteForce();
     void FindDuplicatesHashing() const;
     void CountDuplicates() const;
 };
