@@ -12,6 +12,7 @@
 #include <iostream>
 #include <utility>
 #include <unordered_map>
+#include <unordered_set>
 
 using std::cout;
 using std::cerr;
@@ -26,7 +27,7 @@ using std::out_of_range;
 using std::logic_error;
 using std::unordered_map;
 using std::pair;
-
+using std::unordered_set;
 
 // --- Private Helper Implementations ---
 void Array::swap(int* x, int* y) {
@@ -625,4 +626,95 @@ std::vector<std::pair<int, int>> Array::FindDuplicatesUnsorted_BruteForce() {
     }
     delete[] tempA;
     return duplicates;
+}
+
+std::optional<std::pair<int, int>> Array::PairWithSum_Sorted(int k) const {
+    if (!isSorted()) {
+        cerr <<"Error: Array must be sorted to use PariWithSum_Sorted method." << endl;
+        return std::nullopt;
+    }
+    size_t low = 0;
+    size_t high = length - 1;
+    while (low < high) {
+        int current_sum = A[low] + A[high];
+        
+        if (current_sum == k) {
+            return std::make_pair(A[low], A[high]);
+        } else if (current_sum < k) {
+            // Sum is too large. we need a larger number, so move the lower pointer up.
+            low++;
+        } else { // curent_sum > k
+            // sum is too large. we need smaller number. so move the higher pointer down.
+            high--;
+        }
+    }
+    return std::nullopt;
+}
+
+std::optional<std::pair<int, int>> Array::PairWithSum_Hashing(int k) const {
+    unordered_set<int> seen_elements;
+    
+    for (size_t i = 0; i < length; ++i) {
+        int current_element = A[i];
+        int complement = k - current_element;
+        
+        // .find() returns an iterator to the element if it's found.
+        // if not found, .find() returns an iterator equal to the set's .end().
+        if (seen_elements.find(complement) != seen_elements.end()) {
+            // Found it! complement was seen earlier in array. pair found.
+            return std::make_pair(complement, current_element);
+        }
+        
+        // if complement not found, add current element to the set so it can
+        // be found by a future element.
+        seen_elements.insert(current_element);
+    }
+    
+    return std::nullopt;
+}
+
+std::optional<std::pair<int, int>> Array::FindMinMax() const {
+    if (length == 0) {
+        return std::nullopt;
+    }
+    if (length == 1) {
+        return std::make_pair(A[0], A[0]);
+    }
+    
+    int min_val, max_val;
+    size_t start_index;
+    
+    // if length is even, compare the first two elements to start.
+    if (length % 2 == 0) {
+        if (A[0] < A[1]) {
+            min_val = A[0];
+            max_val = A[1];
+        } else {
+            min_val = A[1];
+            max_val = A[0];
+        }
+        start_index = 2; // start the main loop from the third element.
+    }
+    // if the length is odd, the first element is both min and max so far.
+    else {
+        min_val = A[0];
+        max_val = A[0];
+        start_index = 1; // start the main loop from the second element.
+    }
+    for (size_t i = start_index; i < length; i += 2) {
+        // Compare the pair to each other first
+        if (A[i] < A[i + 1]) {
+            // compare the smaller one with current min
+            if (A[i] < min_val) min_val = A[i];
+            // compare the larger one with the current max
+            if (A[i + 1] > max_val) max_val = A[i + 1];
+        } else { // A[i] >= A[i + 1]
+            // Compare the samller one (A[i+1]) with current min
+            if (A[i + 1] < min_val) min_val = A[i + 1];
+            if (A[i] > max_val) max_val = A[i];
+        }
+    }
+    
+    return std::make_pair(min_val, max_val);
+    
 }

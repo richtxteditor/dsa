@@ -128,5 +128,117 @@
     }
 }
 
+// --- Tests for PairWithSum_Sorted ---
+
+- (void)testPairWithSum_Sorted_PairExists {
+    // Arrange
+    Array arr(5);
+    arr.Append(1);
+    arr.Append(3);
+    arr.Append(4);
+    arr.Append(6);
+    arr.Append(8);
+    int k = 10;
+
+    // Act
+    std::optional<std::pair<int, int>> result = arr.PairWithSum_Sorted(k);
+
+    // Assert
+    XCTAssertTrue(result.has_value(), "A pair summing to 10 should have been found.");
+    // We can check the exact pair or just that their sum is correct.
+    XCTAssertEqual(result->first + result->second, k, "The found pair should sum to k.");
+    XCTAssertEqual(result->first, 4, "The first element of the pair should be 4.");
+    XCTAssertEqual(result->second, 6, "The second element of the pair should be 6.");
+}
+
+- (void)testPairWithSum_Sorted_NoPairExists {
+    // Arrange
+    Array arr(5);
+    arr.Append(1);
+    arr.Append(3);
+    arr.Append(4);
+    arr.Append(6);
+    arr.Append(8);
+    int k = 15;
+
+    // Act
+    std::optional<std::pair<int, int>> result = arr.PairWithSum_Sorted(k);
+
+    // Assert
+    XCTAssertFalse(result.has_value(), "No pair should be found for a sum of 15.");
+}
+
+- (void)testPairWithSum_Sorted_FailsOnUnsortedArray {
+    // Arrange
+    Array arr(5);
+    arr.Append(10);
+    arr.Append(2);
+    arr.Append(8);
+    arr.Append(5);
+    arr.Append(1);
+    int k = 10;
+
+    // Act
+    std::optional<std::pair<int, int>> result = arr.PairWithSum_Sorted(k);
+
+    // Assert
+    XCTAssertFalse(result.has_value(), "The function should return nothing because the array is not sorted.");
+}
+
+
+// --- Tests for PairWithSum_Hashing ---
+
+- (void)testPairWithSum_Hashing_PairExistsUnsorted {
+    // Arrange
+    Array arr(5);
+    arr.Append(6);
+    arr.Append(3);
+    arr.Append(8);
+    arr.Append(10);
+    arr.Append(2); // The pair (8, 2) exists.
+    int k = 10;
+
+    // Act
+    std::optional<std::pair<int, int>> result = arr.PairWithSum_Hashing(k);
+
+    // Assert
+    XCTAssertTrue(result.has_value(), "A pair summing to 10 should have been found in the unsorted array.");
+    XCTAssertEqual(result->first + result->second, k, "The found pair should sum to k.");
+}
+
+- (void)testPairWithSum_Hashing_NoPairExists {
+    // Arrange
+    Array arr(5);
+    arr.Append(6);
+    arr.Append(3);
+    arr.Append(8);
+    arr.Append(10);
+    arr.Append(1);
+    int k = 15;
+
+    // Act
+    std::optional<std::pair<int, int>> result = arr.PairWithSum_Hashing(k);
+
+    // Assert
+    XCTAssertFalse(result.has_value(), "No pair should be found for a sum of 15.");
+}
+
+- (void)testPairWithSum_Hashing_HandlesNegativeNumbers {
+    // Arrange
+    Array arr(4);
+    arr.Append(6);
+    arr.Append(-2);
+    arr.Append(8);
+    arr.Append(10);
+    int k = 4; // The pair is (6, -2)
+
+    // Act
+    std::optional<std::pair<int, int>> result = arr.PairWithSum_Hashing(k);
+
+    // Assert
+    XCTAssertTrue(result.has_value(), "A pair including a negative number should have been found.");
+    XCTAssertEqual(result->first + result->second, k, "The found pair should sum to k.");
+}
+
 @end
 

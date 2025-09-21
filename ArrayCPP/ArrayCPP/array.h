@@ -82,6 +82,10 @@ public:
     std::vector<std::pair<int, int>> FindDuplicatesUnsorted_BruteForce();
     void FindDuplicatesHashing() const;
     void CountDuplicates() const;
+    
+    std::optional<std::pair<int, int>> PairWithSum_Sorted(int k) const;
+    std::optional<std::pair<int, int>> PairWithSum_Hashing(int k) const;
+    std::optional<std::pair<int, int>> FindMinMax() const;
 };
 
 #endif // ARRAY_H

@@ -183,6 +183,8 @@ int main() {
         cout << "24. Find Multiple Missing Elements (Unosrted Hash Method)\n";
         cout << "25. Find Duplicated Elements (Sorted Array Method)\n";
         cout << "26. Find Duplciates (Unsorted Brute Force)\n";
+        cout << "27. Find Pair with Sum K\n";
+        cout << "28. Find Min and Max (Single Scan) K\n";
         
         // Exit
         cout << "0. Exit\n";
@@ -384,6 +386,38 @@ int main() {
                         cout << "The value" << pair.first
                         <<", occurrs " << pair.second << " times." << endl;
                     }
+                }
+                break;
+            }
+            case 27:
+            {
+                int k = get_validated_integer("Enter the target sum k: ");
+                
+                // Use the best method dependong on if the user intends the array to be sorted
+                std::optional<std::pair<int, int>> result;
+                if (intend_to_be_sorted) {
+                    cout << "Using sorted array method..." << endl;
+                    result = arr1->PairWithSum_Sorted(k);
+                } else {
+                    cout << "Using hashing method..." << endl;
+                    result = arr1->PairWithSum_Hashing(k);
+                }
+                
+                if (result) {
+                    cout << "Pair found: (" << result->first << ", " << result->second << ")" << endl;
+                } else {
+                    cout << "No pair found with the sum" << k << "." << endl;
+                }
+                break;
+            }
+            case 28:
+            {
+                auto result = arr1->FindMinMax();
+                if (result) {
+                    cout << "Minimum element: " << result->first << endl;
+                    cout << "Maximum element: " << result->second << endl;
+                } else {
+                    cout << "Array is empty." << endl;
                 }
                 break;
             }
