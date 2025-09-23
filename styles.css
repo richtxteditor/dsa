@@ -119,3 +119,57 @@ input[type="checkbox"] {
   cursor: pointer;
   accent-color: var(--accent-color);
 }
+/* styles.css */
+
+/* --- Add these new styles to the end of the file --- */
+
+/* Purpose Section Styles */
+.project-purpose {
+  margin-top: 20px; /* Adds space below the main header */
+  padding: 25px;
+  border: 1px solid var(--border-color);
+  background-color: var(--table-header-bg-color); /* A slightly different background */
+  border-radius: 8px; /* Rounded corners */
+  margin-bottom: 40px; /* Space before the main checklist starts */
+}
+
+.project-purpose h3 {
+  border-bottom: none; /* No underline on these subheadings */
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: var(--accent-color); /* Use the theme's accent color */
+  font-size: 1.1em;
+}
+
+/* Add a little space between the two paragraphs if needed */
+.project-purpose h3 + p {
+  margin-bottom: 15px; 
+}
+
+.project-purpose p {
+  margin-top: 0;
+  margin-bottom: 0;
+  opacity: 0.9;
+  font-size: 1em;
+}
+
+.subtitle {
+  font-size: 1.1em;
+  line-height: 1.5; /* Improves readability of the paragraph */
+  max-width: 75ch; /* Limits line length for better typography on wide screens */
+  margin: 10px auto 0; /* Adds some space above and centers the text block */
+  color: var(--text-color);
+  opacity: 0.9;
+}
+
+/* Style for the links within the subtitle */
+.subtitle a {
+  color: var(--accent-color); /* Use the theme's accent color to make links stand out */
+  text-decoration: none; /* Remove the default underline for a cleaner look */
+  transition: text-decoration 0.2s ease-in-out; /* Add a subtle transition */
+}
+
+/* Add the underline back when the user hovers over a link */
+.subtitle a:hover {
+  text-decoration: underline;
+}
