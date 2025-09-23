@@ -30,7 +30,7 @@
 
 /* Begin PBXFileReference section */
 		7F5C505F2E7F4A0300087CEA /* ArrayCPPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArrayCPPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7F92B8C62E7F5E5600FCAEEF /* ArrayCPPTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = file; path = ArrayCPPTests.xctestplan; sourceTree = "<group>"; };
+		7F92B8C62E7F5E5600FCAEEF /* ArrayCPPTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = ArrayCPPTests.xctestplan; sourceTree = "<group>"; };
 		7FF05FF52E79E1C800746C7A /* ArrayCPP */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ArrayCPP; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FF060082E79E20500746C7A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -39,7 +39,6 @@
 		7F5C506B2E7F4CCE00087CEA /* Exceptions for "ArrayCPP" folder in "ArrayCPPTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				array.cpp,
 				main.cpp,
 			);
 			target = 7F5C505E2E7F4A0300087CEA /* ArrayCPPTests */;

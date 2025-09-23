@@ -45,8 +45,8 @@ int get_validated_integer(const string& prompt,
 
 // --- Helper Function to Create and Populate an Array ---
 // used for set ops requiring a 2nd array
-Array create_and_fill_array(size_t expected_size, bool must_be_sorted) {
-    Array arr(expected_size); // create local array obj
+Array<int> create_and_fill_array(size_t expected_size, bool must_be_sorted) {
+    Array<int> arr(expected_size); // create local array obj
     
     // Use the helper to get the number of elements, enforcing the range [0, expected_size]
     string prompt = "Enter number of elements for the 2nd array(max " +to_string(expected_size) + "): ";
@@ -76,7 +76,7 @@ Array create_and_fill_array(size_t expected_size, bool must_be_sorted) {
 
 // --- Main Function (Menu Driven) ---
 int main() {
-    Array *arr1 = nullptr; // Initialize to nullptr
+    Array<int> *arr1 = nullptr; // Initialize to nullptr
     int ch = -1;
     size_t sz; // use size_t for size input
     
@@ -87,7 +87,7 @@ int main() {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
-    arr1 = new Array(sz); // Create the main array
+    arr1 = new Array<int>(sz); // Create the main array
     
     // check if allocatin failed in constructor
     if (arr1->GetSize() == 0) {
@@ -322,12 +322,12 @@ int main() {
                 }
                 
                 // Create and fill the second array (return by val)
-                Array arr2_local = create_and_fill_array(100, true); // size 100 for temp array
+                Array<int> arr2_local = create_and_fill_array(100, true); // size 100 for temp array
                 cout << "Arr1: "; arr1->Display();
                 cout << "Arr2: "; arr2_local.Display();
                 
                 // result array created locally by return-by-value
-                Array result_array;
+                Array<int> result_array;
                 if (ch == 18) result_array = arr1->Merge(arr2_local);
                 else if (ch == 19) result_array = arr1->Union(arr2_local);
                 else if (ch == 20) result_array = arr1->Intersection(arr2_local);

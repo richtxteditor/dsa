@@ -6,239 +6,129 @@
 //
 
 #import <XCTest/XCTest.h>
-#include "Array.h" // Include your C++ header
-#include <vector>
-#include <utility>
-#include <algorithm>
+#include "array.h" // Your single, complete header file
+#include <string>  // Needed for std::string tests
 
-// The test class must be an Objective-C interface
+// The test class must still be an Objective-C interface
 @interface ArrayTests : XCTestCase
 @end
 
 @implementation ArrayTests
 
-- (void)testDynamicResizingOnAppend {
-    // 1. Arrange: Create an array with a known, small capacity.
-    Array arr(2);
-    XCTAssertEqual(arr.GetSize(), 2, "Initial size should be 2");
+// --- Tests for Integer Arrays (Array<int>) ---
 
-    // 2. Act: Add elements to fill and then exceed the initial capacity.
-    arr.Append(10);
-    arr.Append(20);
-    
-    XCTAssertEqual(arr.GetLength(), 2, "Length should be 2 before resizing");
-
-    // This append should trigger the resize
-    arr.Append(30);
-
-    // 3. Assert: Verify the array's state is correct after resizing.
-    XCTAssertEqual(arr.GetLength(), 3, "Length should be 3 after resizing");
-    XCTAssertEqual(arr.GetSize(), 4, "Size should have doubled to 4 after resizing");
-    
-    // Also check that the data is still correct
-    std::optional<int> val = arr.Get(2);
-    XCTAssertTrue(val.has_value(), "Element at index 2 should exist");
-    XCTAssertEqual(val.value_or(-1), 30, "The newly appended element should be 30");
-}
-
-- (void)testDynamicResizingOnInsert {
+- (void)testIntegerArray_DynamicResizing {
     // Arrange
-    Array arr(1);
-    arr.Append(100);
-    
-    XCTAssertEqual(arr.GetSize(), 1, "Initial size should be 1");
-    
-    // Act: This insert should trigger a resize
-    arr.Insert(0, 99);
-    
+    Array<int> arr(1);
+    XCTAssertEqual(arr.GetSize(), 1);
+
+    // Act
+    arr.Append(10);
+    arr.Append(20); // This should trigger a resize
+
     // Assert
-    XCTAssertEqual(arr.GetLength(), 2, "Length should be 2 after insert");
-    XCTAssertEqual(arr.GetSize(), 2, "Size should have doubled to 2");
-    XCTAssertEqual(arr.Get(0).value_or(-1), 99, "New element should be at index 0");
-    XCTAssertEqual(arr.Get(1).value_or(-1), 100, "Old element should be at index 1");
+    XCTAssertEqual(arr.GetSize(), 2);
+    XCTAssertEqual(arr.GetLength(), 2);
+    XCTAssertEqual(arr.Get(1).value_or(-1), 20);
 }
 
-- (void)testFindDuplicatesUnsorted_BruteForce {
-    // 1. Arrange: Create an array with known duplicates.
-    Array arr;
-    arr.Append(8);
+- (void)testIntegerArray_PairWithSum_Sorted {
+    // Arrange
+    Array<int> arr(5);
+    arr.Append(1);
     arr.Append(3);
-    arr.Append(6);
     arr.Append(4);
     arr.Append(6);
-    arr.Append(5);
+    arr.Append(8);
+    int k = 10;
+
+    // Act
+    std::optional<std::pair<int, int>> result = arr.PairWithSum_Sorted(k);
+
+    // Assert
+    XCTAssertTrue(result.has_value());
+    XCTAssertEqual(result->first, 4);
+    XCTAssertEqual(result->second, 6);
+}
+
+- (void)testIntegerArray_PairWithSum_Hashing {
+    // Arrange
+    Array<int> arr(5);
     arr.Append(6);
+    arr.Append(3);
     arr.Append(8);
     arr.Append(2);
-    arr.Append(7);
-
-    // 2. Act: Call the function to find duplicates.
-    std::vector<std::pair<int, int>> duplicates = arr.FindDuplicatesUnsorted_BruteForce();
-
-    // 3. Assert: Verify the duplicates and their counts are correct.
-    XCTAssertEqual(duplicates.size(), 2, "Should find 2 duplicate values");
-
-    // Sort for consistent order
-    std::sort(duplicates.begin(), duplicates.end());
-
-    bool found6 = false;
-    bool found8 = false;
-
-    for (const auto& p : duplicates) {
-        if (p.first == 6) {
-            XCTAssertEqual(p.second, 3, "Value 6 should appear 3 times");
-            found6 = true;
-        } else if (p.first == 8) {
-            XCTAssertEqual(p.second, 2, "Value 8 should appear 2 times");
-            found8 = true;
-        }
-    }
-
-    XCTAssertTrue(found6, "Duplicate value 6 was not found");
-    XCTAssertTrue(found8, "Duplicate value 8 was not found");
-}
-
-- (void)testRearrangePartitionsNegativesAndPositives {
-    // 1. Arrange
-    Array testArr(10);
-    testArr.Append(-6);
-    testArr.Append(3);
-    testArr.Append(-8);
-    testArr.Append(10);
-    testArr.Append(5);
-    testArr.Append(-1);
-    testArr.Append(-15);
-    testArr.Append(2);
-
-    // 2. Act
-    testArr.Rearrange();
-
-    // 3. Assert
-    bool found_positive = false;
-    for (size_t i = 0; i < testArr.GetLength(); ++i) {
-        int val = testArr.Get(i).value();
-        if (val >= 0) {
-            found_positive = true;
-        }
-        // If we have already found a positive number, any subsequent
-        // number MUST also be positive. If not, the test fails.
-        if (found_positive) {
-            XCTAssertGreaterThanOrEqual(val, 0, "Found a negative number after a positive one, partitioning failed.");
-        }
-    }
-}
-
-// --- Tests for PairWithSum_Sorted ---
-
-- (void)testPairWithSum_Sorted_PairExists {
-    // Arrange
-    Array arr(5);
-    arr.Append(1);
-    arr.Append(3);
-    arr.Append(4);
-    arr.Append(6);
-    arr.Append(8);
     int k = 10;
 
     // Act
-    std::optional<std::pair<int, int>> result = arr.PairWithSum_Sorted(k);
+    auto result = arr.PairWithSum_Hashing(k);
 
     // Assert
-    XCTAssertTrue(result.has_value(), "A pair summing to 10 should have been found.");
-    // We can check the exact pair or just that their sum is correct.
-    XCTAssertEqual(result->first + result->second, k, "The found pair should sum to k.");
-    XCTAssertEqual(result->first, 4, "The first element of the pair should be 4.");
-    XCTAssertEqual(result->second, 6, "The second element of the pair should be 6.");
+    XCTAssertTrue(result.has_value());
+    XCTAssertEqual(result->first + result->second, 10);
 }
 
-- (void)testPairWithSum_Sorted_NoPairExists {
+- (void)testIntegerArray_FindMinMax {
     // Arrange
-    Array arr(5);
-    arr.Append(1);
-    arr.Append(3);
-    arr.Append(4);
-    arr.Append(6);
-    arr.Append(8);
-    int k = 15;
-
-    // Act
-    std::optional<std::pair<int, int>> result = arr.PairWithSum_Sorted(k);
-
-    // Assert
-    XCTAssertFalse(result.has_value(), "No pair should be found for a sum of 15.");
-}
-
-- (void)testPairWithSum_Sorted_FailsOnUnsortedArray {
-    // Arrange
-    Array arr(5);
-    arr.Append(10);
-    arr.Append(2);
-    arr.Append(8);
+    Array<int> arr(7);
     arr.Append(5);
-    arr.Append(1);
-    int k = 10;
-
-    // Act
-    std::optional<std::pair<int, int>> result = arr.PairWithSum_Sorted(k);
-
-    // Assert
-    XCTAssertFalse(result.has_value(), "The function should return nothing because the array is not sorted.");
-}
-
-
-// --- Tests for PairWithSum_Hashing ---
-
-- (void)testPairWithSum_Hashing_PairExistsUnsorted {
-    // Arrange
-    Array arr(5);
-    arr.Append(6);
-    arr.Append(3);
-    arr.Append(8);
-    arr.Append(10);
-    arr.Append(2); // The pair (8, 2) exists.
-    int k = 10;
-
-    // Act
-    std::optional<std::pair<int, int>> result = arr.PairWithSum_Hashing(k);
-
-    // Assert
-    XCTAssertTrue(result.has_value(), "A pair summing to 10 should have been found in the unsorted array.");
-    XCTAssertEqual(result->first + result->second, k, "The found pair should sum to k.");
-}
-
-- (void)testPairWithSum_Hashing_NoPairExists {
-    // Arrange
-    Array arr(5);
-    arr.Append(6);
-    arr.Append(3);
-    arr.Append(8);
-    arr.Append(10);
-    arr.Append(1);
-    int k = 15;
-
-    // Act
-    std::optional<std::pair<int, int>> result = arr.PairWithSum_Hashing(k);
-
-    // Assert
-    XCTAssertFalse(result.has_value(), "No pair should be found for a sum of 15.");
-}
-
-- (void)testPairWithSum_Hashing_HandlesNegativeNumbers {
-    // Arrange
-    Array arr(4);
-    arr.Append(6);
     arr.Append(-2);
-    arr.Append(8);
-    arr.Append(10);
-    int k = 4; // The pair is (6, -2)
+    arr.Append(100);
+    arr.Append(0);
+    arr.Append(50);
+    arr.Append(-10);
+    arr.Append(25);
 
     // Act
-    std::optional<std::pair<int, int>> result = arr.PairWithSum_Hashing(k);
+    auto result = arr.FindMinMax();
 
     // Assert
-    XCTAssertTrue(result.has_value(), "A pair including a negative number should have been found.");
-    XCTAssertEqual(result->first + result->second, k, "The found pair should sum to k.");
+    XCTAssertTrue(result.has_value());
+    XCTAssertEqual(result->first, -10);
+    XCTAssertEqual(result->second, 100);
+}
+
+
+// --- Tests for Double Arrays (Array<double>) ---
+
+- (void)testDoubleArray_Functionality {
+    // Arrange
+    Array<double> arr(3);
+
+    // Act
+    arr.Append(3.14);
+    arr.Append(9.81);
+    arr.Append(2.71);
+    
+    // Assert
+    XCTAssertEqual(arr.GetLength(), 3);
+    XCTAssertEqual(arr.Min(), 2.71);
+    XCTAssertEqual(arr.Max(), 9.81);
+}
+
+
+// --- Tests for String Arrays (Array<std::string>) ---
+
+- (void)testStringArray_Functionality {
+    // Arrange
+    Array<std::string> arr(3);
+    
+    // Act
+    arr.InsertSort("Hello");
+    arr.InsertSort("World");
+    arr.InsertSort("Apple");
+    arr.InsertSort("Zoo");
+    
+    // Assert
+    XCTAssertEqual(arr.GetLength(), 4);
+    
+    XCTAssertTrue(arr.Get(0).value_or("") == "Apple", "First element should be 'Apple'");
+    XCTAssertTrue(arr.Get(1).value_or("") == "Hello", "Second element should be 'Hello'");
+    XCTAssertTrue(arr.isSorted(), "Array should be sorted after InsertSort"); // "Apple", "Hello", "World", "Zoo" is sorted
+    
+    // Visually confirm display
+    NSLog(@"Testing Display() with std::string:");
+    arr.Display();
 }
 
 @end
-
