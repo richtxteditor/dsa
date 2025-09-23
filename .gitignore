@@ -1,7 +1,46 @@
+<<<<<<< HEAD
 # VS Code
 .vscode/
 
 # Build artifacts
+=======
+# =========================================================================
+# Standard Gitignore for macOS & Xcode Projects
+#
+# This file includes ignores for macOS system files, common IDEs,
+# build artifacts, and sensitive environment variables.
+# =========================================================================
+
+# -------------------------------------------------------------------------
+# macOS / System Files
+# -------------------------------------------------------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# -------------------------------------------------------------------------
+# General IDE / Editor Configuration
+# -------------------------------------------------------------------------
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+
+# -------------------------------------------------------------------------
+# Xcode
+# -------------------------------------------------------------------------
+
+## Build generated
+>>>>>>> 93687be93386badd8f979e2d9b8a053401a4a4c7
 build/
 cmake-build-debug/
 *.o
@@ -10,6 +49,7 @@ cmake-build-debug/
 *.dll
 *.exe
 
+<<<<<<< HEAD
 # macOS specific
 .DS_Store
 
@@ -28,3 +68,51 @@ cmake-build-debug/
 # IDE specific (e.g., IntelliJ, CLion)
 .idea/
 >>>>>>> main
+=======
+## Various settings
+*.moved-aside
+*.xccheckout
+
+## User-specific states
+# These files store your personal workspace settings (open files, breakpoints, etc.)
+# and should not be shared with the team.
+*.xcuserstate
+*.xcuserdatad
+
+# -------------------------------------------------------------------------
+# Swift Package Manager (SPM)
+# -------------------------------------------------------------------------
+.build/
+.swiftpm/
+
+# -------------------------------------------------------------------------
+# Dependency Managers
+# -------------------------------------------------------------------------
+
+# Carthage
+# Add this section if you use Carthage.
+# Usually, you only commit the Cartfile.resolved file.
+Carthage/Build
+
+# CocoaPods
+# It is a standard practice to commit the Pods/ directory to the repository.
+# Therefore, it is NOT included here by default.
+
+# -------------------------------------------------------------------------
+# Secrets & Environment Variables
+# -------------------------------------------------------------------------
+# Never commit sensitive files like API keys or passwords.
+# Store them in a .env file and add a .env.example with dummy values
+# to the repository.
+.env
+.env.*
+!.env.example
+
+# -------------------------------------------------------------------------
+# Miscellaneous
+# -------------------------------------------------------------------------
+*.log
+*.tmp
+*.swp
+*.swo
+>>>>>>> 93687be93386badd8f979e2d9b8a053401a4a4c7
