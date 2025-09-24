@@ -1,7 +1,7 @@
 {
   "configurations" : [
     {
-      "id" : "B586A9DE-598E-4B64-ACEA-8269E98130CA",
+      "id" : "EDBDEC2A-A950-45BF-A281-E47A0F172791",
       "name" : "Test Scheme Action",
       "options" : {
 
@@ -15,9 +15,9 @@
     {
       "parallelizable" : true,
       "target" : {
-        "containerPath" : "container:ArrayCPP.xcodeproj",
+        "containerPath" : "container:DSA-Project.xcodeproj",
         "identifier" : "7F5C505E2E7F4A0300087CEA",
-        "name" : "ArrayCPPTests"
+        "name" : "DSA-ProjectTests"
       }
     }
   ],
