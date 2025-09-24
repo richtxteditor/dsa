@@ -1,6 +1,6 @@
 //
-//  ArrayCPPTests.mm
-//  ArrayCPP
+//  DSA-Project-Tests.mm
+//  DSA-Project
 //
 //  Created by richie on 9/20/25.
 //

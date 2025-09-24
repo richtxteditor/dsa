@@ -11,7 +11,8 @@
 #include <string>
 #include <thread>
 #include <chrono>
-#include "array.h"
+#include "ds/array.h"
+#include "algo/strings.h"
 
 using std::cout;
 using std::cin;

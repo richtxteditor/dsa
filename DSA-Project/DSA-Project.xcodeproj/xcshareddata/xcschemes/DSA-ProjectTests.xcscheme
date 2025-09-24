@@ -14,7 +14,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:ArrayCPPTests.xctestplan"
+            reference = "container:DSA-ProjectTests.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>
@@ -25,9 +25,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7F5C505E2E7F4A0300087CEA"
-               BuildableName = "ArrayCPPTests.xctest"
-               BlueprintName = "ArrayCPPTests"
-               ReferencedContainer = "container:ArrayCPP.xcodeproj">
+               BuildableName = "DSA-ProjectTests.xctest"
+               BlueprintName = "DSA-ProjectTests"
+               ReferencedContainer = "container:DSA-Project.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
