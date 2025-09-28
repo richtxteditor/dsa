@@ -75,8 +75,81 @@ Array<int> create_and_fill_array(size_t expected_size, bool must_be_sorted) {
     return arr;
 }
 
+void demonstrate_string_algorithms() {
+    cout << "\n--- Demonstrating String Algorithms ---" << endl;
+    
+    // 1. Reverse string
+    cout << "\n1. Reversing a given string" << endl;
+    std::string str_to_reverse = "Hello World";
+    cout << "Original: \"" << str_to_reverse << "\"" << endl;
+    reverse_string(str_to_reverse);
+    cout << "Reversed: \"" << str_to_reverse << "\"" << endl;
+    
+    // 2. is_palindrome
+    cout << "\n2. Checking for Palindromes" << endl;
+    std::string p1 = "RACECAR";
+    std::string p2 = "HELLO";
+    std::string p3 = "";
+    
+    cout << "\"" << p1 << "\" is a palindrome: " << (is_palindrome(p1) ? "Yes" : "No") << endl;
+    cout << "\"" << p2 << "\" is not a palindrome: " << (is_palindrome(p2) ? "Yes" : "No") << endl;
+    cout << "\"\" (empty string) is a palindrome: " << (is_palindrome(p3) ? "Yes" : "No") << endl;
+    
+    // --- 3. Test duplicate finding (case-insensitive) ---
+    cout << "\n3. Finding Duplicates (case insensitive)\n" << endl;
+    std::string dup_str_complex = "A quick brown Fox jumps over the lazy Dog";
+    
+    cout << "Testing string: \"" << dup_str_complex << "\"\n" << endl;
+    
+    cout << "--- Hashing Method Output ---" << endl;
+    find_duplicates_hashing(dup_str_complex);
+    
+    cout << "\n--- Bitwise Method Output ---" << endl;
+    find_duplicates_bitwise(dup_str_complex);
+    
+    cout << "Testing string with no alphabetic duplicates in hashing method..." << endl;
+    std::string dup_str_simple = "JUMPING!";
+    find_duplicates_hashing(dup_str_simple);
+    
+    // 4. --- Testing are_anagrams (hashing method) ---
+    std::string ana1 = "decimal";
+    std::string ana2 = "medical";
+    std::string ana3 = "apple";
+    std::string ana4 = "pleap";
+    std::string ana5 = "hello";
+    
+    cout << "\"" << ana1 << "\" and \"" << ana2 << "\" are anagrams: " << (are_anagrams_hash(ana1, ana2) ? "Yes" : "No") << endl;
+    cout << "\"" << ana3 << "\" and \"" << ana4 << "\" are anagrams: " << (are_anagrams_hash(ana3, ana4) ? "Yes" : "No") << endl;
+    cout << "\"" << ana1 << "\" and \"" << ana5 << "\" are anagrams: "<< (are_anagrams_hash(ana1, ana5) ? "Yes" : "No") << endl;
+    
+    
+    // --- 5. Test have_same_character_set (Bitwise Method) ---
+    cout << "\n5. Checking for Same Character Set (Bitwise Method)" << endl;
+    std::string set1 = "decimal"; // No duplicate letters
+    std::string set2 = "medical"; // No duplicate letters
+    std::string set3 = "apple";   // Has duplicate letters
+    std::string set4 = "planet";  // Different set of letters
+
+    cout << "(\"" << set1 << "\", \"" << set2 << "\") have the same character set: " << (are_anagrams_bitwise(set1, set2) ? "Yes" : "No") << endl;
+    cout << "(\"" << set1 << "\", \"" << set4 << "\") have the same character set: " << (are_anagrams_bitwise(set1, set4) ? "Yes" : "No") << endl;
+
+    // The following line will cause the program to crash in Debug mode because of the assert,
+    // which is the INTENDED behavior. You can uncomment it to test your assert.
+    // cout << "\n--- Testing assert with invalid input ---" << endl;
+    // have_same_character_set(set3, set1); // This should crash with an assertion failure.
+
+    cout << "\n---------------------------------------\n" << endl;
+}
+
+
 // --- Main Function (Menu Driven) ---
 int main() {
+    
+    cout << "Welcome to the DSA-Project!" << endl;
+    
+    // string algos first
+    demonstrate_string_algorithms();
+    
     Array<int> *arr1 = nullptr; // Initialize to nullptr
     int ch = -1;
     size_t sz; // use size_t for size input
@@ -382,7 +455,7 @@ int main() {
                 if(duplicates_list.empty()) {
                     cout << "No duplicates found in the array." << endl;
                 } else {
-                    cout << "--- Duplciates Found ---" << endl;
+                    cout << "\nDuplciates Found:" << endl;
                     for (const auto& pair : duplicates_list) {
                         cout << "The value" << pair.first
                         <<", occurrs " << pair.second << " times." << endl;

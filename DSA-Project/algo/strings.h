@@ -9,6 +9,7 @@
 #define STRINGS_H
 
 #include <string>
+#include <cassert>
 
 // Function to reverse a string in-place
 void reverse_string(std::string& s);
@@ -23,6 +24,10 @@ void find_duplicates_hashing(const std::string& s);
 void find_duplicates_bitwise(const std::string& s);
 
 // Function to check if two strings are anagrams
-bool are_anagrams(const std::string& s1, const std::string& s2);
+bool are_anagrams_hash(const std::string& s1, const std::string& s2);
+
+bool are_anagrams_bitwise(const std::string& s1, const std::string& s2);
+
+bool has_unique_chars(const std::string& s);
 
 #endif // STRINGS_H
