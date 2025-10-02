@@ -65,7 +65,7 @@ A collection of string manipulation algorithms are available in `algo/strings.h`
 ## How to Compile and Run
 
 1.  Navigate to the project's root directory.
-2.  Compile the `main.cpp` source file using a C++17 compatible compiler.
+2.  Compile the `main.cpp` source file using a C++20 compatible compiler.
 
     ```bash
     g++ -std=gnu++20 main.cpp algo/strings.cpp -o advanced_array_demo
