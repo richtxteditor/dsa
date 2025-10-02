@@ -104,37 +104,28 @@ bool are_anagrams_hash(const std::string& s1, const std::string& s2) {
     return true;
 }
 
-bool has_unique_chars(const std::string& s) {
-    long long flags = 0;
-    for (char c : s) {
-        if (!isalpha(c)) continue;
-        char lower_c = tolower(c);
-        long long mask = 1LL << (lower_c - 'a');
-        if ((flags & mask) > 0) {
-            return false; // found a duplicate
-        }
-        flags |= mask;
-    }
-    return true; // no duplicates found
-}
-
 bool are_anagrams_bitwise(const std::string& s1, const std::string& s2) {
-    
-    assert(has_unique_chars(s1) && "Input string s1 must not contain duplicate letters.");
-    assert(has_unique_chars(s2) && "Input string s2 must not contain duplicate letters.");
-    
     if (s1.length() != s2.length()) return false;
-    
-    long long flag1 = 0, flag2 = 0;
-    
-    for (char c: s1) {
-        long long mask = 1LL << (tolower(c) - 'a');
-        flag1 |= mask;
+
+    long long char_counts[26] = {0};
+
+    for (char c : s1) {
+        if (isalpha(c)) {
+            char_counts[tolower(c) - 'a']++;
+        }
     }
-    
-    for (char c: s2) {
-        long long mask = 1LL << (tolower(c) - 'a');
-        flag2 |= mask;
+
+    for (char c : s2) {
+        if (isalpha(c)) {
+            char_counts[tolower(c) - 'a']--;
+        }
     }
-    return flag1 == flag2;
+
+    for (int i = 0; i < 26; ++i) {
+        if (char_counts[i] != 0) {
+            return false;
+        }
+    }
+
+    return true;
 }

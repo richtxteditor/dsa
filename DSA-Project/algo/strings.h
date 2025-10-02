@@ -28,6 +28,4 @@ bool are_anagrams_hash(const std::string& s1, const std::string& s2);
 
 bool are_anagrams_bitwise(const std::string& s1, const std::string& s2);
 
-bool has_unique_chars(const std::string& s);
-
 #endif // STRINGS_H

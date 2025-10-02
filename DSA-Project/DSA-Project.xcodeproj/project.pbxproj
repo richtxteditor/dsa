@@ -11,6 +11,7 @@
 		7F1C7CA62E835F8B00820E11 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F1C7CA42E835F8B00820E11 /* main.cpp */; };
 		7F9721DC2E88822500D07FA4 /* strings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F1C7CAC2E83619C00820E11 /* strings.cpp */; };
 		7F9721DD2E88822500D07FA4 /* strings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F1C7CAC2E83619C00820E11 /* strings.cpp */; };
+		7FEDB33F2E8EFB5000F08838 /* DSA-ProjectTests.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = 7F267AAB2E83835B00B45645 /* DSA-ProjectTests.xctestplan */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -200,6 +201,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FEDB33F2E8EFB5000F08838 /* DSA-ProjectTests.xctestplan in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
