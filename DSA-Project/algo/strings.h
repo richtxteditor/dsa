@@ -10,6 +10,7 @@
 
 #include <string>
 #include <cassert>
+#include <vector>
 
 // Function to reverse a string in-place
 void reverse_string(std::string& s);
@@ -27,5 +28,9 @@ void find_duplicates_bitwise(const std::string& s);
 bool are_anagrams_hash(const std::string& s1, const std::string& s2);
 
 bool are_anagrams_bitwise(const std::string& s1, const std::string& s2);
+
+std::vector<std::string> generate_permutations(const std::string& s);
+
+std::vector<std::string> generate_permutations_backtracking(const std::string& s);
 
 #endif // STRINGS_H

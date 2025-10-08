@@ -137,7 +137,32 @@ void demonstrate_string_algorithms() {
     // which is the INTENDED behavior. You can uncomment it to test your assert.
     // cout << "\n--- Testing assert with invalid input ---" << endl;
     // have_same_character_set(set3, set1); // This should crash with an assertion failure.
+    
+    // --- 6. Test Permutations ---
+    cout << "\n6. Generating Permutations for \"ABC\"" << endl;
+    
+    cout << endl;
+    
+    std::string perm_str = "ABC";
 
+    // Method 1: Swapping
+    cout << "--- Swapping Method ---" << endl;
+    std::vector<std::string> permutations1 = generate_permutations(perm_str);
+    for (const auto& p : permutations1) {
+        cout << p << " ";
+    }
+    
+    cout << endl;
+    
+    // Method 2: Backtracking
+    cout << "\n--- Backtracking Method ---" << endl;
+    std::vector<std::string> permutations2 = generate_permutations_backtracking(perm_str);
+    for (const auto& p : permutations2) {
+        cout << p << " ";
+    }
+   
+    cout << endl;
+    
     cout << "\n---------------------------------------\n" << endl;
 }
 

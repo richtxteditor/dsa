@@ -12,6 +12,86 @@
 #include <cctype>
 #include <cassert>
 
+
+void perm_build_helper(const std::string& original, std::string& current_perm,
+                       std::vector<bool>& used, size_t k,
+                       std::vector<std::string>& results) {
+    // base case: if we have filled all the slots (k is the length of the string),
+    // we have a complete permutation.
+    if (k == original.length()) {
+        results.push_back(current_perm);
+        return;
+    }
+    
+    // recursive step: try to place each available character in the current slot 'k'.
+    for (size_t i = 0; i < original.length(); ++i) {
+        // check if the character at index 'i' in the original string is available.
+        if (!used[i]) {
+            // place the character
+            current_perm[k] = original[i];
+            
+            // mark as used
+            used[i] = true;
+            
+            // recurse to fill the next slot (k + 1)
+            perm_build_helper(original, current_perm, used, k + 1, results);
+            
+            // backtrack: un-mark the character as used,
+            // so it can be picked for a different position
+            // in another branch of the recursion.
+            used[i] = false;
+        }
+    }
+}
+
+std::vector<std::string> generate_permutations_backtracking(const std::string& s) {
+    std::vector<std::string> results;
+    if (s.empty()) {
+        results.push_back("");
+        return results;
+    }
+    
+    // recursion state
+    std::string current_perm(s.length(), ' ');
+    std::vector<bool> used(s.length(), false);
+   
+    // start the recursion at the first slot (k = 0)
+    perm_build_helper(s, current_perm, used, 0, results);
+    
+    return results;
+}
+
+
+
+void perm_helper(std::string& s, size_t low, size_t high, std::vector<std::string>& result) {
+    // Base case: if low and high meet, we have a complete permutation.
+    if (low == high) {
+        result.push_back(s);
+        return;
+    }
+    
+    for (size_t i = low; i <= high; ++i) {
+        std::swap(s[low], s[i]);
+        // recurse on the rest of the string.
+        perm_helper(s, low + 1, high, result);
+        // backtrack
+        std::swap(s[low], s[i]);
+    }
+}
+
+
+std::vector<std::string> generate_permutations(const std::string& s) {
+    std::vector<std::string> result;
+    if (s.empty()) {
+        return result;
+    }
+    
+    std::string s_copy = s;
+    
+    perm_helper(s_copy, 0, s.length() - 1, result);
+    return result;
+}
+
 void reverse_string(std::string& s) {
     if (s.empty()) return;
     size_t low = 0, high = s.length() - 1;
@@ -44,7 +124,7 @@ void find_duplicates_hashing(const std::string& s) {
     
     std::cout << "\nDuplicates Found: ";
     for (const auto& pair : freq_map) {
-        // pair.first is the key, pari.second is its count (value)
+        // pair.first is the key, pair.second is its count (value)
         if (pair.second > 1) {
             // add a check to avoid reporting spaces or punctuation as duplicates.
             if (isalpha(pair.first)) {
