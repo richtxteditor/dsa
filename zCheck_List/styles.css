@@ -1,175 +1,838 @@
-/* 1. Define Color Variables for Light & Dark Themes */
-:root {
-  --bg-color: #f9f9f9;
-  --text-color: #333;
-  --border-color: #ddd;
-  --header-border-color: #eee;
-  --table-bg-color: #fff;
-  --table-header-bg-color: #f8f8f8;
-  --accent-color: #007bff;
-  --shadow-color: rgba(0, 0, 0, 0.1);
+/* ─── Reset & Variables ─────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-color: #121212;
-    --text-color: #e0e0e0;
-    --border-color: #444;
-    --header-border-color: #333;
-    --table-bg-color: #1e1e1e;
-    --table-header-bg-color: #2a2a2a;
-    --accent-color: #3a9cff;
-    --shadow-color: rgba(0, 0, 0, 0.4);
+/* ─── Dark theme (default) ─────────────────────────────────── */
+:root {
+  --bg: #111113;
+  --surface: #1a1a1e;
+  --surface-alt: #151517;
+  --border: #2a2a2e;
+  --text: #f0f0f4;
+  --dim: #b0b0b8;
+  --muted: #68686f;
+  --font: "SF Mono", "Fira Code", "Cascadia Code", monospace;
+  --sans: system-ui, -apple-system, sans-serif;
+  --radius: 10px;
+
+  /* Bright pastel accents — dark mode */
+  --c-foundations: #ffd966;
+  --c-arrays: #66f0d8;
+  --c-matrices: #ff8a8a;
+  --c-linked-lists: #c8a0ff;
+  --c-stacks-queues: #ffb366;
+  --c-trees: #d89eff;
+  --c-hashing: #66e0f0;
+  --c-sorting: #66f5a0;
+  --c-graphs: #ffa866;
+  --c-project: #66b8ff;
+
+  /* Resource tags */
+  --tag-udemy: #c8a0ff;
+  --tag-udemy-bg: rgba(200, 160, 255, 0.12);
+  --tag-ctci: #ff80b0;
+  --tag-ctci-bg: rgba(255, 128, 176, 0.12);
+  --tag-leetcode: #ffd966;
+  --tag-leetcode-bg: rgba(255, 217, 102, 0.12);
+  --tag-cpp: #66e0f0;
+  --tag-cpp-bg: rgba(102, 224, 240, 0.12);
+  --tag-project: #66b8ff;
+  --tag-project-bg: rgba(102, 184, 255, 0.12);
+  --tag-array: #66f0d8;
+  --tag-array-bg: rgba(102, 240, 216, 0.12);
+  --tag-testing: #b8f066;
+  --tag-testing-bg: rgba(184, 240, 102, 0.12);
+  --tag-algorithm: #ffa866;
+  --tag-algorithm-bg: rgba(255, 168, 102, 0.12);
+  --tag-area-bg: rgba(152, 152, 160, 0.08);
+  --tag-mit: #ff8a8a;
+  --tag-mit-bg: rgba(255, 138, 138, 0.12);
+  --tag-clrs: #66b8ff;
+  --tag-clrs-bg: rgba(102, 184, 255, 0.12);
+
+  /* Dynamic Programming section */
+  --c-dp: #ff8abf;
+
+  /* MIT course sections */
+  --c-assignments: #ff8a8a;
+  --c-recitations: #ff6a6a;
+  --c-practice: #ff9a7a;
+}
+
+/* ─── Light theme ──────────────────────────────────────────── */
+[data-theme="light"] {
+  --bg: #faf9f7;
+  --surface: #ffffff;
+  --surface-alt: #f4f3f0;
+  --border: #e8e6e2;
+  --text: #2a2a2e;
+  --dim: #6e6e78;
+  --muted: #b0b0b8;
+
+  --c-foundations: #d4960a;
+  --c-arrays: #0a9a80;
+  --c-matrices: #e04848;
+  --c-linked-lists: #7c4ec8;
+  --c-stacks-queues: #d87820;
+  --c-trees: #9a50d8;
+  --c-hashing: #0a90a8;
+  --c-sorting: #0aaa70;
+  --c-graphs: #d88030;
+  --c-project: #2888e0;
+
+  --tag-udemy: #7c4ec8;
+  --tag-udemy-bg: rgba(124, 78, 200, 0.1);
+  --tag-ctci: #d84878;
+  --tag-ctci-bg: rgba(216, 72, 120, 0.1);
+  --tag-leetcode: #c89008;
+  --tag-leetcode-bg: rgba(200, 144, 8, 0.1);
+  --tag-cpp: #0a90a8;
+  --tag-cpp-bg: rgba(10, 144, 168, 0.1);
+  --tag-project: #2888e0;
+  --tag-project-bg: rgba(40, 136, 224, 0.1);
+  --tag-array: #0a9a80;
+  --tag-array-bg: rgba(10, 154, 128, 0.1);
+  --tag-testing: #6a9a10;
+  --tag-testing-bg: rgba(106, 154, 16, 0.1);
+  --tag-algorithm: #d88030;
+  --tag-algorithm-bg: rgba(216, 128, 48, 0.1);
+  --tag-area-bg: rgba(110, 110, 120, 0.07);
+  --tag-mit: #e04848;
+  --tag-mit-bg: rgba(224, 72, 72, 0.1);
+  --tag-clrs: #2888e0;
+  --tag-clrs-bg: rgba(40, 136, 224, 0.1);
+
+  --c-dp: #d84878;
+  --c-assignments: #e04848;
+  --c-recitations: #c83838;
+  --c-practice: #d06030;
+}
+
+/* Auto mode: respect system preference */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #faf9f7;
+    --surface: #ffffff;
+    --surface-alt: #f4f3f0;
+    --border: #e8e6e2;
+    --text: #2a2a2e;
+    --dim: #6e6e78;
+    --muted: #b0b0b8;
+
+    --c-foundations: #d4960a;
+    --c-arrays: #0a9a80;
+    --c-matrices: #e04848;
+    --c-linked-lists: #7c4ec8;
+    --c-stacks-queues: #d87820;
+    --c-trees: #9a50d8;
+    --c-hashing: #0a90a8;
+    --c-sorting: #0aaa70;
+    --c-graphs: #d88030;
+    --c-project: #2888e0;
+
+    --tag-udemy: #7c4ec8;
+    --tag-udemy-bg: rgba(124, 78, 200, 0.1);
+    --tag-ctci: #d84878;
+    --tag-ctci-bg: rgba(216, 72, 120, 0.1);
+    --tag-leetcode: #c89008;
+    --tag-leetcode-bg: rgba(200, 144, 8, 0.1);
+    --tag-cpp: #0a90a8;
+    --tag-cpp-bg: rgba(10, 144, 168, 0.1);
+    --tag-project: #2888e0;
+    --tag-project-bg: rgba(40, 136, 224, 0.1);
+    --tag-array: #0a9a80;
+    --tag-array-bg: rgba(10, 154, 128, 0.1);
+    --tag-testing: #6a9a10;
+    --tag-testing-bg: rgba(106, 154, 16, 0.1);
+    --tag-algorithm: #d88030;
+    --tag-algorithm-bg: rgba(216, 128, 48, 0.1);
+    --tag-area-bg: rgba(110, 110, 120, 0.07);
+    --tag-mit: #e04848;
+    --tag-mit-bg: rgba(224, 72, 72, 0.1);
+    --tag-clrs: #2888e0;
+    --tag-clrs-bg: rgba(40, 136, 224, 0.1);
+
+    --c-dp: #d84878;
+    --c-assignments: #e04848;
+    --c-recitations: #c83838;
+    --c-practice: #d06030;
   }
 }
 
-/* 2. Apply Variables to General Styles */
+/* ─── Base ─────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 64px;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif;
+  font-family: var(--sans);
   line-height: 1.6;
-  max-width: 900px;
-  margin: 20px auto;
-  padding: 0 20px;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: background-color 0.3s, color 0.3s;
+  margin: 0;
+  padding: 72px 40px 80px;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.3s, color 0.3s;
 }
 
-h1,
-h2 {
-  border-bottom: 2px solid var(--header-border-color);
-  padding-bottom: 10px;
+a {
+  color: var(--dim);
+  text-decoration-color: var(--border);
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+a:hover {
+  color: var(--text);
 }
 
-h1 {
-  text-align: center;
+/* ─── Navigation ──────────────────────────────────────────── */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s, border-color 0.3s;
+}
+.nav::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--c-project),
+    var(--c-foundations),
+    var(--c-arrays),
+    var(--c-matrices),
+    var(--c-sorting),
+    var(--c-hashing),
+    var(--c-trees),
+    var(--c-linked-lists),
+    var(--c-stacks-queues),
+    var(--c-graphs),
+    var(--c-dp)
+  );
+  opacity: 0.6;
 }
 
-.tab-container {
+.nav-bar {
   display: flex;
-  margin-bottom: 20px;
-  border-bottom: 2px solid var(--border-color);
+  align-items: center;
+  height: 52px;
+  padding: 0 16px;
+  gap: 4px;
 }
 
-.tab-button {
-  padding: 10px 20px;
-  cursor: pointer;
-  border: none;
-  background-color: transparent;
-  font-size: 16px;
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+  justify-content: center;
+}
+
+.nav-links a,
+.nav-overflow a {
+  font-family: var(--font);
+  font-size: 0.65rem;
   font-weight: 500;
-  color: var(--text-color);
-  border-bottom: 3px solid transparent;
-  margin-bottom: -2px;
-  opacity: 0.7;
-  transition: opacity 0.2s, color 0.2s, border-bottom 0.2s;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: color 0.2s, background 0.2s;
 }
-
-.tab-button:hover {
-  opacity: 1;
+.nav-links a:hover,
+.nav-overflow a:hover {
+  filter: brightness(1.2);
 }
-
-.tab-button.active {
-  color: var(--accent-color);
-  border-bottom: 3px solid var(--accent-color);
-  opacity: 1;
-}
-
-.tab-content {
+.nav-links a[hidden] {
   display: none;
 }
 
-.tab-content.active {
-  display: block;
-}
+/* Nav link colors */
+.nav--project      { color: var(--c-project); }
+.nav--done         { color: var(--c-sorting); }
+.nav--foundations   { color: var(--c-foundations); }
+.nav--arrays       { color: var(--c-arrays); }
+.nav--matrices     { color: var(--c-matrices); }
+.nav--sorting      { color: var(--c-sorting); }
+.nav--hashing      { color: var(--c-hashing); }
+.nav--trees        { color: var(--c-trees); }
+.nav--linked-lists { color: var(--c-linked-lists); }
+.nav--stacks-queues{ color: var(--c-stacks-queues); }
+.nav--graphs       { color: var(--c-graphs); }
+.nav--dp           { color: var(--c-dp); }
+.nav--assignments  { color: var(--c-assignments); }
+.nav--recitations  { color: var(--c-recitations); }
+.nav--practice     { color: var(--c-practice); }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 30px;
-  background-color: var(--table-bg-color);
-  box-shadow: 0 1px 3px var(--shadow-color);
-  border: 1px solid var(--border-color);
-}
+.nav--project:hover      { background: rgba(102, 184, 255, 0.08); }
+.nav--done:hover         { background: rgba(102, 245, 160, 0.08); }
+.nav--foundations:hover   { background: rgba(255, 217, 102, 0.08); }
+.nav--arrays:hover       { background: rgba(102, 240, 216, 0.08); }
+.nav--matrices:hover     { background: rgba(255, 138, 138, 0.08); }
+.nav--sorting:hover      { background: rgba(102, 245, 160, 0.08); }
+.nav--hashing:hover      { background: rgba(102, 224, 240, 0.08); }
+.nav--trees:hover        { background: rgba(216, 158, 255, 0.08); }
+.nav--linked-lists:hover { background: rgba(200, 160, 255, 0.08); }
+.nav--stacks-queues:hover{ background: rgba(255, 179, 102, 0.08); }
+.nav--graphs:hover       { background: rgba(255, 168, 102, 0.08); }
+.nav--dp:hover           { background: rgba(255, 138, 191, 0.08); }
+.nav--assignments:hover  { background: rgba(255, 138, 138, 0.08); }
+.nav--recitations:hover  { background: rgba(255, 106, 106, 0.08); }
+.nav--practice:hover     { background: rgba(255, 154, 122, 0.08); }
 
-th,
-td {
-  border: 1px solid var(--border-color);
-  padding: 12px;
-  text-align: left;
-}
-
-th {
-  background-color: var(--table-header-bg-color);
-  font-weight: bold;
-}
-
-td:nth-child(1) {
-  width: 15%;
-  font-weight: 500;
-}
-td:nth-child(3) {
-  width: 10%;
-  text-align: center;
-}
-
-input[type="checkbox"] {
-  transform: scale(1.5);
+/* ─── Hamburger ───────────────────────────────────────────── */
+.nav-hamburger {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
   cursor: pointer;
-  accent-color: var(--accent-color);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-shrink: 0;
+  transition: border-color 0.2s;
 }
-/* styles.css */
-
-/* --- Add these new styles to the end of the file --- */
-
-/* Purpose Section Styles */
-.project-purpose {
-  margin-top: 20px; /* Adds space below the main header */
-  padding: 25px;
-  border: 1px solid var(--border-color);
-  background-color: var(--table-header-bg-color); /* A slightly different background */
-  border-radius: 8px; /* Rounded corners */
-  margin-bottom: 40px; /* Space before the main checklist starts */
+.nav-hamburger:hover {
+  border-color: var(--muted);
+}
+.nav-hamburger[hidden] {
+  display: none;
+}
+.nav-hamburger span {
+  display: block;
+  width: 16px;
+  height: 2px;
+  background: var(--dim);
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.nav-hamburger.active span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.nav-hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.nav-hamburger.active span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
 }
 
-.project-purpose h3 {
-  border-bottom: none; /* No underline on these subheadings */
-  margin-top: 0;
-  margin-bottom: 8px;
-  color: var(--accent-color); /* Use the theme's accent color */
-  font-size: 1.1em;
+/* ─── Overflow dropdown ───────────────────────────────────── */
+.nav-overflow {
+  padding: 8px 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-top: 1px solid var(--border);
+}
+.nav-overflow[hidden] {
+  display: none;
+}
+.nav-overflow a {
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.72rem;
 }
 
-/* Add a little space between the two paragraphs if needed */
-.project-purpose h3 + p {
-  margin-bottom: 15px; 
+/* ─── Theme Toggle (inside nav) ───────────────────────────── */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 0.65rem;
+  color: var(--dim);
+  letter-spacing: 0.04em;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.theme-toggle:hover {
+  color: var(--text);
+  border-color: var(--muted);
+}
+.theme-toggle .icon {
+  font-size: 0.8rem;
+  line-height: 1;
 }
 
-.project-purpose p {
-  margin-top: 0;
-  margin-bottom: 0;
-  opacity: 0.9;
-  font-size: 1em;
+/* ─── Header ───────────────────────────────────────────────── */
+header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+h1 {
+  font-family: var(--font);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  border: none;
+  padding: 0;
 }
 
 .subtitle {
-  font-size: 1.1em;
-  line-height: 1.5; /* Improves readability of the paragraph */
-  max-width: 75ch; /* Limits line length for better typography on wide screens */
-  margin: 10px auto 0; /* Adds some space above and centers the text block */
-  color: var(--text-color);
-  opacity: 0.9;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 60ch;
+  margin: 0 auto;
+  color: var(--dim);
 }
 
-/* Style for the links within the subtitle */
+.subtitle a[href*="mit"],
+.subtitle a[href*="ocw"] {
+  color: var(--tag-mit);
+}
+.subtitle a[href*="udemy"] {
+  color: var(--tag-udemy);
+}
+.subtitle a[href*="cracking"] {
+  color: var(--tag-ctci);
+}
+.subtitle a[href*="leetcode"] {
+  color: var(--tag-leetcode);
+}
 .subtitle a {
-  color: var(--accent-color); /* Use the theme's accent color to make links stand out */
-  text-decoration: none; /* Remove the default underline for a cleaner look */
-  transition: text-decoration 0.2s ease-in-out; /* Add a subtle transition */
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: var(--muted);
+  text-underline-offset: 3px;
+}
+.subtitle a:hover {
+  text-decoration-color: var(--text);
+}
+.subtitle strong a {
+  font-weight: 600;
 }
 
-/* Add the underline back when the user hovers over a link */
-.subtitle a:hover {
-  text-decoration: underline;
+/* ─── Purpose Card ─────────────────────────────────────────── */
+.project-purpose {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin-bottom: 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.project-purpose .purpose-block h3 {
+  font-family: var(--font);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+  border: none;
+  padding: 0;
+}
+
+.purpose-block:first-child h3 {
+  color: var(--c-project);
+}
+.purpose-block:last-child h3 {
+  color: var(--c-arrays);
+}
+
+.project-purpose p {
+  font-size: 0.9rem;
+  color: var(--dim);
+  line-height: 1.6;
+}
+.project-purpose p strong {
+  color: var(--text);
+}
+
+/* ─── Filter Bar ──────────────────────────────────────────── */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.filter-label {
+  font-family: var(--font);
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-right: 4px;
+}
+
+.filter-btn {
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-family: var(--font);
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.filter-btn[data-filter="all"] {
+  color: var(--dim);
+  background: var(--surface);
+  border-color: var(--border);
+}
+.filter-btn[data-filter="all"]:hover,
+.filter-btn[data-filter="all"].active {
+  color: var(--text);
+  border-color: var(--muted);
+}
+
+.filter-btn:not(.active) {
+  opacity: 0.5;
+}
+.filter-btn:hover {
+  opacity: 0.8;
+}
+.filter-btn.active {
+  opacity: 1;
+  border-color: currentColor;
+}
+
+/* Hidden rows/sections from filter */
+tr.filter-hidden {
+  display: none;
+}
+.section.filter-empty {
+  display: none;
+}
+
+/* ─── Sections ─────────────────────────────────────────────── */
+.section {
+  margin-bottom: 40px;
+  border-left: 3px solid var(--border);
+  padding-left: 20px;
+  border-radius: 2px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Section left-border colors */
+.section--project       { border-left-color: var(--c-project); }
+.section--project-done  { border-left-color: var(--c-sorting); }
+.section--foundations    { border-left-color: var(--c-foundations); }
+.section--arrays        { border-left-color: var(--c-arrays); }
+.section--matrices      { border-left-color: var(--c-matrices); }
+.section--sorting       { border-left-color: var(--c-sorting); }
+.section--hashing       { border-left-color: var(--c-hashing); }
+.section--trees         { border-left-color: var(--c-trees); }
+.section--linked-lists  { border-left-color: var(--c-linked-lists); }
+.section--stacks-queues { border-left-color: var(--c-stacks-queues); }
+.section--graphs        { border-left-color: var(--c-graphs); }
+.section--dp            { border-left-color: var(--c-dp); }
+.section--assignments   { border-left-color: var(--c-assignments); }
+.section--recitations   { border-left-color: var(--c-recitations); }
+.section--practice      { border-left-color: var(--c-practice); }
+
+.section-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.section-header h2 {
+  font-family: var(--font);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Section color accents */
+.section--project .section-dot { background: var(--c-project); }
+.section--project .section-header h2 { color: var(--c-project); }
+
+.section--project-done .section-dot { background: var(--c-sorting); }
+.section--project-done .section-header h2 { color: var(--c-sorting); }
+
+.section--foundations .section-dot { background: var(--c-foundations); }
+.section--foundations .section-header h2 { color: var(--c-foundations); }
+
+.section--arrays .section-dot { background: var(--c-arrays); }
+.section--arrays .section-header h2 { color: var(--c-arrays); }
+
+.section--matrices .section-dot { background: var(--c-matrices); }
+.section--matrices .section-header h2 { color: var(--c-matrices); }
+
+.section--linked-lists .section-dot { background: var(--c-linked-lists); }
+.section--linked-lists .section-header h2 { color: var(--c-linked-lists); }
+
+.section--stacks-queues .section-dot { background: var(--c-stacks-queues); }
+.section--stacks-queues .section-header h2 { color: var(--c-stacks-queues); }
+
+.section--trees .section-dot { background: var(--c-trees); }
+.section--trees .section-header h2 { color: var(--c-trees); }
+
+.section--hashing .section-dot { background: var(--c-hashing); }
+.section--hashing .section-header h2 { color: var(--c-hashing); }
+
+.section--sorting .section-dot { background: var(--c-sorting); }
+.section--sorting .section-header h2 { color: var(--c-sorting); }
+
+.section--graphs .section-dot { background: var(--c-graphs); }
+.section--graphs .section-header h2 { color: var(--c-graphs); }
+
+.section--dp .section-dot { background: var(--c-dp); }
+.section--dp .section-header h2 { color: var(--c-dp); }
+
+.section--assignments .section-dot { background: var(--c-assignments); }
+.section--assignments .section-header h2 { color: var(--c-assignments); }
+
+.section--recitations .section-dot { background: var(--c-recitations); }
+.section--recitations .section-header h2 { color: var(--c-recitations); }
+
+.section--practice .section-dot { background: var(--c-practice); }
+.section--practice .section-header h2 { color: var(--c-practice); }
+
+/* ─── Tables (borderless, minimal) ─────────────────────────── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0;
+  background: transparent;
+  border: none;
+}
+
+thead {
+  display: none;
+}
+
+tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+tr:last-child {
+  border-bottom: none;
+}
+tr:hover {
+  background: var(--surface);
+}
+
+th, td {
+  border: none;
+  padding: 12px 8px;
+  text-align: left;
+  font-size: 0.9rem;
+  vertical-align: middle;
+}
+
+/* Resource tag column */
+td:nth-child(1) {
+  width: 100px;
+  padding-right: 4px;
+}
+
+/* Task description */
+td:nth-child(2) {
+  color: var(--dim);
+  padding-right: 16px;
+}
+
+td:nth-child(2) a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--muted);
+  transition: border-color 0.2s;
+}
+td:nth-child(2) a:hover {
+  border-bottom-color: var(--text);
+  border-bottom-style: solid;
+}
+
+/* Checkbox column */
+td:nth-child(3) {
+  width: 40px;
+  text-align: center;
+}
+
+/* ─── Resource Tags ────────────────────────────────────────── */
+.tag {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-family: var(--font);
+  font-size: 0.62rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.tag--udemy {
+  color: var(--tag-udemy);
+  background: var(--tag-udemy-bg);
+}
+.tag--ctci {
+  color: var(--tag-ctci);
+  background: var(--tag-ctci-bg);
+}
+.tag--leetcode {
+  color: var(--tag-leetcode);
+  background: var(--tag-leetcode-bg);
+}
+.tag--mit {
+  color: var(--tag-mit);
+  background: var(--tag-mit-bg);
+}
+.tag--clrs {
+  color: var(--tag-clrs);
+  background: var(--tag-clrs-bg);
+}
+.tag--cpp {
+  color: var(--tag-cpp);
+  background: var(--tag-cpp-bg);
+}
+.tag--project {
+  color: var(--tag-project);
+  background: var(--tag-project-bg);
+}
+.tag--array {
+  color: var(--tag-array);
+  background: var(--tag-array-bg);
+}
+.tag--testing {
+  color: var(--tag-testing);
+  background: var(--tag-testing-bg);
+}
+.tag--algorithm {
+  color: var(--tag-algorithm);
+  background: var(--tag-algorithm-bg);
+}
+.tag--area {
+  color: var(--dim);
+  background: var(--tag-area-bg);
+}
+
+/* ─── Checkboxes ───────────────────────────────────────────── */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2.5px solid var(--muted);
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+input[type="checkbox"]:hover {
+  border-color: var(--text);
+}
+
+input[type="checkbox"]:checked {
+  background: var(--c-sorting);
+  border-color: var(--c-sorting);
+}
+
+input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 6px;
+  width: 5px;
+  height: 10px;
+  border: solid var(--bg);
+  border-width: 0 2.5px 2.5px 0;
+  transform: rotate(45deg);
+}
+
+/* ─── Scroll to Top ───────────────────────────────────────── */
+.scroll-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 100;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--dim);
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s, color 0.2s, border-color 0.2s;
+  opacity: 0;
+}
+.scroll-top.visible {
+  opacity: 1;
+}
+.scroll-top[hidden] {
+  display: flex;
+}
+.scroll-top:hover {
+  color: var(--text);
+  border-color: var(--muted);
+}
+
+/* ─── Responsive: layout ───────────────────────────────────── */
+@media (max-width: 700px) {
+  html {
+    scroll-padding-top: 56px;
+  }
+  body {
+    padding: 64px 16px 60px;
+  }
+  h1 {
+    font-size: 1.2rem;
+  }
+  .project-purpose {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 20px;
+  }
+  td:nth-child(1) {
+    width: 80px;
+  }
+  .tag {
+    font-size: 0.58rem;
+    padding: 2px 6px;
+  }
 }

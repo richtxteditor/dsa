@@ -11,393 +11,869 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <nav class="nav" id="nav">
+      <div class="nav-bar">
+        <div class="nav-links" id="nav-links">
+          <a href="#project-current" class="nav--project" data-nav>Current Tasks</a>
+          <a href="#project-done" class="nav--done" data-nav>Completed</a>
+          <a href="#foundations" class="nav--foundations" data-nav>Foundations</a>
+          <a href="#arrays" class="nav--arrays" data-nav>Arrays</a>
+          <a href="#matrices" class="nav--matrices" data-nav>Matrices</a>
+          <a href="#sorting" class="nav--sorting" data-nav>Sorting</a>
+          <a href="#hashing" class="nav--hashing" data-nav>Hashing</a>
+          <a href="#trees" class="nav--trees" data-nav>Trees</a>
+          <a href="#linked-lists" class="nav--linked-lists" data-nav>Linked Lists</a>
+          <a href="#stacks-queues" class="nav--stacks-queues" data-nav>Stacks &amp; Queues</a>
+          <a href="#graphs" class="nav--graphs" data-nav>Graphs</a>
+          <a href="#dp" class="nav--dp" data-nav>Dynamic Programming</a>
+        </div>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle overflow menu" hidden>
+          <span></span><span></span><span></span>
+        </button>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+          <span class="icon" id="theme-icon">&#9680;</span>
+          <span id="theme-label">Auto</span>
+        </button>
+      </div>
+      <div class="nav-overflow" id="nav-overflow" hidden></div>
+    </nav>
+
     <header>
       <h1>DSA & Technical Interview Prep Tracker</h1>
       <p class="subtitle">
-        An integrated study plan combining the foundational Udemy course
-        <strong><a href="https://www.udemy.com/course/datastructurescncpp/" target="_blank">"Data Structures and Algorithms using C++"</a></strong> with
-        targeted practice from <strong><a href="https://www.crackingthecodinginterview.com/" target="_blank">"Cracking the Coding Interview"</a></strong>
-        and <strong><a href="https://leetcode.com/" target="_blank">LeetCode</a></strong>. This serves as a refresher from my undergraduate studies in Computer Science at <strong><a href="https://montclair.edu" target="_blank">MSU</a></strong> as I look for full-time work. Please take a look at my <strong><a href="https://richtxteditor.github.io" target="_blank">portfolio</a></strong>!
+        A structured study plan built around
+        <strong><a href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/" target="_blank">MIT 6.006 Introduction to Algorithms</a></strong>
+        and <strong>CLRS 4th Edition</strong>,
+        supplemented by the Udemy course
+        <strong><a href="https://www.udemy.com/course/datastructurescncpp/" target="_blank">Data Structures and Algorithms using C++</a></strong>,
+        <strong><a href="https://www.crackingthecodinginterview.com/" target="_blank">Cracking the Coding Interview</a></strong>,
+        and <strong><a href="https://leetcode.com/" target="_blank">LeetCode</a></strong>.
+        This serves as a refresher from my undergraduate studies in Computer Science at <strong><a href="https://montclair.edu" target="_blank">MSU</a></strong> as I look for full-time work. Please take a look at my <strong><a href="https://richtxteditor.github.io" target="_blank">portfolio</a></strong>!
       </p>
     </header>
+
     <div class="project-purpose">
-      <h3>Project Philosophy</h3>
-      <p>
-        This project is an exercise in understanding data structures and algorithms from <strong>first principles</strong>.
-        Instead of just using standard library containers, each core data structure is built from scratch in C and C++ to gain a fundamental understanding of its memory layout, performance characteristics, and trade-offs.
-      </p>
-      <h3>Website Purpose</h3>
-      <p>
-        This website serves as a <strong>living document</strong> to track progress through a structured curriculum, hold myself accountable, and showcase the practical application of the concepts being learned.
-      </p>
+      <div class="purpose-block">
+        <h3>Project Philosophy</h3>
+        <p>
+          This project is an exercise in understanding data structures and algorithms from <strong>first principles</strong>.
+          Instead of just using standard library containers, each core data structure is built from scratch in <strong>C/C++</strong>, <strong>Python</strong>, and <strong>Java</strong> to gain a fundamental understanding of its memory layout, performance characteristics, and trade-offs.
+        </p>
+      </div>
+      <div class="purpose-block">
+        <h3>Website Purpose</h3>
+        <p>
+          This website serves as a <strong>living document</strong> to track progress through a structured curriculum, hold myself accountable, and showcase the practical application of the concepts being learned.
+        </p>
+      </div>
+    </div>
+
+    <div class="filter-bar" id="filter-bar">
+      <span class="filter-label">Filter</span>
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn tag--mit" data-filter="mit">MIT</button>
+      <button class="filter-btn tag--clrs" data-filter="clrs">CLRS</button>
+      <button class="filter-btn tag--udemy" data-filter="udemy">Udemy</button>
+      <button class="filter-btn tag--ctci" data-filter="ctci">CTCI</button>
+      <button class="filter-btn tag--leetcode" data-filter="leetcode">LeetCode</button>
+      <button class="filter-btn tag--cpp" data-filter="cpp">C++</button>
+      <button class="filter-btn tag--project" data-filter="project">Project</button>
+      <button class="filter-btn tag--array" data-filter="array">Array</button>
+      <button class="filter-btn tag--testing" data-filter="testing">Testing</button>
+      <button class="filter-btn tag--algorithm" data-filter="algorithm">Algorithm</button>
     </div>
 
     <main>
-      <!-- ====================================================== -->
-      <!-- ================== C++ Project Plan ================== -->
-      <!-- ====================================================== -->
-       
-      <h2>C++ Project - Current Tasks</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Area</th>
-            <th>Task</th>
-            <th>Done</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Algorithm</td>
-            <td>Implement additional sorting algorithms (e.g., Merge Sort, Quick Sort) as methods of the `Array` class.</td>
-            <td><input type="checkbox" id="dsa-task-3" /></td>
-          </tr>
-          <tr>
-            <td>Project</td>
-            <td>Set up a simple build system with a Makefile or CMake.</td>
-            <td><input type="checkbox" id="dsa-task-4" /></td>
-          </tr>
-        </tbody>
-      </table>
 
-      <h2>C++ Project - Completed Tasks</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Area</th>
-            <th>Task</th>
-            <th>Done</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>C++</td>
-            <td>Convert `Array` class to a generic template (`Array<T>`) and merge into a header-only library.</td>
-            <td><input type="checkbox" id="dsa-done-templates" checked /></td>
-          </tr>
-          <tr>
-            <td>C++</td>
-            <td>Implement Iterators (`begin()`, `end()`) for range-based `for` loop compatibility.</td>
-            <td><input type="checkbox" id="dsa-done-iterators" checked /></td>
-          </tr>
-          <tr>
-            <td>Array</td>
-            <td>Implement dynamic resizing to handle overflow automatically.</td>
-            <td><input type="checkbox" id="dsa-done-3" checked /></td>
-          </tr>
-          <tr>
-            <td>Project</td>
-            <td>Split monolithic code into `.h` (header) and `.cpp` (source) files.</td>
-            <td><input type="checkbox" id="dsa-done-2" checked /></td>
-          </tr>
-          <tr>
-            <td>Testing</td>
-            <td>Add a simple unit test function to main and set up an XCTest target.</td>
-            <td><input type="checkbox" id="dsa-done-4" checked /></td>
-          </tr>
-          <tr>
-            <td>C++</td>
-            <td>Replace `using namespace std;` with specific `using` declarations for better practice.</td>
-            <td><input type="checkbox" id="dsa-done-1" checked /></td>
-          </tr>
-          <tr>
-            <td>Algorithm</td>
-            <td>Implement and test various duplicate-finding methods (sorted, hashing, brute-force).</td>
-            <td><input type="checkbox" id="dsa-done-6" checked /></td>
-          </tr>
-        </tbody>
-      </table>
+      <!-- ═══ C++ Project — Current Tasks ═══ -->
+      <div class="section section--project" id="project-current">
+        <div class="section-header">
+          <span class="section-dot"></span>
+          <h2>C++ Project — Current Tasks</h2>
+        </div>
+        <table>
+          <thead><tr><th>Area</th><th>Task</th><th>Done</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="tag tag--algorithm">Algorithm</span></td>
+              <td>Implement additional sorting algorithms (e.g., Merge Sort, Quick Sort) as methods of the `Array` class.</td>
+              <td><input type="checkbox" id="dsa-task-3" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--project">Project</span></td>
+              <td>Set up a simple build system with a Makefile or CMake.</td>
+              <td><input type="checkbox" id="dsa-task-4" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      <!-- ====================================================== -->
-      <!-- =============== Course & LeetCode Plan =============== -->
-      <!-- ====================================================== -->
-      <h2>Section 1-3: Foundations (Completed)</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Section</th>
-            <th>Topics</th>
-            <th>Done</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1: Introduction</td>
-            <td>What are Data Structures?, ADT, What is an Algorithm?</td>
-            <td><input type="checkbox" id="udemy-sec1" checked /></td>
-          </tr>
-          <tr>
-            <td>2: Recursion</td>
-            <td>What is Recursion?, Static/Global Variables, Taylor Series, Fibonacci, Tower of Hanoi</td>
-            <td><input type="checkbox" id="udemy-sec2" checked /></td>
-          </tr>
-          <tr>
-            <td>3: Arrays Representations</td>
-            <td>Array ADT, 2D Arrays, Matrices</td>
-            <td><input type="checkbox" id="udemy-sec3" checked /></td>
-          </tr>
-        </tbody>
-      </table>
+      <!-- ═══ C++ Project — Completed Tasks ═══ -->
+      <div class="section section--project-done" id="project-done">
+        <div class="section-header">
+          <span class="section-dot"></span>
+          <h2>C++ Project — Completed Tasks</h2>
+        </div>
+        <table>
+          <thead><tr><th>Area</th><th>Task</th><th>Done</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="tag tag--cpp">C++</span></td>
+              <td>Convert `Array` class to a generic template (`Array&lt;T&gt;`) and merge into a header-only library.</td>
+              <td><input type="checkbox" id="dsa-done-templates" checked /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--cpp">C++</span></td>
+              <td>Implement Iterators (`begin()`, `end()`) for range-based `for` loop compatibility.</td>
+              <td><input type="checkbox" id="dsa-done-iterators" checked /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--array">Array</span></td>
+              <td>Implement dynamic resizing to handle overflow automatically.</td>
+              <td><input type="checkbox" id="dsa-done-3" checked /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--project">Project</span></td>
+              <td>Split monolithic code into `.h` (header) and `.cpp` (source) files.</td>
+              <td><input type="checkbox" id="dsa-done-2" checked /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--testing">Testing</span></td>
+              <td>Add a simple unit test function to main and set up an XCTest target.</td>
+              <td><input type="checkbox" id="dsa-done-4" checked /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--cpp">C++</span></td>
+              <td>Replace `using namespace std;` with specific `using` declarations for better practice.</td>
+              <td><input type="checkbox" id="dsa-done-1" checked /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--algorithm">Algorithm</span></td>
+              <td>Implement and test various duplicate-finding methods (sorted, hashing, brute-force).</td>
+              <td><input type="checkbox" id="dsa-done-6" checked /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      <h2>Section 4 & 5: Arrays and Strings</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Resource</th>
-            <th>Task</th>
-            <th>Done</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Udemy</td>
-            <td>Array Operations (Display, Add, Insert, Delete, Search, Binary Search)</td>
-            <td><input type="checkbox" id="udemy-s4-1" checked /></td>
-          </tr>
-          <tr>
-            <td>Udemy</td>
-            <td>String Ops (Length, Case, Reverse, Palindrome, Duplicates, Anagrams)</td>
-            <td><input type="checkbox" id="udemy-s5-1" /></td>
-          </tr>
-          <tr>
-            <td>CTCI</td>
-            <td>Read Chapter 1: Arrays and Strings</td>
-            <td><input type="checkbox" id="ctci-ch1" /></td>
-          </tr>
-          <tr>
-            <td>Leetcode</td>
-            <td>Two Sum, Valid Anagram, Contains Duplicate, Longest Substring Without Repeating Characters</td>
-            <td><input type="checkbox" id="leet-arr-str-1" /></td>
-          </tr>
-        </tbody>
-      </table>
+      <!-- ═══ Foundations ═══ -->
+      <div class="section section--foundations" id="foundations">
+        <div class="section-header">
+          <span class="section-dot"></span>
+          <h2>Foundations</h2>
+        </div>
+        <table>
+          <thead><tr><th>Resource</th><th>Task</th><th>Done</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Lecture 1: Algorithms and Computation</td>
+              <td><input type="checkbox" id="mit-lec1" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Lecture 2: Data Structures and Dynamic Arrays</td>
+              <td><input type="checkbox" id="mit-lec2" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Lecture 19: Complexity</td>
+              <td><input type="checkbox" id="mit-lec19" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Lecture 20: Course Review</td>
+              <td><input type="checkbox" id="mit-lec20" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Lecture 21: Algorithms — Next Steps (bonus)</td>
+              <td><input type="checkbox" id="mit-lec21" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--clrs">CLRS</span></td>
+              <td>Chapters 1-3: Role of Algorithms, Getting Started, Growth of Functions</td>
+              <td><input type="checkbox" id="clrs-ch1-3" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--clrs">CLRS</span></td>
+              <td>Chapter 4: Divide-and-Conquer, Recurrences</td>
+              <td><input type="checkbox" id="clrs-ch4" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--clrs">CLRS</span></td>
+              <td>Chapter 5: Probabilistic Analysis and Randomized Algorithms</td>
+              <td><input type="checkbox" id="clrs-ch5" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--clrs">CLRS</span></td>
+              <td>Chapter 16: Amortized Analysis</td>
+              <td><input type="checkbox" id="clrs-ch16" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--udemy">Udemy</span></td>
+              <td>Introduction — What are Data Structures?, ADT, What is an Algorithm?</td>
+              <td><input type="checkbox" id="udemy-sec1" checked /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--udemy">Udemy</span></td>
+              <td>Recursion — Static/Global Variables, Taylor Series, Fibonacci, Tower of Hanoi</td>
+              <td><input type="checkbox" id="udemy-sec2" checked /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--udemy">Udemy</span></td>
+              <td>Arrays Representations — Array ADT, 2D Arrays, Matrices</td>
+              <td><input type="checkbox" id="udemy-sec3" checked /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Problem Set 0 · Solutions</td>
+              <td><input type="checkbox" id="mit-ps0" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Problem Set 1 · Solutions</td>
+              <td><input type="checkbox" id="mit-ps1" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Recitation 1</td>
+              <td><input type="checkbox" id="mit-r01" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Recitation 2</td>
+              <td><input type="checkbox" id="mit-r02" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Recitation 19</td>
+              <td><input type="checkbox" id="mit-r19" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Problem Session 1 · Solutions</td>
+              <td><input type="checkbox" id="mit-prob1" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Problem Session 2 · Solutions</td>
+              <td><input type="checkbox" id="mit-prob2" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      <h2>Section 6: Matrices</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Resource</th>
-            <th>Task</th>
-            <th>Done</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Udemy</td>
-            <td>Diagonal, Lower/Upper Triangular, Symmetric Matrix representations</td>
-            <td><input type="checkbox" id="udemy-s6-1" /></td>
-          </tr>
-          <tr>
-            <td>CTCI</td>
-            <td>Review matrix problems in Chapter 1 (e.g., Zero Matrix, Rotate Matrix)</td>
-            <td><input type="checkbox" id="ctci-ch1-matrix" /></td>
-          </tr>
-          <tr>
-            <td>Leetcode</td>
-            <td>Rotate Image, Set Matrix Zeroes, Spiral Matrix</td>
-            <td><input type="checkbox" id="leet-matrix-1" /></td>
-          </tr>
-        </tbody>
-      </table>
+      <!-- ═══ Arrays and Strings ═══ -->
+      <div class="section section--arrays" id="arrays">
+        <div class="section-header">
+          <span class="section-dot"></span>
+          <h2>Arrays and Strings</h2>
+        </div>
+        <table>
+          <thead><tr><th>Resource</th><th>Task</th><th>Done</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="tag tag--udemy">Udemy</span></td>
+              <td>Array Operations (Display, Add, Insert, Delete, Search, Binary Search)</td>
+              <td><input type="checkbox" id="udemy-s4-1" checked /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--udemy">Udemy</span></td>
+              <td>String Ops (Length, Case, Reverse, Palindrome, Duplicates, Anagrams)</td>
+              <td><input type="checkbox" id="udemy-s5-1" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--ctci">CTCI</span></td>
+              <td>Read Chapter 1: Arrays and Strings</td>
+              <td><input type="checkbox" id="ctci-ch1" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--leetcode">LeetCode</span></td>
+              <td>Two Sum, Valid Anagram, Contains Duplicate, Longest Substring Without Repeating Characters</td>
+              <td><input type="checkbox" id="leet-arr-str-1" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      <h2>Section 7: Linked Lists</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Resource</th>
-            <th>Task</th>
-            <th>Done</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Udemy</td>
-            <td>Singly Linked List (Intro, Display, Search, Insert, Delete, Reverse)</td>
-            <td><input type="checkbox" id="udemy-s7-1" /></td>
-          </tr>
-          <tr>
-            <td>Udemy</td>
-            <td>Circular Linked List, Doubly Linked List, Merge, Check for Loop</td>
-            <td><input type="checkbox" id="udemy-s7-2" /></td>
-          </tr>
-          <tr>
-            <td>CTCI</td>
-            <td>Read Chapter 2: Linked Lists</td>
-            <td><input type="checkbox" id="ctci-ch2" /></td>
-          </tr>
-          <tr>
-            <td>Leetcode</td>
-            <td>Reverse Linked List, Linked List Cycle, Merge Two Sorted Lists, Remove Nth Node From End</td>
-            <td><input type="checkbox" id="leet-ll-1" /></td>
-          </tr>
-        </tbody>
-      </table>
+      <!-- ═══ Matrices ═══ -->
+      <div class="section section--matrices" id="matrices">
+        <div class="section-header">
+          <span class="section-dot"></span>
+          <h2>Matrices</h2>
+        </div>
+        <table>
+          <thead><tr><th>Resource</th><th>Task</th><th>Done</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="tag tag--udemy">Udemy</span></td>
+              <td>Diagonal, Lower/Upper Triangular, Symmetric Matrix representations</td>
+              <td><input type="checkbox" id="udemy-s6-1" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--ctci">CTCI</span></td>
+              <td>Review matrix problems in Chapter 1 (e.g., Zero Matrix, Rotate Matrix)</td>
+              <td><input type="checkbox" id="ctci-ch1-matrix" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--leetcode">LeetCode</span></td>
+              <td>Rotate Image, Set Matrix Zeroes, Spiral Matrix</td>
+              <td><input type="checkbox" id="leet-matrix-1" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      <h2>Section 9 & 10: Stacks and Queues</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Resource</th>
-            <th>Task</th>
-            <th>Done</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Udemy</td>
-            <td>Stack (Array/LL), Parenthesis Matching, Infix to Postfix</td>
-            <td><input type="checkbox" id="udemy-s9-1" /></td>
-          </tr>
-          <tr>
-            <td>Udemy</td>
-            <td>Queue (Array/Circular/LL), Priority Queues</td>
-            <td><input type="checkbox" id="udemy-s10-1" /></td>
-          </tr>
-          <tr>
-            <td>CTCI</td>
-            <td>Read Chapter 3: Stacks and Queues</td>
-            <td><input type="checkbox" id="ctci-ch3" /></td>
-          </tr>
-          <tr>
-            <td>Leetcode</td>
-            <td>Valid Parentheses, Min Stack, Implement Queue using Stacks</td>
-            <td><input type="checkbox" id="leet-stack-queue-1" /></td>
-          </tr>
-        </tbody>
-      </table>
+      <!-- ═══ Sorting ═══ -->
+      <div class="section section--sorting" id="sorting">
+        <div class="section-header">
+          <span class="section-dot"></span>
+          <h2>Sorting</h2>
+        </div>
+        <table>
+          <thead><tr><th>Resource</th><th>Task</th><th>Done</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Lecture 3: Sets and Sorting</td>
+              <td><input type="checkbox" id="mit-lec3" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Lecture 5: Linear Sorting</td>
+              <td><input type="checkbox" id="mit-lec5" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--clrs">CLRS</span></td>
+              <td>Chapters 6-9: Heapsort, Quicksort, Sorting in Linear Time, Medians and Order Statistics</td>
+              <td><input type="checkbox" id="clrs-ch6-9" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--udemy">Udemy</span></td>
+              <td>Basic (Bubble, Insertion, Selection), Advanced (Quick Sort, Merge Sort)</td>
+              <td><input type="checkbox" id="udemy-s13-1" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--udemy">Udemy</span></td>
+              <td>Specialized (Count Sort, Radix Sort, Shell Sort)</td>
+              <td><input type="checkbox" id="udemy-s13-2" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--ctci">CTCI</span></td>
+              <td>Read Chapter 10: Sorting and Searching</td>
+              <td><input type="checkbox" id="ctci-ch10" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--leetcode">LeetCode</span></td>
+              <td>Merge Sorted Array, Sort Colors (Dutch National Flag problem)</td>
+              <td><input type="checkbox" id="leet-sort-1" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Problem Set 2 · Solutions</td>
+              <td><input type="checkbox" id="mit-ps2" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Recitation 3</td>
+              <td><input type="checkbox" id="mit-r03" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Recitation 5</td>
+              <td><input type="checkbox" id="mit-r05" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Problem Session 3 · Solutions</td>
+              <td><input type="checkbox" id="mit-prob3" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      <h2>Section 11: Trees</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Resource</th>
-            <th>Task</th>
-            <th>Done</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Udemy</td>
-            <td>Binary Trees: Creation, Traversals (Preorder, Inorder, Postorder, Level-order), Height & Count</td>
-            <td><input type="checkbox" id="udemy-s11-1" /></td>
-          </tr>
-          <tr>
-            <td>Udemy</td>
-            <td>Binary Search Trees (BST): Search, Insert, Delete</td>
-            <td><input type="checkbox" id="udem-s11-2" /></td>
-          </tr>
-          <tr>
-            <td>Udemy</td>
-            <td>Advanced Trees: AVL Trees (Rotations), Heaps (Insert, Delete, Heap Sort), Trie</td>
-            <td><input type="checkbox" id="udemy-s11-3" /></td>
-          </tr>
-          <tr>
-            <td>CTCI</td>
-            <td>Read Chapter 4: Trees and Graphs</td>
-            <td><input type="checkbox" id="ctci-ch4" /></td>
-          </tr>
-          <tr>
-            <td>Leetcode</td>
-            <td>Maximum Depth of Binary Tree, Invert Binary Tree, Validate Binary Search Tree, Kth Largest Element in an Array (Heap), Implement Trie</td>
-            <td><input type="checkbox" id="leet-tree-1" /></td>
-          </tr>
-        </tbody>
-      </table>
+      <!-- ═══ Hashing ═══ -->
+      <div class="section section--hashing" id="hashing">
+        <div class="section-header">
+          <span class="section-dot"></span>
+          <h2>Hashing</h2>
+        </div>
+        <table>
+          <thead><tr><th>Resource</th><th>Task</th><th>Done</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Lecture 4: Hashing</td>
+              <td><input type="checkbox" id="mit-lec4" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--clrs">CLRS</span></td>
+              <td>Chapter 11: Hash Tables</td>
+              <td><input type="checkbox" id="clrs-ch11" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--udemy">Udemy</span></td>
+              <td>Hashing Intro, Chaining, Linear Probing, Quadratic Probing</td>
+              <td><input type="checkbox" id="udemy-s12-1" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--ctci">CTCI</span></td>
+              <td>Review Hash Table applications in Ch 1 (Arrays/Strings) and Ch 2 (Linked Lists)</td>
+              <td><input type="checkbox" id="ctci-hashing" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--leetcode">LeetCode</span></td>
+              <td>Group Anagrams, Ransom Note, Design HashMap</td>
+              <td><input type="checkbox" id="leet-hash-1" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Recitation 4</td>
+              <td><input type="checkbox" id="mit-r04" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      <h2>Section 12: Hashing</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Resource</th>
-            <th>Task</th>
-            <th>Done</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Udemy</td>
-            <td>Hashing Intro, Chaining, Linear Probing, Quadratic Probing</td>
-            <td><input type="checkbox" id="udemy-s12-1" /></td>
-          </tr>
-          <tr>
-            <td>CTCI</td>
-            <td>Review Hash Table applications in Ch 1 (Arrays/Strings) and Ch 2 (Linked Lists)</td>
-            <td><input type="checkbox" id="ctci-hashing" /></td>
-          </tr>
-          <tr>
-            <td>Leetcode</td>
-            <td>Group Anagrams, Ransom Note, Design HashMap</td>
-            <td><input type="checkbox" id="leet-hash-1" /></td>
-          </tr>
-        </tbody>
-      </table>
+      <!-- ═══ Binary Trees ═══ -->
+      <div class="section section--trees" id="trees">
+        <div class="section-header">
+          <span class="section-dot"></span>
+          <h2>Binary Trees</h2>
+        </div>
+        <table>
+          <thead><tr><th>Resource</th><th>Task</th><th>Done</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Lecture 6: Binary Trees, Part 1</td>
+              <td><input type="checkbox" id="mit-lec6" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Lecture 7: Binary Trees, Part 2 — AVL</td>
+              <td><input type="checkbox" id="mit-lec7" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Lecture 8: Binary Heaps</td>
+              <td><input type="checkbox" id="mit-lec8" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--clrs">CLRS</span></td>
+              <td>Chapter 12: Binary Search Trees</td>
+              <td><input type="checkbox" id="clrs-ch12" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--clrs">CLRS</span></td>
+              <td>Chapter 13: Red-Black Trees (AVL alternative)</td>
+              <td><input type="checkbox" id="clrs-ch13" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--clrs">CLRS</span></td>
+              <td>Chapter 17: Augmenting Data Structures (Order Statistics, Interval Trees)</td>
+              <td><input type="checkbox" id="clrs-ch17" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--clrs">CLRS</span></td>
+              <td>Chapter 18: B-Trees</td>
+              <td><input type="checkbox" id="clrs-ch18" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--udemy">Udemy</span></td>
+              <td>Binary Trees: Creation, Traversals (Preorder, Inorder, Postorder, Level-order), Height & Count</td>
+              <td><input type="checkbox" id="udemy-s11-1" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--udemy">Udemy</span></td>
+              <td>Binary Search Trees (BST): Search, Insert, Delete</td>
+              <td><input type="checkbox" id="udem-s11-2" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--udemy">Udemy</span></td>
+              <td>Advanced Trees: AVL Trees (Rotations), Heaps (Insert, Delete, Heap Sort), Trie</td>
+              <td><input type="checkbox" id="udemy-s11-3" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--ctci">CTCI</span></td>
+              <td>Read Chapter 4: Trees and Graphs</td>
+              <td><input type="checkbox" id="ctci-ch4" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--leetcode">LeetCode</span></td>
+              <td>Maximum Depth of Binary Tree, Invert Binary Tree, Validate BST, Kth Largest Element (Heap), Implement Trie</td>
+              <td><input type="checkbox" id="leet-tree-1" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Problem Set 3 · Solutions</td>
+              <td><input type="checkbox" id="mit-ps3" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Recitation 6</td>
+              <td><input type="checkbox" id="mit-r06" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Recitation 7</td>
+              <td><input type="checkbox" id="mit-r07" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Recitation 8</td>
+              <td><input type="checkbox" id="mit-r08" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Problem Session 4 · Solutions</td>
+              <td><input type="checkbox" id="mit-prob4" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Quiz 1 Review</td>
+              <td><input type="checkbox" id="mit-quiz1" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      <h2>Section 13: Sorting Techniques</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Resource</th>
-            <th>Task</th>
-            <th>Done</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Udemy</td>
-            <td>Basic (Bubble, Insertion, Selection), Advanced (Quick Sort, Merge Sort)</td>
-            <td><input type="checkbox" id="udemy-s13-1" /></td>
-          </tr>
-          <tr>
-            <td>Udemy</td>
-            <td>Specialized (Count Sort, Radix Sort, Shell Sort)</td>
-            <td><input type="checkbox" id="udemy-s13-2" /></td>
-          </tr>
-          <tr>
-            <td>CTCI</td>
-            <td>Read Chapter 10: Sorting and Searching</td>
-            <td><input type="checkbox" id="ctci-ch10" /></td>
-          </tr>
-          <tr>
-            <td>Leetcode</td>
-            <td>Merge Sorted Array, Sort Colors (Dutch National Flag problem)</td>
-            <td><input type="checkbox" id="leet-sort-1" /></td>
-          </tr>
-        </tbody>
-      </table>
+      <!-- ═══ Linked Lists ═══ -->
+      <div class="section section--linked-lists" id="linked-lists">
+        <div class="section-header">
+          <span class="section-dot"></span>
+          <h2>Linked Lists</h2>
+        </div>
+        <table>
+          <thead><tr><th>Resource</th><th>Task</th><th>Done</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="tag tag--udemy">Udemy</span></td>
+              <td>Singly Linked List (Intro, Display, Search, Insert, Delete, Reverse)</td>
+              <td><input type="checkbox" id="udemy-s7-1" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--udemy">Udemy</span></td>
+              <td>Circular Linked List, Doubly Linked List, Merge, Check for Loop</td>
+              <td><input type="checkbox" id="udemy-s7-2" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--ctci">CTCI</span></td>
+              <td>Read Chapter 2: Linked Lists</td>
+              <td><input type="checkbox" id="ctci-ch2" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--leetcode">LeetCode</span></td>
+              <td>Reverse Linked List, Linked List Cycle, Merge Two Sorted Lists, Remove Nth Node From End</td>
+              <td><input type="checkbox" id="leet-ll-1" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      <h2>Section 14: Graphs</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Resource</th>
-            <th>Task</th>
-            <th>Done</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Udemy</td>
-            <td>Terminology, Representation, Breadth-First Search (BFS), Depth-First Search (DFS)</td>
-            <td><input type="checkbox" id="udemy-s14-1" /></td>
-          </tr>
-          <tr>
-            <td>Udemy</td>
-            <td>Spanning Trees (Prim's Algorithm, Kruskal's Algorithm)</td>
-            <td><input type="checkbox" id="udemy-s14-2" /></td>
-          </tr>
-          <tr>
-            <td>CTCI</td>
-            <td>Review Graph problems in Chapter 4</td>
-            <td><input type="checkbox" id="ctci-ch4-graphs" /></td>
-          </tr>
-          <tr>
-            <td>Leetcode</td>
-            <td>Number of Islands, Clone Graph, Course Schedule (Topological Sort)</td>
-            <td><input type="checkbox" id="leet-graph-1" /></td>
-          </tr>
-        </tbody>
-      </table>
+      <!-- ═══ Stacks and Queues ═══ -->
+      <div class="section section--stacks-queues" id="stacks-queues">
+        <div class="section-header">
+          <span class="section-dot"></span>
+          <h2>Stacks and Queues</h2>
+        </div>
+        <table>
+          <thead><tr><th>Resource</th><th>Task</th><th>Done</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="tag tag--clrs">CLRS</span></td>
+              <td>Chapter 10: Elementary Data Structures (Stacks, Queues, Linked Lists, Rooted Trees)</td>
+              <td><input type="checkbox" id="clrs-ch10" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--udemy">Udemy</span></td>
+              <td>Stack (Array/LL), Parenthesis Matching, Infix to Postfix</td>
+              <td><input type="checkbox" id="udemy-s9-1" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--udemy">Udemy</span></td>
+              <td>Queue (Array/Circular/LL), Priority Queues</td>
+              <td><input type="checkbox" id="udemy-s10-1" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--ctci">CTCI</span></td>
+              <td>Read Chapter 3: Stacks and Queues</td>
+              <td><input type="checkbox" id="ctci-ch3" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--leetcode">LeetCode</span></td>
+              <td>Valid Parentheses, Min Stack, Implement Queue using Stacks</td>
+              <td><input type="checkbox" id="leet-stack-queue-1" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ═══ Graphs ═══ -->
+      <div class="section section--graphs" id="graphs">
+        <div class="section-header">
+          <span class="section-dot"></span>
+          <h2>Graphs</h2>
+        </div>
+        <table>
+          <thead><tr><th>Resource</th><th>Task</th><th>Done</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Lecture 9: Breadth-First Search (BFS)</td>
+              <td><input type="checkbox" id="mit-lec9" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Lecture 10: Depth-First Search (DFS)</td>
+              <td><input type="checkbox" id="mit-lec10" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Lecture 11: Weighted Shortest Paths</td>
+              <td><input type="checkbox" id="mit-lec11" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Lecture 12: Bellman-Ford</td>
+              <td><input type="checkbox" id="mit-lec12" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Lecture 13: Dijkstra's Algorithm</td>
+              <td><input type="checkbox" id="mit-lec13" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Lecture 14: APSP & Johnson's Algorithm</td>
+              <td><input type="checkbox" id="mit-lec14" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--clrs">CLRS</span></td>
+              <td>Chapter 20: Elementary Graph Algorithms (BFS, DFS, Topological Sort)</td>
+              <td><input type="checkbox" id="clrs-ch20" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--clrs">CLRS</span></td>
+              <td>Chapter 22: Single-Source Shortest Paths (Bellman-Ford, Dijkstra)</td>
+              <td><input type="checkbox" id="clrs-ch22" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--clrs">CLRS</span></td>
+              <td>Chapter 23: All-Pairs Shortest Paths (Floyd-Warshall, Johnson)</td>
+              <td><input type="checkbox" id="clrs-ch23" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--clrs">CLRS</span></td>
+              <td>Chapter 19: Data Structures for Disjoint Sets (Union-Find)</td>
+              <td><input type="checkbox" id="clrs-ch19" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--clrs">CLRS</span></td>
+              <td>Chapter 21: Minimum Spanning Trees (Kruskal, Prim)</td>
+              <td><input type="checkbox" id="clrs-ch21" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--clrs">CLRS</span></td>
+              <td>Chapter 24: Maximum Flow (Ford-Fulkerson)</td>
+              <td><input type="checkbox" id="clrs-ch24" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--clrs">CLRS</span></td>
+              <td>Chapter 25: Matchings in Bipartite Graphs</td>
+              <td><input type="checkbox" id="clrs-ch25" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--udemy">Udemy</span></td>
+              <td>Terminology, Representation, BFS, DFS</td>
+              <td><input type="checkbox" id="udemy-s14-1" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--udemy">Udemy</span></td>
+              <td>Spanning Trees (Prim's Algorithm, Kruskal's Algorithm)</td>
+              <td><input type="checkbox" id="udemy-s14-2" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--ctci">CTCI</span></td>
+              <td>Review Graph problems in Chapter 4</td>
+              <td><input type="checkbox" id="ctci-ch4-graphs" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--leetcode">LeetCode</span></td>
+              <td>Number of Islands, Clone Graph, Course Schedule (Topological Sort)</td>
+              <td><input type="checkbox" id="leet-graph-1" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Problem Set 4 · Solutions</td>
+              <td><input type="checkbox" id="mit-ps4" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Problem Set 5 · Solutions</td>
+              <td><input type="checkbox" id="mit-ps5" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Recitation 9</td>
+              <td><input type="checkbox" id="mit-r09" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Recitation 10</td>
+              <td><input type="checkbox" id="mit-r10" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Recitation 11</td>
+              <td><input type="checkbox" id="mit-r11" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Recitation 12</td>
+              <td><input type="checkbox" id="mit-r12" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Recitation 13</td>
+              <td><input type="checkbox" id="mit-r13" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Recitation 14</td>
+              <td><input type="checkbox" id="mit-r14" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Problem Session 5 · Solutions</td>
+              <td><input type="checkbox" id="mit-prob5" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Problem Session 6 · Solutions</td>
+              <td><input type="checkbox" id="mit-prob6" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Quiz 2 Review</td>
+              <td><input type="checkbox" id="mit-quiz2" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ═══ Dynamic Programming ═══ -->
+      <div class="section section--dp" id="dp">
+        <div class="section-header">
+          <span class="section-dot"></span>
+          <h2>Dynamic Programming</h2>
+        </div>
+        <table>
+          <thead><tr><th>Resource</th><th>Task</th><th>Done</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Lecture 15: Dynamic Programming, Part 1 (SRTBOT, Fib, DAGs, Bowling)</td>
+              <td><input type="checkbox" id="mit-lec15" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Lecture 16: Dynamic Programming, Part 2 (LCS, LIS, Coins)</td>
+              <td><input type="checkbox" id="mit-lec16" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Lecture 17: Dynamic Programming, Part 3 (APSP, Parens, Piano)</td>
+              <td><input type="checkbox" id="mit-lec17" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Lecture 18: Dynamic Programming, Part 4 (Rods, Subset Sum, Pseudopolynomial)</td>
+              <td><input type="checkbox" id="mit-lec18" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--clrs">CLRS</span></td>
+              <td>Chapter 14: Dynamic Programming</td>
+              <td><input type="checkbox" id="clrs-ch14" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--clrs">CLRS</span></td>
+              <td>Chapter 15: Greedy Algorithms</td>
+              <td><input type="checkbox" id="clrs-ch15" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--ctci">CTCI</span></td>
+              <td>Read Chapter 8: Recursion and Dynamic Programming</td>
+              <td><input type="checkbox" id="ctci-ch8" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--leetcode">LeetCode</span></td>
+              <td>Climbing Stairs, Coin Change, Longest Common Subsequence, Longest Increasing Subsequence</td>
+              <td><input type="checkbox" id="leet-dp-1" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Problem Set 6 · Solutions</td>
+              <td><input type="checkbox" id="mit-ps6" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Problem Set 7 · Solutions</td>
+              <td><input type="checkbox" id="mit-ps7" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Problem Set 8 · Solutions</td>
+              <td><input type="checkbox" id="mit-ps8" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Recitation 15</td>
+              <td><input type="checkbox" id="mit-r15" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Recitation 16</td>
+              <td><input type="checkbox" id="mit-r16" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Recitation 17</td>
+              <td><input type="checkbox" id="mit-r17" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Recitation 18</td>
+              <td><input type="checkbox" id="mit-r18" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Problem Session 7 · Solutions</td>
+              <td><input type="checkbox" id="mit-prob7" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Problem Session 8 · Solutions</td>
+              <td><input type="checkbox" id="mit-prob8" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Problem Session 9 · Solutions</td>
+              <td><input type="checkbox" id="mit-prob9" /></td>
+            </tr>
+            <tr>
+              <td><span class="tag tag--mit">MIT</span></td>
+              <td>Quiz 3 Review</td>
+              <td><input type="checkbox" id="mit-quiz3" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
     </main>
+
+    <button class="scroll-top" id="scroll-top" aria-label="Scroll to top" hidden>&uarr;</button>
 
     <script src="script.js"></script>
   </body>
