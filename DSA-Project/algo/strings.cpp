@@ -12,7 +12,6 @@
 #include <cctype>
 #include <cassert>
 
-
 void perm_build_helper(const std::string& original, std::string& current_perm,
                        std::vector<bool>& used, size_t k,
                        std::vector<std::string>& results) {
@@ -61,8 +60,6 @@ std::vector<std::string> generate_permutations_backtracking(const std::string& s
     return results;
 }
 
-
-
 void perm_helper(std::string& s, size_t low, size_t high, std::vector<std::string>& result) {
     // Base case: if low and high meet, we have a complete permutation.
     if (low == high) {
@@ -78,7 +75,6 @@ void perm_helper(std::string& s, size_t low, size_t high, std::vector<std::strin
         std::swap(s[low], s[i]);
     }
 }
-
 
 std::vector<std::string> generate_permutations(const std::string& s) {
     std::vector<std::string> result;

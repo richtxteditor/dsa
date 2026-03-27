@@ -6,12 +6,12 @@
 //
 
 #import <XCTest/XCTest.h>
-#include "array.h" // Your single, complete header file
+#include "array.h"
 #include "strings.h"
-#include <string>  // Needed for std::string tests
+#include <string>
 #include <sstream>
 
-// The test class must still be an Objective-C interface
+
 @interface ArrayTests : XCTestCase
 @end
 
