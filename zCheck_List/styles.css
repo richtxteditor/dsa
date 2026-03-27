@@ -350,6 +350,20 @@ a:hover {
   font-size: 0.72rem;
 }
 
+/* ─── GitHub Link (inside nav) ────────────────────────────── */
+.nav-github {
+  color: var(--dim);
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  border-radius: 6px;
+  transition: color 0.2s;
+  flex-shrink: 0;
+}
+.nav-github:hover {
+  color: var(--text);
+}
+
 /* ─── Theme Toggle (inside nav) ───────────────────────────── */
 .theme-toggle {
   background: none;
