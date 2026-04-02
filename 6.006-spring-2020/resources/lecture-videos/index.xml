@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lecture Videos on MIT OpenCourseWare</title>
+    <link>/resources/lecture-videos/</link>
+    <description>Recent content in Lecture Videos on MIT OpenCourseWare</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="/resources/lecture-videos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lecture 1: Algorithms and Computation</title>
+      <link>/resources/lecture-1-algorithms-and-computation/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/lecture-1-algorithms-and-computation/data.json</guid>
+      <description>&lt;p&gt;The goal of this introductions to algorithms class is to teach you to solve computation problems and communicate that your solutions are correct and efficient. Models of computation, data structures, and algorithms are introduced.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Instructor:&lt;/strong&gt; Jason Ku&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lecture 10: Depth-First Search</title>
+      <link>/resources/lecture-10-depth-first-search/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/lecture-10-depth-first-search/data.json</guid>
+      <description>&lt;p&gt;This class builds on the previous lecture of breadth-first search (BFS) by introducing depth-first search (DFS) and full-BFS and full-DFS. The lecture continues with topological sorts and cycle detection.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Instructor:&lt;/strong&gt; Justin Solomon&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lecture 11: Weighted Shortest Paths</title>
+      <link>/resources/lecture-11-weighted-shortest-paths/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/lecture-11-weighted-shortest-paths/data.json</guid>
+      <description>&lt;p&gt;This lecture discusses weighted graphs and weighted paths. This prepares for the next four lectures, which are on algorithms to find shortest-path weights in weighted graphs.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Instructor:&lt;/strong&gt; Jason Ku&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lecture 12: Bellman-Ford</title>
+      <link>/resources/lecture-12-bellman-ford/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/lecture-12-bellman-ford/data.json</guid>
+      <description>&lt;p&gt;This lecture introduces a single source shortest path algorithm that works for general graphs. The process, correctness, and running time of the Bellman-Ford algorithm is discussed.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Instructor:&lt;/strong&gt; Jason Ku&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lecture 13: Dijkstra</title>
+      <link>/resources/lecture-13-dijkstra/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/lecture-13-dijkstra/data.json</guid>
+      <description>&lt;p&gt;This class discusses a fourth weighted single-source shortest path algorithm: Dijkstra&amp;rsquo;s algorithms. Non-negative edge weights are introduced. There is a worked example of applying Dijkstra&amp;rsquo;s algorithm.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Instructor:&lt;/strong&gt; Dr. Jason Ku&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lecture 14: APSP and Johnson</title>
+      <link>/resources/lecture-14-apsp-and-johnson/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/lecture-14-apsp-and-johnson/data.json</guid>
+      <description>&lt;p&gt;This lecture focuses on solving any all-pairs shortest paths (APSP) in weighted graphs. Johnson&amp;rsquo;s algorithm is introduced.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Instructor:&lt;/strong&gt; Jason Ku&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lecture 15: Dynamic Programming, Part 1: SRTBOT, Fib, DAGs, Bowling</title>
+      <link>/resources/lecture-15-dynamic-programming-part-1-srtbot-fib-dags-bowling/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/lecture-15-dynamic-programming-part-1-srtbot-fib-dags-bowling/data.json</guid>
+      <description>&lt;p&gt;This is the first of four lectures on dynamic programing. This begins with how to solve a problem recursively and continues with three examples: Fibonacci, DAG shortest paths, and bowling.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Instructor:&lt;/strong&gt; Erik Demaine&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lecture 16: Dynamic Programming, Part 2: LCS, LIS, Coins</title>
+      <link>/resources/lecture-16-dynamic-programming-part-2-lcs-lis-coins/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/lecture-16-dynamic-programming-part-2-lcs-lis-coins/data.json</guid>
+      <description>&lt;p&gt;This is the second of four lectures on dynamic programming. This introduces multiple sequence, substring subproblems, and parent pointers. Three examples of subproblem constraints and expansion are given.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Instructor:&lt;/strong&gt; Erik Demaine&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lecture 17: Dynamic Programming, Part 3: APSP, Parens, Piano</title>
+      <link>/resources/lecture-17-dynamic-programming-part-3-apsp-parens-piano/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/lecture-17-dynamic-programming-part-3-apsp-parens-piano/data.json</guid>
+      <description>&lt;p&gt;This is the third of four lectures on dynamic programming. This focusses on applying subproblem constraints and expansions to example problems including, Bellman-Ford SSSP, Floyd-Warshall APSP, arithmetic parenthesization, and piano/guitar fingering.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Instructor:&lt;/strong&gt; Erik Demaine&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lecture 18: Dynamic Programming, Part 4: Rods, Subset Sum, Pseudopolynomial</title>
+      <link>/resources/lecture-18-dynamic-programming-part-4-rods-subset-sum-pseudopolynomial/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/lecture-18-dynamic-programming-part-4-rods-subset-sum-pseudopolynomial/data.json</guid>
+      <description>&lt;p&gt;This is the fourth and final lecture on dynamic programming. This class focusses on integer subproblems and pseudopolynomial time. Two worked examples are given: rod cutting and subset sum.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Instructor:&lt;/strong&gt; Erik Demaine&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lecture 19: Complexity</title>
+      <link>/resources/lecture-19-complexity/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/lecture-19-complexity/data.json</guid>
+      <description>&lt;p&gt;This lecture discusses computational complexity and introduces terminology: P, NP, EXP, R. These terms are applied to the concepts of hardness and completeness. The lecture ends with discussion on reductions.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Instructor:&lt;/strong&gt; Erik Demaine&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lecture 2: Data Structures and Dynamic Arrays</title>
+      <link>/resources/lecture-2-data-structures-and-dynamic-arrays/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/lecture-2-data-structures-and-dynamic-arrays/data.json</guid>
+      <description>&lt;p&gt;Data structures are ways to store data with algorithms that support operations on the data. These collection of sorted operations are interfaces. This class goes over two main interfaces: sequence and set.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Instructor:&lt;/strong&gt; Erik Demaine&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lecture 20: Course Review</title>
+      <link>/resources/lecture-20-course-review/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/lecture-20-course-review/data.json</guid>
+      <description>&lt;p&gt;This lecture reviews the main concepts and learning goals for the course. Students should be able to solve hard computational problems, argue an algorithm is correct, argue an algorithm is &amp;ldquo;good,&amp;rdquo; and effectively communicate the above.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Instructor:&lt;/strong&gt; Jason Ku&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lecture 21: Algorithms—Next Steps</title>
+      <link>/resources/lecture-21-algorithms2014next-steps/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/lecture-21-algorithms2014next-steps/data.json</guid>
+      <description>&lt;p&gt;In this lecture, Erik Demaine, Jason Ku, and Justin Solomon talk about their own research in algorithms. This includes origami, folding designs, and applied geometry.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Instructors:&lt;/strong&gt; Erik Demaine, Jason Ku, and Justin Solomon&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lecture 3: Sets and Sorting</title>
+      <link>/resources/lecture-3-sets-and-sorting/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/lecture-3-sets-and-sorting/data.json</guid>
+      <description>&lt;p&gt;Stored sets sorted by key allows for faster searching. This lecture covers how to construct a sorted array efficiently and the types of sorts.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Instructor:&lt;/strong&gt; Justin Solomon&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lecture 4: Hashing</title>
+      <link>/resources/lecture-4-hashing/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/lecture-4-hashing/data.json</guid>
+      <description>&lt;p&gt;Hashing allows for faster search and dynamic operations on data structures, arrays, and sorted arrays. This lecture discusses comparison models, decision trees, and hash functions.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Instructor:&lt;/strong&gt; Jason Ku&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lecture 5: Linear Sorting</title>
+      <link>/resources/lecture-5-linear-sorting/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/lecture-5-linear-sorting/data.json</guid>
+      <description>&lt;p&gt;This builds on the lecture on improving find times and discusses how to achieve a faster sort. Direct access array sorts, tuple sorts, counting sorts, and radix sorts are discussed.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Instructor:&lt;/strong&gt; Jason Ku&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lecture 6: Binary Trees, Part 1</title>
+      <link>/resources/lecture-6-binary-trees-part-1/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/lecture-6-binary-trees-part-1/data.json</guid>
+      <description>&lt;p&gt;This is the first of two lectures on binary trees. This lecture discusses binary tree terminology, tree navigation, and dynamic operations. These are explored in two applications: sets and sequences.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Instructor:&lt;/strong&gt; Erik Demaine&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lecture 7: Binary Trees, Part 2: AVL</title>
+      <link>/resources/lecture-7-binary-trees-part-2-avl/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/lecture-7-binary-trees-part-2-avl/data.json</guid>
+      <description>&lt;p&gt;This is the second lecture on binary trees. This covers subtree augmentation and sequence binary trees with subtree sizes. Rotations, rebalancing, and height augmentation are used to achieve height balance (AVL).&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Instructor:&lt;/strong&gt; Erik Demaine&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lecture 8: Binary Heaps</title>
+      <link>/resources/lecture-8-binary-heaps/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/lecture-8-binary-heaps/data.json</guid>
+      <description>&lt;p&gt;Prof. Demaine discusses priority queue interfaces and sorting algorithms. Algorithms include AVL sort for set AVL trees, selection sort for arrays, insertion sort for sorted arrays, and heap sort for binary heaps.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Instructor:&lt;/strong&gt; Erik Demaine&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lecture 9: Breadth-First Search</title>
+      <link>/resources/lecture-9-breadth-first-search/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/lecture-9-breadth-first-search/data.json</guid>
+      <description>&lt;p&gt;This class covers graph definitions, neighbor sets and adjacencies, graph representations in data structures, and paths. It also discusses shortest paths trees and breadth-first search.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Instructor:&lt;/strong&gt; Justin Solomon&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lecture Videos</title>
+      <link>/video_galleries/lecture-videos/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/video_galleries/lecture-videos/data.json</guid>
+      <description>&lt;p&gt;Due to COVID-19, in-person classes were suspended mid-way through the semester. Lectures continued to be recorded in a traditional style. Problem Session 6 is unavailable.&lt;/p&gt;&#xA;&lt;div class=&#34;mb-2 border-gray rounded video-gallery-card&#34;&gt;&#xA;  &lt;a class=&#34;video-link&#34; href=&#34;../../resources/lecture-1-algorithms-and-computation/index.html&#34;&gt;&#xA;    &lt;div class=&#34;inner-container&#34;&gt;&#xA;      &lt;div class=&#34;left-col&#34;&gt;&lt;img class=&#34;thumbnail&#34; src=&#34;https://img.youtube.com/vi/ZA-tUyM_y7s/default.jpg&#34; alt=&#34;&#34; /&gt;&lt;/div&gt;&#xA;      &lt;div class=&#34;right-col&#34;&gt;&#xA;        &lt;h5 class=&#34;video-title&#34;&gt;Lecture 1: Algorithms and Computation&lt;/h5&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;mb-2 border-gray rounded video-gallery-card&#34;&gt;&#xA;  &lt;a class=&#34;video-link&#34; href=&#34;../../resources/lecture-2-data-structures-and-dynamic-arrays/index.html&#34;&gt;&#xA;    &lt;div class=&#34;inner-container&#34;&gt;&#xA;      &lt;div class=&#34;left-col&#34;&gt;&lt;img class=&#34;thumbnail&#34; src=&#34;https://img.youtube.com/vi/CHhwJjR0mZA/default.jpg&#34; alt=&#34;&#34; /&gt;&lt;/div&gt;&#xA;      &lt;div class=&#34;right-col&#34;&gt;&#xA;        &lt;h5 class=&#34;video-title&#34;&gt;Lecture 2: Data Structures and Dynamic Arrays&lt;/h5&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;mb-2 border-gray rounded video-gallery-card&#34;&gt;&#xA;  &lt;a class=&#34;video-link&#34; href=&#34;../../resources/problem-session-1/index.html&#34;&gt;&#xA;    &lt;div class=&#34;inner-container&#34;&gt;&#xA;      &lt;div class=&#34;left-col&#34;&gt;&lt;img class=&#34;thumbnail&#34; src=&#34;https://img.youtube.com/vi/IPSaG9RRc-k/default.jpg&#34; alt=&#34;&#34; /&gt;&lt;/div&gt;&#xA;      &lt;div class=&#34;right-col&#34;&gt;&#xA;        &lt;h5 class=&#34;video-title&#34;&gt;Problem Session 1&lt;/h5&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;mb-2 border-gray rounded video-gallery-card&#34;&gt;&#xA;  &lt;a class=&#34;video-link&#34; href=&#34;../../resources/lecture-3-sets-and-sorting/index.html&#34;&gt;&#xA;    &lt;div class=&#34;inner-container&#34;&gt;&#xA;      &lt;div class=&#34;left-col&#34;&gt;&lt;img class=&#34;thumbnail&#34; src=&#34;https://img.youtube.com/vi/oS9aPzUNG-s/default.jpg&#34; alt=&#34;&#34; /&gt;&lt;/div&gt;&#xA;      &lt;div class=&#34;right-col&#34;&gt;&#xA;        &lt;h5 class=&#34;video-title&#34;&gt;Lecture 3: Sets and Sorting&lt;/h5&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;mb-2 border-gray rounded video-gallery-card&#34;&gt;&#xA;  &lt;a class=&#34;video-link&#34; href=&#34;../../resources/lecture-4-hashing/index.html&#34;&gt;&#xA;    &lt;div class=&#34;inner-container&#34;&gt;&#xA;      &lt;div class=&#34;left-col&#34;&gt;&lt;img class=&#34;thumbnail&#34; src=&#34;https://img.youtube.com/vi/Nu8YGneFCWE/default.jpg&#34; alt=&#34;&#34; /&gt;&lt;/div&gt;&#xA;      &lt;div class=&#34;right-col&#34;&gt;&#xA;        &lt;h5 class=&#34;video-title&#34;&gt;Lecture 4: Hashing&lt;/h5&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;mb-2 border-gray rounded video-gallery-card&#34;&gt;&#xA;  &lt;a class=&#34;video-link&#34; href=&#34;../../resources/problem-session-2/index.html&#34;&gt;&#xA;    &lt;div class=&#34;inner-container&#34;&gt;&#xA;      &lt;div class=&#34;left-col&#34;&gt;&lt;img class=&#34;thumbnail&#34; src=&#34;https://img.youtube.com/vi/KlQiwkhLBg0/default.jpg&#34; alt=&#34;&#34; /&gt;&lt;/div&gt;&#xA;      &lt;div class=&#34;right-col&#34;&gt;&#xA;        &lt;h5 class=&#34;video-title&#34;&gt;Problem Session 2&lt;/h5&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;mb-2 border-gray rounded video-gallery-card&#34;&gt;&#xA;  &lt;a class=&#34;video-link&#34; href=&#34;../../resources/lecture-5-linear-sorting/index.html&#34;&gt;&#xA;    &lt;div class=&#34;inner-container&#34;&gt;&#xA;      &lt;div class=&#34;left-col&#34;&gt;&lt;img class=&#34;thumbnail&#34; src=&#34;https://img.youtube.com/vi/yndgIDO0zQQ/default.jpg&#34; alt=&#34;&#34; /&gt;&lt;/div&gt;&#xA;      &lt;div class=&#34;right-col&#34;&gt;&#xA;        &lt;h5 class=&#34;video-title&#34;&gt;Lecture 5: Linear Sorting&lt;/h5&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;mb-2 border-gray rounded video-gallery-card&#34;&gt;&#xA;  &lt;a class=&#34;video-link&#34; href=&#34;../../resources/problem-session-3/index.html&#34;&gt;&#xA;    &lt;div class=&#34;inner-container&#34;&gt;&#xA;      &lt;div class=&#34;left-col&#34;&gt;&lt;img class=&#34;thumbnail&#34; src=&#34;https://img.youtube.com/vi/g0bXSXuLVb0/default.jpg&#34; alt=&#34;&#34; /&gt;&lt;/div&gt;&#xA;      &lt;div class=&#34;right-col&#34;&gt;&#xA;        &lt;h5 class=&#34;video-title&#34;&gt;Problem Session 3&lt;/h5&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;mb-2 border-gray rounded video-gallery-card&#34;&gt;&#xA;  &lt;a class=&#34;video-link&#34; href=&#34;../../resources/lecture-6-binary-trees-part-1/index.html&#34;&gt;&#xA;    &lt;div class=&#34;inner-container&#34;&gt;&#xA;      &lt;div class=&#34;left-col&#34;&gt;&lt;img class=&#34;thumbnail&#34; src=&#34;https://img.youtube.com/vi/76dhtgZt38A/default.jpg&#34; alt=&#34;&#34; /&gt;&lt;/div&gt;&#xA;      &lt;div class=&#34;right-col&#34;&gt;&#xA;        &lt;h5 class=&#34;video-title&#34;&gt;Lecture 6: Binary Trees, Part 1&lt;/h5&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;mb-2 border-gray rounded video-gallery-card&#34;&gt;&#xA;  &lt;a class=&#34;video-link&#34; href=&#34;../../resources/lecture-7-binary-trees-part-2-avl/index.html&#34;&gt;&#xA;    &lt;div class=&#34;inner-container&#34;&gt;&#xA;      &lt;div class=&#34;left-col&#34;&gt;&lt;img class=&#34;thumbnail&#34; src=&#34;https://img.youtube.com/vi/U1JYwHcFfso/default.jpg&#34; alt=&#34;&#34; /&gt;&lt;/div&gt;&#xA;      &lt;div class=&#34;right-col&#34;&gt;&#xA;        &lt;h5 class=&#34;video-title&#34;&gt;Lecture 7: Binary Trees, Part 2: AVL&lt;/h5&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;mb-2 border-gray rounded video-gallery-card&#34;&gt;&#xA;  &lt;a class=&#34;video-link&#34; href=&#34;../../resources/problem-session-4/index.html&#34;&gt;&#xA;    &lt;div class=&#34;inner-container&#34;&gt;&#xA;      &lt;div class=&#34;left-col&#34;&gt;&lt;img class=&#34;thumbnail&#34; src=&#34;https://img.youtube.com/vi/MAyraVVYB64/default.jpg&#34; alt=&#34;&#34; /&gt;&lt;/div&gt;&#xA;      &lt;div class=&#34;right-col&#34;&gt;&#xA;        &lt;h5 class=&#34;video-title&#34;&gt;Problem Session 4&lt;/h5&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;mb-2 border-gray rounded video-gallery-card&#34;&gt;&#xA;  &lt;a class=&#34;video-link&#34; href=&#34;../../resources/lecture-8-binary-heaps/index.html&#34;&gt;&#xA;    &lt;div class=&#34;inner-container&#34;&gt;&#xA;      &lt;div class=&#34;left-col&#34;&gt;&lt;img class=&#34;thumbnail&#34; src=&#34;https://img.youtube.com/vi/Xnpo1atN-Iw/default.jpg&#34; alt=&#34;&#34; /&gt;&lt;/div&gt;&#xA;      &lt;div class=&#34;right-col&#34;&gt;&#xA;        &lt;h5 class=&#34;video-title&#34;&gt;Lecture 8: Binary Heaps&lt;/h5&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;mb-2 border-gray rounded video-gallery-card&#34;&gt;&#xA;  &lt;a class=&#34;video-link&#34; href=&#34;../../resources/lecture-9-breadth-first-search/index.html&#34;&gt;&#xA;    &lt;div class=&#34;inner-container&#34;&gt;&#xA;      &lt;div class=&#34;left-col&#34;&gt;&lt;img class=&#34;thumbnail&#34; src=&#34;https://img.youtube.com/vi/oFVYVzlvk9c/default.jpg&#34; alt=&#34;&#34; /&gt;&lt;/div&gt;&#xA;      &lt;div class=&#34;right-col&#34;&gt;&#xA;        &lt;h5 class=&#34;video-title&#34;&gt;Lecture 9: Breadth-First Search&lt;/h5&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;mb-2 border-gray rounded video-gallery-card&#34;&gt;&#xA;  &lt;a class=&#34;video-link&#34; href=&#34;../../resources/quiz-1-review/index.html&#34;&gt;&#xA;    &lt;div class=&#34;inner-container&#34;&gt;&#xA;      &lt;div class=&#34;left-col&#34;&gt;&lt;img class=&#34;thumbnail&#34; src=&#34;https://img.youtube.com/vi/e98MPnMHLxE/default.jpg&#34; alt=&#34;&#34; /&gt;&lt;/div&gt;&#xA;      &lt;div class=&#34;right-col&#34;&gt;&#xA;        &lt;h5 class=&#34;video-title&#34;&gt;Quiz 1 Review&lt;/h5&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;mb-2 border-gray rounded video-gallery-card&#34;&gt;&#xA;  &lt;a class=&#34;video-link&#34; href=&#34;../../resources/lecture-10-depth-first-search/index.html&#34;&gt;&#xA;    &lt;div class=&#34;inner-container&#34;&gt;&#xA;      &lt;div class=&#34;left-col&#34;&gt;&lt;img class=&#34;thumbnail&#34; src=&#34;https://img.youtube.com/vi/IBfWDYSffUU/default.jpg&#34; alt=&#34;&#34; /&gt;&lt;/div&gt;&#xA;      &lt;div class=&#34;right-col&#34;&gt;&#xA;        &lt;h5 class=&#34;video-title&#34;&gt;Lecture 10: Depth-First Search&lt;/h5&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;mb-2 border-gray rounded video-gallery-card&#34;&gt;&#xA;  &lt;a class=&#34;video-link&#34; href=&#34;../../resources/lecture-11-weighted-shortest-paths/index.html&#34;&gt;&#xA;    &lt;div class=&#34;inner-container&#34;&gt;&#xA;      &lt;div class=&#34;left-col&#34;&gt;&lt;img class=&#34;thumbnail&#34; src=&#34;https://img.youtube.com/vi/5cF5Bgv59Sc/default.jpg&#34; alt=&#34;&#34; /&gt;&lt;/div&gt;&#xA;      &lt;div class=&#34;right-col&#34;&gt;&#xA;        &lt;h5 class=&#34;video-title&#34;&gt;Lecture 11: Weighted Shortest Paths&lt;/h5&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;mb-2 border-gray rounded video-gallery-card&#34;&gt;&#xA;  &lt;a class=&#34;video-link&#34; href=&#34;../../resources/problem-session-5/index.html&#34;&gt;&#xA;    &lt;div class=&#34;inner-container&#34;&gt;&#xA;      &lt;div class=&#34;left-col&#34;&gt;&lt;img class=&#34;thumbnail&#34; src=&#34;https://img.youtube.com/vi/ZLdooNwP7Pw/default.jpg&#34; alt=&#34;&#34; /&gt;&lt;/div&gt;&#xA;      &lt;div class=&#34;right-col&#34;&gt;&#xA;        &lt;h5 class=&#34;video-title&#34;&gt;Problem Session 5&lt;/h5&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;mb-2 border-gray rounded video-gallery-card&#34;&gt;&#xA;  &lt;a class=&#34;video-link&#34; href=&#34;../../resources/lecture-12-bellman-ford/index.html&#34;&gt;&#xA;    &lt;div class=&#34;inner-container&#34;&gt;&#xA;      &lt;div class=&#34;left-col&#34;&gt;&lt;img class=&#34;thumbnail&#34; src=&#34;https://img.youtube.com/vi/f9cVS_URPc0/default.jpg&#34; alt=&#34;&#34; /&gt;&lt;/div&gt;&#xA;      &lt;div class=&#34;right-col&#34;&gt;&#xA;        &lt;h5 class=&#34;video-title&#34;&gt;Lecture 12: Bellman-Ford&lt;/h5&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;mb-2 border-gray rounded video-gallery-card&#34;&gt;&#xA;  &lt;a class=&#34;video-link&#34; href=&#34;../../resources/lecture-13-dijkstra/index.html&#34;&gt;&#xA;    &lt;div class=&#34;inner-container&#34;&gt;&#xA;      &lt;div class=&#34;left-col&#34;&gt;&lt;img class=&#34;thumbnail&#34; src=&#34;https://img.youtube.com/vi/NSHizBK9JD8/default.jpg&#34; alt=&#34;&#34; /&gt;&lt;/div&gt;&#xA;      &lt;div class=&#34;right-col&#34;&gt;&#xA;        &lt;h5 class=&#34;video-title&#34;&gt;Lecture 13: Dijkstra&lt;/h5&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;mb-2 border-gray rounded video-gallery-card&#34;&gt;&#xA;  &lt;a class=&#34;video-link&#34; href=&#34;../../resources/mit6_006s20_04_07_problem_session_7_mp4/index.html&#34;&gt;&#xA;    &lt;div class=&#34;inner-container&#34;&gt;&#xA;      &lt;div class=&#34;left-col&#34;&gt;&lt;img class=&#34;thumbnail&#34; src=&#34;https://img.youtube.com/vi/Md9QOXomxFs/default.jpg&#34; alt=&#34;&#34; /&gt;&lt;/div&gt;&#xA;      &lt;div class=&#34;right-col&#34;&gt;&#xA;        &lt;h5 class=&#34;video-title&#34;&gt;Problem Session 7&lt;/h5&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;mb-2 border-gray rounded video-gallery-card&#34;&gt;&#xA;  &lt;a class=&#34;video-link&#34; href=&#34;../../resources/lecture-14-apsp-and-johnson/index.html&#34;&gt;&#xA;    &lt;div class=&#34;inner-container&#34;&gt;&#xA;      &lt;div class=&#34;left-col&#34;&gt;&lt;img class=&#34;thumbnail&#34; src=&#34;https://img.youtube.com/vi/EmSmaW-ud6A/default.jpg&#34; alt=&#34;&#34; /&gt;&lt;/div&gt;&#xA;      &lt;div class=&#34;right-col&#34;&gt;&#xA;        &lt;h5 class=&#34;video-title&#34;&gt;Lecture 14: APSP and Johnson&lt;/h5&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;mb-2 border-gray rounded video-gallery-card&#34;&gt;&#xA;  &lt;a class=&#34;video-link&#34; href=&#34;../../resources/quiz-2-review/index.html&#34;&gt;&#xA;    &lt;div class=&#34;inner-container&#34;&gt;&#xA;      &lt;div class=&#34;left-col&#34;&gt;&lt;img class=&#34;thumbnail&#34; src=&#34;https://img.youtube.com/vi/vCIa2h1C9UQ/default.jpg&#34; alt=&#34;&#34; /&gt;&lt;/div&gt;&#xA;      &lt;div class=&#34;right-col&#34;&gt;&#xA;        &lt;h5 class=&#34;video-title&#34;&gt;Quiz 2 Review&lt;/h5&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;mb-2 border-gray rounded video-gallery-card&#34;&gt;&#xA;  &lt;a class=&#34;video-link&#34; href=&#34;../../resources/lecture-15-dynamic-programming-part-1-srtbot-fib-dags-bowling/index.html&#34;&gt;&#xA;    &lt;div class=&#34;inner-container&#34;&gt;&#xA;      &lt;div class=&#34;left-col&#34;&gt;&lt;img class=&#34;thumbnail&#34; src=&#34;https://img.youtube.com/vi/r4-cftqTcdI/default.jpg&#34; alt=&#34;&#34; /&gt;&lt;/div&gt;&#xA;      &lt;div class=&#34;right-col&#34;&gt;&#xA;        &lt;h5 class=&#34;video-title&#34;&gt;Lecture 15: Dynamic Programming, Part 1: SRTBOT, Fib, DAGs, Bowling&lt;/h5&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;mb-2 border-gray rounded video-gallery-card&#34;&gt;&#xA;  &lt;a class=&#34;video-link&#34; href=&#34;../../resources/lecture-16-dynamic-programming-part-2-lcs-lis-coins/index.html&#34;&gt;&#xA;    &lt;div class=&#34;inner-container&#34;&gt;&#xA;      &lt;div class=&#34;left-col&#34;&gt;&lt;img class=&#34;thumbnail&#34; src=&#34;https://img.youtube.com/vi/KLBCUx1is2c/default.jpg&#34; alt=&#34;&#34; /&gt;&lt;/div&gt;&#xA;      &lt;div class=&#34;right-col&#34;&gt;&#xA;        &lt;h5 class=&#34;video-title&#34;&gt;Lecture 16: Dynamic Programming, Part 2: LCS, LIS, Coins&lt;/h5&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;mb-2 border-gray rounded video-gallery-card&#34;&gt;&#xA;  &lt;a class=&#34;video-link&#34; href=&#34;../../resources/mit6_006s20_04_17_problem_session_8_mp4/index.html&#34;&gt;&#xA;    &lt;div class=&#34;inner-container&#34;&gt;&#xA;      &lt;div class=&#34;left-col&#34;&gt;&lt;img class=&#34;thumbnail&#34; src=&#34;https://img.youtube.com/vi/UuxR0NCkg0k/default.jpg&#34; alt=&#34;&#34; /&gt;&lt;/div&gt;&#xA;      &lt;div class=&#34;right-col&#34;&gt;&#xA;        &lt;h5 class=&#34;video-title&#34;&gt;Problem Session 8&lt;/h5&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;mb-2 border-gray rounded video-gallery-card&#34;&gt;&#xA;  &lt;a class=&#34;video-link&#34; href=&#34;../../resources/lecture-17-dynamic-programming-part-3-apsp-parens-piano/index.html&#34;&gt;&#xA;    &lt;div class=&#34;inner-container&#34;&gt;&#xA;      &lt;div class=&#34;left-col&#34;&gt;&lt;img class=&#34;thumbnail&#34; src=&#34;https://img.youtube.com/vi/TDo3r5M1LNo/default.jpg&#34; alt=&#34;&#34; /&gt;&lt;/div&gt;&#xA;      &lt;div class=&#34;right-col&#34;&gt;&#xA;        &lt;h5 class=&#34;video-title&#34;&gt;Lecture 17: Dynamic Programming, Part 3: APSP, Parens, Piano&lt;/h5&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;mb-2 border-gray rounded video-gallery-card&#34;&gt;&#xA;  &lt;a class=&#34;video-link&#34; href=&#34;../../resources/lecture-18-dynamic-programming-part-4-rods-subset-sum-pseudopolynomial/index.html&#34;&gt;&#xA;    &lt;div class=&#34;inner-container&#34;&gt;&#xA;      &lt;div class=&#34;left-col&#34;&gt;&lt;img class=&#34;thumbnail&#34; src=&#34;https://img.youtube.com/vi/i9OAOk0CUQE/default.jpg&#34; alt=&#34;&#34; /&gt;&lt;/div&gt;&#xA;      &lt;div class=&#34;right-col&#34;&gt;&#xA;        &lt;h5 class=&#34;video-title&#34;&gt;Lecture 18: Dynamic Programming, Part 4: Rods, Subset Sum, Pseudopolynomial&lt;/h5&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;mb-2 border-gray rounded video-gallery-card&#34;&gt;&#xA;  &lt;a class=&#34;video-link&#34; href=&#34;../../resources/lecture-19-complexity/index.html&#34;&gt;&#xA;    &lt;div class=&#34;inner-container&#34;&gt;&#xA;      &lt;div class=&#34;left-col&#34;&gt;&lt;img class=&#34;thumbnail&#34; src=&#34;https://img.youtube.com/vi/JbafQJx1CIA/default.jpg&#34; alt=&#34;&#34; /&gt;&lt;/div&gt;&#xA;      &lt;div class=&#34;right-col&#34;&gt;&#xA;        &lt;h5 class=&#34;video-title&#34;&gt;Lecture 19: Complexity&lt;/h5&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;mb-2 border-gray rounded video-gallery-card&#34;&gt;&#xA;  &lt;a class=&#34;video-link&#34; href=&#34;../../resources/mit6_006s20_05_01_problem_session_9_mp4/index.html&#34;&gt;&#xA;    &lt;div class=&#34;inner-container&#34;&gt;&#xA;      &lt;div class=&#34;left-col&#34;&gt;&lt;img class=&#34;thumbnail&#34; src=&#34;https://img.youtube.com/vi/KPkOkiwAlbY/default.jpg&#34; alt=&#34;&#34; /&gt;&lt;/div&gt;&#xA;      &lt;div class=&#34;right-col&#34;&gt;&#xA;        &lt;h5 class=&#34;video-title&#34;&gt;Problem Session 9&lt;/h5&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;mb-2 border-gray rounded video-gallery-card&#34;&gt;&#xA;  &lt;a class=&#34;video-link&#34; href=&#34;../../resources/quiz-3-review/index.html&#34;&gt;&#xA;    &lt;div class=&#34;inner-container&#34;&gt;&#xA;      &lt;div class=&#34;left-col&#34;&gt;&lt;img class=&#34;thumbnail&#34; src=&#34;https://img.youtube.com/vi/wEKFGdo4Sck/default.jpg&#34; alt=&#34;&#34; /&gt;&lt;/div&gt;&#xA;      &lt;div class=&#34;right-col&#34;&gt;&#xA;        &lt;h5 class=&#34;video-title&#34;&gt;Quiz 3 Review&lt;/h5&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;mb-2 border-gray rounded video-gallery-card&#34;&gt;&#xA;  &lt;a class=&#34;video-link&#34; href=&#34;../../resources/lecture-20-course-review/index.html&#34;&gt;&#xA;    &lt;div class=&#34;inner-container&#34;&gt;&#xA;      &lt;div class=&#34;left-col&#34;&gt;&lt;img class=&#34;thumbnail&#34; src=&#34;https://img.youtube.com/vi/2NMtS1ecb3o/default.jpg&#34; alt=&#34;&#34; /&gt;&lt;/div&gt;&#xA;      &lt;div class=&#34;right-col&#34;&gt;&#xA;        &lt;h5 class=&#34;video-title&#34;&gt;Lecture 20: Course Review&lt;/h5&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;div class=&#34;mb-2 border-gray rounded video-gallery-card&#34;&gt;&#xA;  &lt;a class=&#34;video-link&#34; href=&#34;../../resources/lecture-21-algorithms2014next-steps/index.html&#34;&gt;&#xA;    &lt;div class=&#34;inner-container&#34;&gt;&#xA;      &lt;div class=&#34;left-col&#34;&gt;&lt;img class=&#34;thumbnail&#34; src=&#34;https://img.youtube.com/vi/4nXw-f6NJ9s/default.jpg&#34; alt=&#34;&#34; /&gt;&lt;/div&gt;&#xA;      &lt;div class=&#34;right-col&#34;&gt;&#xA;        &lt;h5 class=&#34;video-title&#34;&gt;Lecture 21: Algorithms—Next Steps&lt;/h5&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Quiz 1 Review</title>
+      <link>/resources/quiz-1-review/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/quiz-1-review/data.json</guid>
+      <description>&lt;p&gt;This session focuses on preparing for the quiz. High-level concepts are discussed and example problems are worked. Topics include the Master Theorem, data structures, and sorting.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Instructor:&lt;/strong&gt; Jason Ku&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Quiz 2 Review</title>
+      <link>/resources/quiz-2-review/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/quiz-2-review/data.json</guid>
+      <description>&lt;p&gt;This session focuses on preparing for the quiz. High-level concepts are discussed and example problems are worked. Topics include graph problems, topological sort, Bellman-Ford, and weighted graphs.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Instructor:&lt;/strong&gt; Jason Ku&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Quiz 3 Review</title>
+      <link>/resources/quiz-3-review/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/quiz-3-review/data.json</guid>
+      <description>&lt;p&gt;This session focuses on preparing for the quiz. High-level concepts are discussed and example problems are worked. Topics include the recursive framework, dynamic programming, and DAG.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Instructor:&lt;/strong&gt; Jason Ku&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
