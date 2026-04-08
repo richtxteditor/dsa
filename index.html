@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
     <nav class="nav" id="nav">
       <div class="nav-bar">
         <div class="nav-links" id="nav-links">
@@ -27,13 +28,14 @@
           <a href="#graphs" class="nav--graphs" data-nav>Graphs</a>
           <a href="#dp" class="nav--dp" data-nav>Dynamic Programming</a>
         </div>
-        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle overflow menu" hidden>
+        <button class="nav-hamburger" id="nav-hamburger" type="button" aria-label="Toggle overflow menu" aria-expanded="false" hidden>
           <span></span><span></span><span></span>
         </button>
-        <a href="https://github.com/richtxteditor/dsa" target="_blank" rel="noopener noreferrer" class="nav-github" aria-label="GitHub repository">
+        <a href="https://github.com/richtxteditor/dsa" target="_blank" rel="noopener noreferrer" class="nav-github" aria-describedby="new-tab-note">
           <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          <span class="sr-only">GitHub repository</span>
         </a>
-        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-live="polite">
           <span class="icon" id="theme-icon">&#9680;</span>
           <span id="theme-label">Auto</span>
         </button>
@@ -42,16 +44,17 @@
     </nav>
 
     <header>
+      <span class="sr-only" id="new-tab-note">Opens in a new tab.</span>
       <h1>DSA & Technical Interview Prep Tracker</h1>
       <p class="subtitle">
         A structured study plan built around
-        <strong><a href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/" target="_blank">MIT 6.006 Introduction to Algorithms</a></strong>
+        <strong><a href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/" target="_blank" rel="noopener" aria-describedby="new-tab-note">MIT 6.006 Introduction to Algorithms</a></strong>
         and <strong>CLRS 4th Edition</strong>,
         supplemented by the Udemy course
-        <strong><a href="https://www.udemy.com/course/datastructurescncpp/" target="_blank">Data Structures and Algorithms using C++</a></strong>,
-        <strong><a href="https://www.crackingthecodinginterview.com/" target="_blank">Cracking the Coding Interview</a></strong>,
-        and <strong><a href="https://leetcode.com/" target="_blank">LeetCode</a></strong>.
-        This serves as a refresher from my undergraduate studies in Computer Science at <strong><a href="https://montclair.edu" target="_blank">MSU</a></strong> as I look for full-time work. Please take a look at my <strong><a href="https://richtxteditor.github.io" target="_blank">portfolio</a></strong>!
+        <strong><a href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener" aria-describedby="new-tab-note">Data Structures and Algorithms using C++</a></strong>,
+        <strong><a href="https://www.crackingthecodinginterview.com/" target="_blank" rel="noopener" aria-describedby="new-tab-note">Cracking the Coding Interview</a></strong>,
+        and <strong><a href="https://leetcode.com/" target="_blank" rel="noopener" aria-describedby="new-tab-note">LeetCode</a></strong>.
+        This serves as a refresher from my undergraduate studies in Computer Science at <strong><a href="https://montclair.edu" target="_blank" rel="noopener" aria-describedby="new-tab-note">MSU</a></strong> as I look for full-time work. Please take a look at my <strong><a href="https://richtxteditor.github.io" target="_blank" rel="noopener" aria-describedby="new-tab-note">portfolio</a></strong>!
       </p>
     </header>
 
@@ -87,14 +90,16 @@
       <button class="collapse-toggle" id="collapse-toggle" type="button">Collapse All</button>
     </div>
 
-    <main>
+    <main id="main">
 
       <!-- ═══ C++ Project — Current Tasks ═══ -->
       <div class="section section--project" id="project-current">
-        <div class="section-header">
-          <span class="section-dot"></span>
-          <h2>C++ Project — Current Tasks</h2>
-        </div>
+        <h2 class="section-heading">
+          <button class="section-header" type="button">
+            <span class="section-dot"></span>
+            <span class="section-title">C++ Project — Current Tasks</span>
+          </button>
+        </h2>
         <table>
           <thead><tr><th>Area</th><th>Task</th><th>Done</th></tr></thead>
           <tbody>
@@ -114,10 +119,12 @@
 
       <!-- ═══ C++ Project — Completed Tasks ═══ -->
       <div class="section section--project-done" id="project-done">
-        <div class="section-header">
-          <span class="section-dot"></span>
-          <h2>C++ Project — Completed Tasks</h2>
-        </div>
+        <h2 class="section-heading">
+          <button class="section-header" type="button">
+            <span class="section-dot"></span>
+            <span class="section-title">C++ Project — Completed Tasks</span>
+          </button>
+        </h2>
         <table>
           <thead><tr><th>Area</th><th>Task</th><th>Done</th></tr></thead>
           <tbody>
@@ -162,10 +169,12 @@
 
       <!-- ═══ Foundations ═══ -->
       <div class="section section--foundations" id="foundations">
-        <div class="section-header">
-          <span class="section-dot"></span>
-          <h2>Foundations</h2>
-        </div>
+        <h2 class="section-heading">
+          <button class="section-header" type="button">
+            <span class="section-dot"></span>
+            <span class="section-title">Foundations</span>
+          </button>
+        </h2>
         <table>
           <thead><tr><th>Resource</th><th>Task</th><th>Done</th></tr></thead>
           <tbody>
@@ -270,10 +279,12 @@
 
       <!-- ═══ Arrays and Strings ═══ -->
       <div class="section section--arrays" id="arrays">
-        <div class="section-header">
-          <span class="section-dot"></span>
-          <h2>Arrays and Strings</h2>
-        </div>
+        <h2 class="section-heading">
+          <button class="section-header" type="button">
+            <span class="section-dot"></span>
+            <span class="section-title">Arrays and Strings</span>
+          </button>
+        </h2>
         <table>
           <thead><tr><th>Resource</th><th>Task</th><th>Done</th></tr></thead>
           <tbody>
@@ -303,10 +314,12 @@
 
       <!-- ═══ Matrices ═══ -->
       <div class="section section--matrices" id="matrices">
-        <div class="section-header">
-          <span class="section-dot"></span>
-          <h2>Matrices</h2>
-        </div>
+        <h2 class="section-heading">
+          <button class="section-header" type="button">
+            <span class="section-dot"></span>
+            <span class="section-title">Matrices</span>
+          </button>
+        </h2>
         <table>
           <thead><tr><th>Resource</th><th>Task</th><th>Done</th></tr></thead>
           <tbody>
@@ -331,10 +344,12 @@
 
       <!-- ═══ Sorting ═══ -->
       <div class="section section--sorting" id="sorting">
-        <div class="section-header">
-          <span class="section-dot"></span>
-          <h2>Sorting</h2>
-        </div>
+        <h2 class="section-heading">
+          <button class="section-header" type="button">
+            <span class="section-dot"></span>
+            <span class="section-title">Sorting</span>
+          </button>
+        </h2>
         <table>
           <thead><tr><th>Resource</th><th>Task</th><th>Done</th></tr></thead>
           <tbody>
@@ -399,10 +414,12 @@
 
       <!-- ═══ Hashing ═══ -->
       <div class="section section--hashing" id="hashing">
-        <div class="section-header">
-          <span class="section-dot"></span>
-          <h2>Hashing</h2>
-        </div>
+        <h2 class="section-heading">
+          <button class="section-header" type="button">
+            <span class="section-dot"></span>
+            <span class="section-title">Hashing</span>
+          </button>
+        </h2>
         <table>
           <thead><tr><th>Resource</th><th>Task</th><th>Done</th></tr></thead>
           <tbody>
@@ -442,10 +459,12 @@
 
       <!-- ═══ Binary Trees ═══ -->
       <div class="section section--trees" id="trees">
-        <div class="section-header">
-          <span class="section-dot"></span>
-          <h2>Binary Trees</h2>
-        </div>
+        <h2 class="section-heading">
+          <button class="section-header" type="button">
+            <span class="section-dot"></span>
+            <span class="section-title">Binary Trees</span>
+          </button>
+        </h2>
         <table>
           <thead><tr><th>Resource</th><th>Task</th><th>Done</th></tr></thead>
           <tbody>
@@ -545,10 +564,12 @@
 
       <!-- ═══ Linked Lists ═══ -->
       <div class="section section--linked-lists" id="linked-lists">
-        <div class="section-header">
-          <span class="section-dot"></span>
-          <h2>Linked Lists</h2>
-        </div>
+        <h2 class="section-heading">
+          <button class="section-header" type="button">
+            <span class="section-dot"></span>
+            <span class="section-title">Linked Lists</span>
+          </button>
+        </h2>
         <table>
           <thead><tr><th>Resource</th><th>Task</th><th>Done</th></tr></thead>
           <tbody>
@@ -578,10 +599,12 @@
 
       <!-- ═══ Stacks and Queues ═══ -->
       <div class="section section--stacks-queues" id="stacks-queues">
-        <div class="section-header">
-          <span class="section-dot"></span>
-          <h2>Stacks and Queues</h2>
-        </div>
+        <h2 class="section-heading">
+          <button class="section-header" type="button">
+            <span class="section-dot"></span>
+            <span class="section-title">Stacks and Queues</span>
+          </button>
+        </h2>
         <table>
           <thead><tr><th>Resource</th><th>Task</th><th>Done</th></tr></thead>
           <tbody>
@@ -616,10 +639,12 @@
 
       <!-- ═══ Graphs ═══ -->
       <div class="section section--graphs" id="graphs">
-        <div class="section-header">
-          <span class="section-dot"></span>
-          <h2>Graphs</h2>
-        </div>
+        <h2 class="section-heading">
+          <button class="section-header" type="button">
+            <span class="section-dot"></span>
+            <span class="section-title">Graphs</span>
+          </button>
+        </h2>
         <table>
           <thead><tr><th>Resource</th><th>Task</th><th>Done</th></tr></thead>
           <tbody>
@@ -764,10 +789,12 @@
 
       <!-- ═══ Dynamic Programming ═══ -->
       <div class="section section--dp" id="dp">
-        <div class="section-header">
-          <span class="section-dot"></span>
-          <h2>Dynamic Programming</h2>
-        </div>
+        <h2 class="section-heading">
+          <button class="section-header" type="button">
+            <span class="section-dot"></span>
+            <span class="section-title">Dynamic Programming</span>
+          </button>
+        </h2>
         <table>
           <thead><tr><th>Resource</th><th>Task</th><th>Done</th></tr></thead>
           <tbody>

@@ -41,6 +41,10 @@ function applyTheme(theme) {
 
   themeIcon.textContent = icons[theme];
   themeLabel.textContent = labels[theme];
+  themeToggle.setAttribute(
+    "aria-label",
+    `Theme: ${labels[theme]}. Activate to switch to ${labels[themes[(themes.indexOf(theme) + 1) % themes.length]]}.`
+  );
   writeStorage("theme", theme);
 }
 
@@ -115,12 +119,14 @@ function updateNav() {
     hamburger.hidden = true;
     hamburger.classList.remove("active");
     navOverflow.hidden = true;
+    hamburger.setAttribute("aria-expanded", "false");
   }
 }
 
 hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("active");
-  navOverflow.hidden = !navOverflow.hidden;
+  const expanded = hamburger.classList.toggle("active");
+  navOverflow.hidden = !expanded;
+  hamburger.setAttribute("aria-expanded", String(expanded));
 });
 
 // Close overflow when a link is clicked
@@ -128,6 +134,7 @@ document.addEventListener("click", (e) => {
   if (e.target.matches(".nav-overflow a")) {
     hamburger.classList.remove("active");
     navOverflow.hidden = true;
+    hamburger.setAttribute("aria-expanded", "false");
   }
 });
 
@@ -136,6 +143,7 @@ document.addEventListener("click", (e) => {
   if (!e.target.closest(".nav") && !navOverflow.hidden) {
     hamburger.classList.remove("active");
     navOverflow.hidden = true;
+    hamburger.setAttribute("aria-expanded", "false");
   }
 });
 
@@ -175,7 +183,7 @@ function getSectionHeader(section) {
 }
 
 function getSectionTitle(section) {
-  return getSectionHeader(section)?.querySelector("h2")?.textContent?.trim() || "section";
+  return getSectionHeader(section)?.querySelector(".section-title")?.textContent?.trim() || "section";
 }
 
 function getSectionStorageKey(section) {
@@ -195,10 +203,8 @@ function syncSectionHeaderState(section, collapsed) {
   }
 
   header.setAttribute("aria-expanded", String(!collapsed));
-  header.setAttribute(
-    "aria-label",
-    `${collapsed ? "Expand" : "Collapse"} ${title}`
-  );
+  header.setAttribute("aria-controls", `${section.id}-table`);
+  header.setAttribute("aria-label", `${collapsed ? "Expand" : "Collapse"} ${title}`);
 }
 
 function setSectionCollapsed(section, collapsed, { persist = true } = {}) {
@@ -236,23 +242,17 @@ function initializeSectionCollapse() {
       return;
     }
 
-    header.setAttribute("role", "button");
-    header.setAttribute("tabindex", "0");
-
     const toggleSection = () => {
       setSectionCollapsed(section, !isSectionCollapsed(section));
       updateCollapseToggleState();
     };
 
     header.addEventListener("click", toggleSection);
-    header.addEventListener("keydown", (event) => {
-      if (event.key !== "Enter" && event.key !== " ") {
-        return;
-      }
 
-      event.preventDefault();
-      toggleSection();
-    });
+    const table = section.querySelector("table");
+    if (table && section.id) {
+      table.id = `${section.id}-table`;
+    }
 
     const savedState = readStorage(getSectionStorageKey(section));
 
@@ -337,7 +337,9 @@ initializeSectionCollapse();
 const scrollTopBtn = document.getElementById("scroll-top");
 
 window.addEventListener("scroll", () => {
-  scrollTopBtn.classList.toggle("visible", window.scrollY > 400);
+  const isVisible = window.scrollY > 400;
+  scrollTopBtn.classList.toggle("visible", isVisible);
+  scrollTopBtn.hidden = !isVisible;
 });
 
 scrollTopBtn.addEventListener("click", () => {
