@@ -348,9 +348,23 @@ scrollTopBtn.addEventListener("click", () => {
 
 // ─── Checkbox Persistence ──────────────────────────────────
 const checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"]'));
+const localEditableHosts = new Set(["localhost", "127.0.0.1", "::1"]);
+
+function isLocalEditingEnabled() {
+  const { protocol, hostname } = window.location;
+  return protocol === "file:" || localEditableHosts.has(hostname);
+}
 
 function initializeCheckboxes() {
+  const localEditingEnabled = isLocalEditingEnabled();
+
   checkboxes.forEach((checkbox) => {
+    if (!localEditingEnabled) {
+      checkbox.disabled = true;
+      checkbox.title = "Checkboxes are editable only in a local copy of this site.";
+      return;
+    }
+
     const savedState = readStorage(checkbox.id);
 
     if (savedState !== null) {
