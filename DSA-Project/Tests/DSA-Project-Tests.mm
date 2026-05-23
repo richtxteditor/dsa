@@ -201,12 +201,14 @@
 
 - (void)testAreAnagramsHash {
     XCTAssertTrue(are_anagrams_hash("listen", "silent"));
+    XCTAssertTrue(are_anagrams_hash("same", "same"));
     XCTAssertFalse(are_anagrams_hash("hello", "world"));
     XCTAssertTrue(are_anagrams_hash("Debit card", "Bad credit"));
 }
 
 - (void)testAreAnagramsBitwise {
     XCTAssertTrue(are_anagrams_bitwise("listen", "silent"));
+    XCTAssertTrue(are_anagrams_bitwise("same", "same"));
     XCTAssertFalse(are_anagrams_bitwise("hello", "world"));
     XCTAssertTrue(are_anagrams_bitwise("Debit card", "Bad credit"));
     XCTAssertTrue(are_anagrams_bitwise("hello", "olleh"));
@@ -324,6 +326,49 @@
 
     result = arr.BinarySearchLoop(100);
     XCTAssertFalse(result.has_value());
+}
+
+- (void)testIsSortedEmptyAndSingleElement {
+    Array<int> empty;
+    XCTAssertTrue(empty.isSorted());
+
+    Array<int> single;
+    single.Append(42);
+    XCTAssertTrue(single.isSorted());
+}
+
+- (void)testPairWithSumSortedEmptyAndSingleElement {
+    Array<int> empty;
+    XCTAssertFalse(empty.PairWithSum_Sorted(10).has_value());
+
+    Array<int> single;
+    single.Append(10);
+    XCTAssertFalse(single.PairWithSum_Sorted(10).has_value());
+}
+
+- (void)testBruteForceDuplicatesIncludesZero {
+    Array<int> arr;
+    arr.Append(0);
+    arr.Append(1);
+    arr.Append(0);
+    arr.Append(2);
+    arr.Append(2);
+
+    auto duplicates = arr.FindDuplicatesUnsorted_BruteForce();
+
+    bool foundZero = false;
+    bool foundTwo = false;
+    for (const auto& duplicate : duplicates) {
+        if (duplicate.first == 0 && duplicate.second == 2) {
+            foundZero = true;
+        }
+        if (duplicate.first == 2 && duplicate.second == 2) {
+            foundTwo = true;
+        }
+    }
+
+    XCTAssertTrue(foundZero);
+    XCTAssertTrue(foundTwo);
 }
 
 - (void)testReverse {

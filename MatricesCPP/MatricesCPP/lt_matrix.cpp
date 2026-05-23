@@ -10,23 +10,27 @@ private:
     int colMajorIndex(int i, int j) const;
 public:
     explicit LTMatrix(int n) : n(n), A(new int[n * (n + 1) / 2]) {}
+    // Raw-array ownership is intentionally visible for this lesson. Deleted
+    // copy operations prevent accidental shallow copies and double deletes.
     LTMatrix(const LTMatrix&) = delete;
     LTMatrix& operator=(const LTMatrix&) = delete;
     ~LTMatrix(){ delete[] A; }
-    void Display(bool row=true);
+    void Display(bool row=true) const;
     void setRowMajor(int i, int j, int x);
     void setColMajor(int i, int j, int x);
-    int getRowMajor(int i, int j);
-    int getColMajor(int i, int j);
-    int getN(){ return n; }
+    int getRowMajor(int i, int j) const;
+    int getColMajor(int i, int j) const;
+    int getN() const { return n; }
  
 };
 
 int LTMatrix::rowMajorIndex(int i, int j) const {
+    // Row-major stores each lower-triangle row contiguously.
     return ((i * (i - 1)) / 2) + j - 1;
 }
 
 int LTMatrix::colMajorIndex(int i, int j) const {
+    // Column-major stores each lower-triangle column contiguously.
     return (n * (j - 1) - (((j - 2) * (j - 1)) / 2)) + (i - j);
 }
  
@@ -42,7 +46,7 @@ void LTMatrix::setColMajor(int i, int j, int x) {
     }
 }
  
-int LTMatrix::getRowMajor(int i, int j) {
+int LTMatrix::getRowMajor(int i, int j) const {
     if (i >= j){
         return A[rowMajorIndex(i, j)];
     } else {
@@ -50,7 +54,7 @@ int LTMatrix::getRowMajor(int i, int j) {
     }
 }
  
-int LTMatrix::getColMajor(int i, int j) {
+int LTMatrix::getColMajor(int i, int j) const {
     if (i >= j){
         return A[colMajorIndex(i, j)];
     } else {
@@ -58,7 +62,7 @@ int LTMatrix::getColMajor(int i, int j) {
     }
 }
  
-void LTMatrix::Display(bool row) {
+void LTMatrix::Display(bool row) const {
     for (int i=1; i<=n; i++){
         for (int j=1; j<=n; j++){
             if (i >= j){

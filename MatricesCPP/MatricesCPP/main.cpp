@@ -5,19 +5,14 @@
 //  Created by richie on 12/8/25.
 //
 
-// Upper Triangular Matrix
-// M[i,j] = if i > j
-// M[i,j] = non-zero if i<=j
-// non-zero = 5+4+3+2+1
-//          = n + n 01 + ... + 3 + 2 + 1 = n(n + 1)/2
-// zero = n(n - 1)/ 2
-
-
-
 #include <iostream>
 
 #include "lt_matrix.h"
 
+// Lower triangular matrix:
+// non-zero when i >= j, zero above the diagonal.
+// The demo uses 1-based matrix coordinates so the formulas match textbook
+// notation directly.
 class LowerTriangle
 {
 private:
@@ -36,6 +31,8 @@ public:
         this->n = n;
         A = new int[n * (n + 1) / 2];
     }
+    // Raw arrays have single ownership here; deleting copy prevents shallow
+    // copies that would try to delete the same buffer twice.
     LowerTriangle(const LowerTriangle&) = delete;
     LowerTriangle& operator=(const LowerTriangle&) = delete;
     ~LowerTriangle()
@@ -44,13 +41,14 @@ public:
     }
     
     void Set(int i, int j, int x);
-    int Get(int i, int j);
-    void Display();
+    int Get(int i, int j) const;
+    void Display() const;
     int GetDimension() const {return n;}
 };
 
 int LowerTriangle::rowMajorIndex(int i, int j) const
 {
+    // Count all stored values before row i, then offset j within that row.
     return i * (i - 1) / 2 + j - 1;
 }
 
@@ -61,14 +59,14 @@ void LowerTriangle::Set(int i, int j, int x)
         A[rowMajorIndex(i, j)] = x;
 }
 
-int LowerTriangle::Get(int i, int j)
+int LowerTriangle::Get(int i, int j) const
 {
     if (i >= j)
         return A[rowMajorIndex(i, j)];
     return 0;
 }
 
-void LowerTriangle::Display()
+void LowerTriangle::Display() const
 {
     for(int i = 1; i <= n; i++)
     {

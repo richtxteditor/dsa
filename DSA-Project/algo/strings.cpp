@@ -12,6 +12,15 @@
 #include <cctype>
 #include <cassert>
 
+char to_lower_ascii(char c) {
+    return static_cast<char>(std::tolower(static_cast<unsigned char>(c)));
+}
+
+bool is_ascii_letter(char c) {
+    char lower = to_lower_ascii(c);
+    return lower >= 'a' && lower <= 'z';
+}
+
 void perm_build_helper(const std::string& original, std::string& current_perm,
                        std::vector<bool>& used, size_t k,
                        std::vector<std::string>& results) {
@@ -112,9 +121,11 @@ bool is_palindrome(const std::string& s) {
 }
 
 void find_duplicates_hashing(const std::string& s) {
+    // Hashing counts every normalized character, then reports alphabetic keys
+    // whose count is greater than one.
     std::unordered_map<char, int> freq_map;
     for (char c : s) {
-        char normalized_char = tolower(c);
+        char normalized_char = to_lower_ascii(c);
         freq_map[normalized_char]++;
     }
     
@@ -123,7 +134,7 @@ void find_duplicates_hashing(const std::string& s) {
         // pair.first is the key, pair.second is its count (value)
         if (pair.second > 1) {
             // add a check to avoid reporting spaces or punctuation as duplicates.
-            if (isalpha(pair.first)) {
+            if (is_ascii_letter(pair.first)) {
                 std::cout << "\nCharacter: '" << pair.first << "', Occurences: " << pair.second << std::endl;
             }
         }
@@ -134,13 +145,14 @@ void find_duplicates_bitwise(const std::string& s) {
     long long flags = 0;
     long long duplicates = 0;
     
+    // The bit-mask method stores one bit per lowercase ASCII letter.
     for (char original_char : s) {
         
-        if (!isalpha(original_char)) {
+        if (!is_ascii_letter(original_char)) {
             continue;
         }
         
-        char c = tolower(original_char);
+        char c = to_lower_ascii(original_char);
         
         // calculate how much to shift
         long long mask = 1LL << (c - 'a');
@@ -172,10 +184,9 @@ void find_duplicates_bitwise(const std::string& s) {
 
 bool are_anagrams_hash(const std::string& s1, const std::string& s2) {
     if (s1.length() != s2.length()) return false;
-    if (s1 == s2) return false;
     std::unordered_map<char, int> freq_map;
-    for (char c : s1) freq_map[tolower(c)]++;
-    for (char c: s2) freq_map[tolower(c)]--;
+    for (char c : s1) freq_map[to_lower_ascii(c)]++;
+    for (char c: s2) freq_map[to_lower_ascii(c)]--;
     for (const auto& pair : freq_map) if (pair.second != 0) return false;
     return true;
 }
@@ -186,14 +197,14 @@ bool are_anagrams_bitwise(const std::string& s1, const std::string& s2) {
     long long char_counts[26] = {0};
 
     for (char c : s1) {
-        if (isalpha(c)) {
-            char_counts[tolower(c) - 'a']++;
+        if (is_ascii_letter(c)) {
+            char_counts[to_lower_ascii(c) - 'a']++;
         }
     }
 
     for (char c : s2) {
-        if (isalpha(c)) {
-            char_counts[tolower(c) - 'a']--;
+        if (is_ascii_letter(c)) {
+            char_counts[to_lower_ascii(c) - 'a']--;
         }
     }
 
