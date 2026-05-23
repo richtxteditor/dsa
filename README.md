@@ -10,9 +10,17 @@ The current implementation lives in `DSA-Project/` and provides a header-only `A
 
 - `DSA-Project/` contains the active C++ data structures and algorithms project.
 - `completed-projects/`, `Matrices/`, and `MatricesCPP/` contain earlier standalone practice exercises.
-- `index.html`, `styles.css`, and `script.js` provide a static study tracker that can be opened directly in a browser or served by GitHub Pages.
+- `docs/` contains the static study tracker served by GitHub Pages.
 
 This repository does not require frontend build tooling.
+
+## GitHub Pages
+
+The study tracker lives in `docs/index.html`, with its CSS and JavaScript kept in the same directory. Configure GitHub Pages to publish from the `main` branch's `/docs` folder so the tracker remains available at:
+
+```text
+https://richtxteditor.github.io/dsa
+```
 
 ## Project Status and Next Steps
 
