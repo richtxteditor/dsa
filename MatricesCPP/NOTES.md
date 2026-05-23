@@ -34,10 +34,10 @@ Value: 1  2  3  4  5  6  7  8  9  10
       row1    row2         row3
 ```
 
-The mapping from `(i, j)` → flat index (1-based i, j):
+The mapping from `(i, j)` → flat index is centralized in `rowMajorIndex(i, j)`:
 
 ```cpp
-A[i * (i - 1) / 2 + j - 1]
+return i * (i - 1) / 2 + j - 1;
 ```
 
 Breaking it down:
@@ -54,7 +54,7 @@ Breaking it down:
 ```cpp
 void LowerTriangle::Set(int i, int j, int x) {
     if(i >= j)
-        A[i * (i - 1) / 2 + j - 1] = x;
+        A[rowMajorIndex(i, j)] = x;
 }
 ```
 
@@ -66,7 +66,7 @@ The guard `i >= j` enforces the triangular constraint — elements above the dia
 for(int i = 1; i <= n; i++) {
     for(int j = 1; j <= n; j++) {
         if (i >= j)
-            std::cout << A[i * (i - 1) / 2 + j - 1] << " ";
+            std::cout << A[rowMajorIndex(i, j)] << " ";
         else
             std::cout << "0 ";
     }
@@ -77,14 +77,14 @@ Iterates the full `n×n` grid. For lower-triangle positions, it reads from `A` u
 
 ---
 
-## `LTMatrixC++.cpp` — `LTMatrix` (Row-Major vs Column-Major)
+## `lt_matrix.cpp` — `LTMatrix` (Row-Major vs Column-Major)
 
-This is the more thorough implementation. It stores the *same* data but supports two different memory layouts and demonstrates why the layout choice matters.
+This is the more thorough implementation. It stores the *same* data but supports two different memory layouts and demonstrates why the layout choice matters. `lt_matrix.h` exposes the demo function used by `main.cpp`; the class implementation stays in `lt_matrix.cpp`.
 
 ### Row-Major Set/Get
 
 ```cpp
-int index = ((i * (i - 1))/2) + j - 1;
+rowMajorIndex(i, j)
 ```
 
 Identical logic to `main.cpp`. Elements are stored row by row in `A`:
@@ -97,7 +97,7 @@ A = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ### Column-Major Set/Get
 
 ```cpp
-int index = (n * (j-1) - (((j-2) * (j-1))/2)) + (i-j);
+colMajorIndex(i, j)
 ```
 
 In column-major, data is laid out *column by column*:
@@ -130,7 +130,7 @@ The `Display(bool row)` parameter lets you verify both layouts produce the *same
 1. **Space optimization** — `O(n²)` → `O(n(n+1)/2)` storage
 2. **Index arithmetic as abstraction** — the class hides the complexity; callers use `(i, j)` as if it's a normal 2D array
 3. **Memory layout tradeoffs** — the same data can be arranged differently depending on expected access patterns
-4. **RAII** — `new` in constructor, `delete[]` in destructor, no leaks
+4. **RAII** — `new` in constructor, `delete[]` in destructor, and deleted copy operations to prevent accidental shallow copies
 
 ### Note on Modern C++
 

@@ -57,8 +57,6 @@ DerivedData/
 # Dependency Managers
 # -------------------------------------------------------------------------
 node_modules/
-playwright-report/
-test-results/
 
 # Carthage
 # Add this section if you use Carthage.

@@ -4,7 +4,15 @@
 
 This project implements a dynamic array class in C++ from first principles. It serves as a foundational exercise for understanding data structure mechanics, memory management, and algorithm implementation. The goal is not to replace standard library containers like `std::vector`, but to learn how such containers operate under the hood.
 
-The code provides a single `Array` class that encapsulates array data and operations, along with an interactive command-line menu for testing various functionalities. The implementation covers basic CRUD operations, search algorithms, set operations, and more complex analysis algorithms for finding missing elements and duplicates. A detailed breakdown of the time and space complexity of each function is available in the `ArrayCPP/ArrayCPP/complexity_docs.md` file.
+The current implementation lives in `DSA-Project/` and provides a header-only `Array<T>` template class, plus an interactive command-line menu for testing the available functionality. It covers basic CRUD operations, search algorithms, set operations, and more complex analysis algorithms for finding missing elements and duplicates. A detailed breakdown of time and space complexity is available in `DSA-Project/complexity_docs.md`.
+
+## Repository Layout
+
+- `DSA-Project/` contains the active C++ data structures and algorithms project.
+- `completed-projects/`, `Matrices/`, and `MatricesCPP/` contain earlier standalone practice exercises.
+- `index.html`, `styles.css`, and `script.js` provide a static study tracker that can be opened directly in a browser or served by GitHub Pages.
+
+This repository does not require frontend build tooling.
 
 ## Project Status and Next Steps
 
@@ -17,13 +25,14 @@ For an interactive, up-to-date view of the project plan and study progress, plea
 - Added a simple unit test function and set up an XCTest target.
 - Replaced `using namespace std;` with specific `using` declarations.
 - Implemented and tested various duplicate-finding methods.
-- Set up a simple build system with CMake.
+- Converted the `Array` class to a header-only template class.
+- Implemented iterators for range-based `for` loop compatibility.
 
 ### Current Goals
 
-- Implement Iterators to make the `Array` class compatible with range-based `for` loops.
-- Convert the `Array` class to a template class to support generic data types (e.g., `Array<T>`).
 - Implement additional sorting algorithms (e.g., Merge Sort, Quick Sort) as methods of the `Array` class.
+- Add a simple Makefile or CMake build target for repeatable CLI builds.
+- Continue expanding automated tests for edge cases and algorithm behavior.
 
 ## Features Implemented
 
@@ -83,17 +92,18 @@ This code demonstrates several key C++ programming concepts:
 
 ## How to Compile and Run
 
-1. Ensure you have a C++ compiler (like g++ or clang) that supports C++17 or later.
+1. Ensure you have a C++ compiler (like g++ or clang) that supports C++20 or later.
 2. Compile the code from your terminal:
 
     ```bash
-    g++ main.cpp array.cpp -o array_demo -std=c++17 -Wall
+    cd DSA-Project
+    g++ -std=gnu++20 -Wall -Wextra main.cpp algo/strings.cpp -o advanced_array_demo
     ```
 
 3. Run the executable:
 
     ```bash
-    ./array_demo
+    ./advanced_array_demo
     ```
 
 4. Follow the interactive menu prompts to test different array operations.

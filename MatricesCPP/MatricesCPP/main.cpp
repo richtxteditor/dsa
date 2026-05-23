@@ -16,11 +16,15 @@
 
 #include <iostream>
 
+#include "lt_matrix.h"
+
 class LowerTriangle
 {
 private:
     int *A;
     int n;
+    
+    int rowMajorIndex(int i, int j) const;
 public:
     LowerTriangle()
     {
@@ -32,6 +36,8 @@ public:
         this->n = n;
         A = new int[n * (n + 1) / 2];
     }
+    LowerTriangle(const LowerTriangle&) = delete;
+    LowerTriangle& operator=(const LowerTriangle&) = delete;
     ~LowerTriangle()
     {
         delete []A;
@@ -40,20 +46,25 @@ public:
     void Set(int i, int j, int x);
     int Get(int i, int j);
     void Display();
-    int GetDimension() {return n;}
+    int GetDimension() const {return n;}
 };
+
+int LowerTriangle::rowMajorIndex(int i, int j) const
+{
+    return i * (i - 1) / 2 + j - 1;
+}
 
 void LowerTriangle::Set(int i, int j, int x)
 {
     // non-zeroes will only be present when i >= j
     if(i >= j)
-        A[i * (i - 1) / 2 + j - 1] = x;
+        A[rowMajorIndex(i, j)] = x;
 }
 
 int LowerTriangle::Get(int i, int j)
 {
     if (i >= j)
-        return A[i * (i - 1) / 2 + j - 1];
+        return A[rowMajorIndex(i, j)];
     return 0;
 }
 
@@ -64,7 +75,7 @@ void LowerTriangle::Display()
         for(int j = 1; j <= n; j++)
         {
             if (i >= j)
-                std::cout << A[i * (i - 1) / 2 + j - 1 ] << " ";
+                std::cout << A[rowMajorIndex(i, j)] << " ";
             else
                 std::cout << "0 ";
         }
@@ -74,9 +85,16 @@ void LowerTriangle::Display()
 
 int main()
 {
+    std::cout << "=== Lower Triangular Matrix: row-major vs column-major demo ===\n";
+    DemonstrateLTMatrixLayouts();
+    std::cout << "\n=== LowerTriangle interactive demo ===\n";
+
     int d;
     std::cout << "Enter Dimensions of the square matrix: ";
-    std::cin >> d;
+    if (!(std::cin >> d) || d <= 0) {
+        std::cerr << "Invalid matrix dimension.\n";
+        return 1;
+    }
     
     LowerTriangle lm(d);
     
@@ -87,7 +105,10 @@ int main()
     {
         for(int j = 1; j <= d ; j++)
         {
-            std::cin >> x;
+            if (!(std::cin >> x)) {
+                std::cerr << "Invalid matrix element.\n";
+                return 1;
+            }
             lm.Set(i,j,x);
         }
     }

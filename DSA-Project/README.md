@@ -68,7 +68,7 @@ A collection of string manipulation algorithms are available in `algo/strings.h`
 2.  Compile the `main.cpp` source file using a C++20 compatible compiler.
 
     ```bash
-    g++ -std=gnu++20 main.cpp algo/strings.cpp -o advanced_array_demo
+    g++ -std=gnu++20 -Wall -Wextra main.cpp algo/strings.cpp -o advanced_array_demo
     ```
     *Note: Because `Array` is a template class, all of its implementation is contained within the `ds/array.h` header file. There is no `array.cpp` file to compile.*
 

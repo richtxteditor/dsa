@@ -1,15 +1,17 @@
 #include <iostream>
-using namespace std;
+#include "lt_matrix.h"
  
 class LTMatrix{
 private:
     int n;
     int* A;
+    
+    int rowMajorIndex(int i, int j) const;
+    int colMajorIndex(int i, int j) const;
 public:
-    LTMatrix(int n){
-        this->n = n;
-        A = new int [n * (n + 1)/2];
-    }
+    explicit LTMatrix(int n) : n(n), A(new int[n * (n + 1) / 2]) {}
+    LTMatrix(const LTMatrix&) = delete;
+    LTMatrix& operator=(const LTMatrix&) = delete;
     ~LTMatrix(){ delete[] A; }
     void Display(bool row=true);
     void setRowMajor(int i, int j, int x);
@@ -19,25 +21,30 @@ public:
     int getN(){ return n; }
  
 };
+
+int LTMatrix::rowMajorIndex(int i, int j) const {
+    return ((i * (i - 1)) / 2) + j - 1;
+}
+
+int LTMatrix::colMajorIndex(int i, int j) const {
+    return (n * (j - 1) - (((j - 2) * (j - 1)) / 2)) + (i - j);
+}
  
 void LTMatrix::setRowMajor(int i, int j, int x) {
     if (i >= j){
-        int index = ((i * (i - 1))/2) + j - 1;
-        A[index] = x;
+        A[rowMajorIndex(i, j)] = x;
     }
 }
  
 void LTMatrix::setColMajor(int i, int j, int x) {
     if (i >= j){
-        int index = (n * (j-1) - (((j-2) * (j-1))/2)) + (i-j);
-        A[index] = x;
+        A[colMajorIndex(i, j)] = x;
     }
 }
  
 int LTMatrix::getRowMajor(int i, int j) {
     if (i >= j){
-        int index = ((i * (i - 1))/2) + j - 1;
-        return A[index];
+        return A[rowMajorIndex(i, j)];
     } else {
         return 0;
     }
@@ -45,8 +52,7 @@ int LTMatrix::getRowMajor(int i, int j) {
  
 int LTMatrix::getColMajor(int i, int j) {
     if (i >= j){
-        int index = (n * (j-1) - (((j-2) * (j-1))/2)) + (i-j);
-        return A[index];
+        return A[colMajorIndex(i, j)];
     } else {
         return 0;
     }
@@ -57,19 +63,19 @@ void LTMatrix::Display(bool row) {
         for (int j=1; j<=n; j++){
             if (i >= j){
                 if (row){
-                    cout << getRowMajor(i, j) << " ";
+                    std::cout << getRowMajor(i, j) << " ";
                 } else {
-                    cout << getColMajor(i, j) << " ";
+                    std::cout << getColMajor(i, j) << " ";
                 }
             } else {
-                cout << 0 << " ";
+                std::cout << 0 << " ";
             }
         }
-        cout << endl;
+        std::cout << std::endl;
     }
 }
  
-int main() {
+void DemonstrateLTMatrixLayouts() {
  
     LTMatrix rm(4);
     rm.setRowMajor(1, 1, 1);
@@ -84,7 +90,7 @@ int main() {
     rm.setRowMajor(4, 4, 10);
  
     rm.Display();
-    cout << endl;
+    std::cout << std::endl;
  
     LTMatrix cm(4);
     cm.setColMajor(1, 1, 1);
@@ -99,6 +105,4 @@ int main() {
     cm.setColMajor(4, 4, 10);
  
     cm.Display(false);
- 
-    return 0;
 }
