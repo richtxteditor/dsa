@@ -9,6 +9,14 @@ const themes = ["auto", "light", "dark"];
 const icons = { auto: "\u25D0", light: "\u2600", dark: "\u263E" };
 const labels = { auto: "Auto", light: "Light", dark: "Dark" };
 
+function normalizeTheme(theme) {
+  return themes.includes(theme) ? theme : "auto";
+}
+
+function getNextTheme(theme) {
+  return themes[(themes.indexOf(normalizeTheme(theme)) + 1) % themes.length];
+}
+
 function readStorage(key, fallback = null) {
   try {
     const value = localStorage.getItem(key);
@@ -27,137 +35,58 @@ function writeStorage(key, value) {
 }
 
 function getStoredTheme() {
-  return readStorage("theme", "auto");
+  return normalizeTheme(readStorage("theme", "auto"));
 }
 
 function applyTheme(theme) {
+  const normalizedTheme = normalizeTheme(theme);
   const root = document.documentElement;
 
-  if (theme === "auto") {
+  if (normalizedTheme === "auto") {
     root.removeAttribute("data-theme");
   } else {
-    root.setAttribute("data-theme", theme);
+    root.setAttribute("data-theme", normalizedTheme);
   }
 
-  themeIcon.textContent = icons[theme];
-  themeLabel.textContent = labels[theme];
-  themeToggle.setAttribute(
-    "aria-label",
-    `Theme: ${labels[theme]}. Activate to switch to ${labels[themes[(themes.indexOf(theme) + 1) % themes.length]]}.`
-  );
-  writeStorage("theme", theme);
+  if (themeIcon) {
+    themeIcon.textContent = icons[normalizedTheme];
+  }
+
+  if (themeLabel) {
+    themeLabel.textContent = labels[normalizedTheme];
+  }
+
+  if (themeToggle) {
+    const nextTheme = getNextTheme(normalizedTheme);
+
+    themeToggle.setAttribute(
+      "aria-label",
+      `Theme: ${labels[normalizedTheme]}. Activate to switch to ${labels[nextTheme]}.`
+    );
+  }
+
+  writeStorage("theme", normalizedTheme);
 }
 
 // Apply saved theme immediately
 applyTheme(getStoredTheme());
 
-themeToggle.addEventListener("click", () => {
+themeToggle?.addEventListener("click", () => {
   const current = getStoredTheme();
-  const next = themes[(themes.indexOf(current) + 1) % themes.length];
-  applyTheme(next);
+  applyTheme(getNextTheme(current));
 });
 
-// ─── Priority Nav (progressive collapse) ──────────────────
-const navBar = document.querySelector(".nav-bar");
-const navLinks = document.getElementById("nav-links");
-const navOverflow = document.getElementById("nav-overflow");
-const hamburger = document.getElementById("nav-hamburger");
-const allNavItems = Array.from(navLinks.querySelectorAll("a[data-nav]"));
-
-function updateNav() {
-  // 1. Show all links in the main bar to measure
-  allNavItems.forEach((a) => {
-    if (a.parentElement === navOverflow) {
-      navLinks.appendChild(a);
-    }
-    a.hidden = false;
-  });
-
-  // 2. Calculate available space
-  const barWidth = navBar.clientWidth;
-  const hamburgerWidth = 44; // approximate width of hamburger + gap
-  const themeWidth = themeToggle.offsetWidth + 8;
-  const available = barWidth - themeWidth - 32; // 32 for padding
-
-  // 3. Measure each link and find which ones fit
-  let used = 0;
-  let overflowed = false;
-  const visible = [];
-  const hidden = [];
-
-  for (const link of allNavItems) {
-    const linkWidth = link.offsetWidth + 4; // 4 for gap
-    if (!overflowed && used + linkWidth <= available - (overflowed ? 0 : hamburgerWidth)) {
-      used += linkWidth;
-      visible.push(link);
-    } else {
-      overflowed = true;
-      // Recheck: once we know we need the hamburger, account for its width
-      if (hidden.length === 0 && used + linkWidth > available - hamburgerWidth) {
-        // May need to pop the last visible to make room for hamburger
-        while (visible.length > 0 && used + hamburgerWidth > available) {
-          const popped = visible.pop();
-          used -= popped.offsetWidth + 4;
-          hidden.unshift(popped);
-        }
-      }
-      hidden.push(link);
-    }
-  }
-
-  // 4. Hide overflowed links from bar, move to overflow dropdown
-  hidden.forEach((a) => {
-    a.hidden = true;
-    navOverflow.appendChild(a);
-    a.hidden = false;
-  });
-
-  // 5. Toggle hamburger and overflow visibility
-  if (hidden.length > 0) {
-    hamburger.hidden = false;
-  } else {
-    hamburger.hidden = true;
-    hamburger.classList.remove("active");
-    navOverflow.hidden = true;
-    hamburger.setAttribute("aria-expanded", "false");
-  }
-}
-
-hamburger.addEventListener("click", () => {
-  const expanded = hamburger.classList.toggle("active");
-  navOverflow.hidden = !expanded;
-  hamburger.setAttribute("aria-expanded", String(expanded));
-});
-
-// Close overflow when a link is clicked
-document.addEventListener("click", (e) => {
-  if (e.target.matches(".nav-overflow a")) {
-    hamburger.classList.remove("active");
-    navOverflow.hidden = true;
-    hamburger.setAttribute("aria-expanded", "false");
-  }
-});
-
-// Close overflow when clicking outside nav
-document.addEventListener("click", (e) => {
-  if (!e.target.closest(".nav") && !navOverflow.hidden) {
-    hamburger.classList.remove("active");
-    navOverflow.hidden = true;
-    hamburger.setAttribute("aria-expanded", "false");
-  }
-});
-
-// Run on load and resize
-const ro = new ResizeObserver(() => updateNav());
-ro.observe(navBar);
-updateNav();
-
-// ─── Tag Filtering ─────────────────────────────────────────
-const filterButtons = Array.from(document.querySelectorAll(".filter-btn"));
+// ─── Filtering ─────────────────────────────────────────────
+const topicFilterButtons = Array.from(
+  document.querySelectorAll("[data-topic-filter]")
+);
+const statusFilterButtons = Array.from(
+  document.querySelectorAll("[data-status-filter]")
+);
+const clearFiltersButton = document.getElementById("clear-filters");
 const sections = Array.from(document.querySelectorAll(".section"));
 const collapseToggle = document.getElementById("collapse-toggle");
 
-// Map filter values to tag class substrings
 const FILTER_TO_TAG_CLASS = {
   mit: "tag--mit",
   clrs: "tag--clrs",
@@ -172,10 +101,21 @@ const FILTER_TO_TAG_CLASS = {
 };
 const SECTION_COLLAPSE_STORAGE_PREFIX = "section-collapsed:";
 
-let activeFilter = "all";
+const activeTopicFilters = new Set();
+const activeStatusFilters = new Set();
+const sectionRecords = sections.map((section) => ({
+  section,
+  visibleCount: 0,
+}));
+const rowRecords = [];
+const sectionRecordByElement = new Map(
+  sectionRecords.map((record) => [record.section, record])
+);
 
 function getVisibleSections() {
-  return sections.filter((section) => !section.classList.contains("filter-empty"));
+  return sectionRecords
+    .filter((record) => !record.section.classList.contains("filter-empty"))
+    .map((record) => record.section);
 }
 
 function getSectionHeader(section) {
@@ -286,48 +226,155 @@ function initializeSectionCollapse() {
   updateCollapseToggleState();
 }
 
-function applyFilter(filter) {
-  activeFilter = filter;
+function getRowTopic(row) {
+  const tag = row.querySelector(".tag");
 
-  // Update button states
-  filterButtons.forEach((btn) => {
-    btn.classList.toggle("active", btn.dataset.filter === filter);
+  if (!tag) {
+    return "";
+  }
+
+  return (
+    Object.entries(FILTER_TO_TAG_CLASS).find(([, tagClass]) =>
+      tag.classList.contains(tagClass)
+    )?.[0] || ""
+  );
+}
+
+function cacheFilterRows() {
+  rowRecords.length = 0;
+
+  sectionRecords.forEach((record) => {
+    record.visibleCount = 0;
   });
 
-  // Filter rows
   sections.forEach((section) => {
-    const rows = section.querySelectorAll("tbody tr");
-    let visibleCount = 0;
+    const sectionRecord = sectionRecordByElement.get(section);
 
-    rows.forEach((row) => {
-      if (filter === "all") {
-        row.classList.remove("filter-hidden");
-        visibleCount++;
-      } else {
-        const tag = row.querySelector(".tag");
-        const matches = tag && tag.classList.contains(FILTER_TO_TAG_CLASS[filter]);
-        row.classList.toggle("filter-hidden", !matches);
-        if (matches) visibleCount++;
-      }
+    section.querySelectorAll("tbody tr").forEach((row) => {
+      const status =
+        row.querySelector(".status[data-status]")?.dataset.status || "";
+
+      rowRecords.push({
+        row,
+        section,
+        sectionRecord,
+        topic: getRowTopic(row),
+        status,
+      });
     });
+  });
+}
 
-    // Hide entire section if no visible rows
-    section.classList.toggle("filter-empty", visibleCount === 0);
+function hasActiveFilters() {
+  return activeTopicFilters.size > 0 || activeStatusFilters.size > 0;
+}
+
+function updateTopicButtonStates() {
+  topicFilterButtons.forEach((button) => {
+    const active = activeTopicFilters.has(button.dataset.topicFilter);
+
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+}
+
+function updateStatusButtonStates() {
+  statusFilterButtons.forEach((button) => {
+    const active = activeStatusFilters.has(button.dataset.statusFilter);
+
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+}
+
+function updateClearFiltersState() {
+  if (!clearFiltersButton) {
+    return;
+  }
+
+  clearFiltersButton.disabled = !hasActiveFilters();
+}
+
+function toggleSetValue(set, value) {
+  if (set.has(value)) {
+    set.delete(value);
+  } else {
+    set.add(value);
+  }
+}
+
+function rowMatchesFilters(record) {
+  const topicMatches =
+    activeTopicFilters.size === 0 || activeTopicFilters.has(record.topic);
+  const statusMatches =
+    activeStatusFilters.size === 0 || activeStatusFilters.has(record.status);
+
+  return topicMatches && statusMatches;
+}
+
+function applyFilters({ updateTopics = false, updateStatuses = false } = {}) {
+  sectionRecords.forEach((record) => {
+    record.visibleCount = 0;
   });
 
+  rowRecords.forEach((record) => {
+    const visible = rowMatchesFilters(record);
+
+    record.row.classList.toggle("filter-hidden", !visible);
+
+    if (visible && record.sectionRecord) {
+      record.sectionRecord.visibleCount++;
+    }
+  });
+
+  sectionRecords.forEach((record) => {
+    record.section.classList.toggle("filter-empty", record.visibleCount === 0);
+  });
+
+  if (updateTopics) {
+    updateTopicButtonStates();
+  }
+
+  if (updateStatuses) {
+    updateStatusButtonStates();
+  }
+
+  updateClearFiltersState();
   updateCollapseToggleState();
 }
 
+function clearFilters() {
+  if (!hasActiveFilters()) {
+    return;
+  }
+
+  activeTopicFilters.clear();
+  activeStatusFilters.clear();
+  applyFilters({ updateTopics: true, updateStatuses: true });
+}
+
 function initializeFilters() {
-  filterButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      if (btn.dataset.filter === activeFilter) {
-        applyFilter("all");
-      } else {
-        applyFilter(btn.dataset.filter);
-      }
+  cacheFilterRows();
+  updateTopicButtonStates();
+  updateStatusButtonStates();
+  updateClearFiltersState();
+
+  topicFilterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      toggleSetValue(activeTopicFilters, button.dataset.topicFilter);
+      applyFilters({ updateTopics: true });
     });
   });
+
+  statusFilterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      toggleSetValue(activeStatusFilters, button.dataset.statusFilter);
+      applyFilters({ updateStatuses: true });
+    });
+  });
+
+  clearFiltersButton?.addEventListener("click", clearFilters);
+  applyFilters();
 }
 
 initializeFilters();
@@ -336,12 +383,15 @@ initializeSectionCollapse();
 // ─── Scroll to Top ─────────────────────────────────────────
 const scrollTopBtn = document.getElementById("scroll-top");
 
-window.addEventListener("scroll", () => {
-  const isVisible = window.scrollY > 400;
-  scrollTopBtn.classList.toggle("visible", isVisible);
-  scrollTopBtn.hidden = !isVisible;
-});
+if (scrollTopBtn) {
+  window.addEventListener("scroll", () => {
+    const isVisible = window.scrollY > 400;
 
-scrollTopBtn.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
+    scrollTopBtn.classList.toggle("visible", isVisible);
+    scrollTopBtn.hidden = !isVisible;
+  });
+
+  scrollTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}

@@ -14,24 +14,6 @@
     <a href="#main" class="skip-link">Skip to main content</a>
     <nav class="nav" id="nav">
       <div class="nav-bar">
-        <div class="nav-links" id="nav-links">
-          <a href="#foundations" class="nav--foundations" data-nav>Foundations</a>
-          <a href="#arrays" class="nav--arrays" data-nav>Arrays</a>
-          <a href="#linked-lists" class="nav--linked-lists" data-nav>Linked Lists</a>
-          <a href="#stacks-queues" class="nav--stacks-queues" data-nav>Stacks &amp; Queues</a>
-          <a href="#hashing" class="nav--hashing" data-nav>Hashing</a>
-          <a href="#sorting" class="nav--sorting" data-nav>Sorting</a>
-          <a href="#matrices" class="nav--matrices" data-nav>Matrices</a>
-          <a href="#trees" class="nav--trees" data-nav>Trees</a>
-          <a href="#graphs" class="nav--graphs" data-nav>Graphs</a>
-          <a href="#dp" class="nav--dp" data-nav>Dynamic Programming</a>
-          <a href="#selected-topics" class="nav--selected-topics" data-nav>Selected Topics</a>
-          <a href="#math-background" class="nav--math-background" data-nav>Math Background</a>
-          <a href="#mit-weekly" class="nav--mit-weekly" data-nav>MIT Weekly</a>
-        </div>
-        <button class="nav-hamburger" id="nav-hamburger" type="button" aria-label="Toggle overflow menu" aria-expanded="false" hidden>
-          <span></span><span></span><span></span>
-        </button>
         <a href="https://github.com/richtxteditor/dsa" target="_blank" rel="noopener noreferrer" class="nav-github" aria-describedby="new-tab-note">
           <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
           <span class="sr-only">GitHub repository</span>
@@ -41,60 +23,55 @@
           <span id="theme-label">Auto</span>
         </button>
       </div>
-      <div class="nav-overflow" id="nav-overflow" hidden></div>
     </nav>
 
     <header>
       <span class="sr-only" id="new-tab-note">Opens in a new tab.</span>
       <h1>DSA & Technical Interview Prep Tracker</h1>
       <p class="subtitle">
-        A structured study plan built around
-        <strong><a href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/" target="_blank" rel="noopener" aria-describedby="new-tab-note">MIT 6.006 Introduction to Algorithms</a></strong>
-        and <strong>CLRS 4th Edition</strong>,
-        supplemented by the Udemy course
-        <strong><a href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener" aria-describedby="new-tab-note">Data Structures and Algorithms using C++</a></strong>,
-        <strong><a href="https://www.crackingthecodinginterview.com/" target="_blank" rel="noopener" aria-describedby="new-tab-note">Cracking the Coding Interview</a></strong>,
-        and <strong><a href="https://leetcode.com/" target="_blank" rel="noopener" aria-describedby="new-tab-note">LeetCode</a></strong>.
-        This serves as a refresher from my undergraduate studies in Computer Science at <strong><a href="https://montclair.edu" target="_blank" rel="noopener" aria-describedby="new-tab-note">MSU</a></strong> as I look for full-time work. Please take a look at my <strong><a href="https://richtxteditor.github.io" target="_blank" rel="noopener" aria-describedby="new-tab-note">portfolio</a></strong>!
+        A living DSA and technical interview prep tracker built around
+        <strong><a href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-note">MIT 6.006 Introduction to Algorithms</a></strong>,
+        <strong>CLRS 4th Edition</strong>,
+        <strong><a href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-note">Data Structures and Algorithms using C++</a></strong>,
+        <strong><a href="https://www.crackingthecodinginterview.com/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-note">Cracking the Coding Interview</a></strong>,
+        and <strong><a href="https://leetcode.com/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-note">LeetCode</a></strong>;
+        it pairs first-principles course study with C/C++, Python, and Java implementations to reinforce memory layout, performance, and trade-offs while documenting progress as a CS refresher for full-time software work and my
+        <strong><a href="https://richtxteditor.github.io" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-note">portfolio</a></strong>.
       </p>
     </header>
 
-    <div class="project-purpose">
-      <div class="purpose-block">
-        <h3>Project Philosophy</h3>
-        <p>
-          This project is an exercise in understanding data structures and algorithms from <strong>first principles</strong>.
-          Instead of just using standard library containers, each core data structure is built from scratch in <strong>C/C++</strong>, <strong>Python</strong>, and <strong>Java</strong> to gain a fundamental understanding of its memory layout, performance characteristics, and trade-offs.
-        </p>
-      </div>
-      <div class="purpose-block">
-        <h3>Website Purpose</h3>
-        <p>
-          This website serves as a <strong>living document</strong> to track progress through a structured curriculum, hold myself accountable, and showcase the practical application of the concepts being learned.
-        </p>
-      </div>
-    </div>
-
     <div class="filter-bar" id="filter-bar">
-      <span class="filter-label">Filter</span>
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn tag--mit" data-filter="mit">MIT</button>
-      <button class="filter-btn tag--clrs" data-filter="clrs">CLRS</button>
-      <button class="filter-btn tag--udemy" data-filter="udemy">Udemy</button>
-      <button class="filter-btn tag--ctci" data-filter="ctci">CTCI</button>
-      <button class="filter-btn tag--leetcode" data-filter="leetcode">LeetCode</button>
-      <button class="filter-btn tag--cpp" data-filter="cpp">C++</button>
-      <button class="filter-btn tag--project" data-filter="project">Project</button>
-      <button class="filter-btn tag--array" data-filter="array">Array</button>
-      <button class="filter-btn tag--testing" data-filter="testing">Testing</button>
-      <button class="filter-btn tag--algorithm" data-filter="algorithm">Algorithm</button>
-      <span class="status-legend" aria-label="Progress status legend">
-        <span class="status status--done" data-status="done">✓ Done</span>
-        <span class="status status--progress" data-status="progress">In Progress</span>
-        <span class="status status--next" data-status="next">Next</span>
-        <span class="status status--todo" data-status="todo">Todo</span>
-      </span>
-      <button class="collapse-toggle" id="collapse-toggle" type="button">Collapse All</button>
+      <div class="filter-group">
+        <span class="filter-group-label" id="topic-filter-label">Topic</span>
+        <div class="filter-controls" role="group" aria-labelledby="topic-filter-label">
+          <button class="filter-btn tag--mit" type="button" data-topic-filter="mit" aria-pressed="false">MIT</button>
+          <button class="filter-btn tag--clrs" type="button" data-topic-filter="clrs" aria-pressed="false">CLRS</button>
+          <button class="filter-btn tag--udemy" type="button" data-topic-filter="udemy" aria-pressed="false">Udemy</button>
+          <button class="filter-btn tag--ctci" type="button" data-topic-filter="ctci" aria-pressed="false">CTCI</button>
+          <button class="filter-btn tag--leetcode" type="button" data-topic-filter="leetcode" aria-pressed="false">LeetCode</button>
+          <button class="filter-btn tag--cpp" type="button" data-topic-filter="cpp" aria-pressed="false">C++</button>
+          <button class="filter-btn tag--project" type="button" data-topic-filter="project" aria-pressed="false">Project</button>
+          <button class="filter-btn tag--array" type="button" data-topic-filter="array" aria-pressed="false">Array</button>
+          <button class="filter-btn tag--testing" type="button" data-topic-filter="testing" aria-pressed="false">Testing</button>
+          <button class="filter-btn tag--algorithm" type="button" data-topic-filter="algorithm" aria-pressed="false">Algorithm</button>
+        </div>
+      </div>
+      <div class="filter-group">
+        <span class="filter-group-label" id="progress-filter-label">Progress</span>
+        <div class="filter-controls status-legend" role="group" aria-labelledby="progress-filter-label">
+          <button class="status status-filter status--done" type="button" data-status-filter="done" aria-pressed="false">✓ Done</button>
+          <button class="status status-filter status--progress" type="button" data-status-filter="progress" aria-pressed="false">In Progress</button>
+          <button class="status status-filter status--next" type="button" data-status-filter="next" aria-pressed="false">Next</button>
+          <button class="status status-filter status--todo" type="button" data-status-filter="todo" aria-pressed="false">Todo</button>
+        </div>
+      </div>
+      <div class="filter-group filter-group--actions">
+        <span class="filter-group-label" id="filter-actions-label">Actions</span>
+        <div class="filter-controls" role="group" aria-labelledby="filter-actions-label">
+          <button class="filter-action" id="clear-filters" type="button" disabled>Clear Filters</button>
+          <button class="filter-action collapse-toggle" id="collapse-toggle" type="button">Collapse All</button>
+        </div>
+      </div>
     </div>
 
     <main id="main">
@@ -109,7 +86,7 @@
         </h2>
         <p class="section-note">Project setup, testing, and MIT Week 1 foundations paired with CLRS analysis chapters and prerequisite Udemy material.</p>
         <table>
-          <thead><tr><th>Resource</th><th>Task</th><th>Status</th></tr></thead>
+          <thead class="visually-hidden"><tr><th scope="col">Resource</th><th scope="col">Task</th><th scope="col">Status</th></tr></thead>
           <tbody>
             <tr>
               <td><span class="tag tag--project">Project</span></td>
@@ -133,52 +110,52 @@
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-1-algorithms-and-computation/" target="_blank" rel="noopener"><span class="task-title">MIT lecture 1</span><span class="task-focus">Algorithms and Computation</span><span class="task-meta">Week 1 lecture.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-1-algorithms-and-computation/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT lecture 1</span><span class="task-focus">Algorithms and Computation</span><span class="task-meta">Week 1 lecture.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-lec1">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS chapters 1-3</span><span class="task-focus">Algorithm analysis foundations</span><span class="task-meta">The Role of Algorithms in Computing, Getting Started, Characterizing Running Times</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS chapters 1-3</span><span class="task-focus">Algorithm analysis foundations</span><span class="task-meta">The Role of Algorithms in Computing, Getting Started, Characterizing Running Times</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-ch1-3">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS chapter 4</span><span class="task-focus">Divide-and-Conquer</span><span class="task-meta">Divide-and-conquer analysis.</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS chapter 4</span><span class="task-focus">Divide-and-Conquer</span><span class="task-meta">Divide-and-conquer analysis.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-ch4">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS chapter 5</span><span class="task-focus">Probabilistic Analysis and Randomized Algorithms</span><span class="task-meta">Randomized algorithm analysis.</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS chapter 5</span><span class="task-focus">Probabilistic Analysis and Randomized Algorithms</span><span class="task-meta">Randomized algorithm analysis.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-ch5">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS chapter 16</span><span class="task-focus">Amortized Analysis</span><span class="task-meta">Amortized data-structure analysis.</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS chapter 16</span><span class="task-focus">Amortized Analysis</span><span class="task-meta">Amortized data-structure analysis.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-ch16">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--udemy">Udemy</span></td>
-              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener"><span class="task-title">Udemy section</span><span class="task-focus">Introduction</span><span class="task-meta">What are Data Structures?, ADT, What is an Algorithm?</span></a></td>
+              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener noreferrer"><span class="task-title">Udemy section</span><span class="task-focus">Introduction</span><span class="task-meta">What are Data Structures?, ADT, What is an Algorithm?</span></a></td>
               <td><span class="status status--done" data-status="done" data-task-id="udemy-sec1">✓ Done</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--udemy">Udemy</span></td>
-              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener"><span class="task-title">Udemy section</span><span class="task-focus">Recursion</span><span class="task-meta">Static/Global Variables, Taylor Series, Fibonacci, Tower of Hanoi</span></a></td>
+              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener noreferrer"><span class="task-title">Udemy section</span><span class="task-focus">Recursion</span><span class="task-meta">Static/Global Variables, Taylor Series, Fibonacci, Tower of Hanoi</span></a></td>
               <td><span class="status status--done" data-status="done" data-task-id="udemy-sec2">✓ Done</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/assignments/" target="_blank" rel="noopener"><span class="task-title">MIT problem set 0</span><span class="task-focus">Foundations assignment</span><span class="task-meta">Week 1 assignment solutions.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/assignments/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT problem set 0</span><span class="task-focus">Foundations assignment</span><span class="task-meta">Week 1 assignment solutions.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-ps0">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r01/" target="_blank" rel="noopener"><span class="task-title">MIT recitation 1</span><span class="task-focus">Foundations practice</span><span class="task-meta">Week 1 recitation.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r01/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT recitation 1</span><span class="task-focus">Foundations practice</span><span class="task-meta">Week 1 recitation.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-r01">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/problem-session-1/" target="_blank" rel="noopener"><span class="task-title">MIT problem session 1</span><span class="task-focus">Foundations problem practice</span><span class="task-meta">Week 1 problem-session solutions.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/problem-session-1/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT problem session 1</span><span class="task-focus">Foundations problem practice</span><span class="task-meta">Week 1 problem-session solutions.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-prob1">Todo</span></td>
             </tr>
           </tbody>
@@ -195,21 +172,21 @@
         </h2>
         <p class="section-note">MIT Week 1 dynamic-array content sits here with array, string, interview drills, and completed Array implementation work.</p>
         <table>
-          <thead><tr><th>Resource</th><th>Task</th><th>Status</th></tr></thead>
+          <thead class="visually-hidden"><tr><th scope="col">Resource</th><th scope="col">Task</th><th scope="col">Status</th></tr></thead>
           <tbody>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-2-data-structures-and-dynamic-arrays/" target="_blank" rel="noopener"><span class="task-title">MIT lecture 2</span><span class="task-focus">Data Structures and Dynamic Arrays</span><span class="task-meta">Week 1 lecture.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-2-data-structures-and-dynamic-arrays/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT lecture 2</span><span class="task-focus">Data Structures and Dynamic Arrays</span><span class="task-meta">Week 1 lecture.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-lec2">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r02/" target="_blank" rel="noopener"><span class="task-title">MIT recitation 2</span><span class="task-focus">Data Structures</span><span class="task-meta">Week 1 recitation.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r02/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT recitation 2</span><span class="task-focus">Data Structures</span><span class="task-meta">Week 1 recitation.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-r02">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--udemy">Udemy</span></td>
-              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener"><span class="task-title">Udemy section</span><span class="task-focus">Arrays Representations</span><span class="task-meta">Array ADT, 2D arrays, and matrix basics.</span></a></td>
+              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener noreferrer"><span class="task-title">Udemy section</span><span class="task-focus">Arrays Representations</span><span class="task-meta">Array ADT, 2D arrays, and matrix basics.</span></a></td>
               <td><span class="status status--done" data-status="done" data-task-id="udemy-sec3">✓ Done</span></td>
             </tr>
             <tr>
@@ -234,27 +211,27 @@
             </tr>
             <tr>
               <td><span class="tag tag--udemy">Udemy</span></td>
-              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener"><span class="task-title">Udemy section</span><span class="task-focus">Array Operations</span><span class="task-meta">Display, Add, Insert, Delete, Search, Binary Search</span></a></td>
+              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener noreferrer"><span class="task-title">Udemy section</span><span class="task-focus">Array Operations</span><span class="task-meta">Display, Add, Insert, Delete, Search, Binary Search</span></a></td>
               <td><span class="status status--done" data-status="done" data-task-id="udemy-s4-1">✓ Done</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--udemy">Udemy</span></td>
-              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener"><span class="task-title">Udemy section</span><span class="task-focus">String Ops</span><span class="task-meta">Length, Case, Reverse, Palindrome, Duplicates, Anagrams</span></a></td>
+              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener noreferrer"><span class="task-title">Udemy section</span><span class="task-focus">String Ops</span><span class="task-meta">Length, Case, Reverse, Palindrome, Duplicates, Anagrams</span></a></td>
               <td><span class="status status--done" data-status="done" data-task-id="udemy-s5-1">✓ Done</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--ctci">CTCI</span></td>
-              <td><a class="task-link" href="https://www.crackingthecodinginterview.com/" target="_blank" rel="noopener"><span class="task-title">CTCI chapter 1</span><span class="task-focus">Arrays and Strings</span><span class="task-meta">Interview review.</span></a></td>
+              <td><a class="task-link" href="https://www.crackingthecodinginterview.com/" target="_blank" rel="noopener noreferrer"><span class="task-title">CTCI chapter 1</span><span class="task-focus">Arrays and Strings</span><span class="task-meta">Interview review.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="ctci-ch1">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS chapter 32</span><span class="task-focus">String Matching</span><span class="task-meta">Advanced string algorithms.</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS chapter 32</span><span class="task-focus">String Matching</span><span class="task-meta">Advanced string algorithms.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-ch32">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--leetcode">LeetCode</span></td>
-              <td><span class="task"><span class="task-title">LeetCode practice</span><span class="task-focus">Arrays and strings drills</span><span class="task-meta"><a href="https://leetcode.com/problems/two-sum/" target="_blank" rel="noopener">Two Sum</a>, <a href="https://leetcode.com/problems/valid-anagram/" target="_blank" rel="noopener">Valid Anagram</a>, <a href="https://leetcode.com/problems/contains-duplicate/" target="_blank" rel="noopener">Contains Duplicate</a>, <a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/" target="_blank" rel="noopener">Longest Substring Without Repeating Characters</a></span></span></td>
+              <td><span class="task"><span class="task-title">LeetCode practice</span><span class="task-focus">Arrays and strings drills</span><span class="task-meta"><a href="https://leetcode.com/problems/two-sum/" target="_blank" rel="noopener noreferrer">Two Sum</a>, <a href="https://leetcode.com/problems/valid-anagram/" target="_blank" rel="noopener noreferrer">Valid Anagram</a>, <a href="https://leetcode.com/problems/contains-duplicate/" target="_blank" rel="noopener noreferrer">Contains Duplicate</a>, <a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/" target="_blank" rel="noopener noreferrer">Longest Substring Without Repeating Characters</a></span></span></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="leet-arr-str-1">Todo</span></td>
             </tr>
           </tbody>
@@ -271,26 +248,26 @@
         </h2>
         <p class="section-note">Supplemental pointer-heavy practice for linked-list implementation and interview problems.</p>
         <table>
-          <thead><tr><th>Resource</th><th>Task</th><th>Status</th></tr></thead>
+          <thead class="visually-hidden"><tr><th scope="col">Resource</th><th scope="col">Task</th><th scope="col">Status</th></tr></thead>
           <tbody>
             <tr>
               <td><span class="tag tag--udemy">Udemy</span></td>
-              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener"><span class="task-title">Udemy section</span><span class="task-focus">Singly Linked List</span><span class="task-meta">Intro, Display, Search, Insert, Delete, Reverse</span></a></td>
+              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener noreferrer"><span class="task-title">Udemy section</span><span class="task-focus">Singly Linked List</span><span class="task-meta">Intro, Display, Search, Insert, Delete, Reverse</span></a></td>
               <td><span class="status status--next" data-status="next" data-task-id="udemy-s7-1">Next</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--udemy">Udemy</span></td>
-              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener"><span class="task-title">Udemy section</span><span class="task-focus">Linked-list variants</span><span class="task-meta">Circular lists, doubly linked lists, merging, and loop detection.</span></a></td>
+              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener noreferrer"><span class="task-title">Udemy section</span><span class="task-focus">Linked-list variants</span><span class="task-meta">Circular lists, doubly linked lists, merging, and loop detection.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="udemy-s7-2">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--ctci">CTCI</span></td>
-              <td><a class="task-link" href="https://www.crackingthecodinginterview.com/" target="_blank" rel="noopener"><span class="task-title">CTCI chapter 2</span><span class="task-focus">Linked Lists</span><span class="task-meta">Interview review.</span></a></td>
+              <td><a class="task-link" href="https://www.crackingthecodinginterview.com/" target="_blank" rel="noopener noreferrer"><span class="task-title">CTCI chapter 2</span><span class="task-focus">Linked Lists</span><span class="task-meta">Interview review.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="ctci-ch2">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--leetcode">LeetCode</span></td>
-              <td><span class="task"><span class="task-title">LeetCode practice</span><span class="task-focus">Linked-list pointer drills</span><span class="task-meta"><a href="https://leetcode.com/problems/reverse-linked-list/" target="_blank" rel="noopener">Reverse Linked List</a>, <a href="https://leetcode.com/problems/linked-list-cycle/" target="_blank" rel="noopener">Linked List Cycle</a>, <a href="https://leetcode.com/problems/merge-two-sorted-lists/" target="_blank" rel="noopener">Merge Two Sorted Lists</a>, <a href="https://leetcode.com/problems/remove-nth-node-from-end-of-list/" target="_blank" rel="noopener">Remove Nth Node From End</a></span></span></td>
+              <td><span class="task"><span class="task-title">LeetCode practice</span><span class="task-focus">Linked-list pointer drills</span><span class="task-meta"><a href="https://leetcode.com/problems/reverse-linked-list/" target="_blank" rel="noopener noreferrer">Reverse Linked List</a>, <a href="https://leetcode.com/problems/linked-list-cycle/" target="_blank" rel="noopener noreferrer">Linked List Cycle</a>, <a href="https://leetcode.com/problems/merge-two-sorted-lists/" target="_blank" rel="noopener noreferrer">Merge Two Sorted Lists</a>, <a href="https://leetcode.com/problems/remove-nth-node-from-end-of-list/" target="_blank" rel="noopener noreferrer">Remove Nth Node From End</a></span></span></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="leet-ll-1">Todo</span></td>
             </tr>
           </tbody>
@@ -307,31 +284,31 @@
         </h2>
         <p class="section-note">Elementary structures from CLRS paired with stack, queue, and priority-queue implementation drills.</p>
         <table>
-          <thead><tr><th>Resource</th><th>Task</th><th>Status</th></tr></thead>
+          <thead class="visually-hidden"><tr><th scope="col">Resource</th><th scope="col">Task</th><th scope="col">Status</th></tr></thead>
           <tbody>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS chapter 10</span><span class="task-focus">Elementary Data Structures</span><span class="task-meta">Stacks, queues, lists, and rooted trees.</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS chapter 10</span><span class="task-focus">Elementary Data Structures</span><span class="task-meta">Stacks, queues, lists, and rooted trees.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-ch10">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--udemy">Udemy</span></td>
-              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener"><span class="task-title">Udemy section</span><span class="task-focus">Stack applications</span><span class="task-meta">Array/linked-list stacks, parenthesis matching, and infix-to-postfix.</span></a></td>
+              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener noreferrer"><span class="task-title">Udemy section</span><span class="task-focus">Stack applications</span><span class="task-meta">Array/linked-list stacks, parenthesis matching, and infix-to-postfix.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="udemy-s9-1">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--udemy">Udemy</span></td>
-              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener"><span class="task-title">Udemy section</span><span class="task-focus">Queue implementations</span><span class="task-meta">Array, circular, linked-list, and priority queues.</span></a></td>
+              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener noreferrer"><span class="task-title">Udemy section</span><span class="task-focus">Queue implementations</span><span class="task-meta">Array, circular, linked-list, and priority queues.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="udemy-s10-1">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--ctci">CTCI</span></td>
-              <td><a class="task-link" href="https://www.crackingthecodinginterview.com/" target="_blank" rel="noopener"><span class="task-title">CTCI chapter 3</span><span class="task-focus">Stacks and Queues</span><span class="task-meta">Interview review.</span></a></td>
+              <td><a class="task-link" href="https://www.crackingthecodinginterview.com/" target="_blank" rel="noopener noreferrer"><span class="task-title">CTCI chapter 3</span><span class="task-focus">Stacks and Queues</span><span class="task-meta">Interview review.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="ctci-ch3">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--leetcode">LeetCode</span></td>
-              <td><span class="task"><span class="task-title">LeetCode practice</span><span class="task-focus">Stack and queue drills</span><span class="task-meta"><a href="https://leetcode.com/problems/valid-parentheses/" target="_blank" rel="noopener">Valid Parentheses</a>, <a href="https://leetcode.com/problems/min-stack/" target="_blank" rel="noopener">Min Stack</a>, <a href="https://leetcode.com/problems/implement-queue-using-stacks/" target="_blank" rel="noopener">Implement Queue using Stacks</a></span></span></td>
+              <td><span class="task"><span class="task-title">LeetCode practice</span><span class="task-focus">Stack and queue drills</span><span class="task-meta"><a href="https://leetcode.com/problems/valid-parentheses/" target="_blank" rel="noopener noreferrer">Valid Parentheses</a>, <a href="https://leetcode.com/problems/min-stack/" target="_blank" rel="noopener noreferrer">Min Stack</a>, <a href="https://leetcode.com/problems/implement-queue-using-stacks/" target="_blank" rel="noopener noreferrer">Implement Queue using Stacks</a></span></span></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="leet-stack-queue-1">Todo</span></td>
             </tr>
           </tbody>
@@ -348,46 +325,46 @@
         </h2>
         <p class="section-note">MIT Week 2 hashing lecture, recitation, problem session, and Problem Set 1.</p>
         <table>
-          <thead><tr><th>Resource</th><th>Task</th><th>Status</th></tr></thead>
+          <thead class="visually-hidden"><tr><th scope="col">Resource</th><th scope="col">Task</th><th scope="col">Status</th></tr></thead>
           <tbody>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-4-hashing/" target="_blank" rel="noopener"><span class="task-title">MIT lecture 4</span><span class="task-focus">Hashing</span><span class="task-meta">Week 2 lecture.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-4-hashing/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT lecture 4</span><span class="task-focus">Hashing</span><span class="task-meta">Week 2 lecture.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-lec4">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS chapter 11</span><span class="task-focus">Hash Tables</span><span class="task-meta">Hash-table design and collision handling.</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS chapter 11</span><span class="task-focus">Hash Tables</span><span class="task-meta">Hash-table design and collision handling.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-ch11">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--udemy">Udemy</span></td>
-              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener"><span class="task-title">Udemy section</span><span class="task-focus">Hashing collision strategies</span><span class="task-meta">Intro, chaining, linear probing, and quadratic probing.</span></a></td>
+              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener noreferrer"><span class="task-title">Udemy section</span><span class="task-focus">Hashing collision strategies</span><span class="task-meta">Intro, chaining, linear probing, and quadratic probing.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="udemy-s12-1">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--ctci">CTCI</span></td>
-              <td><a class="task-link" href="https://www.crackingthecodinginterview.com/" target="_blank" rel="noopener"><span class="task-title">CTCI practice</span><span class="task-focus">Hash table applications</span><span class="task-meta">Review Chapters 1 and 2 examples.</span></a></td>
+              <td><a class="task-link" href="https://www.crackingthecodinginterview.com/" target="_blank" rel="noopener noreferrer"><span class="task-title">CTCI practice</span><span class="task-focus">Hash table applications</span><span class="task-meta">Review Chapters 1 and 2 examples.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="ctci-hashing">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--leetcode">LeetCode</span></td>
-              <td><span class="task"><span class="task-title">LeetCode practice</span><span class="task-focus">Hash-table drills</span><span class="task-meta"><a href="https://leetcode.com/problems/group-anagrams/" target="_blank" rel="noopener">Group Anagrams</a>, <a href="https://leetcode.com/problems/ransom-note/" target="_blank" rel="noopener">Ransom Note</a>, <a href="https://leetcode.com/problems/design-hashmap/" target="_blank" rel="noopener">Design HashMap</a></span></span></td>
+              <td><span class="task"><span class="task-title">LeetCode practice</span><span class="task-focus">Hash-table drills</span><span class="task-meta"><a href="https://leetcode.com/problems/group-anagrams/" target="_blank" rel="noopener noreferrer">Group Anagrams</a>, <a href="https://leetcode.com/problems/ransom-note/" target="_blank" rel="noopener noreferrer">Ransom Note</a>, <a href="https://leetcode.com/problems/design-hashmap/" target="_blank" rel="noopener noreferrer">Design HashMap</a></span></span></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="leet-hash-1">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r04/" target="_blank" rel="noopener"><span class="task-title">MIT recitation 4</span><span class="task-focus">Hashing practice</span><span class="task-meta">Week 2 recitation.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r04/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT recitation 4</span><span class="task-focus">Hashing practice</span><span class="task-meta">Week 2 recitation.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-r04">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/problem-session-2/" target="_blank" rel="noopener"><span class="task-title">MIT problem session 2</span><span class="task-focus">Sorting and Hashing</span><span class="task-meta">Week 2 problem-session solutions.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/problem-session-2/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT problem session 2</span><span class="task-focus">Sorting and Hashing</span><span class="task-meta">Week 2 problem-session solutions.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-prob2">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/assignments/" target="_blank" rel="noopener"><span class="task-title">MIT problem set 1</span><span class="task-focus">Sorting and Hashing</span><span class="task-meta">Week 2 assignment solutions.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/assignments/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT problem set 1</span><span class="task-focus">Sorting and Hashing</span><span class="task-meta">Week 2 assignment solutions.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-ps1">Todo</span></td>
             </tr>
           </tbody>
@@ -404,41 +381,41 @@
         </h2>
         <p class="section-note">MIT Weeks 2-3 sorting lectures, recitations, problem work, matching CLRS sorting chapters, and Array sorting implementation work.</p>
         <table>
-          <thead><tr><th>Resource</th><th>Task</th><th>Status</th></tr></thead>
+          <thead class="visually-hidden"><tr><th scope="col">Resource</th><th scope="col">Task</th><th scope="col">Status</th></tr></thead>
           <tbody>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-3-sets-and-sorting/" target="_blank" rel="noopener"><span class="task-title">MIT lecture 3</span><span class="task-focus">Sets and Sorting</span><span class="task-meta">Week 2 lecture.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-3-sets-and-sorting/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT lecture 3</span><span class="task-focus">Sets and Sorting</span><span class="task-meta">Week 2 lecture.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-lec3">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-5-linear-sorting/" target="_blank" rel="noopener"><span class="task-title">MIT lecture 5</span><span class="task-focus">Linear Sorting</span><span class="task-meta">Week 3 lecture.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-5-linear-sorting/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT lecture 5</span><span class="task-focus">Linear Sorting</span><span class="task-meta">Week 3 lecture.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-lec5">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS chapters 6-9</span><span class="task-focus">Sorting</span><span class="task-meta">Heapsort, Quicksort, Sorting in Linear Time, Medians and Order Statistics</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS chapters 6-9</span><span class="task-focus">Sorting</span><span class="task-meta">Heapsort, Quicksort, Sorting in Linear Time, Medians and Order Statistics</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-ch6-9">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--udemy">Udemy</span></td>
-              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener"><span class="task-title">Udemy section</span><span class="task-focus">Basic and advanced sorting</span><span class="task-meta">Bubble, insertion, selection, quick sort, and merge sort.</span></a></td>
+              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener noreferrer"><span class="task-title">Udemy section</span><span class="task-focus">Basic and advanced sorting</span><span class="task-meta">Bubble, insertion, selection, quick sort, and merge sort.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="udemy-s13-1">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--udemy">Udemy</span></td>
-              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener"><span class="task-title">Udemy section</span><span class="task-focus">Specialized</span><span class="task-meta">Count Sort, Radix Sort, Shell Sort</span></a></td>
+              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener noreferrer"><span class="task-title">Udemy section</span><span class="task-focus">Specialized</span><span class="task-meta">Count Sort, Radix Sort, Shell Sort</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="udemy-s13-2">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--ctci">CTCI</span></td>
-              <td><a class="task-link" href="https://www.crackingthecodinginterview.com/" target="_blank" rel="noopener"><span class="task-title">CTCI chapter 10</span><span class="task-focus">Sorting and Searching</span><span class="task-meta">Interview review.</span></a></td>
+              <td><a class="task-link" href="https://www.crackingthecodinginterview.com/" target="_blank" rel="noopener noreferrer"><span class="task-title">CTCI chapter 10</span><span class="task-focus">Sorting and Searching</span><span class="task-meta">Interview review.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="ctci-ch10">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--leetcode">LeetCode</span></td>
-              <td><span class="task"><span class="task-title">LeetCode practice</span><span class="task-focus">Sorting drills</span><span class="task-meta"><a href="https://leetcode.com/problems/merge-sorted-array/" target="_blank" rel="noopener">Merge Sorted Array</a>, <a href="https://leetcode.com/problems/sort-colors/" target="_blank" rel="noopener">Sort Colors</a> (Dutch National Flag problem)</span></span></td>
+              <td><span class="task"><span class="task-title">LeetCode practice</span><span class="task-focus">Sorting drills</span><span class="task-meta"><a href="https://leetcode.com/problems/merge-sorted-array/" target="_blank" rel="noopener noreferrer">Merge Sorted Array</a>, <a href="https://leetcode.com/problems/sort-colors/" target="_blank" rel="noopener noreferrer">Sort Colors</a> (Dutch National Flag problem)</span></span></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="leet-sort-1">Todo</span></td>
             </tr>
             <tr>
@@ -448,22 +425,22 @@
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/assignments/" target="_blank" rel="noopener"><span class="task-title">MIT problem set 2</span><span class="task-focus">Sorting assignment</span><span class="task-meta">Week 3 assignment solutions.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/assignments/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT problem set 2</span><span class="task-focus">Sorting assignment</span><span class="task-meta">Week 3 assignment solutions.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-ps2">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r03/" target="_blank" rel="noopener"><span class="task-title">MIT recitation 3</span><span class="task-focus">Sorting practice</span><span class="task-meta">Week 2 recitation.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r03/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT recitation 3</span><span class="task-focus">Sorting practice</span><span class="task-meta">Week 2 recitation.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-r03">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r05/" target="_blank" rel="noopener"><span class="task-title">MIT recitation 5</span><span class="task-focus">Sorting practice</span><span class="task-meta">Week 3 recitation.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r05/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT recitation 5</span><span class="task-focus">Sorting practice</span><span class="task-meta">Week 3 recitation.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-r05">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/problem-session-3/" target="_blank" rel="noopener"><span class="task-title">MIT problem session 3</span><span class="task-focus">Sorting problem practice</span><span class="task-meta">Week 3 problem-session solutions.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/problem-session-3/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT problem session 3</span><span class="task-focus">Sorting problem practice</span><span class="task-meta">Week 3 problem-session solutions.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-prob3">Todo</span></td>
             </tr>
           </tbody>
@@ -480,26 +457,26 @@
         </h2>
         <p class="section-note">Supplemental matrix representation and traversal practice that pairs well with arrays.</p>
         <table>
-          <thead><tr><th>Resource</th><th>Task</th><th>Status</th></tr></thead>
+          <thead class="visually-hidden"><tr><th scope="col">Resource</th><th scope="col">Task</th><th scope="col">Status</th></tr></thead>
           <tbody>
             <tr>
               <td><span class="tag tag--udemy">Udemy</span></td>
-              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener"><span class="task-title">Udemy section</span><span class="task-focus">Matrix representations</span><span class="task-meta">Diagonal, lower/upper triangular, and symmetric matrix storage.</span></a></td>
+              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener noreferrer"><span class="task-title">Udemy section</span><span class="task-focus">Matrix representations</span><span class="task-meta">Diagonal, lower/upper triangular, and symmetric matrix storage.</span></a></td>
               <td><span class="status status--progress" data-status="progress" data-task-id="udemy-s6-1">In Progress</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS chapter 28</span><span class="task-focus">Matrix Operations</span><span class="task-meta">Advanced matrix algorithms.</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS chapter 28</span><span class="task-focus">Matrix Operations</span><span class="task-meta">Advanced matrix algorithms.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-ch28">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--ctci">CTCI</span></td>
-              <td><a class="task-link" href="https://www.crackingthecodinginterview.com/" target="_blank" rel="noopener"><span class="task-title">CTCI practice</span><span class="task-focus">Matrix problems</span><span class="task-meta">Chapter 1 examples: Zero Matrix and Rotate Matrix.</span></a></td>
+              <td><a class="task-link" href="https://www.crackingthecodinginterview.com/" target="_blank" rel="noopener noreferrer"><span class="task-title">CTCI practice</span><span class="task-focus">Matrix problems</span><span class="task-meta">Chapter 1 examples: Zero Matrix and Rotate Matrix.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="ctci-ch1-matrix">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--leetcode">LeetCode</span></td>
-              <td><span class="task"><span class="task-title">LeetCode practice</span><span class="task-focus">Matrix traversal and mutation drills</span><span class="task-meta"><a href="https://leetcode.com/problems/rotate-image/" target="_blank" rel="noopener">Rotate Image</a>, <a href="https://leetcode.com/problems/set-matrix-zeroes/" target="_blank" rel="noopener">Set Matrix Zeroes</a>, <a href="https://leetcode.com/problems/spiral-matrix/" target="_blank" rel="noopener">Spiral Matrix</a></span></span></td>
+              <td><span class="task"><span class="task-title">LeetCode practice</span><span class="task-focus">Matrix traversal and mutation drills</span><span class="task-meta"><a href="https://leetcode.com/problems/rotate-image/" target="_blank" rel="noopener noreferrer">Rotate Image</a>, <a href="https://leetcode.com/problems/set-matrix-zeroes/" target="_blank" rel="noopener noreferrer">Set Matrix Zeroes</a>, <a href="https://leetcode.com/problems/spiral-matrix/" target="_blank" rel="noopener noreferrer">Spiral Matrix</a></span></span></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="leet-matrix-1">Todo</span></td>
             </tr>
           </tbody>
@@ -516,101 +493,101 @@
         </h2>
         <p class="section-note">MIT Weeks 4-5 tree, AVL, heap, and Quiz 1 material grouped with tree readings and drills.</p>
         <table>
-          <thead><tr><th>Resource</th><th>Task</th><th>Status</th></tr></thead>
+          <thead class="visually-hidden"><tr><th scope="col">Resource</th><th scope="col">Task</th><th scope="col">Status</th></tr></thead>
           <tbody>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-6-binary-trees-part-1/" target="_blank" rel="noopener"><span class="task-title">MIT lecture 6</span><span class="task-focus">Binary Trees, Part 1</span><span class="task-meta">Week 4 lecture.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-6-binary-trees-part-1/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT lecture 6</span><span class="task-focus">Binary Trees, Part 1</span><span class="task-meta">Week 4 lecture.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-lec6">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-7-binary-trees-part-2-avl/" target="_blank" rel="noopener"><span class="task-title">MIT lecture 7</span><span class="task-focus">Binary Trees, Part 2 - AVL</span><span class="task-meta">Week 4 lecture.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-7-binary-trees-part-2-avl/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT lecture 7</span><span class="task-focus">Binary Trees, Part 2 - AVL</span><span class="task-meta">Week 4 lecture.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-lec7">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-8-binary-heaps/" target="_blank" rel="noopener"><span class="task-title">MIT lecture 8</span><span class="task-focus">Binary Heaps</span><span class="task-meta">Week 5 lecture.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-8-binary-heaps/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT lecture 8</span><span class="task-focus">Binary Heaps</span><span class="task-meta">Week 5 lecture.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-lec8">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS chapter 12</span><span class="task-focus">Binary Search Trees</span><span class="task-meta">Search-tree operations.</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS chapter 12</span><span class="task-focus">Binary Search Trees</span><span class="task-meta">Search-tree operations.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-ch12">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS chapter 13</span><span class="task-focus">Red-Black Trees</span><span class="task-meta">Balanced-tree invariants.</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS chapter 13</span><span class="task-focus">Red-Black Trees</span><span class="task-meta">Balanced-tree invariants.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-ch13">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS chapter 17</span><span class="task-focus">Augmenting Data Structures</span><span class="task-meta">Augmentation patterns.</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS chapter 17</span><span class="task-focus">Augmenting Data Structures</span><span class="task-meta">Augmentation patterns.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-ch17">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS chapter 18</span><span class="task-focus">B-Trees</span><span class="task-meta">External-memory search trees.</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS chapter 18</span><span class="task-focus">B-Trees</span><span class="task-meta">External-memory search trees.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-ch18">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--udemy">Udemy</span></td>
-              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener"><span class="task-title">Udemy section</span><span class="task-focus">Binary Trees</span><span class="task-meta">Creation, Traversals (Preorder, Inorder, Postorder, Level-order), Height &amp; Count</span></a></td>
+              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener noreferrer"><span class="task-title">Udemy section</span><span class="task-focus">Binary Trees</span><span class="task-meta">Creation, Traversals (Preorder, Inorder, Postorder, Level-order), Height &amp; Count</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="udemy-s11-1">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--udemy">Udemy</span></td>
-              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener"><span class="task-title">Udemy section</span><span class="task-focus">Binary Search Trees (BST)</span><span class="task-meta">Search, Insert, Delete</span></a></td>
+              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener noreferrer"><span class="task-title">Udemy section</span><span class="task-focus">Binary Search Trees (BST)</span><span class="task-meta">Search, Insert, Delete</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="udem-s11-2">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--udemy">Udemy</span></td>
-              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener"><span class="task-title">Udemy section</span><span class="task-focus">Advanced Trees</span><span class="task-meta">AVL Trees (Rotations), Heaps (Insert, Delete, Heap Sort), Trie</span></a></td>
+              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener noreferrer"><span class="task-title">Udemy section</span><span class="task-focus">Advanced Trees</span><span class="task-meta">AVL Trees (Rotations), Heaps (Insert, Delete, Heap Sort), Trie</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="udemy-s11-3">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--ctci">CTCI</span></td>
-              <td><a class="task-link" href="https://www.crackingthecodinginterview.com/" target="_blank" rel="noopener"><span class="task-title">CTCI chapter 4</span><span class="task-focus">Trees and Graphs</span><span class="task-meta">Interview review.</span></a></td>
+              <td><a class="task-link" href="https://www.crackingthecodinginterview.com/" target="_blank" rel="noopener noreferrer"><span class="task-title">CTCI chapter 4</span><span class="task-focus">Trees and Graphs</span><span class="task-meta">Interview review.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="ctci-ch4">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--leetcode">LeetCode</span></td>
-              <td><span class="task"><span class="task-title">LeetCode practice</span><span class="task-focus">Tree, heap, and trie drills</span><span class="task-meta"><a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/" target="_blank" rel="noopener">Maximum Depth of Binary Tree</a>, <a href="https://leetcode.com/problems/invert-binary-tree/" target="_blank" rel="noopener">Invert Binary Tree</a>, <a href="https://leetcode.com/problems/validate-binary-search-tree/" target="_blank" rel="noopener">Validate BST</a>, <a href="https://leetcode.com/problems/kth-largest-element-in-an-array/" target="_blank" rel="noopener">Kth Largest Element (Heap)</a>, <a href="https://leetcode.com/problems/implement-trie-prefix-tree/" target="_blank" rel="noopener">Implement Trie</a></span></span></td>
+              <td><span class="task"><span class="task-title">LeetCode practice</span><span class="task-focus">Tree, heap, and trie drills</span><span class="task-meta"><a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/" target="_blank" rel="noopener noreferrer">Maximum Depth of Binary Tree</a>, <a href="https://leetcode.com/problems/invert-binary-tree/" target="_blank" rel="noopener noreferrer">Invert Binary Tree</a>, <a href="https://leetcode.com/problems/validate-binary-search-tree/" target="_blank" rel="noopener noreferrer">Validate BST</a>, <a href="https://leetcode.com/problems/kth-largest-element-in-an-array/" target="_blank" rel="noopener noreferrer">Kth Largest Element (Heap)</a>, <a href="https://leetcode.com/problems/implement-trie-prefix-tree/" target="_blank" rel="noopener noreferrer">Implement Trie</a></span></span></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="leet-tree-1">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/assignments/" target="_blank" rel="noopener"><span class="task-title">MIT problem set 3</span><span class="task-focus">Binary Trees assignment</span><span class="task-meta">Week 4 assignment solutions.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/assignments/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT problem set 3</span><span class="task-focus">Binary Trees assignment</span><span class="task-meta">Week 4 assignment solutions.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-ps3">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r06/" target="_blank" rel="noopener"><span class="task-title">MIT recitation 6</span><span class="task-focus">Binary Trees practice</span><span class="task-meta">Week 4 recitation.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r06/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT recitation 6</span><span class="task-focus">Binary Trees practice</span><span class="task-meta">Week 4 recitation.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-r06">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r07/" target="_blank" rel="noopener"><span class="task-title">MIT recitation 7</span><span class="task-focus">Binary Trees practice</span><span class="task-meta">Week 4 recitation.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r07/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT recitation 7</span><span class="task-focus">Binary Trees practice</span><span class="task-meta">Week 4 recitation.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-r07">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r08/" target="_blank" rel="noopener"><span class="task-title">MIT recitation 8</span><span class="task-focus">Binary Trees practice</span><span class="task-meta">Week 5 recitation.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r08/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT recitation 8</span><span class="task-focus">Binary Trees practice</span><span class="task-meta">Week 5 recitation.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-r08">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/problem-session-4/" target="_blank" rel="noopener"><span class="task-title">MIT problem session 4</span><span class="task-focus">Binary Trees problem practice</span><span class="task-meta">Week 4 problem-session solutions.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/problem-session-4/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT problem session 4</span><span class="task-focus">Binary Trees problem practice</span><span class="task-meta">Week 4 problem-session solutions.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-prob4">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/quiz-1-review/" target="_blank" rel="noopener"><span class="task-title">MIT quiz 1 review</span><span class="task-focus">Binary Trees checkpoint</span><span class="task-meta">Week 5 review.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/quiz-1-review/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT quiz 1 review</span><span class="task-focus">Binary Trees checkpoint</span><span class="task-meta">Week 5 review.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-quiz1">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/exams/" target="_blank" rel="noopener"><span class="task-title">MIT quiz 1</span><span class="task-focus">Early-course checkpoint</span><span class="task-meta">Week 7 quiz and solutions.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/exams/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT quiz 1</span><span class="task-focus">Early-course checkpoint</span><span class="task-meta">Week 7 quiz and solutions.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-quiz1-exam">Todo</span></td>
             </tr>
           </tbody>
@@ -627,146 +604,146 @@
         </h2>
         <p class="section-note">MIT Weeks 5-8 graph traversal and shortest-path material grouped with CLRS graph chapters.</p>
         <table>
-          <thead><tr><th>Resource</th><th>Task</th><th>Status</th></tr></thead>
+          <thead class="visually-hidden"><tr><th scope="col">Resource</th><th scope="col">Task</th><th scope="col">Status</th></tr></thead>
           <tbody>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-9-breadth-first-search/" target="_blank" rel="noopener"><span class="task-title">MIT lecture 9</span><span class="task-focus">Breadth-First Search (BFS)</span><span class="task-meta">Week 5 lecture.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-9-breadth-first-search/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT lecture 9</span><span class="task-focus">Breadth-First Search (BFS)</span><span class="task-meta">Week 5 lecture.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-lec9">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-10-depth-first-search/" target="_blank" rel="noopener"><span class="task-title">MIT lecture 10</span><span class="task-focus">Depth-First Search (DFS)</span><span class="task-meta">Week 6 lecture.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-10-depth-first-search/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT lecture 10</span><span class="task-focus">Depth-First Search (DFS)</span><span class="task-meta">Week 6 lecture.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-lec10">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-11-weighted-shortest-paths/" target="_blank" rel="noopener"><span class="task-title">MIT lecture 11</span><span class="task-focus">Weighted Shortest Paths</span><span class="task-meta">Week 6 lecture.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-11-weighted-shortest-paths/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT lecture 11</span><span class="task-focus">Weighted Shortest Paths</span><span class="task-meta">Week 6 lecture.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-lec11">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-12-bellman-ford/" target="_blank" rel="noopener"><span class="task-title">MIT lecture 12</span><span class="task-focus">Bellman-Ford</span><span class="task-meta">Week 7 lecture.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-12-bellman-ford/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT lecture 12</span><span class="task-focus">Bellman-Ford</span><span class="task-meta">Week 7 lecture.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-lec12">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-13-dijkstra/" target="_blank" rel="noopener"><span class="task-title">MIT lecture 13</span><span class="task-focus">Dijkstra's Algorithm</span><span class="task-meta">Week 8 lecture.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-13-dijkstra/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT lecture 13</span><span class="task-focus">Dijkstra's Algorithm</span><span class="task-meta">Week 8 lecture.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-lec13">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-14-apsp-and-johnson/" target="_blank" rel="noopener"><span class="task-title">MIT lecture 14</span><span class="task-focus">APSP &amp;amp; Johnson's Algorithm</span><span class="task-meta">Week 8 lecture.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-14-apsp-and-johnson/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT lecture 14</span><span class="task-focus">APSP &amp;amp; Johnson's Algorithm</span><span class="task-meta">Week 8 lecture.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-lec14">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS chapter 20</span><span class="task-focus">Elementary Graph Algorithms</span><span class="task-meta">BFS, DFS, topological sort, and SCCs.</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS chapter 20</span><span class="task-focus">Elementary Graph Algorithms</span><span class="task-meta">BFS, DFS, topological sort, and SCCs.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-ch20">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS chapter 22</span><span class="task-focus">Single-Source Shortest Paths</span><span class="task-meta">Bellman-Ford, DAG paths, and Dijkstra.</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS chapter 22</span><span class="task-focus">Single-Source Shortest Paths</span><span class="task-meta">Bellman-Ford, DAG paths, and Dijkstra.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-ch22">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS chapter 23</span><span class="task-focus">All-Pairs Shortest Paths</span><span class="task-meta">Floyd-Warshall and Johnson-style APSP.</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS chapter 23</span><span class="task-focus">All-Pairs Shortest Paths</span><span class="task-meta">Floyd-Warshall and Johnson-style APSP.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-ch23">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS chapter 19</span><span class="task-focus">Data Structures for Disjoint Sets</span><span class="task-meta">Union-find foundations.</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS chapter 19</span><span class="task-focus">Data Structures for Disjoint Sets</span><span class="task-meta">Union-find foundations.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-ch19">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS chapter 21</span><span class="task-focus">Minimum Spanning Trees</span><span class="task-meta">MST algorithms.</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS chapter 21</span><span class="task-focus">Minimum Spanning Trees</span><span class="task-meta">MST algorithms.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-ch21">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS chapter 24</span><span class="task-focus">Maximum Flow</span><span class="task-meta">Flow networks.</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS chapter 24</span><span class="task-focus">Maximum Flow</span><span class="task-meta">Flow networks.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-ch24">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS chapter 25</span><span class="task-focus">Matchings in Bipartite Graphs</span><span class="task-meta">Bipartite matching.</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS chapter 25</span><span class="task-focus">Matchings in Bipartite Graphs</span><span class="task-meta">Bipartite matching.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-ch25">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--udemy">Udemy</span></td>
-              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener"><span class="task-title">Udemy section</span><span class="task-focus">Graph traversal basics</span><span class="task-meta">Terminology, graph representations, BFS, and DFS.</span></a></td>
+              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener noreferrer"><span class="task-title">Udemy section</span><span class="task-focus">Graph traversal basics</span><span class="task-meta">Terminology, graph representations, BFS, and DFS.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="udemy-s14-1">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--udemy">Udemy</span></td>
-              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener"><span class="task-title">Udemy section</span><span class="task-focus">Spanning Trees</span><span class="task-meta">Prim's Algorithm, Kruskal's Algorithm</span></a></td>
+              <td><a class="task-link" href="https://www.udemy.com/course/datastructurescncpp/" target="_blank" rel="noopener noreferrer"><span class="task-title">Udemy section</span><span class="task-focus">Spanning Trees</span><span class="task-meta">Prim's Algorithm, Kruskal's Algorithm</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="udemy-s14-2">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--ctci">CTCI</span></td>
-              <td><a class="task-link" href="https://www.crackingthecodinginterview.com/" target="_blank" rel="noopener"><span class="task-title">CTCI practice</span><span class="task-focus">Graph problems</span><span class="task-meta">Chapter 4 interview review.</span></a></td>
+              <td><a class="task-link" href="https://www.crackingthecodinginterview.com/" target="_blank" rel="noopener noreferrer"><span class="task-title">CTCI practice</span><span class="task-focus">Graph problems</span><span class="task-meta">Chapter 4 interview review.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="ctci-ch4-graphs">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--leetcode">LeetCode</span></td>
-              <td><span class="task"><span class="task-title">LeetCode practice</span><span class="task-focus">Graph traversal drills</span><span class="task-meta"><a href="https://leetcode.com/problems/number-of-islands/" target="_blank" rel="noopener">Number of Islands</a>, <a href="https://leetcode.com/problems/clone-graph/" target="_blank" rel="noopener">Clone Graph</a>, <a href="https://leetcode.com/problems/course-schedule/" target="_blank" rel="noopener">Course Schedule</a> (Topological Sort)</span></span></td>
+              <td><span class="task"><span class="task-title">LeetCode practice</span><span class="task-focus">Graph traversal drills</span><span class="task-meta"><a href="https://leetcode.com/problems/number-of-islands/" target="_blank" rel="noopener noreferrer">Number of Islands</a>, <a href="https://leetcode.com/problems/clone-graph/" target="_blank" rel="noopener noreferrer">Clone Graph</a>, <a href="https://leetcode.com/problems/course-schedule/" target="_blank" rel="noopener noreferrer">Course Schedule</a> (Topological Sort)</span></span></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="leet-graph-1">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/assignments/" target="_blank" rel="noopener"><span class="task-title">MIT problem set 4</span><span class="task-focus">Graphs assignment</span><span class="task-meta">Week 5 assignment solutions.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/assignments/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT problem set 4</span><span class="task-focus">Graphs assignment</span><span class="task-meta">Week 5 assignment solutions.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-ps4">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/assignments/" target="_blank" rel="noopener"><span class="task-title">MIT problem set 5</span><span class="task-focus">Graphs assignment</span><span class="task-meta">Week 7 assignment solutions.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/assignments/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT problem set 5</span><span class="task-focus">Graphs assignment</span><span class="task-meta">Week 7 assignment solutions.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-ps5">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r09/" target="_blank" rel="noopener"><span class="task-title">MIT recitation 9</span><span class="task-focus">Graphs practice</span><span class="task-meta">Week 5 recitation.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r09/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT recitation 9</span><span class="task-focus">Graphs practice</span><span class="task-meta">Week 5 recitation.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-r09">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r10/" target="_blank" rel="noopener"><span class="task-title">MIT recitation 10</span><span class="task-focus">Graphs practice</span><span class="task-meta">Week 6 recitation.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r10/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT recitation 10</span><span class="task-focus">Graphs practice</span><span class="task-meta">Week 6 recitation.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-r10">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r11/" target="_blank" rel="noopener"><span class="task-title">MIT recitation 11</span><span class="task-focus">Graphs practice</span><span class="task-meta">Week 6 recitation.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r11/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT recitation 11</span><span class="task-focus">Graphs practice</span><span class="task-meta">Week 6 recitation.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-r11">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r12/" target="_blank" rel="noopener"><span class="task-title">MIT recitation 12</span><span class="task-focus">Graphs practice</span><span class="task-meta">Week 7 recitation.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r12/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT recitation 12</span><span class="task-focus">Graphs practice</span><span class="task-meta">Week 7 recitation.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-r12">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r13/" target="_blank" rel="noopener"><span class="task-title">MIT recitation 13</span><span class="task-focus">Graphs practice</span><span class="task-meta">Week 8 recitation.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r13/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT recitation 13</span><span class="task-focus">Graphs practice</span><span class="task-meta">Week 8 recitation.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-r13">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r14/" target="_blank" rel="noopener"><span class="task-title">MIT recitation 14</span><span class="task-focus">Graphs practice</span><span class="task-meta">Week 8 recitation.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r14/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT recitation 14</span><span class="task-focus">Graphs practice</span><span class="task-meta">Week 8 recitation.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-r14">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/problem-session-5/" target="_blank" rel="noopener"><span class="task-title">MIT problem session 5</span><span class="task-focus">Graphs problem practice</span><span class="task-meta">Week 6 problem-session solutions.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/problem-session-5/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT problem session 5</span><span class="task-focus">Graphs problem practice</span><span class="task-meta">Week 6 problem-session solutions.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-prob5">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_prob6sol/" target="_blank" rel="noopener"><span class="task-title">MIT problem session 6</span><span class="task-focus">Graphs problem practice</span><span class="task-meta">Week 7 problem-session solutions.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_prob6sol/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT problem session 6</span><span class="task-focus">Graphs problem practice</span><span class="task-meta">Week 7 problem-session solutions.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-prob6">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/quiz-2-review/" target="_blank" rel="noopener"><span class="task-title">MIT quiz 2 review</span><span class="task-focus">Graphs checkpoint</span><span class="task-meta">Week 8 review.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/quiz-2-review/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT quiz 2 review</span><span class="task-focus">Graphs checkpoint</span><span class="task-meta">Week 8 review.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-quiz2">Todo</span></td>
             </tr>
           </tbody>
@@ -783,106 +760,106 @@
         </h2>
         <p class="section-note">MIT Weeks 9-11 dynamic-programming lectures, recitations, problem sessions, and assignments.</p>
         <table>
-          <thead><tr><th>Resource</th><th>Task</th><th>Status</th></tr></thead>
+          <thead class="visually-hidden"><tr><th scope="col">Resource</th><th scope="col">Task</th><th scope="col">Status</th></tr></thead>
           <tbody>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-15-dynamic-programming-part-1-srtbot-fib-dags-bowling/" target="_blank" rel="noopener"><span class="task-title">MIT lecture 15</span><span class="task-focus">Dynamic Programming, Part 1 (SRTBOT, Fib, DAGs, Bowling)</span><span class="task-meta">Week 9 lecture.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-15-dynamic-programming-part-1-srtbot-fib-dags-bowling/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT lecture 15</span><span class="task-focus">Dynamic Programming, Part 1 (SRTBOT, Fib, DAGs, Bowling)</span><span class="task-meta">Week 9 lecture.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-lec15">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-16-dynamic-programming-part-2-lcs-lis-coins/" target="_blank" rel="noopener"><span class="task-title">MIT lecture 16</span><span class="task-focus">Dynamic Programming, Part 2 (LCS, LIS, Coins)</span><span class="task-meta">Week 9 lecture.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-16-dynamic-programming-part-2-lcs-lis-coins/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT lecture 16</span><span class="task-focus">Dynamic Programming, Part 2 (LCS, LIS, Coins)</span><span class="task-meta">Week 9 lecture.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-lec16">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-17-dynamic-programming-part-3-apsp-parens-piano/" target="_blank" rel="noopener"><span class="task-title">MIT lecture 17</span><span class="task-focus">Dynamic Programming, Part 3 (APSP, Parens, Piano)</span><span class="task-meta">Week 10 lecture.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-17-dynamic-programming-part-3-apsp-parens-piano/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT lecture 17</span><span class="task-focus">Dynamic Programming, Part 3 (APSP, Parens, Piano)</span><span class="task-meta">Week 10 lecture.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-lec17">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-18-dynamic-programming-part-4-rods-subset-sum-pseudopolynomial/" target="_blank" rel="noopener"><span class="task-title">MIT lecture 18</span><span class="task-focus">Dynamic Programming, Part 4 (Rods, Subset Sum, Pseudopolynomial)</span><span class="task-meta">Week 11 lecture.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-18-dynamic-programming-part-4-rods-subset-sum-pseudopolynomial/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT lecture 18</span><span class="task-focus">Dynamic Programming, Part 4 (Rods, Subset Sum, Pseudopolynomial)</span><span class="task-meta">Week 11 lecture.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-lec18">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS chapter 14</span><span class="task-focus">Dynamic Programming</span><span class="task-meta">DP design patterns.</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS chapter 14</span><span class="task-focus">Dynamic Programming</span><span class="task-meta">DP design patterns.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-ch14">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS chapter 15</span><span class="task-focus">Greedy Algorithms</span><span class="task-meta">Greedy-choice proofs.</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS chapter 15</span><span class="task-focus">Greedy Algorithms</span><span class="task-meta">Greedy-choice proofs.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-ch15">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--ctci">CTCI</span></td>
-              <td><a class="task-link" href="https://www.crackingthecodinginterview.com/" target="_blank" rel="noopener"><span class="task-title">CTCI chapter 8</span><span class="task-focus">Recursion and Dynamic Programming</span><span class="task-meta">Interview review.</span></a></td>
+              <td><a class="task-link" href="https://www.crackingthecodinginterview.com/" target="_blank" rel="noopener noreferrer"><span class="task-title">CTCI chapter 8</span><span class="task-focus">Recursion and Dynamic Programming</span><span class="task-meta">Interview review.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="ctci-ch8">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--leetcode">LeetCode</span></td>
-              <td><span class="task"><span class="task-title">LeetCode practice</span><span class="task-focus">Dynamic programming drills</span><span class="task-meta"><a href="https://leetcode.com/problems/climbing-stairs/" target="_blank" rel="noopener">Climbing Stairs</a>, <a href="https://leetcode.com/problems/coin-change/" target="_blank" rel="noopener">Coin Change</a>, <a href="https://leetcode.com/problems/longest-common-subsequence/" target="_blank" rel="noopener">Longest Common Subsequence</a>, <a href="https://leetcode.com/problems/longest-increasing-subsequence/" target="_blank" rel="noopener">Longest Increasing Subsequence</a></span></span></td>
+              <td><span class="task"><span class="task-title">LeetCode practice</span><span class="task-focus">Dynamic programming drills</span><span class="task-meta"><a href="https://leetcode.com/problems/climbing-stairs/" target="_blank" rel="noopener noreferrer">Climbing Stairs</a>, <a href="https://leetcode.com/problems/coin-change/" target="_blank" rel="noopener noreferrer">Coin Change</a>, <a href="https://leetcode.com/problems/longest-common-subsequence/" target="_blank" rel="noopener noreferrer">Longest Common Subsequence</a>, <a href="https://leetcode.com/problems/longest-increasing-subsequence/" target="_blank" rel="noopener noreferrer">Longest Increasing Subsequence</a></span></span></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="leet-dp-1">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/assignments/" target="_blank" rel="noopener"><span class="task-title">MIT problem set 6</span><span class="task-focus">Dynamic Programming assignment</span><span class="task-meta">Week 8 assignment solutions.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/assignments/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT problem set 6</span><span class="task-focus">Dynamic Programming assignment</span><span class="task-meta">Week 8 assignment solutions.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-ps6">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/assignments/" target="_blank" rel="noopener"><span class="task-title">MIT problem set 7</span><span class="task-focus">Dynamic Programming assignment</span><span class="task-meta">Week 10 assignment solutions.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/assignments/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT problem set 7</span><span class="task-focus">Dynamic Programming assignment</span><span class="task-meta">Week 10 assignment solutions.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-ps7">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/exams/" target="_blank" rel="noopener"><span class="task-title">MIT quiz 2</span><span class="task-focus">Mid-course checkpoint</span><span class="task-meta">Week 10 quiz and solutions.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/exams/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT quiz 2</span><span class="task-focus">Mid-course checkpoint</span><span class="task-meta">Week 10 quiz and solutions.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-quiz2-exam">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/assignments/" target="_blank" rel="noopener"><span class="task-title">MIT problem set 8</span><span class="task-focus">Dynamic Programming assignment</span><span class="task-meta">Week 11 assignment solutions.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/assignments/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT problem set 8</span><span class="task-focus">Dynamic Programming assignment</span><span class="task-meta">Week 11 assignment solutions.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-ps8">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r15/" target="_blank" rel="noopener"><span class="task-title">MIT recitation 15</span><span class="task-focus">Dynamic Programming practice</span><span class="task-meta">Week 9 recitation.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r15/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT recitation 15</span><span class="task-focus">Dynamic Programming practice</span><span class="task-meta">Week 9 recitation.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-r15">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r16/" target="_blank" rel="noopener"><span class="task-title">MIT recitation 16</span><span class="task-focus">Dynamic Programming practice</span><span class="task-meta">Week 9 recitation.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r16/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT recitation 16</span><span class="task-focus">Dynamic Programming practice</span><span class="task-meta">Week 9 recitation.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-r16">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r17/" target="_blank" rel="noopener"><span class="task-title">MIT recitation 17</span><span class="task-focus">Dynamic Programming practice</span><span class="task-meta">Week 10 recitation.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r17/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT recitation 17</span><span class="task-focus">Dynamic Programming practice</span><span class="task-meta">Week 10 recitation.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-r17">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r18/" target="_blank" rel="noopener"><span class="task-title">MIT recitation 18</span><span class="task-focus">Dynamic Programming practice</span><span class="task-meta">Week 11 recitation.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r18/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT recitation 18</span><span class="task-focus">Dynamic Programming practice</span><span class="task-meta">Week 11 recitation.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-r18">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_04_07_problem_session_7_mp4/" target="_blank" rel="noopener"><span class="task-title">MIT problem session 7</span><span class="task-focus">Dynamic Programming problem practice</span><span class="task-meta">Week 8 problem-session solutions.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_04_07_problem_session_7_mp4/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT problem session 7</span><span class="task-focus">Dynamic Programming problem practice</span><span class="task-meta">Week 8 problem-session solutions.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-prob7">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_04_17_problem_session_8_mp4/" target="_blank" rel="noopener"><span class="task-title">MIT problem session 8</span><span class="task-focus">Dynamic Programming problem practice</span><span class="task-meta">Week 9 problem-session solutions.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_04_17_problem_session_8_mp4/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT problem session 8</span><span class="task-focus">Dynamic Programming problem practice</span><span class="task-meta">Week 9 problem-session solutions.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-prob8">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_05_01_problem_session_9_mp4/" target="_blank" rel="noopener"><span class="task-title">MIT problem session 9</span><span class="task-focus">Dynamic Programming problem practice</span><span class="task-meta">Week 11 problem-session solutions.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_05_01_problem_session_9_mp4/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT problem session 9</span><span class="task-focus">Dynamic Programming problem practice</span><span class="task-meta">Week 11 problem-session solutions.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-prob9">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/quiz-3-review/" target="_blank" rel="noopener"><span class="task-title">MIT quiz 3 review</span><span class="task-focus">Dynamic Programming checkpoint</span><span class="task-meta">Week 11 review.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/quiz-3-review/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT quiz 3 review</span><span class="task-focus">Dynamic Programming checkpoint</span><span class="task-meta">Week 11 review.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-quiz3">Todo</span></td>
             </tr>
           </tbody>
@@ -899,76 +876,76 @@
         </h2>
         <p class="section-note">MIT Weeks 11-14 complexity, review, next steps, and final checkpoints plus CLRS advanced chapters.</p>
         <table>
-          <thead><tr><th>Resource</th><th>Task</th><th>Status</th></tr></thead>
+          <thead class="visually-hidden"><tr><th scope="col">Resource</th><th scope="col">Task</th><th scope="col">Status</th></tr></thead>
           <tbody>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-19-complexity/" target="_blank" rel="noopener"><span class="task-title">MIT lecture 19</span><span class="task-focus">Complexity</span><span class="task-meta">Week 11 lecture.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-19-complexity/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT lecture 19</span><span class="task-focus">Complexity</span><span class="task-meta">Week 11 lecture.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-lec19">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r19/" target="_blank" rel="noopener"><span class="task-title">MIT recitation 19</span><span class="task-focus">Complexity</span><span class="task-meta">Week 11 recitation.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/mit6_006s20_r19/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT recitation 19</span><span class="task-focus">Complexity</span><span class="task-meta">Week 11 recitation.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-r19">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-20-course-review/" target="_blank" rel="noopener"><span class="task-title">MIT lecture 20</span><span class="task-focus">Course Review</span><span class="task-meta">Week 12 review lecture.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-20-course-review/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT lecture 20</span><span class="task-focus">Course Review</span><span class="task-meta">Week 12 review lecture.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-lec20">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-21-algorithms2014next-steps/" target="_blank" rel="noopener"><span class="task-title">MIT lecture 21</span><span class="task-focus">Algorithms - Next Steps (bonus)</span><span class="task-meta">Week 13 bonus lecture.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-21-algorithms2014next-steps/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT lecture 21</span><span class="task-focus">Algorithms - Next Steps (bonus)</span><span class="task-meta">Week 13 bonus lecture.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-lec21">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/exams/" target="_blank" rel="noopener"><span class="task-title">MIT quiz 3</span><span class="task-focus">Late-course checkpoint</span><span class="task-meta">Week 12 quiz and solutions.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/exams/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT quiz 3</span><span class="task-focus">Late-course checkpoint</span><span class="task-meta">Week 12 quiz and solutions.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-quiz3-exam">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/exams/" target="_blank" rel="noopener"><span class="task-title">MIT final exam</span><span class="task-focus">Full-course checkpoint</span><span class="task-meta">Week 14 final and solutions.</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/exams/" target="_blank" rel="noopener noreferrer"><span class="task-title">MIT final exam</span><span class="task-focus">Full-course checkpoint</span><span class="task-meta">Week 14 final and solutions.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-final-exam">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS chapter 26</span><span class="task-focus">Parallel Algorithms</span><span class="task-meta">Parallel algorithm models.</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS chapter 26</span><span class="task-focus">Parallel Algorithms</span><span class="task-meta">Parallel algorithm models.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-ch26">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS chapter 27</span><span class="task-focus">Online Algorithms</span><span class="task-meta">Online decision-making.</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS chapter 27</span><span class="task-focus">Online Algorithms</span><span class="task-meta">Online decision-making.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-ch27">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS chapter 29</span><span class="task-focus">Linear Programming</span><span class="task-meta">Optimization formulation.</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS chapter 29</span><span class="task-focus">Linear Programming</span><span class="task-meta">Optimization formulation.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-ch29">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS chapter 30</span><span class="task-focus">Polynomials and the FFT</span><span class="task-meta">FFT and polynomial operations.</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS chapter 30</span><span class="task-focus">Polynomials and the FFT</span><span class="task-meta">FFT and polynomial operations.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-ch30">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS chapter 31</span><span class="task-focus">Number-Theoretic Algorithms</span><span class="task-meta">Modular arithmetic and primality.</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS chapter 31</span><span class="task-focus">Number-Theoretic Algorithms</span><span class="task-meta">Modular arithmetic and primality.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-ch31">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS chapter 33</span><span class="task-focus">Machine-Learning Algorithms</span><span class="task-meta">Learning algorithm survey.</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS chapter 33</span><span class="task-focus">Machine-Learning Algorithms</span><span class="task-meta">Learning algorithm survey.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-ch33">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS chapter 34</span><span class="task-focus">NP-Completeness</span><span class="task-meta">Hardness and reductions.</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS chapter 34</span><span class="task-focus">NP-Completeness</span><span class="task-meta">Hardness and reductions.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-ch34">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS chapter 35</span><span class="task-focus">Approximation Algorithms</span><span class="task-meta">Approximation strategies.</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS chapter 35</span><span class="task-focus">Approximation Algorithms</span><span class="task-meta">Approximation strategies.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-ch35">Todo</span></td>
             </tr>
           </tbody>
@@ -985,26 +962,26 @@
         </h2>
         <p class="section-note">Reference material from CLRS appendices for proofs, probability, sets, graphs, and matrices.</p>
         <table>
-          <thead><tr><th>Resource</th><th>Task</th><th>Status</th></tr></thead>
+          <thead class="visually-hidden"><tr><th scope="col">Resource</th><th scope="col">Task</th><th scope="col">Status</th></tr></thead>
           <tbody>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS appendix A</span><span class="task-focus">Summations</span><span class="task-meta">Summation identities and bounds.</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS appendix A</span><span class="task-focus">Summations</span><span class="task-meta">Summation identities and bounds.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-app-a">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS appendix B</span><span class="task-focus">Sets, Relations, Functions, Graphs, and Trees</span><span class="task-meta">Discrete math reference.</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS appendix B</span><span class="task-focus">Sets, Relations, Functions, Graphs, and Trees</span><span class="task-meta">Discrete math reference.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-app-b">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS appendix C</span><span class="task-focus">Counting and Probability</span><span class="task-meta">Counting and probability reference.</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS appendix C</span><span class="task-focus">Counting and Probability</span><span class="task-meta">Counting and probability reference.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-app-c">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--clrs">CLRS</span></td>
-              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener"><span class="task-title">CLRS appendix D</span><span class="task-focus">Matrices</span><span class="task-meta">Matrix notation reference.</span></a></td>
+              <td><a class="task-link" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank" rel="noopener noreferrer"><span class="task-title">CLRS appendix D</span><span class="task-focus">Matrices</span><span class="task-meta">Matrix notation reference.</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="clrs-app-d">Todo</span></td>
             </tr>
           </tbody>
@@ -1021,76 +998,76 @@
         </h2>
         <p class="section-note">Calendar order for pacing. Topic sections above hold the detailed reading and practice material.</p>
         <table>
-          <thead><tr><th>Resource</th><th>Task</th><th>Status</th></tr></thead>
+          <thead class="visually-hidden"><tr><th scope="col">Resource</th><th scope="col">Task</th><th scope="col">Status</th></tr></thead>
           <tbody>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/calendar/" target="_blank" rel="noopener"><span class="task-title">Week 1</span><span class="task-focus">Introduction and Data Structures</span><span class="task-meta">Lectures 1-2 · Recitations 1-2 · Problem Session 1 · Problem Set 0</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/calendar/" target="_blank" rel="noopener noreferrer"><span class="task-title">Week 1</span><span class="task-focus">Introduction and Data Structures</span><span class="task-meta">Lectures 1-2 · Recitations 1-2 · Problem Session 1 · Problem Set 0</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-week-1">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/calendar/" target="_blank" rel="noopener"><span class="task-title">Week 2</span><span class="task-focus">Sorting and Hashing</span><span class="task-meta">Lectures 3-4 · Recitations 3-4 · Problem Session 2 · Problem Set 1</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/calendar/" target="_blank" rel="noopener noreferrer"><span class="task-title">Week 2</span><span class="task-focus">Sorting and Hashing</span><span class="task-meta">Lectures 3-4 · Recitations 3-4 · Problem Session 2 · Problem Set 1</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-week-2">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/calendar/" target="_blank" rel="noopener"><span class="task-title">Week 3</span><span class="task-focus">Linear Sorting</span><span class="task-meta">Lecture 5 · Recitation 5 · Problem Session 3 · Problem Set 2</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/calendar/" target="_blank" rel="noopener noreferrer"><span class="task-title">Week 3</span><span class="task-focus">Linear Sorting</span><span class="task-meta">Lecture 5 · Recitation 5 · Problem Session 3 · Problem Set 2</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-week-3">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/calendar/" target="_blank" rel="noopener"><span class="task-title">Week 4</span><span class="task-focus">Binary Trees</span><span class="task-meta">Lectures 6-7 · Recitations 6-7 · Problem Session 4 · Problem Set 3</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/calendar/" target="_blank" rel="noopener noreferrer"><span class="task-title">Week 4</span><span class="task-focus">Binary Trees</span><span class="task-meta">Lectures 6-7 · Recitations 6-7 · Problem Session 4 · Problem Set 3</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-week-4">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/calendar/" target="_blank" rel="noopener"><span class="task-title">Week 5</span><span class="task-focus">Binary Heaps and BFS</span><span class="task-meta">Lectures 8-9 · Recitations 8-9 · Quiz 1 Review · Problem Set 4</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/calendar/" target="_blank" rel="noopener noreferrer"><span class="task-title">Week 5</span><span class="task-focus">Binary Heaps and BFS</span><span class="task-meta">Lectures 8-9 · Recitations 8-9 · Quiz 1 Review · Problem Set 4</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-week-5">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/calendar/" target="_blank" rel="noopener"><span class="task-title">Week 6</span><span class="task-focus">DFS and Weighted Shortest Paths</span><span class="task-meta">Lectures 10-11 · Recitations 10-11 · Problem Session 5</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/calendar/" target="_blank" rel="noopener noreferrer"><span class="task-title">Week 6</span><span class="task-focus">DFS and Weighted Shortest Paths</span><span class="task-meta">Lectures 10-11 · Recitations 10-11 · Problem Session 5</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-week-6">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/calendar/" target="_blank" rel="noopener"><span class="task-title">Week 7</span><span class="task-focus">Bellman-Ford</span><span class="task-meta">Lecture 12 · Recitation 12 · Problem Session 6 · Problem Set 5 · Quiz 1</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/calendar/" target="_blank" rel="noopener noreferrer"><span class="task-title">Week 7</span><span class="task-focus">Bellman-Ford</span><span class="task-meta">Lecture 12 · Recitation 12 · Problem Session 6 · Problem Set 5 · Quiz 1</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-week-7">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/calendar/" target="_blank" rel="noopener"><span class="task-title">Week 8</span><span class="task-focus">Dijkstra and Johnson</span><span class="task-meta">Lectures 13-14 · Recitations 13-14 · Problem Session 7 · Problem Set 6 · Quiz 2 Review</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/calendar/" target="_blank" rel="noopener noreferrer"><span class="task-title">Week 8</span><span class="task-focus">Dijkstra and Johnson</span><span class="task-meta">Lectures 13-14 · Recitations 13-14 · Problem Session 7 · Problem Set 6 · Quiz 2 Review</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-week-8">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/calendar/" target="_blank" rel="noopener"><span class="task-title">Week 9</span><span class="task-focus">Dynamic Programming I-II</span><span class="task-meta">Lectures 15-16 · Recitations 15-16 · Problem Session 8</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/calendar/" target="_blank" rel="noopener noreferrer"><span class="task-title">Week 9</span><span class="task-focus">Dynamic Programming I-II</span><span class="task-meta">Lectures 15-16 · Recitations 15-16 · Problem Session 8</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-week-9">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/calendar/" target="_blank" rel="noopener"><span class="task-title">Week 10</span><span class="task-focus">Dynamic Programming III</span><span class="task-meta">Lecture 17 · Recitation 17 · Problem Set 7 · Quiz 2</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/calendar/" target="_blank" rel="noopener noreferrer"><span class="task-title">Week 10</span><span class="task-focus">Dynamic Programming III</span><span class="task-meta">Lecture 17 · Recitation 17 · Problem Set 7 · Quiz 2</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-week-10">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/calendar/" target="_blank" rel="noopener"><span class="task-title">Week 11</span><span class="task-focus">Dynamic Programming IV and Complexity</span><span class="task-meta">Lectures 18-19 · Recitations 18-19 · Problem Session 9 · Problem Set 8 · Quiz 3 Review</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/calendar/" target="_blank" rel="noopener noreferrer"><span class="task-title">Week 11</span><span class="task-focus">Dynamic Programming IV and Complexity</span><span class="task-meta">Lectures 18-19 · Recitations 18-19 · Problem Session 9 · Problem Set 8 · Quiz 3 Review</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-week-11">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/calendar/" target="_blank" rel="noopener"><span class="task-title">Week 12</span><span class="task-focus">Course Review</span><span class="task-meta">Lecture 20 · Quiz 3</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/calendar/" target="_blank" rel="noopener noreferrer"><span class="task-title">Week 12</span><span class="task-focus">Course Review</span><span class="task-meta">Lecture 20 · Quiz 3</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-week-12">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/calendar/" target="_blank" rel="noopener"><span class="task-title">Week 13</span><span class="task-focus">Algorithms - Next Steps</span><span class="task-meta">Lecture 21</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/calendar/" target="_blank" rel="noopener noreferrer"><span class="task-title">Week 13</span><span class="task-focus">Algorithms - Next Steps</span><span class="task-meta">Lecture 21</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-week-13">Todo</span></td>
             </tr>
             <tr>
               <td><span class="tag tag--mit">MIT</span></td>
-              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/calendar/" target="_blank" rel="noopener"><span class="task-title">Week 14</span><span class="task-focus">Final Exam</span><span class="task-meta">Exam and solutions</span></a></td>
+              <td><a class="task-link" href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/calendar/" target="_blank" rel="noopener noreferrer"><span class="task-title">Week 14</span><span class="task-focus">Final Exam</span><span class="task-meta">Exam and solutions</span></a></td>
               <td><span class="status status--todo" data-status="todo" data-task-id="mit-week-14">Todo</span></td>
             </tr>
           </tbody>
