@@ -345,36 +345,3 @@ window.addEventListener("scroll", () => {
 scrollTopBtn.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
-
-// ─── Checkbox Persistence ──────────────────────────────────
-const checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"]'));
-const localEditableHosts = new Set(["localhost", "127.0.0.1", "::1"]);
-
-function isLocalEditingEnabled() {
-  const { protocol, hostname } = window.location;
-  return protocol === "file:" || localEditableHosts.has(hostname);
-}
-
-function initializeCheckboxes() {
-  const localEditingEnabled = isLocalEditingEnabled();
-
-  checkboxes.forEach((checkbox) => {
-    if (!localEditingEnabled) {
-      checkbox.disabled = true;
-      checkbox.title = "Checkboxes are editable only in a local copy of this site.";
-      return;
-    }
-
-    const savedState = readStorage(checkbox.id);
-
-    if (savedState !== null) {
-      checkbox.checked = savedState === "true";
-    }
-
-    checkbox.addEventListener("change", (event) => {
-      writeStorage(event.target.id, event.target.checked);
-    });
-  });
-}
-
-initializeCheckboxes();

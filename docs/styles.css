@@ -30,7 +30,7 @@
   --c-hashing: #66e0f0;
   --c-sorting: #66f5a0;
   --c-graphs: #ffa866;
-  --c-project: #66b8ff;
+  --c-mit-weekly: #f7c948;
   --c-selected-topics: #a4d66f;
   --c-math-background: #f08fc6;
 
@@ -85,7 +85,7 @@
   --c-hashing: #0a90a8;
   --c-sorting: #0aaa70;
   --c-graphs: #d88030;
-  --c-project: #2888e0;
+  --c-mit-weekly: #b7791f;
   --c-selected-topics: #6a9a10;
   --c-math-background: #c83f86;
 
@@ -137,7 +137,7 @@
     --c-hashing: #0a90a8;
     --c-sorting: #0aaa70;
     --c-graphs: #d88030;
-    --c-project: #2888e0;
+    --c-mit-weekly: #b7791f;
     --c-selected-topics: #6a9a10;
     --c-math-background: #c83f86;
 
@@ -250,19 +250,19 @@ a:hover {
   height: 2px;
   background: linear-gradient(
     90deg,
-    var(--c-project),
     var(--c-foundations),
     var(--c-arrays),
-    var(--c-matrices),
-    var(--c-sorting),
-    var(--c-hashing),
-    var(--c-trees),
     var(--c-linked-lists),
     var(--c-stacks-queues),
+    var(--c-hashing),
+    var(--c-sorting),
+    var(--c-matrices),
+    var(--c-trees),
     var(--c-graphs),
     var(--c-dp),
     var(--c-selected-topics),
-    var(--c-math-background)
+    var(--c-math-background),
+    var(--c-mit-weekly)
   );
   opacity: 0.6;
 }
@@ -571,6 +571,9 @@ h1 {
 .section.collapsed table {
   display: none;
 }
+.section.collapsed .section-note {
+  display: none;
+}
 .section.collapsed .section-header {
   margin-bottom: 0;
   padding-bottom: 0;
@@ -626,13 +629,12 @@ tr.filter-hidden {
   margin: 0;
 }
 
-.section--project,
-.section--project-done {
-  --section-accent: var(--c-project);
-}
-
 .section--foundations {
   --section-accent: var(--c-foundations);
+}
+
+.section--mit-weekly {
+  --section-accent: var(--c-mit-weekly);
 }
 
 .section--arrays {
@@ -701,6 +703,14 @@ tr.filter-hidden {
   color: var(--text);
 }
 
+.section-note {
+  margin: -4px 0 14px 18px;
+  max-width: 72ch;
+  color: var(--dim);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
 /* ─── Tables (borderless, minimal) ─────────────────────────── */
 table {
   width: 100%;
@@ -756,9 +766,43 @@ td:nth-child(2) a:hover {
   border-bottom-style: solid;
 }
 
-/* Checkbox column */
+.task,
+.task-link {
+  display: grid;
+  gap: 3px;
+  color: var(--text);
+  border-bottom: 0;
+}
+
+.task-link:hover {
+  border-bottom: 0;
+}
+
+.task-title {
+  color: var(--muted);
+  font-family: var(--font);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.task-focus {
+  color: var(--text);
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.task-meta {
+  color: var(--dim);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+/* Status column */
 td:nth-child(3) {
-  width: 40px;
+  width: 86px;
   text-align: center;
 }
 
@@ -820,49 +864,55 @@ td:nth-child(3) {
   background: var(--tag-area-bg);
 }
 
-/* ─── Checkboxes ───────────────────────────────────────────── */
-input[type="checkbox"] {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 20px;
-  height: 20px;
-  border: 2px solid var(--border);
+/* ─── Progress Status ─────────────────────────────────────── */
+.status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 66px;
+  padding: 4px 9px;
+  border: 1px solid transparent;
   border-radius: 5px;
-  cursor: pointer;
-  position: relative;
-  transition: all 0.2s;
-  vertical-align: middle;
-  flex-shrink: 0;
+  font-family: var(--font);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
-input[type="checkbox"]:hover {
-  border-color: var(--muted);
+.status--done {
+  color: var(--tag-testing);
+  background: var(--tag-testing-bg);
+  border-color: color-mix(in srgb, var(--tag-testing) 28%, transparent);
 }
 
-input[type="checkbox"]:disabled {
-  opacity: 0.55;
-  cursor: not-allowed;
+.status--progress {
+  color: var(--tag-clrs);
+  background: var(--tag-clrs-bg);
+  border-color: color-mix(in srgb, var(--tag-clrs) 28%, transparent);
 }
 
-input[type="checkbox"]:disabled:hover {
+.status--next {
+  color: var(--tag-algorithm);
+  background: var(--tag-algorithm-bg);
+  border-color: color-mix(in srgb, var(--tag-algorithm) 28%, transparent);
+}
+
+.status--todo {
+  color: var(--dim);
+  background: var(--tag-area-bg);
   border-color: var(--border);
 }
 
-input[type="checkbox"]:checked {
-  background: var(--dim);
-  border-color: var(--dim);
-}
-
-input[type="checkbox"]:checked::after {
-  content: "";
-  position: absolute;
-  top: 2px;
-  left: 6px;
-  width: 5px;
-  height: 9px;
-  border: solid var(--bg);
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
+.status-legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 8px;
+  padding-left: 10px;
+  border-left: 1px solid var(--border);
 }
 
 /* ─── Scroll to Top ───────────────────────────────────────── */
