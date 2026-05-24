@@ -31,6 +31,8 @@
   --c-sorting: #66f5a0;
   --c-graphs: #ffa866;
   --c-project: #66b8ff;
+  --c-selected-topics: #a4d66f;
+  --c-math-background: #f08fc6;
 
   /* Resource tags */
   --tag-udemy: #c8a0ff;
@@ -84,6 +86,8 @@
   --c-sorting: #0aaa70;
   --c-graphs: #d88030;
   --c-project: #2888e0;
+  --c-selected-topics: #6a9a10;
+  --c-math-background: #c83f86;
 
   --tag-udemy: #7c4ec8;
   --tag-udemy-bg: rgba(124, 78, 200, 0.1);
@@ -134,6 +138,8 @@
     --c-sorting: #0aaa70;
     --c-graphs: #d88030;
     --c-project: #2888e0;
+    --c-selected-topics: #6a9a10;
+    --c-math-background: #c83f86;
 
     --tag-udemy: #7c4ec8;
     --tag-udemy-bg: rgba(124, 78, 200, 0.1);
@@ -254,7 +260,9 @@ a:hover {
     var(--c-linked-lists),
     var(--c-stacks-queues),
     var(--c-graphs),
-    var(--c-dp)
+    var(--c-dp),
+    var(--c-selected-topics),
+    var(--c-math-background)
   );
   opacity: 0.6;
 }
@@ -661,6 +669,14 @@ tr.filter-hidden {
 
 .section--dp {
   --section-accent: var(--c-dp);
+}
+
+.section--selected-topics {
+  --section-accent: var(--c-selected-topics);
+}
+
+.section--math-background {
+  --section-accent: var(--c-math-background);
 }
 
 .section-dot {
