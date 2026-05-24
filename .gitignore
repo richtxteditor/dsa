@@ -28,6 +28,7 @@ Desktop.ini
 !.vscode/launch.json
 !.vscode/extensions.json
 .idea/
+.antigravitycli/
 
 # -------------------------------------------------------------------------
 # Xcode
