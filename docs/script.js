@@ -226,7 +226,7 @@ function initializeSectionCollapse() {
   updateCollapseToggleState();
 }
 
-function getRowTopic(row) {
+function getRowResourceTopic(row) {
   const tag = row.querySelector(".tag");
 
   if (!tag) {
@@ -258,7 +258,8 @@ function cacheFilterRows() {
         row,
         section,
         sectionRecord,
-        topic: getRowTopic(row),
+        resourceTopic: getRowResourceTopic(row),
+        sectionTopic: section.id || "",
         status,
       });
     });
@@ -305,7 +306,9 @@ function toggleSetValue(set, value) {
 
 function rowMatchesFilters(record) {
   const topicMatches =
-    activeTopicFilters.size === 0 || activeTopicFilters.has(record.topic);
+    activeTopicFilters.size === 0 ||
+    activeTopicFilters.has(record.resourceTopic) ||
+    activeTopicFilters.has(record.sectionTopic);
   const statusMatches =
     activeStatusFilters.size === 0 || activeStatusFilters.has(record.status);
 

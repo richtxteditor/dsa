@@ -20,45 +20,45 @@
   --sans: system-ui, -apple-system, sans-serif;
   --radius: 10px;
 
-  /* Bright pastel accents — dark mode */
-  --c-foundations: #ffe878;
-  --c-arrays: #55ffe6;
-  --c-matrices: #ff9b9b;
-  --c-linked-lists: #d8adff;
-  --c-stacks-queues: #ffc16f;
-  --c-trees: #e5b0ff;
-  --c-hashing: #55ecff;
-  --c-sorting: #72ffad;
-  --c-graphs: #ffb36f;
-  --c-mit-weekly: #ffda5c;
-  --c-selected-topics: #bbf277;
-  --c-math-background: #ff9bd2;
+  /* Deep accents — dark mode */
+  --c-foundations: #c6a64a;
+  --c-arrays: #2aa99a;
+  --c-matrices: #6e789e;
+  --c-linked-lists: #8c72c9;
+  --c-stacks-queues: #4d83c4;
+  --c-trees: #6fa05d;
+  --c-hashing: #2c9fb5;
+  --c-sorting: #9cad45;
+  --c-graphs: #6476ca;
+  --c-mit-weekly: #b88a42;
+  --c-selected-topics: #4f9b68;
+  --c-math-background: #7f6c9b;
 
   /* Resource tags */
-  --tag-udemy: #d8adff;
-  --tag-udemy-bg: rgba(216, 173, 255, 0.2);
-  --tag-ctci: #ff91c0;
-  --tag-ctci-bg: rgba(255, 145, 192, 0.2);
-  --tag-leetcode: #ffe878;
-  --tag-leetcode-bg: rgba(255, 232, 120, 0.2);
-  --tag-cpp: #55ecff;
-  --tag-cpp-bg: rgba(85, 236, 255, 0.2);
-  --tag-project: #7ac5ff;
-  --tag-project-bg: rgba(122, 197, 255, 0.2);
-  --tag-array: #55ffe6;
-  --tag-array-bg: rgba(85, 255, 230, 0.2);
-  --tag-testing: #c9ff78;
-  --tag-testing-bg: rgba(201, 255, 120, 0.2);
-  --tag-algorithm: #ffb36f;
-  --tag-algorithm-bg: rgba(255, 179, 111, 0.2);
+  --tag-udemy: #9674cf;
+  --tag-udemy-bg: rgba(150, 116, 207, 0.18);
+  --tag-ctci: #ba5a86;
+  --tag-ctci-bg: rgba(186, 90, 134, 0.18);
+  --tag-leetcode: #c3a041;
+  --tag-leetcode-bg: rgba(195, 160, 65, 0.18);
+  --tag-cpp: #2c9db4;
+  --tag-cpp-bg: rgba(44, 157, 180, 0.18);
+  --tag-project: #4f83c3;
+  --tag-project-bg: rgba(79, 131, 195, 0.18);
+  --tag-array: #2aa99a;
+  --tag-array-bg: rgba(42, 169, 154, 0.18);
+  --tag-testing: #7fa24a;
+  --tag-testing-bg: rgba(127, 162, 74, 0.18);
+  --tag-algorithm: #b2763f;
+  --tag-algorithm-bg: rgba(178, 118, 63, 0.18);
   --tag-area-bg: rgba(184, 184, 196, 0.12);
-  --tag-mit: #ff9b9b;
-  --tag-mit-bg: rgba(255, 155, 155, 0.2);
-  --tag-clrs: #7ac5ff;
-  --tag-clrs-bg: rgba(122, 197, 255, 0.2);
+  --tag-mit: #b96a73;
+  --tag-mit-bg: rgba(185, 106, 115, 0.18);
+  --tag-clrs: #5c82c8;
+  --tag-clrs-bg: rgba(92, 130, 200, 0.18);
 
   /* Dynamic Programming section */
-  --c-dp: #ff9dcc;
+  --c-dp: #6f6cc2;
 
   /* MIT course sections */
   --c-assignments: #ff9b9b;
@@ -76,42 +76,42 @@
   --dim: #6e6e78;
   --muted: #b0b0b8;
 
-  --c-foundations: #d4960a;
-  --c-arrays: #0a9a80;
-  --c-matrices: #e04848;
-  --c-linked-lists: #7c4ec8;
-  --c-stacks-queues: #d87820;
-  --c-trees: #9a50d8;
-  --c-hashing: #0a90a8;
-  --c-sorting: #0aaa70;
-  --c-graphs: #d88030;
-  --c-mit-weekly: #b7791f;
-  --c-selected-topics: #6a9a10;
-  --c-math-background: #c83f86;
+  --c-foundations: #9a7412;
+  --c-arrays: #087d70;
+  --c-matrices: #526182;
+  --c-linked-lists: #684ca8;
+  --c-stacks-queues: #2866a8;
+  --c-trees: #4f7f32;
+  --c-hashing: #087d92;
+  --c-sorting: #758500;
+  --c-graphs: #4c5da8;
+  --c-mit-weekly: #8f651c;
+  --c-selected-topics: #2f7f52;
+  --c-math-background: #675584;
 
-  --tag-udemy: #7c4ec8;
-  --tag-udemy-bg: rgba(124, 78, 200, 0.1);
-  --tag-ctci: #d84878;
-  --tag-ctci-bg: rgba(216, 72, 120, 0.1);
-  --tag-leetcode: #c89008;
-  --tag-leetcode-bg: rgba(200, 144, 8, 0.1);
-  --tag-cpp: #0a90a8;
-  --tag-cpp-bg: rgba(10, 144, 168, 0.1);
-  --tag-project: #2888e0;
-  --tag-project-bg: rgba(40, 136, 224, 0.1);
-  --tag-array: #0a9a80;
-  --tag-array-bg: rgba(10, 154, 128, 0.1);
-  --tag-testing: #6a9a10;
-  --tag-testing-bg: rgba(106, 154, 16, 0.1);
-  --tag-algorithm: #d88030;
-  --tag-algorithm-bg: rgba(216, 128, 48, 0.1);
+  --tag-udemy: #684ca8;
+  --tag-udemy-bg: rgba(104, 76, 168, 0.1);
+  --tag-ctci: #a83f68;
+  --tag-ctci-bg: rgba(168, 63, 104, 0.1);
+  --tag-leetcode: #9a7412;
+  --tag-leetcode-bg: rgba(154, 116, 18, 0.1);
+  --tag-cpp: #087d92;
+  --tag-cpp-bg: rgba(8, 125, 146, 0.1);
+  --tag-project: #2866a8;
+  --tag-project-bg: rgba(40, 102, 168, 0.1);
+  --tag-array: #087d70;
+  --tag-array-bg: rgba(8, 125, 112, 0.1);
+  --tag-testing: #4f7f32;
+  --tag-testing-bg: rgba(79, 127, 50, 0.1);
+  --tag-algorithm: #9a641f;
+  --tag-algorithm-bg: rgba(154, 100, 31, 0.1);
   --tag-area-bg: rgba(110, 110, 120, 0.07);
-  --tag-mit: #e04848;
-  --tag-mit-bg: rgba(224, 72, 72, 0.1);
-  --tag-clrs: #2888e0;
-  --tag-clrs-bg: rgba(40, 136, 224, 0.1);
+  --tag-mit: #9f5961;
+  --tag-mit-bg: rgba(159, 89, 97, 0.1);
+  --tag-clrs: #4c5da8;
+  --tag-clrs-bg: rgba(76, 93, 168, 0.1);
 
-  --c-dp: #d84878;
+  --c-dp: #58499a;
   --c-assignments: #e04848;
   --c-recitations: #c83838;
   --c-practice: #d06030;
@@ -128,42 +128,42 @@
     --dim: #6e6e78;
     --muted: #b0b0b8;
 
-    --c-foundations: #d4960a;
-    --c-arrays: #0a9a80;
-    --c-matrices: #e04848;
-    --c-linked-lists: #7c4ec8;
-    --c-stacks-queues: #d87820;
-    --c-trees: #9a50d8;
-    --c-hashing: #0a90a8;
-    --c-sorting: #0aaa70;
-    --c-graphs: #d88030;
-    --c-mit-weekly: #b7791f;
-    --c-selected-topics: #6a9a10;
-    --c-math-background: #c83f86;
+    --c-foundations: #9a7412;
+    --c-arrays: #087d70;
+    --c-matrices: #526182;
+    --c-linked-lists: #684ca8;
+    --c-stacks-queues: #2866a8;
+    --c-trees: #4f7f32;
+    --c-hashing: #087d92;
+    --c-sorting: #758500;
+    --c-graphs: #4c5da8;
+    --c-mit-weekly: #8f651c;
+    --c-selected-topics: #2f7f52;
+    --c-math-background: #675584;
 
-    --tag-udemy: #7c4ec8;
-    --tag-udemy-bg: rgba(124, 78, 200, 0.1);
-    --tag-ctci: #d84878;
-    --tag-ctci-bg: rgba(216, 72, 120, 0.1);
-    --tag-leetcode: #c89008;
-    --tag-leetcode-bg: rgba(200, 144, 8, 0.1);
-    --tag-cpp: #0a90a8;
-    --tag-cpp-bg: rgba(10, 144, 168, 0.1);
-    --tag-project: #2888e0;
-    --tag-project-bg: rgba(40, 136, 224, 0.1);
-    --tag-array: #0a9a80;
-    --tag-array-bg: rgba(10, 154, 128, 0.1);
-    --tag-testing: #6a9a10;
-    --tag-testing-bg: rgba(106, 154, 16, 0.1);
-    --tag-algorithm: #d88030;
-    --tag-algorithm-bg: rgba(216, 128, 48, 0.1);
+    --tag-udemy: #684ca8;
+    --tag-udemy-bg: rgba(104, 76, 168, 0.1);
+    --tag-ctci: #a83f68;
+    --tag-ctci-bg: rgba(168, 63, 104, 0.1);
+    --tag-leetcode: #9a7412;
+    --tag-leetcode-bg: rgba(154, 116, 18, 0.1);
+    --tag-cpp: #087d92;
+    --tag-cpp-bg: rgba(8, 125, 146, 0.1);
+    --tag-project: #2866a8;
+    --tag-project-bg: rgba(40, 102, 168, 0.1);
+    --tag-array: #087d70;
+    --tag-array-bg: rgba(8, 125, 112, 0.1);
+    --tag-testing: #4f7f32;
+    --tag-testing-bg: rgba(79, 127, 50, 0.1);
+    --tag-algorithm: #9a641f;
+    --tag-algorithm-bg: rgba(154, 100, 31, 0.1);
     --tag-area-bg: rgba(110, 110, 120, 0.07);
-    --tag-mit: #e04848;
-    --tag-mit-bg: rgba(224, 72, 72, 0.1);
-    --tag-clrs: #2888e0;
-    --tag-clrs-bg: rgba(40, 136, 224, 0.1);
+    --tag-mit: #9f5961;
+    --tag-mit-bg: rgba(159, 89, 97, 0.1);
+    --tag-clrs: #4c5da8;
+    --tag-clrs-bg: rgba(76, 93, 168, 0.1);
 
-    --c-dp: #d84878;
+    --c-dp: #58499a;
     --c-assignments: #e04848;
     --c-recitations: #c83838;
     --c-practice: #d06030;
@@ -412,15 +412,14 @@ h1 {
 }
 
 .filter-btn:not(.active) {
-  opacity: 0.62;
+  opacity: 1;
 }
 .filter-btn:hover {
-  opacity: 0.85;
+  opacity: 1;
 }
 .filter-btn.active {
   opacity: 1;
-  border-color: var(--border);
-  background: var(--surface);
+  border-color: currentColor;
 }
 
 .filter-action {
@@ -468,7 +467,7 @@ h1 {
   margin-left: auto;
   color: var(--muted);
   font-family: var(--font);
-  font-size: 0.9rem;
+  font-size: 1.15rem;
   line-height: 1;
 }
 .section.collapsed .section-header::after {
@@ -574,9 +573,10 @@ tr.filter-hidden {
 
 .section-title {
   font-family: var(--font);
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-size: 1.22rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0;
 }
 
 /* Section color accents — neutral dots and headings */
@@ -744,6 +744,100 @@ td:nth-child(3) {
   background: var(--tag-area-bg);
 }
 
+/* Pronounced filter chips */
+.filter-btn {
+  --filter-accent: var(--dim);
+  color: var(--filter-accent);
+  background: color-mix(in srgb, var(--filter-accent) 14%, var(--surface));
+  border-color: color-mix(in srgb, var(--filter-accent) 36%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--filter-accent) 8%, transparent);
+}
+
+.filter-btn.tag--udemy {
+  --filter-accent: var(--tag-udemy);
+}
+.filter-btn.tag--ctci {
+  --filter-accent: var(--tag-ctci);
+}
+.filter-btn.tag--leetcode {
+  --filter-accent: var(--tag-leetcode);
+}
+.filter-btn.tag--mit {
+  --filter-accent: var(--tag-mit);
+}
+.filter-btn.tag--clrs {
+  --filter-accent: var(--tag-clrs);
+}
+.filter-btn.tag--cpp {
+  --filter-accent: var(--tag-cpp);
+}
+.filter-btn.tag--project {
+  --filter-accent: var(--tag-project);
+}
+.filter-btn.tag--array {
+  --filter-accent: var(--tag-array);
+}
+.filter-btn.tag--testing {
+  --filter-accent: var(--tag-testing);
+}
+.filter-btn.tag--algorithm {
+  --filter-accent: var(--tag-algorithm);
+}
+
+.filter-btn[data-topic-filter="foundations"] {
+  --filter-accent: var(--c-foundations);
+}
+.filter-btn[data-topic-filter="arrays"] {
+  --filter-accent: var(--c-arrays);
+}
+.filter-btn[data-topic-filter="linked-lists"] {
+  --filter-accent: var(--c-linked-lists);
+}
+.filter-btn[data-topic-filter="stacks-queues"] {
+  --filter-accent: var(--c-stacks-queues);
+}
+.filter-btn[data-topic-filter="hashing"] {
+  --filter-accent: var(--c-hashing);
+}
+.filter-btn[data-topic-filter="sorting"] {
+  --filter-accent: var(--c-sorting);
+}
+.filter-btn[data-topic-filter="matrices"] {
+  --filter-accent: var(--c-matrices);
+}
+.filter-btn[data-topic-filter="trees"] {
+  --filter-accent: var(--c-trees);
+}
+.filter-btn[data-topic-filter="graphs"] {
+  --filter-accent: var(--c-graphs);
+}
+.filter-btn[data-topic-filter="dp"] {
+  --filter-accent: var(--c-dp);
+}
+.filter-btn[data-topic-filter="selected-topics"] {
+  --filter-accent: var(--c-selected-topics);
+}
+.filter-btn[data-topic-filter="math-background"] {
+  --filter-accent: var(--c-math-background);
+}
+.filter-btn[data-topic-filter="mit-weekly"] {
+  --filter-accent: var(--c-mit-weekly);
+}
+
+.filter-btn:hover {
+  background: color-mix(in srgb, var(--filter-accent) 20%, var(--surface));
+  border-color: color-mix(in srgb, var(--filter-accent) 58%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--filter-accent) 16%, transparent);
+}
+
+.filter-btn.active {
+  background: color-mix(in srgb, var(--filter-accent) 26%, var(--surface));
+  border-color: var(--filter-accent);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--filter-accent) 30%, transparent),
+    0 0 14px color-mix(in srgb, var(--filter-accent) 20%, transparent);
+}
+
 /* ─── Progress Status ─────────────────────────────────────── */
 .status {
   display: inline-flex;
@@ -795,21 +889,25 @@ td:nth-child(3) {
   -webkit-appearance: none;
   cursor: pointer;
   transition: border-color 0.2s, box-shadow 0.2s, opacity 0.2s;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, currentColor 12%, transparent);
 }
 
 .status-filter:not(.active) {
-  opacity: 0.68;
+  opacity: 1;
 }
 
 .status-filter:hover {
-  opacity: 0.9;
+  opacity: 1;
   border-color: currentColor;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, currentColor 24%, transparent);
 }
 
 .status-filter.active {
   opacity: 1;
   border-color: currentColor;
-  box-shadow: 0 0 0 1px currentColor;
+  box-shadow:
+    0 0 0 1px currentColor,
+    0 0 14px color-mix(in srgb, currentColor 28%, transparent);
 }
 
 /* ─── Scroll to Top ───────────────────────────────────────── */
